@@ -3,14 +3,12 @@
 
 var Clipboard = require('clipboard');
 
-var template = "<span ng-transclude></span>\n<a ng-if=\"!noTooltip\"\n   tooltip=\"{{ tooltipText }}\"\n   tooltip-append-to-body=\"true\"\n   ng-class=\"{'copy-ok': copyStatus === true, 'copy-error': copyStatus === false}\"\n   class=\"glyphicon glyphicon-copy\"\n   ng-click=\"copy()\"></a>\n<a ng-if=\"noTooltip\"\n   ng-class=\"{'copy-ok': copyStatus === true, 'copy-error': copyStatus === false}\"\n   class=\"glyphicon glyphicon-copy\"\n   ng-click=\"copy()\"></a>\n";
+var template = "<span ng-transclude></span>\n<a ng-if=\"!noTooltip\"\n   tooltip=\"{{ tooltipText }}\"\n   tooltip-append-to-body=\"true\"\n   ng-class=\"{'copy-ok': copyStatus === true, 'copy-error': copyStatus === false}\"\n   class=\"glyphicon {{icon}}\"></a>\n<a ng-if=\"noTooltip\"\n   ng-class=\"{'copy-ok': copyStatus === true, 'copy-error': copyStatus === false}\"\n   class=\"glyphicon {{icon}}\"></a>\n";
 
 module.exports = ['$timeout', function($timeout) {
   return {
     transclude: true,
-
     template: template,
-
     scope: {
       value: '=camWidgetClipboard'
     },
@@ -20,11 +18,11 @@ module.exports = ['$timeout', function($timeout) {
 
       $scope.noTooltip = typeof attrs.noTooltip !== 'undefined';
       $scope.copyStatus = null;
+      $scope.icon = attrs.icon || 'glyphicon-copy';
 
       $scope.$watch('value', function() {
-        $scope.tooltipText = 'Click to copy \'' + $scope.value + '\'';
+        $scope.tooltipText = attrs.tooltipText || 'Click to copy \'' + $scope.value + '\'';
       });
-
 
       var _top;
       function restore() {
@@ -37,7 +35,7 @@ module.exports = ['$timeout', function($timeout) {
       // needed because otherwise the content of `element` is not rendered yet
       // and `querySelector` is then not available
       $timeout(function() {
-        var link = element[0].querySelector('a.glyphicon-copy');
+        var link = element[0].querySelector('a.' + $scope.icon);
         if (!link) { return; }
 
         cb = new Clipboard(link, {
