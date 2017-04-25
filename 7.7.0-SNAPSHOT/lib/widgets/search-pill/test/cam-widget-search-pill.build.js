@@ -76858,10 +76858,11 @@ module.exports = {
 var domify = require('min-dom/lib/domify'),
     domDelegate = require('min-dom/lib/delegate');
 
-function DrillDown(eventBus, overlays, drdRules) {
+function DrillDown(eventBus, overlays, drdRules, config) {
   this._eventBus = eventBus;
   this._overlays = overlays;
   this._drdRules = drdRules;
+  this._config = config;
 
   eventBus.on([ 'drdElement.added', 'shape.create' ], function(context) {
     var element = context.element,
@@ -76875,7 +76876,7 @@ function DrillDown(eventBus, overlays, drdRules) {
 
 module.exports = DrillDown;
 
-DrillDown.$inject = [ 'eventBus', 'overlays', 'drdRules' ];
+DrillDown.$inject = [ 'eventBus', 'overlays', 'drdRules', 'config' ];
 
 
 DrillDown.prototype.addOverlay = function(decision, decisionType) {
@@ -76897,7 +76898,10 @@ DrillDown.prototype.addOverlay = function(decision, decisionType) {
     html: overlay
   });
 
-  this.bindEventListener(decision, overlay, overlayId);
+  if (!this._config.disableDrdInteraction) {
+    overlay.style.cursor = 'pointer';
+    this.bindEventListener(decision, overlay, overlayId);
+  }
 };
 
 DrillDown.prototype.bindEventListener = function(decision, overlay, id) {
@@ -77485,17 +77489,21 @@ function DrdUpdater(eventBus, drdFactory, connectionDocking, drillDown, drdRules
     self.updateParent(element, oldParent);
   }
 
-  this.executed([ 'shape.create',
-                  'shape.delete',
-                  'connection.create',
-                  'connection.move',
-                  'connection.delete' ], updateParent);
+  this.executed([
+    'shape.create',
+    'shape.delete',
+    'connection.create',
+    'connection.move',
+    'connection.delete'
+  ], updateParent);
 
-  this.reverted([ 'shape.create',
-                  'shape.delete',
-                  'connection.create',
-                  'connection.move',
-                  'connection.delete' ], reverseUpdateParent);
+  this.reverted([
+    'shape.create',
+    'shape.delete',
+    'connection.create',
+    'connection.move',
+    'connection.delete'
+  ], reverseUpdateParent);
 
 
   // update bounds
@@ -77517,9 +77525,17 @@ function DrdUpdater(eventBus, drdFactory, connectionDocking, drillDown, drdRules
     self.updateConnectionWaypoints(e.context);
   }
 
-  this.executed([ 'connection.layout', 'connection.updateWaypoints' ], updateConnectionWaypoints);
+  this.executed([
+    'connection.layout',
+    'connection.updateWaypoints',
+    'connection.move'
+  ], updateConnectionWaypoints);
 
-  this.reverted([ 'connection.layout', 'connection.updateWaypoints' ], updateConnectionWaypoints);
+  this.reverted([
+    'connection.layout',
+    'connection.updateWaypoints',
+    'connection.move'
+  ], updateConnectionWaypoints);
 
   this.executed([ 'connection.create' ], function(event) {
     var context = event.context,
@@ -77631,6 +77647,14 @@ function DrdUpdater(eventBus, drdFactory, connectionDocking, drillDown, drdRules
     definitionIdView.update();
   });
 
+
+  this.reverted(['connection.reconnectEnd'], function(event) {
+    self.updateSemanticParent(
+      event.context.connection.businessObject,
+      event.context.oldTarget.businessObject
+    );
+  });
+
 }
 
 inherits(DrdUpdater, CommandInterceptor);
@@ -77731,9 +77755,10 @@ DrdUpdater.prototype.updateSemanticParent = function(businessObject, newParent) 
   } else {
     // add to new parent
     children = newParent.get(containment);
-    children.push(businessObject);
-
-    businessObject.$parent = newParent;
+    if (children) {
+      children.push(businessObject);
+      businessObject.$parent = newParent;
+    }
   }
 };
 
@@ -78114,10 +78139,19 @@ function ReplaceElementBehaviour(eventBus, modeling) {
 
     // update id of target connection references
     forEach(newShape.outgoing, function(connection) {
-      connection.businessObject.requiredDecision.href = '#' + oldShape.id;
+      var bo = connection.businessObject,
+          extensionElements,
+          extension;
 
-      var extensionElements = connection.businessObject.$parent.extensionElements.values;
-      var extension = filter(extensionElements, function(extension) {
+      if (bo.$instanceOf('dmn:Association')) {
+        bo.sourceRef.href = '#' + oldShape.id;
+        extensionElements = bo.extensionElements;
+      } else {
+        bo.requiredDecision.href = '#' + oldShape.id;
+        extensionElements = bo.$parent.extensionElements;
+      }
+
+      extension = filter(extensionElements.values, function(extension) {
         return extension.$type === 'biodi:Edge' && extension.source === newId;
       })[0];
 
@@ -78761,6 +78795,10 @@ DrdRules.prototype.canDrillDown = canDrillDown;
 
 
 function canConnect(source, target) {
+
+  if (is(source, 'dmn:Definitions') || is(target, 'dmn:Definitions')) {
+    return false;
+  }
 
   if (is(source, 'dmn:Decision') || is(source, 'dmn:InputData')) {
     if (is(target, 'dmn:Decision') ||
@@ -80610,6 +80648,7 @@ function DateEdit(eventBus, simpleMode, elementRegistry, graphicsFactory, modeli
     }
   };
 
+  this._eventBus.on('simpleMode.initialized', this.setupComplexCells, this);
   this._eventBus.on('simpleMode.activated', this.setupComplexCells, this);
   this._eventBus.on('simpleMode.deactivated', this.teardownComplexCells, this);
   this._eventBus.on('typeRow.editDataType', refreshHandler, this);
@@ -80934,10 +80973,10 @@ module.exports = {
 
 
 },{"./DateEdit":748}],751:[function(require,module,exports){
-module.exports = "<div>\r\n  <h4>Edit Date Condition</h4>\r\n  <select class=\"dateEdit-type-dropdown\">\r\n    <option value=\"exact\">Exactly</option>\r\n    <option value=\"before\">Before</option>\r\n    <option value=\"after\">After</option>\r\n    <option value=\"between\">Between</option>\r\n  </select>\r\n  <div class=\"date-1\">\r\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>Today</button>\r\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\r\n  </div>\r\n  <div class=\"date-2\" style=\"display: none;\">\r\n    <div>and</div>\r\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>Today</button>\r\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\r\n  </div>\r\n</div>\r\n";
+module.exports = "<div>\n  <h4>Edit Date Condition</h4>\n  <select class=\"dateEdit-type-dropdown\">\n    <option value=\"exact\">Exactly</option>\n    <option value=\"before\">Before</option>\n    <option value=\"after\">After</option>\n    <option value=\"between\">Between</option>\n  </select>\n  <div class=\"date-1\">\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>Today</button>\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\n  </div>\n  <div class=\"date-2\" style=\"display: none;\">\n    <div>and</div>\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>Today</button>\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\n  </div>\n</div>\n";
 
 },{}],752:[function(require,module,exports){
-module.exports = "<div>\r\n  <h4>Edit Date Result</h4>\r\n  <div class=\"date-1\">\r\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>Today</button>\r\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\r\n  </div>\r\n</div>\r\n";
+module.exports = "<div>\n  <h4>Edit Date Result</h4>\n  <div class=\"date-1\">\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>Today</button>\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\n  </div>\n</div>\n";
 
 },{}],753:[function(require,module,exports){
 'use strict';
@@ -82106,7 +82145,7 @@ module.exports = {
 };
 
 },{"./IoLabel":769,"./IoLabelRenderer":770,"./IoLabelRules":771}],773:[function(require,module,exports){
-module.exports = "<div class=\"literal-expression-editor\">\r\n  <textarea placeholder=\"return obj.propertyName;\"></textarea>\r\n\r\n  <div>\r\n    <div class=\"literal-expression-field\">\r\n      <div class=\"dmn-combobox\">\r\n        <label>Variable Name:</label>\r\n        <input class=\"variable-name\" placeholder=\"varName\">\r\n      </div>\r\n    </div>\r\n    <div class=\"literal-expression-field variable-type\">\r\n    </div>\r\n  </div>\r\n  <div>\r\n    <div class=\"literal-expression-field expression-language\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
+module.exports = "<div class=\"literal-expression-editor\">\n  <textarea placeholder=\"return obj.propertyName;\"></textarea>\n\n  <div>\n    <div class=\"literal-expression-field\">\n      <div class=\"dmn-combobox\">\n        <label>Variable Name:</label>\n        <input class=\"variable-name\" placeholder=\"varName\">\n      </div>\n    </div>\n    <div class=\"literal-expression-field variable-type\">\n    </div>\n  </div>\n  <div>\n    <div class=\"literal-expression-field expression-language\">\n    </div>\n  </div>\n</div>\n";
 
 },{}],774:[function(require,module,exports){
 'use strict';
@@ -82223,7 +82262,7 @@ module.exports = {
 };
 
 },{"./LiteralExpressionEditor":774}],776:[function(require,module,exports){
-module.exports = "<div>\r\n  <div class=\"links\">\r\n    <div class=\"toggle-type\">\r\n      <label>Use:</label>\r\n      <a class=\"expression\">Expression</a>\r\n      /\r\n      <a class=\"script\">Script</a>\r\n    </div>\r\n    <a class=\"dmn-icon-clear\"></a>\r\n  </div>\r\n  <div class=\"expression region\">\r\n    <div class=\"input-expression\">\r\n      <label>Expression:</label>\r\n      <input placeholder=\"propertyName\">\r\n    </div>\r\n    <div class=\"input-expression\">\r\n      <label>Input Variable Name:</label>\r\n      <input placeholder=\"cellInput\">\r\n    </div>\r\n  </div>\r\n  <div class=\"script region\">\r\n    <textarea placeholder=\"return obj.propertyName;\"></textarea>\r\n    <div class=\"input-expression\">\r\n      <label>Input Variable Name:</label>\r\n      <input placeholder=\"cellInput\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
+module.exports = "<div>\n  <div class=\"links\">\n    <div class=\"toggle-type\">\n      <label>Use:</label>\n      <a class=\"expression\">Expression</a>\n      /\n      <a class=\"script\">Script</a>\n    </div>\n    <a class=\"dmn-icon-clear\"></a>\n  </div>\n  <div class=\"expression region\">\n    <div class=\"input-expression\">\n      <label>Expression:</label>\n      <input placeholder=\"propertyName\">\n    </div>\n    <div class=\"input-expression\">\n      <label>Input Variable Name:</label>\n      <input placeholder=\"cellInput\">\n    </div>\n  </div>\n  <div class=\"script region\">\n    <textarea placeholder=\"return obj.propertyName;\"></textarea>\n    <div class=\"input-expression\">\n      <label>Input Variable Name:</label>\n      <input placeholder=\"cellInput\">\n    </div>\n  </div>\n</div>\n";
 
 },{}],777:[function(require,module,exports){
 'use strict';
@@ -83153,11 +83192,13 @@ function TableUpdater(eventBus, moddle, elementRegistry, tableFactory, tableName
       });
 
       // update DI
-      forEach(drgElement.extensionElements.values, function(extensionElement) {
-        if (extensionElement.source === oldId) {
-          extensionElement.source = newId;
-        }
-      });
+      if (drgElement.extensionElements) {
+        forEach(drgElement.extensionElements.values, function(extensionElement) {
+          if (extensionElement.source === oldId) {
+            extensionElement.source = newId;
+          }
+        });
+      }
     });
   }
 
@@ -83822,6 +83863,8 @@ EditInputMappingHandler.prototype.revert = function(context) {
 },{}],791:[function(require,module,exports){
 'use strict';
 
+var forEach = require('lodash/collection/forEach');
+
 /**
  * A handler that implements reversible editing of Literal Expressions.
  */
@@ -83834,6 +83877,14 @@ EditLiteralExpressionHandler.$inject = [ 'elementRegistry', 'graphicsFactory' ];
 
 module.exports = EditLiteralExpressionHandler;
 
+
+function deleteEmptyStrings(properties, obj) {
+  forEach(properties, function(prop) {
+    if (obj[prop] === '') {
+      delete obj[prop];
+    }
+  });
+}
 
 ////// api /////////////////////////////////////////
 
@@ -83858,6 +83909,10 @@ EditLiteralExpressionHandler.prototype.execute = function(context) {
   decision.variable.typeRef = context.type;
   decision.literalExpression.expressionLanguage = context.language;
 
+  deleteEmptyStrings([ 'text', 'expressionLanguage' ], decision.literalExpression);
+
+  deleteEmptyStrings([ 'name', 'typeRef' ], decision.variable);
+
   return context;
 };
 
@@ -83875,10 +83930,14 @@ EditLiteralExpressionHandler.prototype.revert = function(context) {
   decision.variable.typeRef = oldContent.type;
   decision.literalExpression.expressionLanguage = oldContent.language;
 
+  deleteEmptyStrings([ 'text', 'expressionLanguage' ], decision.literalExpression);
+
+  deleteEmptyStrings([ 'name', 'typeRef' ], decision.variable);
+
   return context;
 };
 
-},{}],792:[function(require,module,exports){
+},{"lodash/collection/forEach":861}],792:[function(require,module,exports){
 'use strict';
 
 /**
@@ -84106,6 +84165,7 @@ function NumberEdit(eventBus, simpleMode, elementRegistry, graphicsFactory, mode
   this._selection = selection;
   this._complexCell = complexCell;
 
+  eventBus.on('simpleMode.initialized', this.setupComplexCells, this);
   eventBus.on('simpleMode.activated', this.setupComplexCells, this);
   eventBus.on('simpleMode.deactivated', this.teardownComplexCells, this);
 
@@ -84503,10 +84563,10 @@ module.exports = {
 };
 
 },{"./NumberEdit":795}],797:[function(require,module,exports){
-module.exports = "<div>\r\n  <h4>Edit Number Condition</h4>\r\n  <div class=\"links\">\r\n    <div class=\"toggle-type\">\r\n      <a class=\"comparison\">Comparison</a>\r\n      /\r\n      <a class=\"range\">Range</a>\r\n    </div>\r\n  </div>\r\n  <div class=\"comparison region\">\r\n    <select class=\"comparison-dropdown\">\r\n      <option value=\"equals\">= (Equals)</option>\r\n      <option value=\"less\">&lt; (Less than)</option>\r\n      <option value=\"less-equal\">&lt;= (Less than or equal)</option>\r\n      <option value=\"greater\">&gt; (Greater than)</option>\r\n      <option value=\"greater-equal\">&gt;= (Greater than or equal)</option>\r\n    </select>\r\n    <input type=\"number\" class=\"comparison-number\" placeholder=\"number\" />\r\n  </div>\r\n  <div class=\"range region\">\r\n    <label>Include</label>\r\n    <div class=\"include-inputs\">\r\n      <input type=\"number\" placeholder=\"start\" />\r\n      <input type=\"checkbox\" placeholder=\"include-start\" />\r\n    </div>\r\n    <div class=\"include-inputs\">\r\n      <input type=\"number\" placeholder=\"end\" />\r\n      <input type=\"checkbox\" placeholder=\"include-end\" />\r\n    </div>\r\n  </div>\r\n</div>\r\n";
+module.exports = "<div>\n  <h4>Edit Number Condition</h4>\n  <div class=\"links\">\n    <div class=\"toggle-type\">\n      <a class=\"comparison\">Comparison</a>\n      /\n      <a class=\"range\">Range</a>\n    </div>\n  </div>\n  <div class=\"comparison region\">\n    <select class=\"comparison-dropdown\">\n      <option value=\"equals\">= (Equals)</option>\n      <option value=\"less\">&lt; (Less than)</option>\n      <option value=\"less-equal\">&lt;= (Less than or equal)</option>\n      <option value=\"greater\">&gt; (Greater than)</option>\n      <option value=\"greater-equal\">&gt;= (Greater than or equal)</option>\n    </select>\n    <input type=\"number\" class=\"comparison-number\" placeholder=\"number\" />\n  </div>\n  <div class=\"range region\">\n    <label>Include</label>\n    <div class=\"include-inputs\">\n      <input type=\"number\" placeholder=\"start\" />\n      <input type=\"checkbox\" placeholder=\"include-start\" />\n    </div>\n    <div class=\"include-inputs\">\n      <input type=\"number\" placeholder=\"end\" />\n      <input type=\"checkbox\" placeholder=\"include-end\" />\n    </div>\n  </div>\n</div>\n";
 
 },{}],798:[function(require,module,exports){
-module.exports = "<div>\r\n  <h4>Edit Number Result</h4>\r\n  <div class=\"comparison region\">\r\n    <input type=\"number\" class=\"comparison-number\" placeholder=\"number\" style=\"width: 100%\" />\r\n  </div>\r\n</div>\r\n";
+module.exports = "<div>\n  <h4>Edit Number Result</h4>\n  <div class=\"comparison region\">\n    <input type=\"number\" class=\"comparison-number\" placeholder=\"number\" style=\"width: 100%\" />\n  </div>\n</div>\n";
 
 },{}],799:[function(require,module,exports){
 var types = [
@@ -84619,14 +84679,7 @@ function SimpleMode(eventBus, sheet, config, graphicsFactory) {
   var self = this;
 
   eventBus.on('controls.init', function(event) {
-    this._node = event.controls.addControl('Exit Advanced Mode', function() {
-
-      if (!domClasses(sheet.getContainer().parentNode).contains('simple-mode')) {
-        self.activate();
-      } else {
-        self.deactivate();
-      }
-    });
+    this._node = this.addControlButton(event);
   }, this);
 
   eventBus.on('import.done', function(event) {
@@ -84635,16 +84688,8 @@ function SimpleMode(eventBus, sheet, config, graphicsFactory) {
     }
 
     if (!config.advancedMode) {
-      this.activate();
+      this.activate(true);
     }
-  }, this);
-
-  eventBus.on([ 'sheet.destroy', 'sheet.clear' ], function(event) {
-    if (event.error) {
-      return;
-    }
-
-    this.deactivate();
   }, this);
 
   eventBus.on('cell.render', function(event) {
@@ -84734,15 +84779,12 @@ function SimpleMode(eventBus, sheet, config, graphicsFactory) {
         // ) THEN { remove checkbox }
         if (!(
           (businessObject.inputExpression &&
-         businessObject.inputExpression.typeRef === 'boolean' ||
-         businessObject.typeRef === 'boolean')
+           businessObject.inputExpression.typeRef === 'boolean' ||
+           businessObject.typeRef === 'boolean')
         )) {
-
           checkbox.parentNode.removeChild(checkbox);
           gfx.childNodes[0].style.display = '';
-
         }
-
       }
     }
   }, this);
@@ -84751,6 +84793,22 @@ function SimpleMode(eventBus, sheet, config, graphicsFactory) {
 SimpleMode.$inject = [ 'eventBus', 'sheet', 'config', 'graphicsFactory' ];
 
 module.exports = SimpleMode;
+
+SimpleMode.prototype.addControlButton = function(event) {
+  var sheet = this._sheet,
+      controls = event.controls;
+
+  var self = this;
+
+  return controls.addControl('Exit Advanced Mode', function() {
+
+    if (!domClasses(sheet.getContainer().parentNode).contains('simple-mode')) {
+      self.activate();
+    } else {
+      self.deactivate();
+    }
+  });
+};
 
 SimpleMode.prototype.getExpressionNode = function(businessObject) {
   var node;
@@ -84766,7 +84824,7 @@ SimpleMode.prototype.getExpressionNode = function(businessObject) {
   return node;
 };
 
-SimpleMode.prototype.activate = function() {
+SimpleMode.prototype.activate = function(isInit) {
   if (!this._node) {
     return;
   }
@@ -84779,7 +84837,12 @@ SimpleMode.prototype.activate = function() {
 
   this._graphicsFactory.redraw();
 
-  this._eventBus.fire('simpleMode.activated');
+  // fire a different event from initializing and activating
+  if (isInit) {
+    this._eventBus.fire('simpleMode.initialized');
+  } else {
+    this._eventBus.fire('simpleMode.activated');
+  }
 };
 
 SimpleMode.prototype.deactivate = function() {
@@ -84891,7 +84954,7 @@ function StringEdit(eventBus, simpleMode, elementRegistry, graphicsFactory, mode
     }
   };
 
-  eventBus.on('simpleMode.activated', this.setupComplexCells, this);
+  eventBus.on('simpleMode.initialized', this.setupComplexCells, this);
   eventBus.on('simpleMode.deactivated', this.teardownComplexCells, this);
   eventBus.on('typeRow.editDataType', refreshHandler, this);
   eventBus.on('typeRow.editAllowedValues', refreshHandler, this);
@@ -85073,8 +85136,6 @@ StringEdit.prototype.setupComplexCells = function() {
           }
 
         });
-
-
       }
 
       var complexCellConfig = {
@@ -85296,10 +85357,10 @@ module.exports = {
 };
 
 },{"./StringEdit":804}],807:[function(require,module,exports){
-module.exports = "<div>\r\n  <h4>Edit String Expression</h4>\r\n  <select class=\"string-type-dropdown\">\r\n    <option value=\"disjunction\">Match one of</option>\r\n    <option value=\"negation\">Match anything except</option>\r\n  </select>\r\n  <div class=\"free-input\">\r\n    <ul>\r\n    </ul>\r\n    <input type=\"text\" placeholder=\"new Value\" class=\"free-input-value-field\" />\r\n    <div class=\"helptext\">Enter value without quotes</div>\r\n  </div>\r\n  <div class=\"input-values\">\r\n    <ul>\r\n    </ul>\r\n  </div>\r\n</div>\r\n";
+module.exports = "<div>\n  <h4>Edit String Expression</h4>\n  <select class=\"string-type-dropdown\">\n    <option value=\"disjunction\">Match one of</option>\n    <option value=\"negation\">Match anything except</option>\n  </select>\n  <div class=\"free-input\">\n    <ul>\n    </ul>\n    <input type=\"text\" placeholder=\"new Value\" class=\"free-input-value-field\" />\n    <div class=\"helptext\">Enter value without quotes</div>\n  </div>\n  <div class=\"input-values\">\n    <ul>\n    </ul>\n  </div>\n</div>\n";
 
 },{}],808:[function(require,module,exports){
-module.exports = "<div>\r\n  <h4>Edit String Result</h4>\r\n  <div class=\"free-input\">\r\n    <textarea type=\"text\" placeholder=\"new Value\" class=\"free-input-value-field\"></textarea>\r\n    <div class=\"helptext\">Enter value without quotes</div>\r\n  </div>\r\n  <div class=\"input-values\">\r\n    <ul>\r\n    </ul>\r\n  </div>\r\n</div>\r\n";
+module.exports = "<div>\n  <h4>Edit String Result</h4>\n  <div class=\"free-input\">\n    <textarea type=\"text\" placeholder=\"new Value\" class=\"free-input-value-field\"></textarea>\n    <div class=\"helptext\">Enter value without quotes</div>\n  </div>\n  <div class=\"input-values\">\n    <ul>\n    </ul>\n  </div>\n</div>\n";
 
 },{}],809:[function(require,module,exports){
 'use strict';
@@ -85772,7 +85833,7 @@ TypeRowRenderer.$inject = [
 module.exports = TypeRowRenderer;
 
 },{"min-dom/lib/classes":985}],815:[function(require,module,exports){
-module.exports = "<div>\r\n  <div class=\"allowed-values\">\r\n    <label>Input Values:</label>\r\n    <ul></ul>\r\n    <input type=\"text\" placeholder=\"value1, value2, otherValue\">\r\n  </div>\r\n</div>\r\n";
+module.exports = "<div>\n  <div class=\"allowed-values\">\n    <label>Input Values:</label>\n    <ul></ul>\n    <input type=\"text\" placeholder=\"value1, value2, otherValue\">\n  </div>\n</div>\n";
 
 },{}],816:[function(require,module,exports){
 module.exports = {
@@ -86188,16 +86249,8 @@ function TableTreeWalker(handler, options) {
 module.exports = TableTreeWalker;
 
 },{"./Util":820,"lodash/collection/forEach":861}],820:[function(require,module,exports){
-'use strict';
-
-module.exports.elementToString = function(e) {
-  if (!e) {
-    return '<null>';
-  }
-
-  return '<' + e.$type + (e.id ? ' id="' + e.id : '') + '" />';
-};
-},{}],821:[function(require,module,exports){
+arguments[4][55][0].apply(exports,arguments)
+},{"dup":55}],821:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('../features/factory')
@@ -86819,8 +86872,736 @@ module.exports = function(additionalPackages, options) {
 },{"../resources/dmn/bpmn-io/biodi.json":845,"../resources/dmn/bpmn-io/dc.json":846,"../resources/dmn/camunda/camunda.json":847,"../resources/dmn/json/dmn.json":848,"./dmn-moddle":829,"lodash/object/assign":974}],831:[function(require,module,exports){
 arguments[4][64][0].apply(exports,arguments)
 },{"dup":64}],832:[function(require,module,exports){
-arguments[4][65][0].apply(exports,arguments)
-},{"./common":831,"dup":65,"lodash/collection/find":860,"lodash/collection/forEach":861,"lodash/collection/reduce":864,"lodash/function/defer":869,"lodash/object/assign":974,"moddle":836,"moddle/lib/ns":841,"moddle/lib/types":844,"sax":834,"tiny-stack":835}],833:[function(require,module,exports){
+'use strict';
+
+var reduce = require('lodash/collection/reduce'),
+    forEach = require('lodash/collection/forEach'),
+    find = require('lodash/collection/find'),
+    assign = require('lodash/object/assign'),
+    defer = require('lodash/function/defer');
+
+var Stack = require('tiny-stack'),
+    SaxParser = require('sax').parser,
+    Moddle = require('moddle'),
+    parseNameNs = require('moddle/lib/ns').parseName,
+    Types = require('moddle/lib/types'),
+    coerceType = Types.coerceType,
+    isSimpleType = Types.isSimple,
+    common = require('./common'),
+    XSI_TYPE = common.XSI_TYPE,
+    XSI_URI = common.DEFAULT_NS_MAP.xsi,
+    serializeAsType = common.serializeAsType,
+    aliasToName = common.aliasToName;
+
+function parseNodeAttributes(node) {
+  var nodeAttrs = node.attributes;
+
+  return reduce(nodeAttrs, function(result, v, k) {
+    var name, ns;
+
+    if (!v.local) {
+      name = v.prefix;
+    } else {
+      ns = parseNameNs(v.name, v.prefix);
+      name = ns.name;
+    }
+
+    result[name] = v.value;
+    return result;
+  }, {});
+}
+
+function normalizeType(node, attr, model) {
+  var nameNs = parseNameNs(attr.value);
+
+  var uri = node.ns[nameNs.prefix || ''],
+      localName = nameNs.localName,
+      pkg = uri && model.getPackage(uri),
+      typePrefix;
+
+  if (pkg) {
+    typePrefix = pkg.xml && pkg.xml.typePrefix;
+
+    if (typePrefix && localName.indexOf(typePrefix) === 0) {
+      localName = localName.slice(typePrefix.length);
+    }
+
+    attr.value = pkg.prefix + ':' + localName;
+  }
+}
+
+/**
+ * Normalizes namespaces for a node given an optional default namespace and a
+ * number of mappings from uris to default prefixes.
+ *
+ * @param  {XmlNode} node
+ * @param  {Model} model the model containing all registered namespaces
+ * @param  {Uri} defaultNsUri
+ */
+function normalizeNamespaces(node, model, defaultNsUri) {
+  var uri, prefix;
+
+  uri = node.uri || defaultNsUri;
+
+  if (uri) {
+    var pkg = model.getPackage(uri);
+
+    if (pkg) {
+      prefix = pkg.prefix;
+    } else {
+      prefix = node.prefix;
+    }
+
+    node.prefix = prefix;
+    node.uri = uri;
+  }
+
+  forEach(node.attributes, function(attr) {
+
+    // normalize xsi:type attributes because the
+    // assigned type may or may not be namespace prefixed
+    if (attr.uri === XSI_URI && attr.local === 'type') {
+      normalizeType(node, attr, model);
+    }
+
+    normalizeNamespaces(attr, model, null);
+  });
+}
+
+
+function error(message) {
+  return new Error(message);
+}
+
+/**
+ * Get the moddle descriptor for a given instance or type.
+ *
+ * @param  {ModdleElement|Function} element
+ *
+ * @return {Object} the moddle descriptor
+ */
+function getModdleDescriptor(element) {
+  return element.$descriptor;
+}
+
+/**
+ * A parse context.
+ *
+ * @class
+ *
+ * @param {Object} options
+ * @param {ElementHandler} options.rootHandler the root handler for parsing a document
+ * @param {boolean} [options.lax=false] whether or not to ignore invalid elements
+ */
+function Context(options) {
+
+  /**
+   * @property {ElementHandler} rootHandler
+   */
+
+  /**
+   * @property {Boolean} lax
+   */
+
+  assign(this, options);
+
+  this.elementsById = {};
+  this.references = [];
+  this.warnings = [];
+
+  /**
+   * Add an unresolved reference.
+   *
+   * @param {Object} reference
+   */
+  this.addReference = function(reference) {
+    this.references.push(reference);
+  };
+
+  /**
+   * Add a processed element.
+   *
+   * @param {ModdleElement} element
+   */
+  this.addElement = function(element) {
+
+    if (!element) {
+      throw error('expected element');
+    }
+
+    var elementsById = this.elementsById;
+
+    var descriptor = getModdleDescriptor(element);
+
+    var idProperty = descriptor.idProperty,
+        id;
+
+    if (idProperty) {
+      id = element.get(idProperty.name);
+
+      if (id) {
+
+        if (elementsById[id]) {
+          throw error('duplicate ID <' + id + '>');
+        }
+
+        elementsById[id] = element;
+      }
+    }
+  };
+
+  /**
+   * Add an import warning.
+   *
+   * @param {Object} warning
+   * @param {String} warning.message
+   * @param {Error} [warning.error]
+   */
+  this.addWarning = function(warning) {
+    this.warnings.push(warning);
+  };
+}
+
+function BaseHandler() {}
+
+BaseHandler.prototype.handleEnd = function() {};
+BaseHandler.prototype.handleText = function() {};
+BaseHandler.prototype.handleNode = function() {};
+
+
+/**
+ * A simple pass through handler that does nothing except for
+ * ignoring all input it receives.
+ *
+ * This is used to ignore unknown elements and
+ * attributes.
+ */
+function NoopHandler() { }
+
+NoopHandler.prototype = Object.create(BaseHandler.prototype);
+
+NoopHandler.prototype.handleNode = function() {
+  return this;
+};
+
+function BodyHandler() {}
+
+BodyHandler.prototype = Object.create(BaseHandler.prototype);
+
+BodyHandler.prototype.handleText = function(text) {
+  this.body = (this.body || '') + text;
+};
+
+function ReferenceHandler(property, context) {
+  this.property = property;
+  this.context = context;
+}
+
+ReferenceHandler.prototype = Object.create(BodyHandler.prototype);
+
+ReferenceHandler.prototype.handleNode = function(node) {
+
+  if (this.element) {
+    throw error('expected no sub nodes');
+  } else {
+    this.element = this.createReference(node);
+  }
+
+  return this;
+};
+
+ReferenceHandler.prototype.handleEnd = function() {
+  this.element.id = this.body;
+};
+
+ReferenceHandler.prototype.createReference = function(node) {
+  return {
+    property: this.property.ns.name,
+    id: ''
+  };
+};
+
+function ValueHandler(propertyDesc, element) {
+  this.element = element;
+  this.propertyDesc = propertyDesc;
+}
+
+ValueHandler.prototype = Object.create(BodyHandler.prototype);
+
+ValueHandler.prototype.handleEnd = function() {
+
+  var value = this.body || '',
+      element = this.element,
+      propertyDesc = this.propertyDesc;
+
+  value = coerceType(propertyDesc.type, value);
+
+  if (propertyDesc.isMany) {
+    element.get(propertyDesc.name).push(value);
+  } else {
+    element.set(propertyDesc.name, value);
+  }
+};
+
+
+function BaseElementHandler() {}
+
+BaseElementHandler.prototype = Object.create(BodyHandler.prototype);
+
+BaseElementHandler.prototype.handleNode = function(node) {
+  var parser = this,
+      element = this.element;
+
+  if (!element) {
+    element = this.element = this.createElement(node);
+
+    this.context.addElement(element);
+  } else {
+    parser = this.handleChild(node);
+  }
+
+  return parser;
+};
+
+/**
+ * @class XMLReader.ElementHandler
+ *
+ */
+function ElementHandler(model, type, context) {
+  this.model = model;
+  this.type = model.getType(type);
+  this.context = context;
+}
+
+ElementHandler.prototype = Object.create(BaseElementHandler.prototype);
+
+ElementHandler.prototype.addReference = function(reference) {
+  this.context.addReference(reference);
+};
+
+ElementHandler.prototype.handleEnd = function() {
+
+  var value = this.body,
+      element = this.element,
+      descriptor = getModdleDescriptor(element),
+      bodyProperty = descriptor.bodyProperty;
+
+  if (bodyProperty && value !== undefined) {
+    value = coerceType(bodyProperty.type, value);
+    element.set(bodyProperty.name, value);
+  }
+};
+
+/**
+ * Create an instance of the model from the given node.
+ *
+ * @param  {Element} node the xml node
+ */
+ElementHandler.prototype.createElement = function(node) {
+  var attributes = parseNodeAttributes(node),
+      Type = this.type,
+      descriptor = getModdleDescriptor(Type),
+      context = this.context,
+      instance = new Type({});
+
+  forEach(attributes, function(value, name) {
+
+    var prop = descriptor.propertiesByName[name],
+        values;
+
+    if (prop && prop.isReference) {
+
+      if (!prop.isMany) {
+        context.addReference({
+          element: instance,
+          property: prop.ns.name,
+          id: value
+        });
+      } else {
+        // IDREFS: parse references as whitespace-separated list
+        values = value.split(' ');
+
+        forEach(values, function(v) {
+          context.addReference({
+            element: instance,
+            property: prop.ns.name,
+            id: v
+          });
+        });
+      }
+
+    } else {
+      if (prop) {
+        value = coerceType(prop.type, value);
+      }
+
+      instance.set(name, value);
+    }
+  });
+
+  return instance;
+};
+
+ElementHandler.prototype.getPropertyForNode = function(node) {
+
+  var nameNs = parseNameNs(node.local, node.prefix);
+
+  var type = this.type,
+      model = this.model,
+      descriptor = getModdleDescriptor(type);
+
+  var propertyName = nameNs.name,
+      property = descriptor.propertiesByName[propertyName],
+      elementTypeName,
+      elementType,
+      typeAnnotation;
+
+  // search for properties by name first
+
+  if (property) {
+
+    if (serializeAsType(property)) {
+      typeAnnotation = node.attributes[XSI_TYPE];
+
+      // xsi type is optional, if it does not exists the
+      // default type is assumed
+      if (typeAnnotation) {
+
+        elementTypeName = typeAnnotation.value;
+
+        // TODO: extract real name from attribute
+        elementType = model.getType(elementTypeName);
+
+        return assign({}, property, { effectiveType: getModdleDescriptor(elementType).name });
+      }
+    }
+
+    // search for properties by name first
+    return property;
+  }
+
+
+  var pkg = model.getPackage(nameNs.prefix);
+
+  if (pkg) {
+    elementTypeName = nameNs.prefix + ':' + aliasToName(nameNs.localName, descriptor.$pkg);
+    elementType = model.getType(elementTypeName);
+
+    // search for collection members later
+    property = find(descriptor.properties, function(p) {
+      return !p.isVirtual && !p.isReference && !p.isAttribute && elementType.hasType(p.type);
+    });
+
+    if (property) {
+      return assign({}, property, { effectiveType: getModdleDescriptor(elementType).name });
+    }
+  } else {
+    // parse unknown element (maybe extension)
+    property = find(descriptor.properties, function(p) {
+      return !p.isReference && !p.isAttribute && p.type === 'Element';
+    });
+
+    if (property) {
+      return property;
+    }
+  }
+
+  throw error('unrecognized element <' + nameNs.name + '>');
+};
+
+ElementHandler.prototype.toString = function() {
+  return 'ElementDescriptor[' + getModdleDescriptor(this.type).name + ']';
+};
+
+ElementHandler.prototype.valueHandler = function(propertyDesc, element) {
+  return new ValueHandler(propertyDesc, element);
+};
+
+ElementHandler.prototype.referenceHandler = function(propertyDesc) {
+  return new ReferenceHandler(propertyDesc, this.context);
+};
+
+ElementHandler.prototype.handler = function(type) {
+  if (type === 'Element') {
+    return new GenericElementHandler(this.model, type, this.context);
+  } else {
+    return new ElementHandler(this.model, type, this.context);
+  }
+};
+
+/**
+ * Handle the child element parsing
+ *
+ * @param  {Element} node the xml node
+ */
+ElementHandler.prototype.handleChild = function(node) {
+  var propertyDesc, type, element, childHandler;
+
+  propertyDesc = this.getPropertyForNode(node);
+  element = this.element;
+
+  type = propertyDesc.effectiveType || propertyDesc.type;
+
+  if (isSimpleType(type)) {
+    return this.valueHandler(propertyDesc, element);
+  }
+
+  if (propertyDesc.isReference) {
+    childHandler = this.referenceHandler(propertyDesc).handleNode(node);
+  } else {
+    childHandler = this.handler(type).handleNode(node);
+  }
+
+  var newElement = childHandler.element;
+
+  // child handles may decide to skip elements
+  // by not returning anything
+  if (newElement !== undefined) {
+
+    if (propertyDesc.isMany) {
+      element.get(propertyDesc.name).push(newElement);
+    } else {
+      element.set(propertyDesc.name, newElement);
+    }
+
+    if (propertyDesc.isReference) {
+      assign(newElement, {
+        element: element
+      });
+
+      this.context.addReference(newElement);
+    } else {
+      // establish child -> parent relationship
+      newElement.$parent = element;
+    }
+  }
+
+  return childHandler;
+};
+
+
+function GenericElementHandler(model, type, context) {
+  this.model = model;
+  this.context = context;
+}
+
+GenericElementHandler.prototype = Object.create(BaseElementHandler.prototype);
+
+GenericElementHandler.prototype.createElement = function(node) {
+
+  var name = node.name,
+      prefix = node.prefix,
+      uri = node.ns[prefix],
+      attributes = node.attributes;
+
+  return this.model.createAny(name, uri, attributes);
+};
+
+GenericElementHandler.prototype.handleChild = function(node) {
+
+  var handler = new GenericElementHandler(this.model, 'Element', this.context).handleNode(node),
+      element = this.element;
+
+  var newElement = handler.element,
+      children;
+
+  if (newElement !== undefined) {
+    children = element.$children = element.$children || [];
+    children.push(newElement);
+
+    // establish child -> parent relationship
+    newElement.$parent = element;
+  }
+
+  return handler;
+};
+
+GenericElementHandler.prototype.handleText = function(text) {
+  this.body = this.body || '' + text;
+};
+
+GenericElementHandler.prototype.handleEnd = function() {
+  if (this.body) {
+    this.element.$body = this.body;
+  }
+};
+
+/**
+ * A reader for a meta-model
+ *
+ * @param {Object} options
+ * @param {Model} options.model used to read xml files
+ * @param {Boolean} options.lax whether to make parse errors warnings
+ */
+function XMLReader(options) {
+
+  if (options instanceof Moddle) {
+    options = {
+      model: options
+    };
+  }
+
+  assign(this, { lax: false }, options);
+}
+
+
+/**
+ * Parse the given XML into a moddle document tree.
+ *
+ * @param {String} xml
+ * @param {ElementHandler|Object} options or rootHandler
+ * @param  {Function} done
+ */
+XMLReader.prototype.fromXML = function(xml, options, done) {
+
+  var rootHandler = options.rootHandler;
+
+  if (options instanceof ElementHandler) {
+    // root handler passed via (xml, { rootHandler: ElementHandler }, ...)
+    rootHandler = options;
+    options = {};
+  } else {
+    if (typeof options === 'string') {
+      // rootHandler passed via (xml, 'someString', ...)
+      rootHandler = this.handler(options);
+      options = {};
+    } else if (typeof rootHandler === 'string') {
+      // rootHandler passed via (xml, { rootHandler: 'someString' }, ...)
+      rootHandler = this.handler(rootHandler);
+    }
+  }
+
+  var model = this.model,
+      lax = this.lax;
+
+  var context = new Context(assign({}, options, { rootHandler: rootHandler })),
+      parser = new SaxParser(true, { xmlns: true, trim: true }),
+      stack = new Stack();
+
+  rootHandler.context = context;
+
+  // push root handler
+  stack.push(rootHandler);
+
+
+  function resolveReferences() {
+
+    var elementsById = context.elementsById;
+    var references = context.references;
+
+    var i, r;
+
+    for (i = 0; !!(r = references[i]); i++) {
+      var element = r.element;
+      var reference = elementsById[r.id];
+      var property = getModdleDescriptor(element).propertiesByName[r.property];
+
+      if (!reference) {
+        context.addWarning({
+          message: 'unresolved reference <' + r.id + '>',
+          element: r.element,
+          property: r.property,
+          value: r.id
+        });
+      }
+
+      if (property.isMany) {
+        var collection = element.get(property.name),
+            idx = collection.indexOf(r);
+
+        // we replace an existing place holder (idx != -1) or
+        // append to the collection instead
+        if (idx === -1) {
+          idx = collection.length;
+        }
+
+        if (!reference) {
+          // remove unresolvable reference
+          collection.splice(idx, 1);
+        } else {
+          // add or update reference in collection
+          collection[idx] = reference;
+        }
+      } else {
+        element.set(property.name, reference);
+      }
+    }
+  }
+
+  function handleClose(tagName) {
+    stack.pop().handleEnd();
+  }
+
+  function handleOpen(node) {
+    var handler = stack.peek();
+
+    normalizeNamespaces(node, model);
+
+    try {
+      stack.push(handler.handleNode(node));
+    } catch (e) {
+
+      var line = this.line,
+          column = this.column;
+
+      var message =
+        'unparsable content <' + node.name + '> detected\n\t' +
+          'line: ' + line + '\n\t' +
+          'column: ' + column + '\n\t' +
+          'nested error: ' + e.message;
+
+      if (lax) {
+        context.addWarning({
+          message: message,
+          error: e
+        });
+
+        console.warn('could not parse node');
+        console.warn(e);
+
+        stack.push(new NoopHandler());
+      } else {
+        console.error('could not parse document');
+        console.error(e);
+
+        throw error(message);
+      }
+    }
+  }
+
+  function handleText(text) {
+    stack.peek().handleText(text);
+  }
+
+  parser.onopentag = handleOpen;
+  parser.oncdata = parser.ontext = handleText;
+  parser.onclosetag = handleClose;
+  parser.onend = resolveReferences;
+
+  // deferred parse XML to make loading really ascnchronous
+  // this ensures the execution environment (node or browser)
+  // is kept responsive and that certain optimization strategies
+  // can kick in
+  defer(function() {
+    var error;
+
+    try {
+      parser.write(xml).close();
+    } catch (e) {
+      error = e;
+    }
+
+    done(error, error ? undefined : rootHandler.element, context);
+  });
+};
+
+XMLReader.prototype.handler = function(name) {
+  return new ElementHandler(this.model, name);
+};
+
+module.exports = XMLReader;
+module.exports.ElementHandler = ElementHandler;
+},{"./common":831,"lodash/collection/find":860,"lodash/collection/forEach":861,"lodash/collection/reduce":864,"lodash/function/defer":869,"lodash/object/assign":974,"moddle":836,"moddle/lib/ns":841,"moddle/lib/types":844,"sax":834,"tiny-stack":835}],833:[function(require,module,exports){
 arguments[4][66][0].apply(exports,arguments)
 },{"./common":831,"dup":66,"lodash/collection/filter":859,"lodash/collection/forEach":861,"lodash/collection/map":863,"lodash/lang/isString":972,"lodash/object/assign":974,"moddle/lib/ns":841,"moddle/lib/types":844}],834:[function(require,module,exports){
 arguments[4][67][0].apply(exports,arguments)
@@ -86835,14 +87616,422 @@ arguments[4][71][0].apply(exports,arguments)
 },{"./ns":841,"dup":71,"lodash/collection/forEach":861,"lodash/object/assign":974,"lodash/object/pick":979}],839:[function(require,module,exports){
 arguments[4][72][0].apply(exports,arguments)
 },{"./base":837,"dup":72,"lodash/collection/forEach":861}],840:[function(require,module,exports){
-arguments[4][73][0].apply(exports,arguments)
-},{"./factory":839,"./ns":841,"./properties":842,"./registry":843,"dup":73,"lodash/collection/find":860,"lodash/collection/forEach":861,"lodash/lang/isObject":971,"lodash/lang/isString":972}],841:[function(require,module,exports){
+'use strict';
+
+var isString = require('lodash/lang/isString'),
+    isObject = require('lodash/lang/isObject'),
+    forEach = require('lodash/collection/forEach'),
+    find = require('lodash/collection/find');
+
+
+var Factory = require('./factory'),
+    Registry = require('./registry'),
+    Properties = require('./properties');
+
+var parseNameNs = require('./ns').parseName;
+
+
+//// Moddle implementation /////////////////////////////////////////////////
+
+/**
+ * @class Moddle
+ *
+ * A model that can be used to create elements of a specific type.
+ *
+ * @example
+ *
+ * var Moddle = require('moddle');
+ *
+ * var pkg = {
+ *   name: 'mypackage',
+ *   prefix: 'my',
+ *   types: [
+ *     { name: 'Root' }
+ *   ]
+ * };
+ *
+ * var moddle = new Moddle([pkg]);
+ *
+ * @param {Array<Package>} packages the packages to contain
+ */
+function Moddle(packages) {
+
+  this.properties = new Properties(this);
+
+  this.factory = new Factory(this, this.properties);
+  this.registry = new Registry(packages, this.properties);
+
+  this.typeCache = {};
+}
+
+module.exports = Moddle;
+
+
+/**
+ * Create an instance of the specified type.
+ *
+ * @method Moddle#create
+ *
+ * @example
+ *
+ * var foo = moddle.create('my:Foo');
+ * var bar = moddle.create('my:Bar', { id: 'BAR_1' });
+ *
+ * @param  {String|Object} descriptor the type descriptor or name know to the model
+ * @param  {Object} attrs   a number of attributes to initialize the model instance with
+ * @return {Object}         model instance
+ */
+Moddle.prototype.create = function(descriptor, attrs) {
+  var Type = this.getType(descriptor);
+
+  if (!Type) {
+    throw new Error('unknown type <' + descriptor + '>');
+  }
+
+  return new Type(attrs);
+};
+
+
+/**
+ * Returns the type representing a given descriptor
+ *
+ * @method Moddle#getType
+ *
+ * @example
+ *
+ * var Foo = moddle.getType('my:Foo');
+ * var foo = new Foo({ 'id' : 'FOO_1' });
+ *
+ * @param  {String|Object} descriptor the type descriptor or name know to the model
+ * @return {Object}         the type representing the descriptor
+ */
+Moddle.prototype.getType = function(descriptor) {
+
+  var cache = this.typeCache;
+
+  var name = isString(descriptor) ? descriptor : descriptor.ns.name;
+
+  var type = cache[name];
+
+  if (!type) {
+    descriptor = this.registry.getEffectiveDescriptor(name);
+    type = cache[name] = this.factory.createType(descriptor);
+  }
+
+  return type;
+};
+
+
+/**
+ * Creates an any-element type to be used within model instances.
+ *
+ * This can be used to create custom elements that lie outside the meta-model.
+ * The created element contains all the meta-data required to serialize it
+ * as part of meta-model elements.
+ *
+ * @method Moddle#createAny
+ *
+ * @example
+ *
+ * var foo = moddle.createAny('vendor:Foo', 'http://vendor', {
+ *   value: 'bar'
+ * });
+ *
+ * var container = moddle.create('my:Container', 'http://my', {
+ *   any: [ foo ]
+ * });
+ *
+ * // go ahead and serialize the stuff
+ *
+ *
+ * @param  {String} name  the name of the element
+ * @param  {String} nsUri the namespace uri of the element
+ * @param  {Object} [properties] a map of properties to initialize the instance with
+ * @return {Object} the any type instance
+ */
+Moddle.prototype.createAny = function(name, nsUri, properties) {
+
+  var nameNs = parseNameNs(name);
+
+  var element = {
+    $type: name
+  };
+
+  var descriptor = {
+    name: name,
+    isGeneric: true,
+    ns: {
+      prefix: nameNs.prefix,
+      localName: nameNs.localName,
+      uri: nsUri
+    }
+  };
+
+  this.properties.defineDescriptor(element, descriptor);
+  this.properties.defineModel(element, this);
+  this.properties.define(element, '$parent', { enumerable: false, writable: true });
+
+  forEach(properties, function(a, key) {
+    if (isObject(a) && a.value !== undefined) {
+      element[a.name] = a.value;
+    } else {
+      element[key] = a;
+    }
+  });
+
+  return element;
+};
+
+/**
+ * Returns a registered package by uri or prefix
+ *
+ * @return {Object} the package
+ */
+Moddle.prototype.getPackage = function(uriOrPrefix) {
+  return this.registry.getPackage(uriOrPrefix);
+};
+
+/**
+ * Returns a snapshot of all known packages
+ *
+ * @return {Object} the package
+ */
+Moddle.prototype.getPackages = function() {
+  return this.registry.getPackages();
+};
+
+/**
+ * Returns the descriptor for an element
+ */
+Moddle.prototype.getElementDescriptor = function(element) {
+  return element.$descriptor;
+};
+
+/**
+ * Returns true if the given descriptor or instance
+ * represents the given type.
+ *
+ * May be applied to this, if element is omitted.
+ */
+Moddle.prototype.hasType = function(element, type) {
+  if (type === undefined) {
+    type = element;
+    element = this;
+  }
+
+  var descriptor = element.$model.getElementDescriptor(element);
+
+  return !!find(descriptor.allTypes, function(t) {
+    return t.name === type;
+  });
+};
+
+/**
+ * Returns the descriptor of an elements named property
+ */
+Moddle.prototype.getPropertyDescriptor = function(element, property) {
+  return this.getElementDescriptor(element).propertiesByName[property];
+};
+
+/**
+ * Returns a mapped type's descriptor
+ */
+Moddle.prototype.getTypeDescriptor = function(type) {
+  return this.registry.typeMap[type];
+};
+
+},{"./factory":839,"./ns":841,"./properties":842,"./registry":843,"lodash/collection/find":860,"lodash/collection/forEach":861,"lodash/lang/isObject":971,"lodash/lang/isString":972}],841:[function(require,module,exports){
 arguments[4][74][0].apply(exports,arguments)
 },{"dup":74}],842:[function(require,module,exports){
 arguments[4][75][0].apply(exports,arguments)
 },{"dup":75}],843:[function(require,module,exports){
-arguments[4][76][0].apply(exports,arguments)
-},{"./descriptor-builder":838,"./ns":841,"./types":844,"dup":76,"lodash/collection/forEach":861,"lodash/object/assign":974}],844:[function(require,module,exports){
+'use strict';
+
+var assign = require('lodash/object/assign'),
+    forEach = require('lodash/collection/forEach');
+
+var Types = require('./types'),
+    DescriptorBuilder = require('./descriptor-builder');
+
+var parseNameNs = require('./ns').parseName,
+    isBuiltInType = Types.isBuiltIn;
+
+
+function Registry(packages, properties) {
+  this.packageMap = {};
+  this.typeMap = {};
+
+  this.packages = [];
+
+  this.properties = properties;
+
+  forEach(packages, this.registerPackage, this);
+}
+
+module.exports = Registry;
+
+
+Registry.prototype.getPackage = function(uriOrPrefix) {
+  return this.packageMap[uriOrPrefix];
+};
+
+Registry.prototype.getPackages = function() {
+  return this.packages;
+};
+
+
+Registry.prototype.registerPackage = function(pkg) {
+
+  // copy package
+  pkg = assign({}, pkg);
+
+  // register types
+  forEach(pkg.types, function(descriptor) {
+    this.registerType(descriptor, pkg);
+  }, this);
+
+  this.packageMap[pkg.uri] = this.packageMap[pkg.prefix] = pkg;
+  this.packages.push(pkg);
+};
+
+
+/**
+ * Register a type from a specific package with us
+ */
+Registry.prototype.registerType = function(type, pkg) {
+
+  type = assign({}, type, {
+    superClass: (type.superClass || []).slice(),
+    extends: (type.extends || []).slice(),
+    properties: (type.properties || []).slice(),
+    meta: assign(({}, type.meta || {}))
+  });
+
+  var ns = parseNameNs(type.name, pkg.prefix),
+      name = ns.name,
+      propertiesByName = {};
+
+  // parse properties
+  forEach(type.properties, function(p) {
+
+    // namespace property names
+    var propertyNs = parseNameNs(p.name, ns.prefix),
+        propertyName = propertyNs.name;
+
+    // namespace property types
+    if (!isBuiltInType(p.type)) {
+      p.type = parseNameNs(p.type, propertyNs.prefix).name;
+    }
+
+    assign(p, {
+      ns: propertyNs,
+      name: propertyName
+    });
+
+    propertiesByName[propertyName] = p;
+  });
+
+  // update ns + name
+  assign(type, {
+    ns: ns,
+    name: name,
+    propertiesByName: propertiesByName
+  });
+
+  forEach(type.extends, function(extendsName) {
+    var extended = this.typeMap[extendsName];
+
+    extended.traits = extended.traits || [];
+    extended.traits.push(name);
+  }, this);
+
+  // link to package
+  this.definePackage(type, pkg);
+
+  // register
+  this.typeMap[name] = type;
+};
+
+
+/**
+ * Traverse the type hierarchy from bottom to top,
+ * calling iterator with (type, inherited) for all elements in
+ * the inheritance chain.
+ *
+ * @param {Object} nsName
+ * @param {Function} iterator
+ * @param {Boolean} [trait=false]
+ */
+Registry.prototype.mapTypes = function(nsName, iterator, trait) {
+
+  var type = isBuiltInType(nsName.name) ? { name: nsName.name } : this.typeMap[nsName.name];
+
+  var self = this;
+
+  /**
+   * Traverse the selected trait.
+   *
+   * @param {String} cls
+   */
+  function traverseTrait(cls) {
+    return traverseSuper(cls, true);
+  }
+
+  /**
+   * Traverse the selected super type or trait
+   *
+   * @param {String} cls
+   * @param {Boolean} [trait=false]
+   */
+  function traverseSuper(cls, trait) {
+    var parentNs = parseNameNs(cls, isBuiltInType(cls) ? '' : nsName.prefix);
+    self.mapTypes(parentNs, iterator, trait);
+  }
+
+  if (!type) {
+    throw new Error('unknown type <' + nsName.name + '>');
+  }
+
+  forEach(type.superClass, trait ? traverseTrait : traverseSuper);
+
+  // call iterator with (type, inherited=!trait)
+  iterator(type, !trait);
+
+  forEach(type.traits, traverseTrait);
+};
+
+
+/**
+ * Returns the effective descriptor for a type.
+ *
+ * @param  {String} type the namespaced name (ns:localName) of the type
+ *
+ * @return {Descriptor} the resulting effective descriptor
+ */
+Registry.prototype.getEffectiveDescriptor = function(name) {
+
+  var nsName = parseNameNs(name);
+
+  var builder = new DescriptorBuilder(nsName);
+
+  this.mapTypes(nsName, function(type, inherited) {
+    builder.addTrait(type, inherited);
+  });
+
+  var descriptor = builder.build();
+
+  // define package link
+  this.definePackage(descriptor, descriptor.allTypes[descriptor.allTypes.length - 1].$pkg);
+
+  return descriptor;
+};
+
+
+Registry.prototype.definePackage = function(target, pkg) {
+  this.properties.define(target, '$pkg', { value: pkg });
+};
+
+},{"./descriptor-builder":838,"./ns":841,"./types":844,"lodash/collection/forEach":861,"lodash/object/assign":974}],844:[function(require,module,exports){
 arguments[4][77][0].apply(exports,arguments)
 },{"dup":77}],845:[function(require,module,exports){
 module.exports={
