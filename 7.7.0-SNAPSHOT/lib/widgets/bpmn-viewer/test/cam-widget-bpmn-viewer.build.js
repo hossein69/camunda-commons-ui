@@ -4369,7 +4369,7 @@ module.exports = ['$timeout', '$location', 'search', 'widgetLocalConf',
             return '125px';
           }
 
-          return '0';
+          return '12px';
         };
 
         var defaultType = $scope.types.reduce(function(done, type) {
