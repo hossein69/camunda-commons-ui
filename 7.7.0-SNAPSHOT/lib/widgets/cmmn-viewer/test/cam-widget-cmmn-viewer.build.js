@@ -4366,7 +4366,7 @@ module.exports = ['$timeout', '$location', 'search', 'widgetLocalConf',
 
         $scope.getRightPadding = function() {
           if (element.width() > 400) {
-            return '100px';
+            return '125px';
           }
 
           return '0';
