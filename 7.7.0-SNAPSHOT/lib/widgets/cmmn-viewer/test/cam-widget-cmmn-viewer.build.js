@@ -3634,7 +3634,7 @@ module.exports = widgetModule;
 var angular = require('camunda-bpm-sdk-js/vendor/angular'),
     $ = require('jquery'),
 
-    template = "<span ng-show=\"!editing\"\n      ng-click=\"startEditing()\"\n      ng-transclude\n      class=\"view-value\">\n</span>\n\n<span ng-if=\"editing && (varType === 'datetime' || varType === 'date' || varType === 'time')\"\n      class=\"preview\">\n  {{ dateValue | camDate }}\n</span>\n\n<span ng-if=\"editing\"\n      class=\"edit\">\n\n  <input ng-if=\"simpleField\"\n         class=\"form-control\"\n         type=\"{{ varType }}\"\n         ng-model=\"editValue\"\n         ng-keydown=\"handleKeydown($event)\"\n         placeholder=\"{{ placeholder }}\" />\n\n  <span ng-show=\"varType === 'datetime' || varType === 'date' || varType === 'time'\"\n        class=\"cam-widget-inline-field field-control\">\n\n    <datepicker class=\"datepicker\"\n                ng-if=\"varType === 'datetime' || varType === 'date'\"\n                type=\"text\"\n                ng-required=\"true\"\n                is-open=\"datePickerOptions.isOpen\"\n                show-button-bar=\"false\"\n                ng-keydown=\"trapKeyboard($event, true); cancelOnEsc($event);\"\n\n                ng-model=\"dateValue\"\n                ng-change=\"changeDate(this)\"></datepicker>\n\n    <timepicker class=\"timepicker\"\n                ng-if=\"varType === 'datetime' || varType === 'time'\"\n                show-meridian=\"false\"\n\n                ng-model=\"dateValue\"\n                ng-keydown=\"cancelOnEsc($event);\"\n                ng-change=\"changeDate(this)\"></timepicker>\n  </span>\n\n  <input ng-if=\"varType === 'option' && options[0].value\"\n         class=\"form-control\"\n         type=\"text\"\n         ng-model=\"editValue\"\n         ng-keydown=\"handleKeydown($event)\"\n         typeahead=\"option as option.value for option in options | filter:$viewValue:instantTypeahead\"\n         typeahead-on-select=\"saveSelection($item)\"\n         instant-typeahead />\n  <input ng-if=\"varType === 'option' && !options[0].value\"\n         class=\"form-control\"\n         type=\"text\"\n         ng-model=\"editValue\"\n         ng-keydown=\"handleKeydown($event)\"\n         typeahead=\"option for option in options | filter:$viewValue:instantTypeahead\"\n         typeahead-on-select=\"saveSelection($item)\"\n         instant-typeahead />\n\n  <span ng-show=\"varType !== 'option'\"\n        class=\"cam-widget-inline-field btn-group\">\n    <button type=\"button\"\n            class=\"btn btn-xs btn-default\"\n            ng-click=\"changeType()\"\n            ng-if=\"flexible\">\n      <span class=\"glyphicon\"\n            ng-class=\"'glyphicon-' + (varType === 'text' ? 'calendar' : 'pencil')\"></span>\n    </button>\n\n    <button type=\"button\"\n            class=\"btn btn-xs btn-default\"\n            ng-click=\"applyChange($event);\"\n            ng-keydown=\"cancelOnEsc($event);\">\n      <span class=\"glyphicon glyphicon-ok\"></span>\n    </button>\n\n    <button type=\"button\"\n            class=\"btn btn-xs btn-default\"\n            ng-click=\"cancelChange($event)\"\n            ng-keydown=\"trapKeyboard($event); cancelOnEsc($event);\">\n      <span class=\"glyphicon glyphicon-remove\"></span>\n    </button>\n  </span>\n</span>\n";
+    template = "<span ng-show=\"!editing\"\n      ng-click=\"startEditing()\"\n      ng-transclude\n      class=\"view-value\">\n</span>\n\n<span ng-if=\"editing && (varType === 'datetime' || varType === 'date' || varType === 'time')\"\n      class=\"preview\">\n  {{ dateValue | camDate }}\n</span>\n\n<span ng-if=\"editing\"\n      class=\"edit\">\n\n  <input ng-if=\"simpleField\"\n         class=\"form-control\"\n         type=\"{{ varType }}\"\n         ng-model=\"editValue\"\n         ng-keydown=\"handleKeydown($event)\"\n         placeholder=\"{{ placeholder }}\" />\n  value = {{varValue}}\n  editValue = {{editValue}}\n\n  <span ng-show=\"varType === 'datetime' || varType === 'date' || varType === 'time'\"\n        class=\"cam-widget-inline-field field-control\">\n\n    <datepicker class=\"datepicker\"\n                ng-if=\"varType === 'datetime' || varType === 'date'\"\n                type=\"text\"\n                ng-required=\"true\"\n                is-open=\"datePickerOptions.isOpen\"\n                show-button-bar=\"false\"\n                ng-keydown=\"trapKeyboard($event, true); cancelOnEsc($event);\"\n\n                ng-model=\"dateValue\"\n                ng-change=\"changeDate(this)\"></datepicker>\n\n    <timepicker class=\"timepicker\"\n                ng-if=\"varType === 'datetime' || varType === 'time'\"\n                show-meridian=\"false\"\n\n                ng-model=\"dateValue\"\n                ng-keydown=\"cancelOnEsc($event);\"\n                ng-change=\"changeDate(this)\"></timepicker>\n  </span>\n\n  <input ng-if=\"varType === 'option' && options[0].value\"\n         class=\"form-control\"\n         type=\"text\"\n         ng-model=\"editValue\"\n         ng-keydown=\"handleKeydown($event)\"\n         typeahead=\"option as option.value for option in options | filter:$viewValue:instantTypeahead\"\n         typeahead-on-select=\"saveSelection($item)\"\n         instant-typeahead />\n  <input ng-if=\"varType === 'option' && !options[0].value\"\n         class=\"form-control\"\n         type=\"text\"\n         ng-model=\"editValue\"\n         ng-keydown=\"handleKeydown($event)\"\n         typeahead=\"option for option in options | filter:$viewValue:instantTypeahead\"\n         typeahead-on-select=\"saveSelection($item)\"\n         instant-typeahead />\n\n  <span ng-show=\"varType !== 'option'\"\n        class=\"cam-widget-inline-field btn-group\">\n    <button type=\"button\"\n            class=\"btn btn-xs btn-default\"\n            ng-click=\"changeType()\"\n            ng-if=\"flexible\">\n      <span class=\"glyphicon\"\n            ng-class=\"'glyphicon-' + (varType === 'text' ? 'calendar' : 'pencil')\"></span>\n    </button>\n\n    <button type=\"button\"\n            class=\"btn btn-xs btn-default\"\n            ng-click=\"applyChange($event);\"\n            ng-keydown=\"cancelOnEsc($event);\">\n      <span class=\"glyphicon glyphicon-ok\"></span>\n    </button>\n\n    <button type=\"button\"\n            class=\"btn btn-xs btn-default\"\n            ng-click=\"cancelChange($event)\"\n            ng-keydown=\"trapKeyboard($event); cancelOnEsc($event);\">\n      <span class=\"glyphicon glyphicon-remove\"></span>\n    </button>\n  </span>\n</span>\n";
 
 module.exports = [
   '$timeout',
@@ -3895,7 +3895,10 @@ module.exports = [
             var savedEditValue = scope.editValue;
 
             // clear the edit value so that typeahead shows all options
-            scope.editValue = '';
+            // should not apply to simpleFields
+            if (!scope.simpleField) {
+              scope.editValue = '';
+            }
 
             // Here is where it gets ugly: We have to wait for angular to apply the changes to the edit value, so that the
             // input field is rendered and we can open the typeahead dropdown (first timeout). However, the instantTypeahead directive does
@@ -3914,6 +3917,7 @@ module.exports = [
                   $timeout(function() {
                     var compareValue = typeof savedEditValue === 'object' ? savedEditValue.value : savedEditValue;
                     var elems = $(element[0].querySelector('li[ng-mouseenter]'));
+
                     for(var i = 0; i < elems.length; i++) {
                       var elem = elems[i];
                       if(elem.innerText.indexOf(compareValue) === 0) {
@@ -3940,7 +3944,10 @@ module.exports = [
           if (!scope.invalid) {
 
             if(scope.simpleField) {
-              scope.editValue = $('[ng-model="editValue"]').val();
+              scope.editValue = parseValue(
+                $('[ng-model="editValue"]').val()
+              );
+
               scope.varValue = scope.editValue;
             }
             else if (scope.varType === 'option') {
@@ -3963,6 +3970,18 @@ module.exports = [
             $document.unbind('click', stopEditing);
           }
         };
+
+        function parseValue(value) {
+          if (scope.varType === 'number') {
+            if (value.length > 0) {
+              return +value;
+            }
+
+            return null;
+          }
+
+          return value;
+        }
 
         scope.cancelChange = function() {
           if(scope.editing) {
