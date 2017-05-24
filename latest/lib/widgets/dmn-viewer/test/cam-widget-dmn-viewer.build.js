@@ -1213,7 +1213,7 @@ module.exports = function() {
   };
 };
 
-},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1110}],6:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1111}],6:[function(require,module,exports){
 'use strict';
 
 
@@ -1370,7 +1370,7 @@ directivesModule.config([
 
 module.exports = directivesModule;
 
-},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":1113,"../util/index":18,"./autoFill":2,"./compileTemplate":3,"./email":4,"./engineSelect":5,"./inPlaceTextField":6,"./instantTypeahead":8,"./nl2br":9,"./notificationsPanel":10,"./passwordRepeat":11,"./showIfAuthorized":12,"camunda-bpm-sdk-js/vendor/angular":207}],8:[function(require,module,exports){
+},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":1114,"../util/index":18,"./autoFill":2,"./compileTemplate":3,"./email":4,"./engineSelect":5,"./inPlaceTextField":6,"./instantTypeahead":8,"./nl2br":9,"./notificationsPanel":10,"./passwordRepeat":11,"./showIfAuthorized":12,"camunda-bpm-sdk-js/vendor/angular":207}],8:[function(require,module,exports){
   'use strict';
 
   var secretEmptyKey = '[$empty$]';
@@ -1793,7 +1793,7 @@ filtersModule.config([
 
 module.exports = filtersModule;
 
-},{"angular-translate":45,"camunda-bpm-sdk-js/vendor/angular":207,"moment":1112}],15:[function(require,module,exports){
+},{"angular-translate":45,"camunda-bpm-sdk-js/vendor/angular":207,"moment":1113}],15:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular');
@@ -2636,7 +2636,7 @@ module.exports = ['$window', function($window) {
     template: '<!-- keule!! pech jehabt! -->'
   };
 }];
-},{"./../../chart/line":1,"./../../filter/abbreviateNumber":13,"lodash":1111,"moment":1112}],25:[function(require,module,exports){
+},{"./../../chart/line":1,"./../../filter/abbreviateNumber":13,"lodash":1112,"moment":1113}],25:[function(require,module,exports){
 'use strict';
 
 var Clipboard = require('clipboard');
@@ -3557,7 +3557,7 @@ widgetModule.filter('camQueryComponent', camQueryComponent);
 
 module.exports = widgetModule;
 
-},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":1113,"../directives/index":7,"../filter/date/index":14,"../search/index":15,"./../services/cam-local-configuration":16,"./bpmn-viewer/cam-widget-bpmn-viewer":22,"./cam-share-link/cam-share-link":23,"./chart-line/cam-widget-chart-line":24,"./clipboard/cam-widget-clipboard":25,"./cmmn-viewer/cam-widget-cmmn-viewer":26,"./debug/cam-widget-debug":27,"./dmn-viewer/cam-widget-dmn-viewer":28,"./footer/cam-widget-footer":30,"./header/cam-widget-header":31,"./inline-field/cam-widget-inline-field":33,"./loader/cam-widget-loader":34,"./search-pill/cam-query-component":35,"./search-pill/cam-widget-search-pill":36,"./search/cam-widget-search":37,"./variable/cam-variable-validator":39,"./variable/cam-widget-variable":40,"./variables-table/cam-render-var-template":41,"./variables-table/cam-widget-variables-table":42,"camunda-bpm-sdk-js/vendor/angular":207}],33:[function(require,module,exports){
+},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":1114,"../directives/index":7,"../filter/date/index":14,"../search/index":15,"./../services/cam-local-configuration":16,"./bpmn-viewer/cam-widget-bpmn-viewer":22,"./cam-share-link/cam-share-link":23,"./chart-line/cam-widget-chart-line":24,"./clipboard/cam-widget-clipboard":25,"./cmmn-viewer/cam-widget-cmmn-viewer":26,"./debug/cam-widget-debug":27,"./dmn-viewer/cam-widget-dmn-viewer":28,"./footer/cam-widget-footer":30,"./header/cam-widget-header":31,"./inline-field/cam-widget-inline-field":33,"./loader/cam-widget-loader":34,"./search-pill/cam-query-component":35,"./search-pill/cam-widget-search-pill":36,"./search/cam-widget-search":37,"./variable/cam-variable-validator":39,"./variable/cam-widget-variable":40,"./variables-table/cam-render-var-template":41,"./variables-table/cam-widget-variables-table":42,"camunda-bpm-sdk-js/vendor/angular":207}],33:[function(require,module,exports){
 'use strict';
 
 
@@ -4001,7 +4001,7 @@ module.exports = [
     };
   }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1110}],34:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1111}],34:[function(require,module,exports){
 'use strict';
 
 
@@ -4167,7 +4167,7 @@ module.exports = ['$timeout',
     };
   }];
 
-},{"jquery":1110}],37:[function(require,module,exports){
+},{"jquery":1111}],37:[function(require,module,exports){
 'use strict';
 
 
@@ -4856,7 +4856,7 @@ module.exports = ['$timeout', '$location', 'search', 'widgetLocalConf',
     };
   }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1110}],38:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1111}],38:[function(require,module,exports){
 'use strict';
 
 
@@ -5248,7 +5248,7 @@ module.exports = [
     };
   }];
 
-},{"jquery":1110}],42:[function(require,module,exports){
+},{"jquery":1111}],42:[function(require,module,exports){
 'use strict';
 
 
@@ -14065,7 +14065,7 @@ if (!String.fromCodePoint) {
 })(typeof exports === "undefined" ? sax = {} : exports);
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":1082,"stream":1108,"string_decoder":1109}],68:[function(require,module,exports){
+},{"buffer":1082,"stream":1109,"string_decoder":1110}],68:[function(require,module,exports){
 /**
  * Tiny stack for browser or server
  *
@@ -49944,7 +49944,7 @@ arguments[4][65][0].apply(exports,arguments)
 arguments[4][66][0].apply(exports,arguments)
 },{"./common":236,"dup":66,"lodash/collection/filter":257,"lodash/collection/forEach":259,"lodash/collection/map":260,"lodash/lang/isString":335,"lodash/object/assign":337,"moddle/lib/ns":246,"moddle/lib/types":249}],239:[function(require,module,exports){
 arguments[4][67][0].apply(exports,arguments)
-},{"buffer":1082,"dup":67,"stream":1108,"string_decoder":1109}],240:[function(require,module,exports){
+},{"buffer":1082,"dup":67,"stream":1109,"string_decoder":1110}],240:[function(require,module,exports){
 arguments[4][68][0].apply(exports,arguments)
 },{"dup":68}],241:[function(require,module,exports){
 arguments[4][69][0].apply(exports,arguments)
@@ -87566,7 +87566,7 @@ module.exports.ElementHandler = ElementHandler;
 arguments[4][66][0].apply(exports,arguments)
 },{"./common":831,"dup":66,"lodash/collection/filter":859,"lodash/collection/forEach":861,"lodash/collection/map":863,"lodash/lang/isString":972,"lodash/object/assign":974,"moddle/lib/ns":841,"moddle/lib/types":844}],834:[function(require,module,exports){
 arguments[4][67][0].apply(exports,arguments)
-},{"buffer":1082,"dup":67,"stream":1108,"string_decoder":1109}],835:[function(require,module,exports){
+},{"buffer":1082,"dup":67,"stream":1109,"string_decoder":1110}],835:[function(require,module,exports){
 arguments[4][68][0].apply(exports,arguments)
 },{"dup":68}],836:[function(require,module,exports){
 arguments[4][69][0].apply(exports,arguments)
@@ -98724,7 +98724,7 @@ function CorkedRequest(state) {
   };
 }
 }).call(this,require('_process'))
-},{"./_stream_duplex":1091,"./internal/streams/stream":1097,"_process":1089,"buffer":1082,"buffer-shims":1098,"core-util-is":1099,"inherits":1087,"process-nextick-args":1101,"util-deprecate":1103}],1096:[function(require,module,exports){
+},{"./_stream_duplex":1091,"./internal/streams/stream":1097,"_process":1089,"buffer":1082,"buffer-shims":1098,"core-util-is":1099,"inherits":1087,"process-nextick-args":1101,"util-deprecate":1104}],1096:[function(require,module,exports){
 'use strict';
 
 var Buffer = require('buffer').Buffer;
@@ -99067,8 +99067,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 },{"_process":1089}],1102:[function(require,module,exports){
 'use strict';
 
-var Buffer = require('buffer').Buffer;
-var bufferShim = require('buffer-shims');
+var Buffer = require('safe-buffer').Buffer;
 
 var isEncoding = Buffer.isEncoding || function (encoding) {
   encoding = '' + encoding;
@@ -99145,7 +99144,7 @@ function StringDecoder(encoding) {
   }
   this.lastNeed = 0;
   this.lastTotal = 0;
-  this.lastChar = bufferShim.allocUnsafe(nb);
+  this.lastChar = Buffer.allocUnsafe(nb);
 }
 
 StringDecoder.prototype.write = function (buf) {
@@ -99338,7 +99337,10 @@ function simpleWrite(buf) {
 function simpleEnd(buf) {
   return buf && buf.length ? this.write(buf) : '';
 }
-},{"buffer":1082,"buffer-shims":1098}],1103:[function(require,module,exports){
+},{"safe-buffer":1103}],1103:[function(require,module,exports){
+module.exports = require('buffer')
+
+},{"buffer":1082}],1104:[function(require,module,exports){
 (function (global){
 
 /**
@@ -99409,10 +99411,10 @@ function config (name) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],1104:[function(require,module,exports){
+},{}],1105:[function(require,module,exports){
 module.exports = require('./readable').PassThrough
 
-},{"./readable":1105}],1105:[function(require,module,exports){
+},{"./readable":1106}],1106:[function(require,module,exports){
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Stream = exports;
 exports.Readable = exports;
@@ -99421,13 +99423,13 @@ exports.Duplex = require('./lib/_stream_duplex.js');
 exports.Transform = require('./lib/_stream_transform.js');
 exports.PassThrough = require('./lib/_stream_passthrough.js');
 
-},{"./lib/_stream_duplex.js":1091,"./lib/_stream_passthrough.js":1092,"./lib/_stream_readable.js":1093,"./lib/_stream_transform.js":1094,"./lib/_stream_writable.js":1095}],1106:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":1091,"./lib/_stream_passthrough.js":1092,"./lib/_stream_readable.js":1093,"./lib/_stream_transform.js":1094,"./lib/_stream_writable.js":1095}],1107:[function(require,module,exports){
 module.exports = require('./readable').Transform
 
-},{"./readable":1105}],1107:[function(require,module,exports){
+},{"./readable":1106}],1108:[function(require,module,exports){
 module.exports = require('./lib/_stream_writable.js');
 
-},{"./lib/_stream_writable.js":1095}],1108:[function(require,module,exports){
+},{"./lib/_stream_writable.js":1095}],1109:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -99556,7 +99558,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":1086,"inherits":1087,"readable-stream/duplex.js":1090,"readable-stream/passthrough.js":1104,"readable-stream/readable.js":1105,"readable-stream/transform.js":1106,"readable-stream/writable.js":1107}],1109:[function(require,module,exports){
+},{"events":1086,"inherits":1087,"readable-stream/duplex.js":1090,"readable-stream/passthrough.js":1105,"readable-stream/readable.js":1106,"readable-stream/transform.js":1107,"readable-stream/writable.js":1108}],1110:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -99779,7 +99781,7 @@ function base64DetectIncompleteChar(buffer) {
   this.charLength = this.charReceived ? 3 : 0;
 }
 
-},{"buffer":1082}],1110:[function(require,module,exports){
+},{"buffer":1082}],1111:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.1
  * http://jquery.com/
@@ -108971,7 +108973,7 @@ return jQuery;
 
 }));
 
-},{}],1111:[function(require,module,exports){
+},{}],1112:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -115760,7 +115762,7 @@ return jQuery;
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],1112:[function(require,module,exports){
+},{}],1113:[function(require,module,exports){
 (function (global){
 //! moment.js
 //! version : 2.9.0
@@ -118807,7 +118809,7 @@ return jQuery;
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],1113:[function(require,module,exports){
+},{}],1114:[function(require,module,exports){
 /*
  * angular-ui-bootstrap
  * http://angular-ui.github.io/bootstrap/
