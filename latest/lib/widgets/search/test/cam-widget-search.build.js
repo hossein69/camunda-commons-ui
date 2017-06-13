@@ -1213,7 +1213,7 @@ module.exports = function() {
   };
 };
 
-},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1110}],6:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1112}],6:[function(require,module,exports){
 'use strict';
 
 
@@ -1370,7 +1370,7 @@ directivesModule.config([
 
 module.exports = directivesModule;
 
-},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":1113,"../util/index":18,"./autoFill":2,"./compileTemplate":3,"./email":4,"./engineSelect":5,"./inPlaceTextField":6,"./instantTypeahead":8,"./nl2br":9,"./notificationsPanel":10,"./passwordRepeat":11,"./showIfAuthorized":12,"camunda-bpm-sdk-js/vendor/angular":207}],8:[function(require,module,exports){
+},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":1115,"../util/index":18,"./autoFill":2,"./compileTemplate":3,"./email":4,"./engineSelect":5,"./inPlaceTextField":6,"./instantTypeahead":8,"./nl2br":9,"./notificationsPanel":10,"./passwordRepeat":11,"./showIfAuthorized":12,"camunda-bpm-sdk-js/vendor/angular":207}],8:[function(require,module,exports){
   'use strict';
 
   var secretEmptyKey = '[$empty$]';
@@ -1793,7 +1793,7 @@ filtersModule.config([
 
 module.exports = filtersModule;
 
-},{"angular-translate":45,"camunda-bpm-sdk-js/vendor/angular":207,"moment":1112}],15:[function(require,module,exports){
+},{"angular-translate":45,"camunda-bpm-sdk-js/vendor/angular":207,"moment":1114}],15:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular');
@@ -2636,7 +2636,7 @@ module.exports = ['$window', function($window) {
     template: '<!-- keule!! pech jehabt! -->'
   };
 }];
-},{"./../../chart/line":1,"./../../filter/abbreviateNumber":13,"lodash":1111,"moment":1112}],25:[function(require,module,exports){
+},{"./../../chart/line":1,"./../../filter/abbreviateNumber":13,"lodash":1113,"moment":1114}],25:[function(require,module,exports){
 'use strict';
 
 var Clipboard = require('clipboard');
@@ -3533,7 +3533,7 @@ widgetModule.filter('camQueryComponent', camQueryComponent);
 
 module.exports = widgetModule;
 
-},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":1113,"../directives/index":7,"../filter/date/index":14,"../search/index":15,"./../services/cam-local-configuration":16,"./bpmn-viewer/cam-widget-bpmn-viewer":22,"./cam-share-link/cam-share-link":23,"./chart-line/cam-widget-chart-line":24,"./clipboard/cam-widget-clipboard":25,"./cmmn-viewer/cam-widget-cmmn-viewer":26,"./debug/cam-widget-debug":27,"./dmn-viewer/cam-widget-dmn-viewer":28,"./footer/cam-widget-footer":29,"./header/cam-widget-header":30,"./inline-field/cam-widget-inline-field":32,"./loader/cam-widget-loader":33,"./search-pill/cam-query-component":34,"./search-pill/cam-widget-search-pill":35,"./search/cam-widget-search":36,"./variable/cam-variable-validator":39,"./variable/cam-widget-variable":40,"./variables-table/cam-render-var-template":41,"./variables-table/cam-widget-variables-table":42,"camunda-bpm-sdk-js/vendor/angular":207}],32:[function(require,module,exports){
+},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":1115,"../directives/index":7,"../filter/date/index":14,"../search/index":15,"./../services/cam-local-configuration":16,"./bpmn-viewer/cam-widget-bpmn-viewer":22,"./cam-share-link/cam-share-link":23,"./chart-line/cam-widget-chart-line":24,"./clipboard/cam-widget-clipboard":25,"./cmmn-viewer/cam-widget-cmmn-viewer":26,"./debug/cam-widget-debug":27,"./dmn-viewer/cam-widget-dmn-viewer":28,"./footer/cam-widget-footer":29,"./header/cam-widget-header":30,"./inline-field/cam-widget-inline-field":32,"./loader/cam-widget-loader":33,"./search-pill/cam-query-component":34,"./search-pill/cam-widget-search-pill":35,"./search/cam-widget-search":36,"./variable/cam-variable-validator":39,"./variable/cam-widget-variable":40,"./variables-table/cam-render-var-template":41,"./variables-table/cam-widget-variables-table":42,"camunda-bpm-sdk-js/vendor/angular":207}],32:[function(require,module,exports){
 'use strict';
 
 
@@ -3977,7 +3977,7 @@ module.exports = [
     };
   }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1110}],33:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1112}],33:[function(require,module,exports){
 'use strict';
 
 
@@ -4143,7 +4143,7 @@ module.exports = ['$timeout',
     };
   }];
 
-},{"jquery":1110}],36:[function(require,module,exports){
+},{"jquery":1112}],36:[function(require,module,exports){
 'use strict';
 
 
@@ -4832,7 +4832,7 @@ module.exports = ['$timeout', '$location', 'search', 'widgetLocalConf',
     };
   }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1110}],37:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1112}],37:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular'),
@@ -5344,7 +5344,7 @@ module.exports = [
     };
   }];
 
-},{"jquery":1110}],42:[function(require,module,exports){
+},{"jquery":1112}],42:[function(require,module,exports){
 'use strict';
 
 
@@ -14161,7 +14161,7 @@ if (!String.fromCodePoint) {
 })(typeof exports === "undefined" ? sax = {} : exports);
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":1082,"stream":1108,"string_decoder":1109}],68:[function(require,module,exports){
+},{"buffer":1084,"stream":1110,"string_decoder":1111}],68:[function(require,module,exports){
 /**
  * Tiny stack for browser or server
  *
@@ -50043,7 +50043,7 @@ arguments[4][65][0].apply(exports,arguments)
 arguments[4][66][0].apply(exports,arguments)
 },{"./common":236,"dup":66,"lodash/collection/filter":257,"lodash/collection/forEach":259,"lodash/collection/map":260,"lodash/lang/isString":335,"lodash/object/assign":337,"moddle/lib/ns":246,"moddle/lib/types":249}],239:[function(require,module,exports){
 arguments[4][67][0].apply(exports,arguments)
-},{"buffer":1082,"dup":67,"stream":1108,"string_decoder":1109}],240:[function(require,module,exports){
+},{"buffer":1084,"dup":67,"stream":1110,"string_decoder":1111}],240:[function(require,module,exports){
 arguments[4][68][0].apply(exports,arguments)
 },{"dup":68}],241:[function(require,module,exports){
 arguments[4][69][0].apply(exports,arguments)
@@ -75224,7 +75224,7 @@ Modeler.prototype._modules = [].concat(
   Modeler.prototype._interactionModules,
   Modeler.prototype._modelingModules);
 
-},{"./Viewer":688,"./features/context-pad":695,"./features/definition-id/modeler":698,"./features/editor-actions":703,"./features/keyboard":705,"./features/label-editing":709,"./features/modeling":721,"./features/palette":723,"./table/Modeler":735,"diagram-js/lib/features/bendpoints":391,"diagram-js/lib/features/move":444,"diagram-js/lib/features/overlays":448,"diagram-js/lib/navigation/movecanvas":477,"diagram-js/lib/navigation/touch":478,"diagram-js/lib/navigation/zoomscroll":481,"ids":849,"inherits":851,"lodash/object/assign":974}],687:[function(require,module,exports){
+},{"./Viewer":688,"./features/context-pad":695,"./features/definition-id/modeler":698,"./features/editor-actions":703,"./features/keyboard":705,"./features/label-editing":709,"./features/modeling":721,"./features/palette":723,"./table/Modeler":737,"diagram-js/lib/features/bendpoints":391,"diagram-js/lib/features/move":444,"diagram-js/lib/features/overlays":448,"diagram-js/lib/navigation/movecanvas":477,"diagram-js/lib/navigation/touch":478,"diagram-js/lib/navigation/zoomscroll":481,"ids":851,"inherits":853,"lodash/object/assign":976}],687:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -75254,7 +75254,7 @@ NavigatedViewer.prototype._modules = [].concat(
   NavigatedViewer.prototype._modules,
   NavigatedViewer.prototype._navigationModules);
 
-},{"./Viewer":688,"diagram-js/lib/navigation/movecanvas":477,"diagram-js/lib/navigation/zoomscroll":481,"inherits":851}],688:[function(require,module,exports){
+},{"./Viewer":688,"diagram-js/lib/navigation/movecanvas":477,"diagram-js/lib/navigation/zoomscroll":481,"inherits":853}],688:[function(require,module,exports){
 /**
  * The code in the <project-logo></project-logo> area
  * must not be changed.
@@ -75723,11 +75723,15 @@ Viewer.prototype._init = function(container, moddle, options) {
 Viewer.prototype._setupTableSwitchListeners = function(options) {
   var table = this.table;
 
+  var translate = this.get('translate', false) || function(str) {
+    return str;
+  };
+
   var self = this;
 
   table.get('eventBus').on('controls.init', function(event) {
 
-    event.controls.addControl('Show DRD', function() {
+    event.controls.addControl(translate('Show DRD'), function() {
       self.showDRD({ fromTable: true });
     });
   });
@@ -75786,6 +75790,7 @@ Viewer.prototype._createModdle = function(options) {
 // modules the viewer is composed of
 Viewer.prototype._modules = [
   require('./core'),
+  require('diagram-js/lib/i18n/translate'),
   require('diagram-js/lib/features/selection'),
   require('diagram-js/lib/features/overlays'),
   require('./features/rules'),
@@ -75834,7 +75839,7 @@ function addProjectLogo(container) {
 
 /* </project-logo> */
 
-},{"./core":689,"./features/definition-id/viewer":699,"./features/drill-down":701,"./features/rules":730,"./import/Importer":733,"./table/Viewer":736,"./util/ModelUtil":823,"./util/PoweredByUtil":824,"diagram-js":371,"diagram-js/lib/features/overlays":448,"diagram-js/lib/features/selection":463,"dmn-moddle":828,"inherits":851,"lodash/collection/filter":859,"lodash/lang/isNumber":970,"lodash/lang/isString":972,"lodash/object/assign":974,"lodash/object/omit":977,"min-dom/lib/domify":987,"min-dom/lib/event":988,"min-dom/lib/query":990,"min-dom/lib/remove":991,"tiny-svg/lib/innerSVG":1075}],689:[function(require,module,exports){
+},{"./core":689,"./features/definition-id/viewer":699,"./features/drill-down":701,"./features/rules":730,"./import/Importer":735,"./table/Viewer":738,"./util/ModelUtil":825,"./util/PoweredByUtil":826,"diagram-js":371,"diagram-js/lib/features/overlays":448,"diagram-js/lib/features/selection":463,"diagram-js/lib/i18n/translate":470,"dmn-moddle":830,"inherits":853,"lodash/collection/filter":861,"lodash/lang/isNumber":972,"lodash/lang/isString":974,"lodash/object/assign":976,"lodash/object/omit":979,"min-dom/lib/domify":989,"min-dom/lib/event":990,"min-dom/lib/query":992,"min-dom/lib/remove":993,"tiny-svg/lib/innerSVG":1077}],689:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -75844,7 +75849,7 @@ module.exports = {
   ]
 };
 
-},{"../draw":693,"../import":734}],690:[function(require,module,exports){
+},{"../draw":693,"../import":736}],690:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -75877,7 +75882,7 @@ DecisionLabelUpdater.prototype.updateDecisionLabels = function(context) {
 
 };
 
-},{"lodash/collection/forEach":861}],691:[function(require,module,exports){
+},{"lodash/collection/forEach":863}],691:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits'),
@@ -76320,7 +76325,7 @@ function getSemantic(element) {
   return element.businessObject;
 }
 
-},{"../util/ModelUtil":823,"diagram-js/lib/draw/BaseRenderer":382,"diagram-js/lib/util/RenderUtil":499,"diagram-js/lib/util/Text":501,"inherits":851,"lodash/lang/isArray":967,"lodash/lang/isObject":971,"lodash/object/assign":974,"min-dom/lib/classes":985,"min-dom/lib/query":990,"tiny-svg/lib/append":1070,"tiny-svg/lib/attr":1072,"tiny-svg/lib/create":1074}],692:[function(require,module,exports){
+},{"../util/ModelUtil":825,"diagram-js/lib/draw/BaseRenderer":382,"diagram-js/lib/util/RenderUtil":499,"diagram-js/lib/util/Text":501,"inherits":853,"lodash/lang/isArray":969,"lodash/lang/isObject":973,"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/query":992,"tiny-svg/lib/append":1072,"tiny-svg/lib/attr":1074,"tiny-svg/lib/create":1076}],692:[function(require,module,exports){
 'use strict';
 
 /**
@@ -76549,7 +76554,11 @@ var ModelUtil = require('../../util/ModelUtil'),
 /**
 * A provider for DMN 1.1 elements context pad
 */
-function ContextPadProvider(eventBus, contextPad, modeling, elementFactory, connect, create, rules, popupMenu, canvas) {
+function ContextPadProvider(
+  eventBus, contextPad, modeling,
+  elementFactory, connect, create,
+  rules, popupMenu, canvas,
+  translate) {
 
   contextPad.registerProvider(this);
 
@@ -76563,6 +76572,7 @@ function ContextPadProvider(eventBus, contextPad, modeling, elementFactory, conn
   this._rules = rules;
   this._popupMenu = popupMenu;
   this._canvas = canvas;
+  this._translate = translate;
 
 
   eventBus.on('create.end', 250, function(event) {
@@ -76589,7 +76599,8 @@ ContextPadProvider.$inject = [
   'create',
   'rules',
   'popupMenu',
-  'canvas'
+  'canvas',
+  'translate'
 ];
 
 module.exports = ContextPadProvider;
@@ -76605,8 +76616,8 @@ ContextPadProvider.prototype.getContextPadEntries = function(element) {
       popupMenu = this._popupMenu,
       canvas = this._canvas,
       contextPad = this._contextPad,
-      rules = this._rules;
-
+      rules = this._rules,
+      translate = this._translate;
 
   var actions = {};
 
@@ -76659,7 +76670,7 @@ ContextPadProvider.prototype.getContextPadEntries = function(element) {
 
     if (typeof title !== 'string') {
       options = title;
-      title = 'Append ' + type.replace(/^dmn\:/, '');
+      title = translate('Append {type}', { type: type.replace(/^dmn\:/, '') });
     }
 
     function appendListener(event, element) {
@@ -76711,7 +76722,7 @@ ContextPadProvider.prototype.getContextPadEntries = function(element) {
       'connect': {
         group: 'connect',
         className: 'dmn-icon-connection-multi',
-        title: 'Connect using Information/Knowledge/Authority Requirement or Association',
+        title: translate('Connect using Information/Knowledge/Authority Requirement or Association'),
         action: {
           click: startConnect,
           dragstart: startConnect
@@ -76733,7 +76744,7 @@ ContextPadProvider.prototype.getContextPadEntries = function(element) {
       'replace': {
         group: 'edit',
         className: 'dmn-icon-screw-wrench',
-        title: 'Change type',
+        title: translate('Change type'),
         action: {
           click: function(event, element) {
             replaceMenu.open(assign(getReplaceMenuPosition(element), {
@@ -76759,7 +76770,7 @@ ContextPadProvider.prototype.getContextPadEntries = function(element) {
       'delete': {
         group: 'edit',
         className: 'dmn-icon-trash',
-        title: 'Remove',
+        title: translate('Remove'),
         action: {
           click: removeElement,
           dragstart: removeElement
@@ -76771,11 +76782,12 @@ ContextPadProvider.prototype.getContextPadEntries = function(element) {
   return actions;
 };
 
-},{"../../util/ModelUtil":823,"diagram-js/lib/util/Mouse":495,"lodash/lang/isArray":967,"lodash/object/assign":974}],695:[function(require,module,exports){
+},{"../../util/ModelUtil":825,"diagram-js/lib/util/Mouse":495,"lodash/lang/isArray":969,"lodash/object/assign":976}],695:[function(require,module,exports){
 'use strict';
 
 module.exports = {
   __depends__: [
+    require('diagram-js/lib/i18n/translate'),
     require('diagram-js/lib/features/context-pad'),
     require('diagram-js/lib/features/selection'),
     require('diagram-js/lib/features/connect'),
@@ -76786,7 +76798,7 @@ module.exports = {
   contextPadProvider: [ 'type', require('./ContextPadProvider') ]
 };
 
-},{"../popup-menu":725,"./ContextPadProvider":694,"diagram-js/lib/features/connect":397,"diagram-js/lib/features/context-pad":399,"diagram-js/lib/features/create":403,"diagram-js/lib/features/selection":463}],696:[function(require,module,exports){
+},{"../popup-menu":725,"./ContextPadProvider":694,"diagram-js/lib/features/connect":397,"diagram-js/lib/features/context-pad":399,"diagram-js/lib/features/create":403,"diagram-js/lib/features/selection":463,"diagram-js/lib/i18n/translate":470}],696:[function(require,module,exports){
 'use strict';
 
 var domQuery = require('min-dom/lib/query');
@@ -76835,7 +76847,7 @@ DefinitionIdEdit.prototype._setup = function(node, type) {
 
 };
 
-},{"min-dom/lib/query":990}],697:[function(require,module,exports){
+},{"min-dom/lib/query":992}],697:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -76898,7 +76910,7 @@ DefinitionIdView.HTML_MARKUP =
     '<div class="dmn-definitions-id" title="Definition ID"></div>' +
   '</div>';
 
-},{"min-dom/lib/delegate":986,"min-dom/lib/domify":987,"min-dom/lib/query":990}],698:[function(require,module,exports){
+},{"min-dom/lib/delegate":988,"min-dom/lib/domify":989,"min-dom/lib/query":992}],698:[function(require,module,exports){
 module.exports = {
   __depends__: [ ],
   __init__: [ 'definitionIdEdit' ],
@@ -76976,7 +76988,7 @@ DrillDown.prototype.bindEventListener = function(decision, overlay, id) {
   });
 };
 
-},{"min-dom/lib/delegate":986,"min-dom/lib/domify":987}],701:[function(require,module,exports){
+},{"min-dom/lib/delegate":988,"min-dom/lib/domify":989}],701:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -77041,7 +77053,7 @@ DrdEditorActions.$inject = [
 
 module.exports = DrdEditorActions;
 
-},{"diagram-js/lib/features/editor-actions/EditorActions":407,"inherits":851}],703:[function(require,module,exports){
+},{"diagram-js/lib/features/editor-actions/EditorActions":407,"inherits":853}],703:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -77242,7 +77254,7 @@ LabelEditingProvider.prototype.update = function(element, newLabel) {
   });
 };
 
-},{"../../util/ModelUtil":823,"./LabelUtil":707,"./cmd/UpdateLabelHandler":708}],707:[function(require,module,exports){
+},{"../../util/ModelUtil":825,"./LabelUtil":707,"./cmd/UpdateLabelHandler":708}],707:[function(require,module,exports){
 'use strict';
 
 var is = require('../../util/ModelUtil').is;
@@ -77287,7 +77299,7 @@ module.exports.setLabel = function(element, text, isExternal) {
   return element;
 };
 
-},{"../../util/ModelUtil":823}],708:[function(require,module,exports){
+},{"../../util/ModelUtil":825}],708:[function(require,module,exports){
 'use strict';
 
 var LabelUtil = require('../LabelUtil');
@@ -77346,7 +77358,7 @@ module.exports = {
   labelEditingProvider: [ 'type', require('./LabelEditingProvider') ]
 };
 
-},{"./LabelEditingProvider":706,"diagram-js-direct-editing":825,"diagram-js/lib/command":375,"diagram-js/lib/features/change-support":393}],710:[function(require,module,exports){
+},{"./LabelEditingProvider":706,"diagram-js-direct-editing":827,"diagram-js/lib/command":375,"diagram-js/lib/features/change-support":393}],710:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -77412,7 +77424,7 @@ DrdFactory.prototype.createDiWaypoint = function(waypoint) {
 
 module.exports = DrdFactory;
 
-},{"lodash/collection/forEach":861}],711:[function(require,module,exports){
+},{"lodash/collection/forEach":863}],711:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -77460,7 +77472,7 @@ function getConnectionDocking(point, shape) {
   return point ? (point.original || point) : getMid(shape);
 }
 
-},{"diagram-js/lib/layout/BaseLayouter":472,"diagram-js/lib/layout/LayoutUtil":474,"inherits":851}],712:[function(require,module,exports){
+},{"diagram-js/lib/layout/BaseLayouter":472,"diagram-js/lib/layout/LayoutUtil":474,"inherits":853}],712:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -77856,7 +77868,7 @@ DrdUpdater.prototype.updateConnectionWaypoints = function(context) {
   });
 };
 
-},{"../../util/ModelUtil":823,"diagram-js/lib/command/CommandInterceptor":373,"diagram-js/lib/util/Collections":484,"inherits":851,"lodash/collection/forEach":861,"lodash/collection/map":863,"lodash/object/assign":974,"lodash/object/pick":979}],713:[function(require,module,exports){
+},{"../../util/ModelUtil":825,"diagram-js/lib/command/CommandInterceptor":373,"diagram-js/lib/util/Collections":484,"inherits":853,"lodash/collection/forEach":863,"lodash/collection/map":865,"lodash/object/assign":976,"lodash/object/pick":981}],713:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -77941,7 +77953,7 @@ ElementFactory.prototype._getDefaultSize = function(semantic) {
   return { width: 100, height: 80 };
 };
 
-},{"../../util/ModelUtil":823,"diagram-js/lib/core/ElementFactory":377,"inherits":851,"lodash/object/assign":974}],714:[function(require,module,exports){
+},{"../../util/ModelUtil":825,"diagram-js/lib/core/ElementFactory":377,"inherits":853,"lodash/object/assign":976}],714:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -78018,7 +78030,7 @@ Modeling.prototype.connect = function(source, target, attrs, hints) {
   return this.createConnection(source, target, attrs, rootElement, hints);
 };
 
-},{"./cmd/IdClaimHandler.js":719,"./cmd/UpdatePropertiesHandler.js":720,"diagram-js/lib/features/modeling/Modeling":415,"inherits":851}],715:[function(require,module,exports){
+},{"./cmd/IdClaimHandler.js":719,"./cmd/UpdatePropertiesHandler.js":720,"diagram-js/lib/features/modeling/Modeling":415,"inherits":853}],715:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -78101,7 +78113,7 @@ inherits(CreateConnectionBehavior, CommandInterceptor);
 
 module.exports = CreateConnectionBehavior;
 
-},{"../../../util/ModelUtil":823,"diagram-js/lib/command/CommandInterceptor":373,"diagram-js/lib/layout/LayoutUtil":474,"inherits":851}],716:[function(require,module,exports){
+},{"../../../util/ModelUtil":825,"diagram-js/lib/command/CommandInterceptor":373,"diagram-js/lib/layout/LayoutUtil":474,"inherits":853}],716:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -78168,7 +78180,7 @@ ReplaceConnectionBehavior.$inject = [ 'eventBus', 'modeling', 'drdRules' ];
 
 module.exports = ReplaceConnectionBehavior;
 
-},{"diagram-js/lib/command/CommandInterceptor":373,"inherits":851,"lodash/collection/filter":859}],717:[function(require,module,exports){
+},{"diagram-js/lib/command/CommandInterceptor":373,"inherits":853,"lodash/collection/filter":861}],717:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -78228,7 +78240,7 @@ ReplaceElementBehaviour.$inject = [ 'eventBus', 'modeling' ];
 
 module.exports = ReplaceElementBehaviour;
 
-},{"diagram-js/lib/command/CommandInterceptor":373,"inherits":851,"lodash/collection/filter":859,"lodash/collection/forEach":861}],718:[function(require,module,exports){
+},{"diagram-js/lib/command/CommandInterceptor":373,"inherits":853,"lodash/collection/filter":861,"lodash/collection/forEach":863}],718:[function(require,module,exports){
 module.exports = {
   __init__: [
     'createConnectionBehavior',
@@ -78413,7 +78425,7 @@ function setProperties(businessObject, properties) {
   });
 }
 
-},{"lodash/collection/forEach":861,"lodash/object/keys":975,"lodash/object/transform":980}],721:[function(require,module,exports){
+},{"lodash/collection/forEach":863,"lodash/object/keys":977,"lodash/object/transform":982}],721:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -78443,12 +78455,13 @@ var assign = require('lodash/object/assign');
 /**
  * A palette provider for DMN 1.1 elements.
  */
-function PaletteProvider(palette, create, elementFactory, lassoTool) {
+function PaletteProvider(palette, create, elementFactory, lassoTool, translate) {
 
   this._palette = palette;
   this._create = create;
   this._elementFactory = elementFactory;
   this._lassoTool = lassoTool;
+  this._translate = translate;
 
   palette.registerProvider(this);
 }
@@ -78459,7 +78472,8 @@ PaletteProvider.$inject = [
   'palette',
   'create',
   'elementFactory',
-  'lassoTool'
+  'lassoTool',
+  'translate'
 ];
 
 
@@ -78468,7 +78482,8 @@ PaletteProvider.prototype.getPaletteEntries = function(element) {
   var actions  = {},
       create = this._create,
       elementFactory = this._elementFactory,
-      lassoTool = this._lassoTool;
+      lassoTool = this._lassoTool,
+      translate = this._translate;
 
   function createAction(type, group, className, title, options) {
 
@@ -78493,7 +78508,7 @@ PaletteProvider.prototype.getPaletteEntries = function(element) {
     'lasso-tool': {
       group: 'tools',
       className: 'dmn-icon-lasso-tool',
-      title: 'Activate the lasso tool',
+      title: translate('Activate the lasso tool'),
       action: {
         click: function(event) {
           lassoTool.activateSelection(event);
@@ -78521,9 +78536,10 @@ PaletteProvider.prototype.getPaletteEntries = function(element) {
   return actions;
 };
 
-},{"lodash/object/assign":974}],723:[function(require,module,exports){
+},{"lodash/object/assign":976}],723:[function(require,module,exports){
 module.exports = {
   __depends__: [
+    require('diagram-js/lib/i18n/translate'),
     require('diagram-js/lib/features/palette'),
     require('diagram-js/lib/features/create'),
     require('diagram-js/lib/features/lasso-tool')
@@ -78532,7 +78548,7 @@ module.exports = {
   paletteProvider: [ 'type', require('./PaletteProvider') ]
 };
 
-},{"./PaletteProvider":722,"diagram-js/lib/features/create":403,"diagram-js/lib/features/lasso-tool":414,"diagram-js/lib/features/palette":450}],724:[function(require,module,exports){
+},{"./PaletteProvider":722,"diagram-js/lib/features/create":403,"diagram-js/lib/features/lasso-tool":414,"diagram-js/lib/features/palette":450,"diagram-js/lib/i18n/translate":470}],724:[function(require,module,exports){
 'use strict';
 
 var is = require('../../util/ModelUtil').is;
@@ -78546,18 +78562,26 @@ var replaceOptions = require ('../replace/ReplaceOptions');
 /**
  * This module is an element agnostic replace menu provider for the popup menu.
  */
-function ReplaceMenuProvider(popupMenu, modeling, moddle, drdReplace, rules) {
+function ReplaceMenuProvider(popupMenu, modeling, moddle, drdReplace, rules, translate) {
 
   this._popupMenu = popupMenu;
   this._modeling = modeling;
   this._moddle = moddle;
   this._drdReplace = drdReplace;
   this._rules = rules;
+  this._translate = translate;
 
   this.register();
 }
 
-ReplaceMenuProvider.$inject = [ 'popupMenu', 'modeling', 'moddle', 'drdReplace', 'rules' ];
+ReplaceMenuProvider.$inject = [
+  'popupMenu',
+  'modeling',
+  'moddle',
+  'drdReplace',
+  'rules',
+  'translate'
+];
 
 
 /**
@@ -78638,6 +78662,7 @@ ReplaceMenuProvider.prototype._createEntries = function(element, replaceOptions)
  */
 ReplaceMenuProvider.prototype._createMenuEntry = function(definition, element, action) {
   var replaceElement = this._drdReplace.replaceElement;
+  var translate = this._translate;
 
   var replaceAction = function() {
     return replaceElement(element, definition.target);
@@ -78646,7 +78671,7 @@ ReplaceMenuProvider.prototype._createMenuEntry = function(definition, element, a
   action = action || replaceAction;
 
   var menuEntry = {
-    label: definition.label,
+    label: translate(definition.label),
     className: definition.className,
     id: definition.actionName,
     action: action
@@ -78662,9 +78687,10 @@ ReplaceMenuProvider.prototype.getHeaderEntries = function(element) {
 
 module.exports = ReplaceMenuProvider;
 
-},{"../../util/ModelUtil":823,"../replace/ReplaceOptions":727,"lodash/collection/filter":859,"lodash/collection/forEach":861}],725:[function(require,module,exports){
+},{"../../util/ModelUtil":825,"../replace/ReplaceOptions":727,"lodash/collection/filter":861,"lodash/collection/forEach":863}],725:[function(require,module,exports){
 module.exports = {
   __depends__: [
+    require('diagram-js/lib/i18n/translate'),
     require('diagram-js/lib/features/popup-menu'),
     require('../replace')
   ],
@@ -78672,7 +78698,7 @@ module.exports = {
   replaceMenuProvider: [ 'type', require('./ReplaceMenuProvider') ]
 };
 
-},{"../replace":728,"./ReplaceMenuProvider":724,"diagram-js/lib/features/popup-menu":452}],726:[function(require,module,exports){
+},{"../replace":728,"./ReplaceMenuProvider":724,"diagram-js/lib/features/popup-menu":452,"diagram-js/lib/i18n/translate":470}],726:[function(require,module,exports){
 'use strict';
 
 /**
@@ -78918,7 +78944,7 @@ function canDrillDown(element) {
   return false;
 }
 
-},{"../../util/ModelUtil":823,"diagram-js/lib/features/rules/RuleProvider":457,"inherits":851}],730:[function(require,module,exports){
+},{"../../util/ModelUtil":825,"diagram-js/lib/features/rules/RuleProvider":457,"inherits":853}],730:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -78930,6 +78956,60 @@ module.exports = {
 };
 
 },{"./DrdRules":729,"diagram-js/lib/features/rules":459}],731:[function(require,module,exports){
+'use strict';
+
+var FILTER_REGEX = /^\s*(?:'([^']+)')\s*(?:\|\s*(\w+)\s*)?$/g;
+var TEMPLATE_REGEX = /{{([^}]+)}}/g;
+
+/**
+ * A parser that processes loaded (HTML) templates
+ * before they get used by the app.
+ *
+ * @param {Function} translate
+ *
+ * @return {Function} template parser fn
+ */
+function ParseTemplateFactory(translate) {
+
+  var filters = {
+    translate: translate
+  };
+
+  function applyFilters(expr) {
+    // match expression | filter
+    return expr.replace(FILTER_REGEX, function(_, expr, filterName, str) {
+      var s = str || applyFilters(expr);
+      var cb = filters[filterName];
+      if (typeof cb === 'function') {
+        return cb(s);
+      } else {
+        return s;
+      }
+    });
+  }
+
+  return function parseTemplate(templateStr) {
+    return templateStr.replace(TEMPLATE_REGEX, function(_, expr) {
+      return applyFilters(expr);
+    });
+  };
+
+}
+
+ParseTemplateFactory.$inject = [ 'translate' ];
+
+module.exports = ParseTemplateFactory;
+},{}],732:[function(require,module,exports){
+'use strict';
+
+module.exports = {
+  __depends__: [
+    require('diagram-js/lib/i18n/translate')
+  ],
+  parseTemplate: [ 'factory', require('./ParseTemplateFactory') ]
+};
+
+},{"./ParseTemplateFactory":731,"diagram-js/lib/i18n/translate":470}],733:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -79046,7 +79126,7 @@ DrdImporter.prototype._getShape = function(id) {
   return this._elementRegistry.get(id);
 };
 
-},{"../util/ModelUtil":823,"lodash/collection/map":863,"lodash/object/assign":974}],732:[function(require,module,exports){
+},{"../util/ModelUtil":825,"lodash/collection/map":865,"lodash/object/assign":976}],734:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -79189,7 +79269,7 @@ function DRDTreeWalker(handler, options) {
 
 module.exports = DRDTreeWalker;
 
-},{"../util/ModelUtil":823,"lodash/collection/find":860,"lodash/collection/forEach":861}],733:[function(require,module,exports){
+},{"../util/ModelUtil":825,"lodash/collection/find":862,"lodash/collection/forEach":863}],735:[function(require,module,exports){
 'use strict';
 
 var DrdTreeWalker = require('./DrdTreeWalker');
@@ -79253,14 +79333,14 @@ function importDRD(canvas, definitions, done) {
 
 module.exports.importDRD = importDRD;
 
-},{"./DrdTreeWalker":732}],734:[function(require,module,exports){
+},{"./DrdTreeWalker":734}],736:[function(require,module,exports){
 'use strict';
 
 module.exports = {
   drdImporter: [ 'type', require('./DrdImporter') ]
 };
 
-},{"./DrdImporter":731}],735:[function(require,module,exports){
+},{"./DrdImporter":733}],737:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -79456,7 +79536,7 @@ Modeler.prototype._modules = [].concat(
   Modeler.prototype._modules,
   Modeler.prototype._modelingModules);
 
-},{"./Viewer":736,"./features/column-drag":745,"./features/context-menu":747,"./features/date-edit/modeler":750,"./features/descriptions/editing":757,"./features/editor-actions":760,"./features/expression-language":762,"./features/modeling":794,"./features/number-edit":796,"./features/simple-editing":801,"./features/string-edit/modeler":806,"ids":849,"inherits":851,"lodash/object/assign":974,"table-js/lib/features/editing":1024,"table-js/lib/features/keyboard":1030,"table-js/lib/features/row-drag":1048}],736:[function(require,module,exports){
+},{"./Viewer":738,"./features/column-drag":747,"./features/context-menu":749,"./features/date-edit/modeler":752,"./features/descriptions/editing":759,"./features/editor-actions":762,"./features/expression-language":764,"./features/modeling":796,"./features/number-edit":798,"./features/simple-editing":803,"./features/string-edit/modeler":808,"ids":851,"inherits":853,"lodash/object/assign":976,"table-js/lib/features/editing":1026,"table-js/lib/features/keyboard":1032,"table-js/lib/features/row-drag":1050}],738:[function(require,module,exports){
 /**
  * The code in the <project-logo></project-logo> area
  * must not be changed.
@@ -79857,6 +79937,7 @@ Viewer.prototype.off = function(event, callback) {
 // modules the viewer is composed of
 Viewer.prototype._modules = [
   require('./core'),
+  require('diagram-js/lib/i18n/translate'),
   require('table-js/lib/features/line-numbers'),
   require('./features/io-label'),
   require('./features/table-name'),
@@ -79914,7 +79995,7 @@ function addProjectLogo(container) {
 
 /* </project-logo> */
 
-},{"../util/ModelUtil":823,"./../util/PoweredByUtil":824,"./core":737,"./features/annotations":742,"./features/date-edit/viewer":754,"./features/descriptions":758,"./features/hit-policy":768,"./features/io-label":772,"./features/literal-expression":775,"./features/mappings-row":779,"./features/simple-mode":803,"./features/string-edit/viewer":810,"./features/table-name":812,"./features/type-row":816,"./import/Importer":817,"dmn-moddle":828,"inherits":851,"lodash/collection/filter":859,"lodash/lang/isString":972,"lodash/object/assign":974,"lodash/object/omit":977,"min-dom/lib/domify":987,"min-dom/lib/event":988,"min-dom/lib/query":990,"min-dom/lib/remove":991,"table-js":1001,"table-js/lib/features/combo-box":1016,"table-js/lib/features/complex-cell":1018,"table-js/lib/features/controls":1020,"table-js/lib/features/interaction-events":1028,"table-js/lib/features/line-numbers":1032}],737:[function(require,module,exports){
+},{"../util/ModelUtil":825,"./../util/PoweredByUtil":826,"./core":739,"./features/annotations":744,"./features/date-edit/viewer":756,"./features/descriptions":760,"./features/hit-policy":770,"./features/io-label":774,"./features/literal-expression":777,"./features/mappings-row":781,"./features/simple-mode":805,"./features/string-edit/viewer":812,"./features/table-name":814,"./features/type-row":818,"./import/Importer":819,"diagram-js/lib/i18n/translate":470,"dmn-moddle":830,"inherits":853,"lodash/collection/filter":861,"lodash/lang/isString":974,"lodash/object/assign":976,"lodash/object/omit":979,"min-dom/lib/domify":989,"min-dom/lib/event":990,"min-dom/lib/query":992,"min-dom/lib/remove":993,"table-js":1003,"table-js/lib/features/combo-box":1018,"table-js/lib/features/complex-cell":1020,"table-js/lib/features/controls":1022,"table-js/lib/features/interaction-events":1030,"table-js/lib/features/line-numbers":1034}],739:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('../import'),
@@ -79922,7 +80003,7 @@ module.exports = {
   ]
 };
 
-},{"../draw":739,"../import":821}],738:[function(require,module,exports){
+},{"../draw":741,"../import":823}],740:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -80014,13 +80095,13 @@ DmnRenderer.$inject = [ 'eventBus', 'elementRegistry', 'sheet', 'config' ];
 
 module.exports = DmnRenderer;
 
-},{"min-dom/lib/classes":985}],739:[function(require,module,exports){
+},{"min-dom/lib/classes":987}],741:[function(require,module,exports){
 module.exports = {
   __init__: [ 'tableRenderer' ],
   tableRenderer: [ 'type', require('./TableRenderer') ]
 };
 
-},{"./TableRenderer":738}],740:[function(require,module,exports){
+},{"./TableRenderer":740}],742:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -80030,7 +80111,7 @@ var domify = require('min-dom/lib/domify');
  *
  * @param {EventBus} eventBus
  */
-function Annotations(eventBus, sheet, elementRegistry, graphicsFactory) {
+function Annotations(eventBus, sheet, elementRegistry, graphicsFactory, translate) {
 
   this.column = null;
 
@@ -80056,7 +80137,7 @@ function Annotations(eventBus, sheet, elementRegistry, graphicsFactory) {
 
     labelCell.rowspan = 4;
 
-    labelCell.content = domify('Annotation');
+    labelCell.content = domify(translate('Annotation'));
 
     graphicsFactory.update('column', column, elementRegistry.getGraphics(this.column.id));
 
@@ -80076,7 +80157,10 @@ function Annotations(eventBus, sheet, elementRegistry, graphicsFactory) {
   }, this);
 }
 
-Annotations.$inject = [ 'eventBus', 'sheet', 'elementRegistry', 'graphicsFactory' ];
+Annotations.$inject = [
+  'eventBus', 'sheet', 'elementRegistry',
+  'graphicsFactory', 'translate'
+];
 
 module.exports = Annotations;
 
@@ -80084,7 +80168,7 @@ Annotations.prototype.getColumn = function() {
   return this.column;
 };
 
-},{"min-dom/lib/domify":987}],741:[function(require,module,exports){
+},{"min-dom/lib/domify":989}],743:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -80111,16 +80195,17 @@ AnnotationsRenderer.$inject = [
 
 module.exports = AnnotationsRenderer;
 
-},{"min-dom/lib/classes":985}],742:[function(require,module,exports){
+},{"min-dom/lib/classes":987}],744:[function(require,module,exports){
 module.exports = {
   __init__: [ 'annotations', 'annotationsRenderer'],
   __depends__: [
+    require('diagram-js/lib/i18n/translate')
   ],
   annotations: [ 'type', require('./Annotations') ],
   annotationsRenderer: [ 'type', require('./AnnotationsRenderer') ]
 };
 
-},{"./Annotations":740,"./AnnotationsRenderer":741}],743:[function(require,module,exports){
+},{"./Annotations":742,"./AnnotationsRenderer":743,"diagram-js/lib/i18n/translate":470}],745:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -80374,7 +80459,7 @@ ColumnDrag.prototype.isDragging = function() {
   return !!this.draggedElement;
 };
 
-},{"lodash/collection/forEach":861,"min-dom/lib/classes":985,"min-dom/lib/domify":987}],744:[function(require,module,exports){
+},{"lodash/collection/forEach":863,"min-dom/lib/classes":987,"min-dom/lib/domify":989}],746:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -80409,20 +80494,22 @@ DragRenderer.$inject = [
 
 module.exports = DragRenderer;
 
-},{"min-dom/lib/classes":985,"min-dom/lib/domify":987}],745:[function(require,module,exports){
+},{"min-dom/lib/classes":987,"min-dom/lib/domify":989}],747:[function(require,module,exports){
 module.exports = {
   __init__: [ 'columnDrag', 'columnDragRenderer' ],
-  __depends__: [],
   columnDrag: [ 'type', require('./ColumnDrag') ],
   columnDragRenderer: [ 'type', require('./DragRenderer') ]
 };
 
-},{"./ColumnDrag":743,"./DragRenderer":744}],746:[function(require,module,exports){
+},{"./ColumnDrag":745,"./DragRenderer":746}],748:[function(require,module,exports){
 'use strict';
 
 var getEntriesType = require('../../util/SelectionUtil').getEntriesType;
 
-function ContextMenu(popupMenu, eventBus, modeling, elementRegistry, editorActions, selection, sheet) {
+function ContextMenu(
+  popupMenu, eventBus, modeling,
+  elementRegistry, editorActions, selection,
+  sheet) {
 
   this._popupMenu = popupMenu;
   this._eventBus = eventBus;
@@ -80470,7 +80557,11 @@ function ContextMenu(popupMenu, eventBus, modeling, elementRegistry, editorActio
 
 }
 
-ContextMenu.$inject = [ 'popupMenu', 'eventBus', 'modeling', 'elementRegistry', 'editorActions', 'selection', 'sheet' ];
+ContextMenu.$inject = [
+  'popupMenu', 'eventBus', 'modeling',
+  'elementRegistry', 'editorActions', 'selection',
+  'sheet'
+];
 
 module.exports = ContextMenu;
 
@@ -80660,7 +80751,7 @@ ContextMenu.prototype.ruleClearAction = function() {
   this.close();
 };
 
-},{"../../util/SelectionUtil":822}],747:[function(require,module,exports){
+},{"../../util/SelectionUtil":824}],749:[function(require,module,exports){
 module.exports = {
   __init__: [ 'contextMenu' ],
   __depends__: [
@@ -80669,7 +80760,7 @@ module.exports = {
   contextMenu: [ 'type', require('./ContextMenu') ]
 };
 
-},{"./ContextMenu":746,"table-js/lib/features/popup-menu":1045}],748:[function(require,module,exports){
+},{"./ContextMenu":748,"table-js/lib/features/popup-menu":1047}],750:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign');
@@ -80693,7 +80784,11 @@ var setValue = function(input, value) {
   }
 };
 
-function DateEdit(eventBus, simpleMode, elementRegistry, graphicsFactory, modeling, complexCell, selection) {
+function DateEdit(
+  eventBus, simpleMode, elementRegistry,
+  graphicsFactory, modeling, complexCell,
+  selection, parseTemplate) {
+
   this._eventBus = eventBus;
   this._simpleMode = simpleMode;
   this._elementRegistry = elementRegistry;
@@ -80701,6 +80796,7 @@ function DateEdit(eventBus, simpleMode, elementRegistry, graphicsFactory, modeli
   this._modeling = modeling;
   this._complexCell = complexCell;
   this._selection = selection;
+  this._parseTemplate = parseTemplate;
 
   var refreshHandler = function() {
     if (this._simpleMode.isActive()) {
@@ -80760,6 +80856,7 @@ DateEdit.prototype.setupComplexCells = function() {
   var graphicsFactory = this._graphicsFactory;
   var elementRegistry = this._elementRegistry;
   var complexCell = this._complexCell;
+  var parseTemplate = this._parseTemplate;
 
   elementRegistry.forEach(function(element) {
     if (isDateCell(element)) {
@@ -80786,9 +80883,9 @@ DateEdit.prototype.setupComplexCells = function() {
 
       var node;
       if (element.column.type === 'dmn:InputClause') {
-        node = domify(require('./template-input.html'));
+        node = domify(parseTemplate(require('./template-input.html')));
       } else {
-        node = domify(require('./template-output.html'));
+        node = domify(parseTemplate(require('./template-output.html')));
       }
 
       // set the initial state based on the cell content
@@ -80930,11 +81027,15 @@ DateEdit.prototype.teardownComplexCells = function() {
   });
 };
 
-DateEdit.$inject = [ 'eventBus', 'simpleMode', 'elementRegistry', 'graphicsFactory', 'modeling', 'complexCell', 'selection' ];
+DateEdit.$inject = [
+  'eventBus', 'simpleMode', 'elementRegistry',
+  'graphicsFactory', 'modeling', 'complexCell',
+  'selection', 'parseTemplate'
+];
 
 module.exports = DateEdit;
 
-},{"./template-input.html":751,"./template-output.html":752,"./utils":753,"lodash/object/assign":974,"min-dom/lib/classes":985,"min-dom/lib/domify":987}],749:[function(require,module,exports){
+},{"./template-input.html":753,"./template-output.html":754,"./utils":755,"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/domify":989}],751:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -81024,7 +81125,7 @@ DateView.$inject = ['eventBus', 'simpleMode'];
 
 module.exports = DateView;
 
-},{"./utils":753,"min-dom/lib/domify":987}],750:[function(require,module,exports){
+},{"./utils":755,"min-dom/lib/domify":989}],752:[function(require,module,exports){
 module.exports = {
   __init__: [ 'dateEdit' ],
   __depends__: [],
@@ -81032,13 +81133,13 @@ module.exports = {
 };
 
 
-},{"./DateEdit":748}],751:[function(require,module,exports){
-module.exports = "<div>\n  <h4>Edit Date Condition</h4>\n  <select class=\"dateEdit-type-dropdown\">\n    <option value=\"exact\">Exactly</option>\n    <option value=\"before\">Before</option>\n    <option value=\"after\">After</option>\n    <option value=\"between\">Between</option>\n  </select>\n  <div class=\"date-1\">\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>Today</button>\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\n  </div>\n  <div class=\"date-2\" style=\"display: none;\">\n    <div>and</div>\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>Today</button>\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\n  </div>\n</div>\n";
+},{"./DateEdit":750}],753:[function(require,module,exports){
+module.exports = "<div>\r\n  <h4>{{ 'Edit Date Condition' | translate }}</h4>\r\n  <select class=\"dateEdit-type-dropdown\">\r\n    <option value=\"exact\">{{ 'Exactly' | translate }}</option>\r\n    <option value=\"before\">{{ 'Before' | translate }}</option>\r\n    <option value=\"after\">{{ 'After' | translate }}</option>\r\n    <option value=\"between\">{{ 'Between' | translate }}</option>\r\n  </select>\r\n  <div class=\"date-1\">\r\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>{{ 'Today' | translate }}</button>\r\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\r\n  </div>\r\n  <div class=\"date-2\" style=\"display: none;\">\r\n    <div>and</div>\r\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>{{ 'Today' | translate }}</button>\r\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\r\n  </div>\r\n</div>\r\n";
 
-},{}],752:[function(require,module,exports){
-module.exports = "<div>\n  <h4>Edit Date Result</h4>\n  <div class=\"date-1\">\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>Today</button>\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\n  </div>\n</div>\n";
+},{}],754:[function(require,module,exports){
+module.exports = "<div>\r\n  <h4>{{ 'Edit Date Result' | translate }}</h4>\r\n  <div class=\"date-1\">\r\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>{{ 'Today' | translate }}</button>\r\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\r\n  </div>\r\n</div>\r\n";
 
-},{}],753:[function(require,module,exports){
+},{}],755:[function(require,module,exports){
 'use strict';
 
 var hasDateType = function(column) {
@@ -81109,7 +81210,7 @@ module.exports = {
   }
 };
 
-},{}],754:[function(require,module,exports){
+},{}],756:[function(require,module,exports){
 module.exports = {
   __init__: [ 'dateView' ],
   __depends__: [],
@@ -81117,7 +81218,7 @@ module.exports = {
 };
 
 
-},{"./DateView":749}],755:[function(require,module,exports){
+},{"./DateView":751}],757:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -81223,7 +81324,7 @@ Descriptions.prototype.openPopover = function(context) {
   node.textContent = context.content.description;
 };
 
-},{"diagram-js/lib/util/Mouse":495,"min-dom/lib/domify":987}],756:[function(require,module,exports){
+},{"diagram-js/lib/util/Mouse":495,"min-dom/lib/domify":989}],758:[function(require,module,exports){
 'use strict';
 
 var debounce = require('lodash/function/debounce');
@@ -81293,20 +81394,20 @@ DescriptionsEditing.prototype.addComment = function(context) {
   descriptions.openPopover(context);
 };
 
-},{"lodash/function/debounce":868}],757:[function(require,module,exports){
+},{"lodash/function/debounce":870}],759:[function(require,module,exports){
 module.exports = {
   __init__: [ 'descriptionsEditing' ],
   descriptionsEditing: [ 'type', require('./DescriptionsEditing') ]
 };
 
 
-},{"./DescriptionsEditing":756}],758:[function(require,module,exports){
+},{"./DescriptionsEditing":758}],760:[function(require,module,exports){
 module.exports = {
   __init__: [ 'descriptions' ],
   descriptions: [ 'type', require('./Descriptions') ]
 };
 
-},{"./Descriptions":755}],759:[function(require,module,exports){
+},{"./Descriptions":757}],761:[function(require,module,exports){
 'use strict';
 
 var ids = new (require('diagram-js/lib/util/IdGenerator'))('table');
@@ -81497,13 +81598,16 @@ DmnEditorActions.$inject = [ 'modeling', 'elementRegistry', 'selection', 'editor
 
 module.exports = DmnEditorActions;
 
-},{"diagram-js/lib/util/IdGenerator":491}],760:[function(require,module,exports){
+},{"diagram-js/lib/util/IdGenerator":491}],762:[function(require,module,exports){
 module.exports = {
   __init__: [ 'dmnEditorActions' ],
+  __depends__: [
+    require('diagram-js/lib/i18n/translate')
+  ],
   dmnEditorActions: [ 'type', require('./DmnEditorActions') ]
 };
 
-},{"./DmnEditorActions":759}],761:[function(require,module,exports){
+},{"./DmnEditorActions":761,"diagram-js/lib/i18n/translate":470}],763:[function(require,module,exports){
 'use strict';
 
 var ComboBox = require('table-js/lib/features/combo-box');
@@ -81586,7 +81690,7 @@ ExpressionLanguage.$inject = [ 'eventBus', 'modeling', 'contextMenu', 'elementRe
 
 module.exports = ExpressionLanguage;
 
-},{"lodash/function/debounce":868,"table-js/lib/features/combo-box":1016}],762:[function(require,module,exports){
+},{"lodash/function/debounce":870,"table-js/lib/features/combo-box":1018}],764:[function(require,module,exports){
 module.exports = {
   __init__: [ 'expressionLanguage' ],
   __depends__: [],
@@ -81594,7 +81698,7 @@ module.exports = {
 };
 
 
-},{"./ExpressionLanguage":761}],763:[function(require,module,exports){
+},{"./ExpressionLanguage":763}],765:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -81657,7 +81761,7 @@ ElementFactory.prototype.create = function(elementType, attrs) {
 
 };
 
-},{"inherits":851,"table-js/lib/core/ElementFactory":1003}],764:[function(require,module,exports){
+},{"inherits":853,"table-js/lib/core/ElementFactory":1005}],766:[function(require,module,exports){
 'use strict';
 
 function TableFactory(moddle) {
@@ -81785,13 +81889,13 @@ TableFactory.prototype.createOutputValues = function(output) {
 
 module.exports = TableFactory;
 
-},{}],765:[function(require,module,exports){
+},{}],767:[function(require,module,exports){
 module.exports = {
   tableFactory: [ 'type', require('./TableFactory') ],
   elementFactory: [ 'type', require('./ElementFactory') ]
 };
 
-},{"./ElementFactory":763,"./TableFactory":764}],766:[function(require,module,exports){
+},{"./ElementFactory":765,"./TableFactory":766}],768:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -81807,7 +81911,7 @@ var OFFSET_X = 36,
  *
  * @param {EventBus} eventBus
  */
-function HitPolicy(eventBus, utilityColumn, ioLabel, graphicsFactory, elementRegistry, rules) {
+function HitPolicy(eventBus, utilityColumn, ioLabel, graphicsFactory, elementRegistry, rules, translate) {
 
   this.table = null;
   this.hitPolicyCell = null;
@@ -81831,7 +81935,7 @@ function HitPolicy(eventBus, utilityColumn, ioLabel, graphicsFactory, elementReg
 
         // initializing the comboBox
       var comboBox = new ComboBox({
-        label: 'Hit Policy',
+        label: translate('Hit Policy'),
         classNames: ['dmn-combobox', 'hitpolicy'],
         options: ['UNIQUE', 'FIRST', 'PRIORITY', 'ANY', 'COLLECT', 'RULE ORDER', 'OUTPUT ORDER'],
         dropdownClassNames: ['dmn-combobox-suggestions']
@@ -81843,7 +81947,7 @@ function HitPolicy(eventBus, utilityColumn, ioLabel, graphicsFactory, elementReg
         );
 
       var operatorComboBox = new ComboBox({
-        label: 'Collect Operator',
+        label: translate('Collect Operator'),
         classNames: ['dmn-combobox', 'operator'],
         options: ['LIST', 'SUM', 'MIN', 'MAX', 'COUNT'],
         dropdownClassNames: ['dmn-combobox-suggestions']
@@ -81925,7 +82029,7 @@ function HitPolicy(eventBus, utilityColumn, ioLabel, graphicsFactory, elementReg
 
 HitPolicy.$inject = [
   'eventBus', 'utilityColumn', 'ioLabel',
-  'graphicsFactory', 'elementRegistry', 'rules'
+  'graphicsFactory', 'elementRegistry', 'rules', 'translate'
 ];
 
 HitPolicy.prototype.getCell = function() {
@@ -81942,7 +82046,7 @@ HitPolicy.prototype.getAggregation = function() {
 
 module.exports = HitPolicy;
 
-},{"min-dom/lib/classes":985,"min-dom/lib/domify":987,"table-js/lib/features/combo-box":1016}],767:[function(require,module,exports){
+},{"min-dom/lib/classes":987,"min-dom/lib/domify":989,"table-js/lib/features/combo-box":1018}],769:[function(require,module,exports){
 'use strict';
 
 function convertOperators(operator) {
@@ -81977,10 +82081,11 @@ HitPolicyRenderer.$inject = [
 
 module.exports = HitPolicyRenderer;
 
-},{}],768:[function(require,module,exports){
+},{}],770:[function(require,module,exports){
 module.exports = {
   __init__: [ 'hitPolicy', 'hitPolicyRenderer' ],
   __depends__: [
+    require('diagram-js/lib/i18n/translate'),
     require('table-js/lib/features/utility-column'),
     require('../io-label')
   ],
@@ -81988,7 +82093,7 @@ module.exports = {
   hitPolicyRenderer: [ 'type', require('./HitPolicyRenderer') ]
 };
 
-},{"../io-label":772,"./HitPolicy":766,"./HitPolicyRenderer":767,"table-js/lib/features/utility-column":1053}],769:[function(require,module,exports){
+},{"../io-label":774,"./HitPolicy":768,"./HitPolicyRenderer":769,"diagram-js/lib/i18n/translate":470,"table-js/lib/features/utility-column":1055}],771:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -82002,7 +82107,7 @@ var ids = new (require('diagram-js/lib/util/IdGenerator'))('clause');
  *
  * @param {EventBus} eventBus
  */
-function IoLabel(eventBus, sheet, elementRegistry, graphicsFactory, rules) {
+function IoLabel(eventBus, sheet, elementRegistry, graphicsFactory, rules, translate) {
 
   this.row = null;
 
@@ -82051,7 +82156,7 @@ function IoLabel(eventBus, sheet, elementRegistry, graphicsFactory, rules) {
 
         var node;
         if (rules.allowed('column.create')) {
-          node = domify('Input <a class="dmn-icon-plus"></a>');
+          node = domify(translate('Input')+' <a class="dmn-icon-plus"></a>');
           node.querySelector('a').addEventListener('mouseup', function() {
             var col = input.column;
             while (col.next && col.next.businessObject.$type === 'dmn:InputClause') {
@@ -82070,7 +82175,7 @@ function IoLabel(eventBus, sheet, elementRegistry, graphicsFactory, rules) {
             });
           });
         } else {
-          node = domify('Input');
+          node = domify(translate('Input'));
         }
 
         input.content = node;
@@ -82090,7 +82195,7 @@ function IoLabel(eventBus, sheet, elementRegistry, graphicsFactory, rules) {
 
         var node;
         if (rules.allowed('column.create')) {
-          node = domify('Output <a class="dmn-icon-plus"></a>');
+          node = domify(translate('Output')+' <a class="dmn-icon-plus"></a>');
           node.querySelector('a').addEventListener('mouseup', function() {
             var col = output.column;
             while (col.next && col.next.businessObject && col.next.businessObject.$type === 'dmn:OutputClause') {
@@ -82109,7 +82214,7 @@ function IoLabel(eventBus, sheet, elementRegistry, graphicsFactory, rules) {
             });
           });
         } else {
-          node = domify('Output');
+          node = domify(translate('Output'));
         }
 
         output.content = node;
@@ -82131,7 +82236,7 @@ function IoLabel(eventBus, sheet, elementRegistry, graphicsFactory, rules) {
   eventBus.on([ 'column.move.applied' ], updateColspans);
 }
 
-IoLabel.$inject = [ 'eventBus', 'sheet', 'elementRegistry', 'graphicsFactory', 'rules' ];
+IoLabel.$inject = [ 'eventBus', 'sheet', 'elementRegistry', 'graphicsFactory', 'rules', 'translate' ];
 
 module.exports = IoLabel;
 
@@ -82139,7 +82244,7 @@ IoLabel.prototype.getRow = function() {
   return this.row;
 };
 
-},{"diagram-js/lib/util/IdGenerator":491,"lodash/collection/forEach":861,"min-dom/lib/domify":987}],770:[function(require,module,exports){
+},{"diagram-js/lib/util/IdGenerator":491,"lodash/collection/forEach":863,"min-dom/lib/domify":989}],772:[function(require,module,exports){
 'use strict';
 
 function IoLabelRenderer(
@@ -82163,7 +82268,7 @@ IoLabelRenderer.$inject = [
 
 module.exports = IoLabelRenderer;
 
-},{}],771:[function(require,module,exports){
+},{}],773:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -82195,19 +82300,21 @@ IoLabelRules.prototype.init = function() {
 
 };
 
-},{"diagram-js/lib/features/rules/RuleProvider":457,"inherits":851}],772:[function(require,module,exports){
+},{"diagram-js/lib/features/rules/RuleProvider":457,"inherits":853}],774:[function(require,module,exports){
 module.exports = {
   __init__: [ 'ioLabel', 'ioLabelRules', 'ioLabelRenderer' ],
-  __depends__: [],
+  __depends__: [
+    require('diagram-js/lib/i18n/translate')
+  ],
   ioLabel: [ 'type', require('./IoLabel') ],
   ioLabelRules: [ 'type', require('./IoLabelRules') ],
   ioLabelRenderer: [ 'type', require('./IoLabelRenderer') ]
 };
 
-},{"./IoLabel":769,"./IoLabelRenderer":770,"./IoLabelRules":771}],773:[function(require,module,exports){
-module.exports = "<div class=\"literal-expression-editor\">\n  <textarea placeholder=\"return obj.propertyName;\"></textarea>\n\n  <div>\n    <div class=\"literal-expression-field\">\n      <div class=\"dmn-combobox\">\n        <label>Variable Name:</label>\n        <input class=\"variable-name\" placeholder=\"varName\">\n      </div>\n    </div>\n    <div class=\"literal-expression-field variable-type\">\n    </div>\n  </div>\n  <div>\n    <div class=\"literal-expression-field expression-language\">\n    </div>\n  </div>\n</div>\n";
+},{"./IoLabel":771,"./IoLabelRenderer":772,"./IoLabelRules":773,"diagram-js/lib/i18n/translate":470}],775:[function(require,module,exports){
+module.exports = "<div class=\"literal-expression-editor\">\r\n  <textarea placeholder=\"return obj.propertyName;\"></textarea>\r\n\r\n  <div>\r\n    <div class=\"literal-expression-field\">\r\n      <div class=\"dmn-combobox\">\r\n        <label>Variable Name:</label>\r\n        <input class=\"variable-name\" placeholder=\"varName\">\r\n      </div>\r\n    </div>\r\n    <div class=\"literal-expression-field variable-type\">\r\n    </div>\r\n  </div>\r\n  <div>\r\n    <div class=\"literal-expression-field expression-language\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 
-},{}],774:[function(require,module,exports){
+},{}],776:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -82314,17 +82421,16 @@ LiteralExpressionEditor.prototype.show = function(decision) {
 
 };
 
-},{"./EditorTemplate.html":773,"min-dom/lib/domify":987,"table-js/lib/features/combo-box":1016}],775:[function(require,module,exports){
+},{"./EditorTemplate.html":775,"min-dom/lib/domify":989,"table-js/lib/features/combo-box":1018}],777:[function(require,module,exports){
 module.exports = {
   __init__: [ 'literalExpressionEditor' ],
-  __depends__: [],
   literalExpressionEditor: [ 'type', require('./LiteralExpressionEditor') ]
 };
 
-},{"./LiteralExpressionEditor":774}],776:[function(require,module,exports){
-module.exports = "<div>\n  <div class=\"links\">\n    <div class=\"toggle-type\">\n      <label>Use:</label>\n      <a class=\"expression\">Expression</a>\n      /\n      <a class=\"script\">Script</a>\n    </div>\n    <a class=\"dmn-icon-clear\"></a>\n  </div>\n  <div class=\"expression region\">\n    <div class=\"input-expression\">\n      <label>Expression:</label>\n      <input placeholder=\"propertyName\">\n    </div>\n    <div class=\"input-expression\">\n      <label>Input Variable Name:</label>\n      <input placeholder=\"cellInput\">\n    </div>\n  </div>\n  <div class=\"script region\">\n    <textarea placeholder=\"return obj.propertyName;\"></textarea>\n    <div class=\"input-expression\">\n      <label>Input Variable Name:</label>\n      <input placeholder=\"cellInput\">\n    </div>\n  </div>\n</div>\n";
+},{"./LiteralExpressionEditor":776}],778:[function(require,module,exports){
+module.exports = "<div>\r\n  <div class=\"links\">\r\n    <div class=\"toggle-type\">\r\n      <label>{{ 'Use:' | translate }}</label>\r\n      <a class=\"expression\">{{ 'Expression' | translate }}</a>\r\n      /\r\n      <a class=\"script\">{{ 'Script' | translate }}</a>\r\n    </div>\r\n    <a class=\"dmn-icon-clear\"></a>\r\n  </div>\r\n  <div class=\"expression region\">\r\n    <div class=\"input-expression\">\r\n       <label>{{ 'Expression:' | translate }}</label>\r\n      <input placeholder=\"propertyName\">\r\n    </div>\r\n    <div class=\"input-expression\">\r\n      <label>{{ 'Input Variable Name:' | translate }}</label>\r\n      <input placeholder=\"cellInput\">\r\n    </div>\r\n  </div>\r\n  <div class=\"script region\">\r\n    <textarea placeholder=\"return obj.propertyName;\"></textarea>\r\n    <div class=\"input-expression\">\r\n      <label>{{ 'Input Variable Name:' | translate }}</label>\r\n      <input placeholder=\"cellInput\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 
-},{}],777:[function(require,module,exports){
+},{}],779:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -82356,7 +82462,10 @@ function forEachSelector(node, arr, fn) {
 /**
  * Adds a control to the table to define the input- and output-mappings for clauses
  */
-function MappingsRow(eventBus, sheet, elementRegistry, graphicsFactory, complexCell, config) {
+function MappingsRow(
+  eventBus, sheet, elementRegistry,
+  graphicsFactory, complexCell,
+  translate, parseTemplate, config) {
 
   this.row = null;
 
@@ -82442,11 +82551,11 @@ function MappingsRow(eventBus, sheet, elementRegistry, graphicsFactory, complexC
       // cell content is the input expression of the clause
       content = element.content = column.businessObject.inputExpression;
 
-      var template = domify(exprTemplate);
+      var template = domify(parseTemplate(exprTemplate));
 
       // initializing the comboBox
       var comboBox = new ComboBox({
-        label: 'Language',
+        label: translate('Language'),
         classNames: [ 'dmn-combobox', 'language' ],
         options: [ 'javascript', 'groovy', 'python', 'jruby', 'juel', 'feel' ],
         dropdownClassNames: [ 'dmn-combobox-suggestions' ]
@@ -82639,6 +82748,8 @@ MappingsRow.$inject = [
   'elementRegistry',
   'graphicsFactory',
   'complexCell',
+  'translate',
+  'parseTemplate',
   'config'
 ];
 
@@ -82648,7 +82759,7 @@ MappingsRow.prototype.getRow = function() {
   return this.row;
 };
 
-},{"./ExpressionTemplate.html":776,"lodash/collection/forEach":861,"lodash/object/assign":974,"min-dom/lib/classes":985,"min-dom/lib/domify":987,"table-js/lib/features/combo-box":1016}],778:[function(require,module,exports){
+},{"./ExpressionTemplate.html":778,"lodash/collection/forEach":863,"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/domify":989,"table-js/lib/features/combo-box":1018}],780:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -82688,9 +82799,11 @@ MappingsRowRenderer.$inject = [
 
 module.exports = MappingsRowRenderer;
 
-},{"min-dom/lib/classes":985}],779:[function(require,module,exports){
+},{"min-dom/lib/classes":987}],781:[function(require,module,exports){
 module.exports = {
   __depends__: [
+    require('diagram-js/lib/i18n/translate'),
+    require('../../../features/templates'),
     require('table-js/lib/features/complex-cell')
   ],
   __init__: [ 'mappingsRow', 'mappingsRowRenderer' ],
@@ -82698,7 +82811,7 @@ module.exports = {
   mappingsRowRenderer: [ 'type', require('./MappingsRowRenderer') ]
 };
 
-},{"./MappingsRow":777,"./MappingsRowRenderer":778,"table-js/lib/features/complex-cell":1018}],780:[function(require,module,exports){
+},{"../../../features/templates":732,"./MappingsRow":779,"./MappingsRowRenderer":780,"diagram-js/lib/i18n/translate":470,"table-js/lib/features/complex-cell":1020}],782:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -82978,7 +83091,7 @@ Modeling.prototype.editDescription = function(businessObject, description) {
   this._commandStack.execute('description.edit', context);
 };
 
-},{"./cmd/AddAllowedValueHandler":782,"./cmd/ClearRowHandler":783,"./cmd/CopyRowHandler":784,"./cmd/EditCellExpressionLanguageHandler":785,"./cmd/EditCellHandler":786,"./cmd/EditDescriptionHandler":787,"./cmd/EditHitPolicyHandler":788,"./cmd/EditIdHandler":789,"./cmd/EditInputMappingHandler":790,"./cmd/EditLiteralExpressionHandler":791,"./cmd/EditTypeHandler":792,"./cmd/RemoveAllowedValueHandler":793,"inherits":851,"table-js/lib/features/modeling/Modeling":1033}],781:[function(require,module,exports){
+},{"./cmd/AddAllowedValueHandler":784,"./cmd/ClearRowHandler":785,"./cmd/CopyRowHandler":786,"./cmd/EditCellExpressionLanguageHandler":787,"./cmd/EditCellHandler":788,"./cmd/EditDescriptionHandler":789,"./cmd/EditHitPolicyHandler":790,"./cmd/EditIdHandler":791,"./cmd/EditInputMappingHandler":792,"./cmd/EditLiteralExpressionHandler":793,"./cmd/EditTypeHandler":794,"./cmd/RemoveAllowedValueHandler":795,"inherits":853,"table-js/lib/features/modeling/Modeling":1035}],783:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits'),
@@ -83277,7 +83390,7 @@ module.exports = TableUpdater;
 
 TableUpdater.$inject = [ 'eventBus', 'moddle', 'elementRegistry', 'tableFactory', 'tableName', 'graphicsFactory' ];
 
-},{"diagram-js/lib/command/CommandInterceptor":373,"inherits":851,"lodash/collection/forEachRight":862}],782:[function(require,module,exports){
+},{"diagram-js/lib/command/CommandInterceptor":373,"inherits":853,"lodash/collection/forEachRight":864}],784:[function(require,module,exports){
 'use strict';
 
 /**
@@ -83356,7 +83469,7 @@ AddAllowedValueHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],783:[function(require,module,exports){
+},{}],785:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -83429,7 +83542,7 @@ ClearRowHandler.prototype.revert = function(context) {
   });
 };
 
-},{"lodash/collection/forEach":861}],784:[function(require,module,exports){
+},{"lodash/collection/forEach":863}],786:[function(require,module,exports){
 'use strict';
 
 var getBusinessObject = require('../../../../util/ModelUtil').getBusinessObject;
@@ -83479,7 +83592,7 @@ CopyRowHandler.prototype.execute = function(context) {};
 
 CopyRowHandler.prototype.revert = function(context) {};
 
-},{"../../../../util/ModelUtil":823}],785:[function(require,module,exports){
+},{"../../../../util/ModelUtil":825}],787:[function(require,module,exports){
 'use strict';
 
 /**
@@ -83521,7 +83634,7 @@ EditCellExpressionLanguageHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],786:[function(require,module,exports){
+},{}],788:[function(require,module,exports){
 'use strict';
 
 var calculateSelectionUpdate = require('selection-update');
@@ -83694,7 +83807,7 @@ EditCellHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{"selection-update":1000}],787:[function(require,module,exports){
+},{"selection-update":1002}],789:[function(require,module,exports){
 'use strict';
 
 /**
@@ -83736,7 +83849,7 @@ EditDescriptionHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],788:[function(require,module,exports){
+},{}],790:[function(require,module,exports){
 'use strict';
 
 /**
@@ -83795,7 +83908,7 @@ EditHitPolicyHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],789:[function(require,module,exports){
+},{}],791:[function(require,module,exports){
 'use strict';
 
 /**
@@ -83836,7 +83949,7 @@ EditIdHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],790:[function(require,module,exports){
+},{}],792:[function(require,module,exports){
 'use strict';
 
 /**
@@ -83920,7 +84033,7 @@ EditInputMappingHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],791:[function(require,module,exports){
+},{}],793:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -83997,7 +84110,7 @@ EditLiteralExpressionHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{"lodash/collection/forEach":861}],792:[function(require,module,exports){
+},{"lodash/collection/forEach":863}],794:[function(require,module,exports){
 'use strict';
 
 /**
@@ -84078,7 +84191,7 @@ EditTypeHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],793:[function(require,module,exports){
+},{}],795:[function(require,module,exports){
 'use strict';
 
 /**
@@ -84144,7 +84257,7 @@ RemoveAllowedValueHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],794:[function(require,module,exports){
+},{}],796:[function(require,module,exports){
 module.exports = {
   __init__: [ 'modeling', 'tableUpdater' ],
   __depends__: [
@@ -84156,7 +84269,7 @@ module.exports = {
   tableUpdater: [ 'type', require('./TableUpdater') ]
 };
 
-},{"../factory":765,"./Modeling":780,"./TableUpdater":781,"table-js/lib/features/add-row":1012,"table-js/lib/features/modeling":1043}],795:[function(require,module,exports){
+},{"../factory":767,"./Modeling":782,"./TableUpdater":783,"table-js/lib/features/add-row":1014,"table-js/lib/features/modeling":1045}],797:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -84216,7 +84329,11 @@ function getOperator(text) {
 }
 
 
-function NumberEdit(eventBus, simpleMode, elementRegistry, graphicsFactory, modeling, complexCell, selection) {
+function NumberEdit(
+  eventBus, simpleMode, elementRegistry,
+  graphicsFactory, modeling, complexCell,
+  selection, parseTemplate) {
+
   this._eventBus = eventBus;
   this._simpleMode = simpleMode;
   this._elementRegistry = elementRegistry;
@@ -84224,6 +84341,7 @@ function NumberEdit(eventBus, simpleMode, elementRegistry, graphicsFactory, mode
   this._modeling = modeling;
   this._selection = selection;
   this._complexCell = complexCell;
+  this._parseTemplate = parseTemplate;
 
   eventBus.on('simpleMode.initialized', this.setupComplexCells, this);
   eventBus.on('simpleMode.activated', this.setupComplexCells, this);
@@ -84325,7 +84443,16 @@ function NumberEdit(eventBus, simpleMode, elementRegistry, graphicsFactory, mode
   }, this);
 }
 
-NumberEdit.$inject = [ 'eventBus', 'simpleMode', 'elementRegistry', 'graphicsFactory', 'modeling', 'complexCell', 'selection' ];
+NumberEdit.$inject = [
+  'eventBus',
+  'simpleMode',
+  'elementRegistry',
+  'graphicsFactory',
+  'modeling',
+  'complexCell',
+  'selection',
+  'parseTemplate'
+];
 
 module.exports = NumberEdit;
 
@@ -84338,7 +84465,8 @@ NumberEdit.prototype.refresh = function() {
 NumberEdit.prototype.setupComplexCells = function() {
   var graphicsFactory = this._graphicsFactory,
       elementRegistry = this._elementRegistry,
-      complexCell = this._complexCell;
+      complexCell = this._complexCell,
+      parseTemplate = this._parseTemplate;
 
   var self = this;
 
@@ -84374,9 +84502,9 @@ NumberEdit.prototype.setupComplexCells = function() {
       }
 
       if (element.column.type === 'dmn:InputClause') {
-        node = domify(inputTemplate);
+        node = domify(parseTemplate(inputTemplate));
       } else {
-        node = domify(outputTemplate);
+        node = domify(parseTemplate(outputTemplate));
       }
 
       // click on Expression link switches to expression mode
@@ -84614,21 +84742,24 @@ NumberEdit.prototype.teardownComplexCells = function() {
   });
 };
 
-},{"./template-input.html":797,"./template-output.html":798,"./utils":799,"lodash/collection/forEach":861,"lodash/object/assign":974,"min-dom/lib/classes":985,"min-dom/lib/domify":987,"min-dom/lib/query":990}],796:[function(require,module,exports){
+},{"./template-input.html":799,"./template-output.html":800,"./utils":801,"lodash/collection/forEach":863,"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/domify":989,"min-dom/lib/query":992}],798:[function(require,module,exports){
 'use strict';
 
 module.exports = {
   __init__: [ 'numberEdit' ],
+  __depends__: [
+    require('../../../features/templates')
+  ],
   numberEdit: [ 'type', require('./NumberEdit') ]
 };
 
-},{"./NumberEdit":795}],797:[function(require,module,exports){
-module.exports = "<div>\n  <h4>Edit Number Condition</h4>\n  <div class=\"links\">\n    <div class=\"toggle-type\">\n      <a class=\"comparison\">Comparison</a>\n      /\n      <a class=\"range\">Range</a>\n    </div>\n  </div>\n  <div class=\"comparison region\">\n    <select class=\"comparison-dropdown\">\n      <option value=\"equals\">= (Equals)</option>\n      <option value=\"less\">&lt; (Less than)</option>\n      <option value=\"less-equal\">&lt;= (Less than or equal)</option>\n      <option value=\"greater\">&gt; (Greater than)</option>\n      <option value=\"greater-equal\">&gt;= (Greater than or equal)</option>\n    </select>\n    <input type=\"number\" class=\"comparison-number\" placeholder=\"number\" />\n  </div>\n  <div class=\"range region\">\n    <label>Include</label>\n    <div class=\"include-inputs\">\n      <input type=\"number\" placeholder=\"start\" />\n      <input type=\"checkbox\" placeholder=\"include-start\" />\n    </div>\n    <div class=\"include-inputs\">\n      <input type=\"number\" placeholder=\"end\" />\n      <input type=\"checkbox\" placeholder=\"include-end\" />\n    </div>\n  </div>\n</div>\n";
+},{"../../../features/templates":732,"./NumberEdit":797}],799:[function(require,module,exports){
+module.exports = "<div>\r\n  <h4>{{ 'Edit Number Condition' | translate }}</h4>\r\n  <div class=\"links\">\r\n    <div class=\"toggle-type\">\r\n      <a class=\"comparison\">{{ 'Comparison' | translate }}</a>\r\n      /\r\n      <a class=\"range\">{{ 'Range' | translate }}</a>\r\n    </div>\r\n  </div>\r\n  <div class=\"comparison region\">\r\n    <select class=\"comparison-dropdown\">\r\n      <option value=\"equals\">= {{ '(Equals)' | translate }}</option>\r\n      <option value=\"less\">&lt; {{ '(Less than)' | translate }}</option>\r\n      <option value=\"less-equal\">&lt;= {{ '(Less than or equal)' | translate }}</option>\r\n      <option value=\"greater\">&gt; {{ '(Greater than)' | translate }}</option>\r\n      <option value=\"greater-equal\">&gt;= {{ '(Greater than or equal)' | translate }}</option>\r\n    </select>\r\n    <input type=\"number\" class=\"comparison-number\" placeholder=\"number\" />\r\n  </div>\r\n  <div class=\"range region\">\r\n    <label>{{ 'Include' | translate }}</label>\r\n    <div class=\"include-inputs\">\r\n      <input type=\"number\" placeholder=\"start\" />\r\n      <input type=\"checkbox\" placeholder=\"include-start\" />\r\n    </div>\r\n    <div class=\"include-inputs\">\r\n      <input type=\"number\" placeholder=\"end\" />\r\n      <input type=\"checkbox\" placeholder=\"include-end\" />\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 
-},{}],798:[function(require,module,exports){
-module.exports = "<div>\n  <h4>Edit Number Result</h4>\n  <div class=\"comparison region\">\n    <input type=\"number\" class=\"comparison-number\" placeholder=\"number\" style=\"width: 100%\" />\n  </div>\n</div>\n";
+},{}],800:[function(require,module,exports){
+module.exports = "<div>\r\n  <h4>{{ 'Edit Number Result' | translate }}</h4>\r\n  <div class=\"comparison region\">\r\n    <input type=\"number\" class=\"comparison-number\" placeholder=\"number\" style=\"width: 100%\" />\r\n  </div>\r\n</div>\r\n";
 
-},{}],799:[function(require,module,exports){
+},{}],801:[function(require,module,exports){
 var types = [
   'integer',
   'long',
@@ -84664,7 +84795,7 @@ function isNumberCell(el) {
 
 module.exports.isNumberCell = isNumberCell;
 
-},{}],800:[function(require,module,exports){
+},{}],802:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -84709,14 +84840,13 @@ SimpleEditing.$inject = [ 'eventBus', 'modeling', 'simpleMode', 'elementRegistry
 
 module.exports = SimpleEditing;
 
-},{"diagram-js/lib/command/CommandInterceptor":373,"inherits":851,"min-dom/lib/classes":985}],801:[function(require,module,exports){
+},{"diagram-js/lib/command/CommandInterceptor":373,"inherits":853,"min-dom/lib/classes":987}],803:[function(require,module,exports){
 module.exports = {
   __init__: [ 'simpleEditing' ],
-  __depends__: [],
   simpleEditing: [ 'type', require('./SimpleEditing') ]
 };
 
-},{"./SimpleEditing":800}],802:[function(require,module,exports){
+},{"./SimpleEditing":802}],804:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes'),
@@ -84728,11 +84858,12 @@ function isType(bo, type) {
          bo.typeRef === type;
 }
 
-function SimpleMode(eventBus, sheet, config, graphicsFactory) {
+function SimpleMode(eventBus, sheet, config, graphicsFactory, translate) {
 
   this._sheet = sheet;
   this._eventBus = eventBus;
   this._graphicsFactory = graphicsFactory;
+  this._translate = translate;
 
   this.simple = false;
 
@@ -84804,8 +84935,8 @@ function SimpleMode(eventBus, sheet, config, graphicsFactory) {
           gfx.childNodes[0].style.display = 'none';
           newCheckbox = domify([
             '<select class="simple-mode-checkbox">',
-            '<option value="true">Yes</option>',
-            '<option value="false">No</option>',
+            '<option value="true">' + translate('Yes') + '</option>',
+            '<option value="false">' + translate('No') + '</option>',
             '<option value="">-</option>',
             '</select>'
           ].join(''));
@@ -84850,17 +84981,18 @@ function SimpleMode(eventBus, sheet, config, graphicsFactory) {
   }, this);
 }
 
-SimpleMode.$inject = [ 'eventBus', 'sheet', 'config', 'graphicsFactory' ];
+SimpleMode.$inject = [ 'eventBus', 'sheet', 'config', 'graphicsFactory', 'translate' ];
 
 module.exports = SimpleMode;
 
 SimpleMode.prototype.addControlButton = function(event) {
   var sheet = this._sheet,
+      translate = this._translate,
       controls = event.controls;
 
   var self = this;
 
-  return controls.addControl('Exit Advanced Mode', function() {
+  return controls.addControl(translate('Exit Advanced Mode'), function() {
 
     if (!domClasses(sheet.getContainer().parentNode).contains('simple-mode')) {
       self.activate();
@@ -84891,7 +85023,7 @@ SimpleMode.prototype.activate = function(isInit) {
 
   domClasses(this._sheet.getContainer().parentNode).add('simple-mode');
 
-  this._node.textContent = 'Enter Advanced Mode';
+  this._node.textContent = this._translate('Enter Advanced Mode');
 
   this.simple = true;
 
@@ -84912,7 +85044,7 @@ SimpleMode.prototype.deactivate = function() {
 
   domClasses(this._sheet.getContainer().parentNode).remove('simple-mode');
 
-  this._node.textContent = 'Exit Advanced Mode';
+  this._node.textContent = this._translate('Exit Advanced Mode');
 
   this.simple = false;
 
@@ -84978,13 +85110,16 @@ SimpleMode.prototype.isString = function(textContent) {
   return firstCondition && !secondCondition;
 };
 
-},{"min-dom/lib/classes":985,"min-dom/lib/domify":987}],803:[function(require,module,exports){
+},{"min-dom/lib/classes":987,"min-dom/lib/domify":989}],805:[function(require,module,exports){
 module.exports = {
   __init__: [ 'simpleMode' ],
+  __depends__: [
+    require('diagram-js/lib/i18n/translate')
+  ],
   simpleMode: [ 'type', require('./SimpleMode') ]
 };
 
-},{"./SimpleMode":802}],804:[function(require,module,exports){
+},{"./SimpleMode":804,"diagram-js/lib/i18n/translate":470}],806:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign');
@@ -84999,7 +85134,11 @@ var parseString        = utils.parseString,
     parseAllowedValues = utils.parseAllowedValues,
     isStringCell       = utils.isStringCell;
 
-function StringEdit(eventBus, simpleMode, elementRegistry, graphicsFactory, modeling, complexCell, selection) {
+function StringEdit(
+  eventBus, simpleMode, elementRegistry,
+  graphicsFactory, modeling, complexCell,
+  selection, parseTemplate) {
+
   this._eventBus = eventBus;
   this._simpleMode = simpleMode;
   this._elementRegistry = elementRegistry;
@@ -85007,6 +85146,7 @@ function StringEdit(eventBus, simpleMode, elementRegistry, graphicsFactory, mode
   this._modeling = modeling;
   this._complexCell = complexCell;
   this._selection = selection;
+  this._parseTemplate = parseTemplate;
 
   var refreshHandler = function() {
     if (simpleMode.isActive()) {
@@ -85096,6 +85236,7 @@ StringEdit.prototype.refresh = function() {
 StringEdit.prototype.setupComplexCells = function() {
   var graphicsFactory = this._graphicsFactory;
   var elementRegistry = this._elementRegistry;
+  var parseTemplate = this._parseTemplate;
 
   var self = this;
 
@@ -85125,10 +85266,10 @@ StringEdit.prototype.setupComplexCells = function() {
       }
 
       if (element.column.type === 'dmn:InputClause') {
-        node = domify(require('./template-input.html'));
+        node = domify(parseTemplate(require('./template-input.html')));
         isInput = true;
       } else {
-        node = domify(require('./template-output.html'));
+        node = domify(parseTemplate(require('./template-output.html')));
         isInput = false;
       }
 
@@ -85318,11 +85459,20 @@ StringEdit.prototype.teardownComplexCells = function() {
   });
 };
 
-StringEdit.$inject = ['eventBus', 'simpleMode', 'elementRegistry', 'graphicsFactory', 'modeling', 'complexCell', 'selection'];
+StringEdit.$inject = [
+  'eventBus',
+  'simpleMode',
+  'elementRegistry',
+  'graphicsFactory',
+  'modeling',
+  'complexCell',
+  'selection',
+  'parseTemplate'
+];
 
 module.exports = StringEdit;
 
-},{"./template-input.html":807,"./template-output.html":808,"./utils":809,"diagram-js/lib/util/Mouse":495,"lodash/object/assign":974,"min-dom/lib/classes":985,"min-dom/lib/domify":987}],805:[function(require,module,exports){
+},{"./template-input.html":809,"./template-output.html":810,"./utils":811,"diagram-js/lib/util/Mouse":495,"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/domify":989}],807:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -85408,7 +85558,7 @@ StringView.$inject = ['eventBus', 'simpleMode'];
 
 module.exports = StringView;
 
-},{"./utils":809,"min-dom/lib/domify":987}],806:[function(require,module,exports){
+},{"./utils":811,"min-dom/lib/domify":989}],808:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -85416,13 +85566,13 @@ module.exports = {
   stringEdit: [ 'type', require('./StringEdit') ]
 };
 
-},{"./StringEdit":804}],807:[function(require,module,exports){
-module.exports = "<div>\n  <h4>Edit String Expression</h4>\n  <select class=\"string-type-dropdown\">\n    <option value=\"disjunction\">Match one of</option>\n    <option value=\"negation\">Match anything except</option>\n  </select>\n  <div class=\"free-input\">\n    <ul>\n    </ul>\n    <input type=\"text\" placeholder=\"new Value\" class=\"free-input-value-field\" />\n    <div class=\"helptext\">Enter value without quotes</div>\n  </div>\n  <div class=\"input-values\">\n    <ul>\n    </ul>\n  </div>\n</div>\n";
+},{"./StringEdit":806}],809:[function(require,module,exports){
+module.exports = "<div>\r\n  <h4>{{ 'Edit String Expression' | translate }}</h4>\r\n  <select class=\"string-type-dropdown\">\r\n    <option value=\"disjunction\">{{ 'Match one of' | translate }}</option>\r\n    <option value=\"negation\">{{ 'Match anything except' | translate }}</option>\r\n  </select>\r\n  <div class=\"free-input\">\r\n    <ul>\r\n    </ul>\r\n    <input type=\"text\" placeholder=\"{{ 'new Value' | translate }}\" class=\"free-input-value-field\" />\r\n    <div class=\"helptext\">{{ 'Enter value without quotes' | translate }}</div>\r\n  </div>\r\n  <div class=\"input-values\">\r\n    <ul>\r\n    </ul>\r\n  </div>\r\n</div>\r\n";
 
-},{}],808:[function(require,module,exports){
-module.exports = "<div>\n  <h4>Edit String Result</h4>\n  <div class=\"free-input\">\n    <textarea type=\"text\" placeholder=\"new Value\" class=\"free-input-value-field\"></textarea>\n    <div class=\"helptext\">Enter value without quotes</div>\n  </div>\n  <div class=\"input-values\">\n    <ul>\n    </ul>\n  </div>\n</div>\n";
+},{}],810:[function(require,module,exports){
+module.exports = "<div>\r\n  <h4>{{ 'Edit String Result' | translate }}</h4>\r\n  <div class=\"free-input\">\r\n    <textarea type=\"text\" placeholder=\"{{ 'new Value' | translate }}\" class=\"free-input-value-field\"></textarea>\r\n    <div class=\"helptext\">{{ 'Enter value without quotes' | translate }}</div>\r\n  </div>\r\n  <div class=\"input-values\">\r\n    <ul>\r\n    </ul>\r\n  </div>\r\n</div>\r\n";
 
-},{}],809:[function(require,module,exports){
+},{}],811:[function(require,module,exports){
 'use strict';
 
 var hasStringType = function(column) {
@@ -85514,7 +85664,7 @@ module.exports = {
   }
 };
 
-},{}],810:[function(require,module,exports){
+},{}],812:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -85522,7 +85672,7 @@ module.exports = {
   stringView: [ 'type', require('./StringView') ]
 };
 
-},{"./StringView":805}],811:[function(require,module,exports){
+},{"./StringView":807}],813:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -85594,14 +85744,13 @@ TableName.prototype.getId = function() {
   return this.semantic.id;
 };
 
-},{"inherits":851,"min-dom/lib/domify":987,"table-js/lib/features/table-name/TableName":1049}],812:[function(require,module,exports){
+},{"inherits":853,"min-dom/lib/domify":989,"table-js/lib/features/table-name/TableName":1051}],814:[function(require,module,exports){
 module.exports = {
   __init__: [ 'tableName' ],
-  __depends__: [],
   tableName: [ 'type', require('./TableName') ]
 };
 
-},{"./TableName":811}],813:[function(require,module,exports){
+},{"./TableName":813}],815:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign');
@@ -85618,10 +85767,14 @@ var OFFSET_X = -4,
 /**
  * Adds a control to the table to define the datatypes for clauses
  */
-function TypeRow(eventBus, sheet, elementRegistry, graphicsFactory, complexCell, rules, simpleMode) {
+function TypeRow(
+  eventBus, sheet, elementRegistry,
+  graphicsFactory, complexCell, rules,
+  simpleMode, translate, parseTemplate) {
 
   this._eventBus = eventBus;
   this._graphicsFactory = graphicsFactory;
+
   this.row = null;
 
   var self = this;
@@ -85663,16 +85816,16 @@ function TypeRow(eventBus, sheet, elementRegistry, graphicsFactory, complexCell,
 
       evt.element.content = evt.element.column.businessObject;
 
-      var template = domify(typeTemplate);
+      var template = domify(parseTemplate(typeTemplate));
 
       var isOutput = evt.element.column.type === 'dmn:OutputClause';
       if (isOutput) {
-        template.querySelector('.allowed-values label').textContent = 'Output Values:';
+        template.querySelector('.allowed-values label').textContent = translate('Output Values:');
       }
 
       // initializing the comboBox
       var comboBox = new ComboBox({
-        label: 'Type',
+        label: translate('Type'),
         classNames: [ 'dmn-combobox', 'datatype' ],
         options: [ 'string', 'boolean', 'integer', 'long', 'double', 'date' ],
         dropdownClassNames: [ 'dmn-combobox-suggestions' ]
@@ -85847,7 +86000,17 @@ TypeRow.prototype.updateAllowedValues = function(template, businessObject) {
   this._graphicsFactory.redraw();
 };
 
-TypeRow.$inject = [ 'eventBus', 'sheet', 'elementRegistry', 'graphicsFactory', 'complexCell', 'rules', 'simpleMode' ];
+TypeRow.$inject = [
+  'eventBus',
+  'sheet',
+  'elementRegistry',
+  'graphicsFactory',
+  'complexCell',
+  'rules',
+  'simpleMode',
+  'translate',
+  'parseTemplate'
+];
 
 module.exports = TypeRow;
 
@@ -85855,7 +86018,7 @@ TypeRow.prototype.getRow = function() {
   return this.row;
 };
 
-},{"./TypeTemplate.html":815,"lodash/object/assign":974,"min-dom/lib/classes":985,"min-dom/lib/domify":987,"table-js/lib/features/combo-box":1016}],814:[function(require,module,exports){
+},{"./TypeTemplate.html":817,"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/domify":989,"table-js/lib/features/combo-box":1018}],816:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -85892,18 +86055,22 @@ TypeRowRenderer.$inject = [
 
 module.exports = TypeRowRenderer;
 
-},{"min-dom/lib/classes":985}],815:[function(require,module,exports){
-module.exports = "<div>\n  <div class=\"allowed-values\">\n    <label>Input Values:</label>\n    <ul></ul>\n    <input type=\"text\" placeholder=\"value1, value2, otherValue\">\n  </div>\n</div>\n";
+},{"min-dom/lib/classes":987}],817:[function(require,module,exports){
+module.exports = "<div>\r\n  <div class=\"allowed-values\">\r\n    <label>{{ 'Input Values:' | translate }}</label>\r\n    <ul></ul>\r\n    <input type=\"text\" placeholder=\"value1, value2, otherValue\">\r\n  </div>\r\n</div>\r\n";
 
-},{}],816:[function(require,module,exports){
+},{}],818:[function(require,module,exports){
 module.exports = {
   __init__: [ 'typeRow', 'typeRowRenderer' ],
-  __depends__: [ require('table-js/lib/features/complex-cell') ],
+  __depends__: [
+    require('diagram-js/lib/i18n/translate'),
+    require('../../../features/templates'),
+    require('table-js/lib/features/complex-cell')
+  ],
   typeRow: [ 'type', require('./TypeRow') ],
   typeRowRenderer: [ 'type', require('./TypeRowRenderer') ]
 };
 
-},{"./TypeRow":813,"./TypeRowRenderer":814,"table-js/lib/features/complex-cell":1018}],817:[function(require,module,exports){
+},{"../../../features/templates":732,"./TypeRow":815,"./TypeRowRenderer":816,"diagram-js/lib/i18n/translate":470,"table-js/lib/features/complex-cell":1020}],819:[function(require,module,exports){
 'use strict';
 
 var TableTreeWalker = require('./TableTreeWalker');
@@ -85979,7 +86146,7 @@ function importDmnTable(sheet, definitions, decision, done) {
 
 module.exports.importDmnTable = importDmnTable;
 
-},{"./TableTreeWalker":819}],818:[function(require,module,exports){
+},{"./TableTreeWalker":821}],820:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -86013,7 +86180,7 @@ function equals(type, conditions) {
  * @param {ElementFactory} elementFactory
  * @param {ElementRegistry} elementRegistry
  */
-function TableImporter(eventBus, sheet, elementRegistry, elementFactory, moddle, tableName, ioLabel, tableFactory, literalExpressionEditor) {
+function TableImporter(eventBus, sheet, elementRegistry, elementFactory, moddle, tableName, ioLabel, tableFactory, literalExpressionEditor, translate) {
   this._eventBus = eventBus;
   this._sheet = sheet;
 
@@ -86023,6 +86190,7 @@ function TableImporter(eventBus, sheet, elementRegistry, elementFactory, moddle,
   this._tableFactory = tableFactory;
 
   this._literalExpressionEditor = literalExpressionEditor;
+  this._translate = translate;
 
   this._ioLabel = ioLabel;
 
@@ -86033,7 +86201,8 @@ TableImporter.$inject = [
   'eventBus', 'sheet', 'elementRegistry',
   'elementFactory', 'moddle', 'tableName',
   'ioLabel', 'tableFactory',
-  'literalExpressionEditor'
+  'literalExpressionEditor',
+  'translate'
 ];
 
 module.exports = TableImporter;
@@ -86053,10 +86222,11 @@ TableImporter.prototype._makeCopy = function(semantic) {
 };
 
 TableImporter.prototype.create = function(type, parent, clause, rule) {
-  var tableFactory = this._tableFactory;
+  var tableFactory = this._tableFactory,
+      translate = this._translate;
 
   var parentBO = parent.businessObject,
-      isInput= equals(type, [ 'dmn:InputClause', 'dmn:UnaryTests' ]) ? 'Input' : 'Output',
+      isInput= equals(type, [ 'dmn:InputClause', 'dmn:UnaryTests' ]) ? translate('Input') : translate('Output'),
       element;
 
   if (equals(type, [ 'dmn:InputClause', 'dmn:OutputClause' ])) {
@@ -86148,6 +86318,22 @@ TableImporter.prototype.add = function(semantic, parentElement, definitions) {
       }
       var type = element.businessObject.$type;
       return type === 'dmn:InputClause' || type === 'dmn:OutputClause';
+    }).sort(function(element1, element2) {
+      var bo1 = element1.businessObject;
+      var bo2 = element2.businessObject;
+      var parent = bo1.$parent;
+      var parsedType = bo1.$type === 'dmn:InputClause' ? 'input' : 'output';
+
+      // input entries before output entries
+      if (bo1.$type !== bo2.$type) {
+        if (bo1.$type === 'dmn:InputClause') {
+          return -1;
+        }
+        return 1;
+      }
+
+      // order is relative to appearance in parent array
+      return parent[parsedType].indexOf(bo1) - parent[parsedType].indexOf(bo2);
     });
 
     var column = allClauses[allCellsInRow.indexOf(semantic)].id;
@@ -86173,7 +86359,7 @@ TableImporter.prototype.add = function(semantic, parentElement, definitions) {
   return element;
 };
 
-},{"./Util":820,"lodash/array/union":853,"lodash/collection/filter":859,"lodash/object/assign":974}],819:[function(require,module,exports){
+},{"./Util":822,"lodash/array/union":855,"lodash/collection/filter":861,"lodash/object/assign":976}],821:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -86308,17 +86494,26 @@ function TableTreeWalker(handler, options) {
 
 module.exports = TableTreeWalker;
 
-},{"./Util":820,"lodash/collection/forEach":861}],820:[function(require,module,exports){
-arguments[4][55][0].apply(exports,arguments)
-},{"dup":55}],821:[function(require,module,exports){
+},{"./Util":822,"lodash/collection/forEach":863}],822:[function(require,module,exports){
+'use strict';
+
+module.exports.elementToString = function(e) {
+  if (!e) {
+    return '<null>';
+  }
+
+  return '<' + e.$type + (e.id ? ' id="' + e.id : '') + '" />';
+};
+},{}],823:[function(require,module,exports){
 module.exports = {
   __depends__: [
-    require('../features/factory')
+    require('../features/factory'),
+    require('diagram-js/lib/i18n/translate')
   ],
   tableImporter: [ 'type', require('./TableImporter') ]
 };
 
-},{"../features/factory":765,"./TableImporter":818}],822:[function(require,module,exports){
+},{"../features/factory":767,"./TableImporter":820,"diagram-js/lib/i18n/translate":470}],824:[function(require,module,exports){
 'use strict';
 
 
@@ -86361,7 +86556,7 @@ function getEntriesType(context) {
 
 module.exports.getEntriesType = getEntriesType;
 
-},{}],823:[function(require,module,exports){
+},{}],825:[function(require,module,exports){
 'use strict';
 
 var any = require('lodash/collection/any');
@@ -86424,7 +86619,7 @@ function isAny(element, types) {
 
 module.exports.isAny = isAny;
 
-},{"lodash/collection/any":857}],824:[function(require,module,exports){
+},{"lodash/collection/any":859}],826:[function(require,module,exports){
 /**
  * This file must not be changed or exchanged.
  *
@@ -86509,13 +86704,13 @@ function open() {
 
 module.exports.open = open;
 
-},{"min-dom/lib/delegate":986,"min-dom/lib/domify":987}],825:[function(require,module,exports){
+},{"min-dom/lib/delegate":988,"min-dom/lib/domify":989}],827:[function(require,module,exports){
 module.exports = {
   __depends__: [ require('diagram-js/lib/features/interaction-events') ],
   __init__: [ 'directEditing' ],
   directEditing: [ 'type', require('./lib/DirectEditing') ]
 };
-},{"./lib/DirectEditing":826,"diagram-js/lib/features/interaction-events":410}],826:[function(require,module,exports){
+},{"./lib/DirectEditing":828,"diagram-js/lib/features/interaction-events":410}],828:[function(require,module,exports){
 'use strict';
 
 var bind = require('lodash/function/bind'),
@@ -86677,7 +86872,7 @@ DirectEditing.prototype.activate = function(element) {
 
 
 module.exports = DirectEditing;
-},{"./TextBox":827,"lodash/collection/find":860,"lodash/function/bind":867}],827:[function(require,module,exports){
+},{"./TextBox":829,"lodash/collection/find":862,"lodash/function/bind":869}],829:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -86828,9 +87023,9 @@ TextBox.prototype.setCursor = function() {
   }
 };
 
-},{"lodash/object/assign":974,"min-dom/lib/event":988,"min-dom/lib/remove":991}],828:[function(require,module,exports){
+},{"lodash/object/assign":976,"min-dom/lib/event":990,"min-dom/lib/remove":993}],830:[function(require,module,exports){
 arguments[4][61][0].apply(exports,arguments)
-},{"./lib/simple":830,"dup":61}],829:[function(require,module,exports){
+},{"./lib/simple":832,"dup":61}],831:[function(require,module,exports){
 'use strict';
 
 var isString = require('lodash/lang/isString'),
@@ -86911,7 +87106,7 @@ DmnModdle.prototype.toXML = function(element, options, done) {
   }
 };
 
-},{"lodash/lang/isFunction":968,"lodash/lang/isString":972,"lodash/object/assign":974,"moddle":836,"moddle-xml/lib/reader":832,"moddle-xml/lib/writer":833}],830:[function(require,module,exports){
+},{"lodash/lang/isFunction":970,"lodash/lang/isString":974,"lodash/object/assign":976,"moddle":838,"moddle-xml/lib/reader":834,"moddle-xml/lib/writer":835}],832:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign');
@@ -86929,9 +87124,9 @@ module.exports = function(additionalPackages, options) {
   return new DmnModdle(assign({}, packages, additionalPackages), options);
 };
 
-},{"../resources/dmn/bpmn-io/biodi.json":845,"../resources/dmn/bpmn-io/dc.json":846,"../resources/dmn/camunda/camunda.json":847,"../resources/dmn/json/dmn.json":848,"./dmn-moddle":829,"lodash/object/assign":974}],831:[function(require,module,exports){
+},{"../resources/dmn/bpmn-io/biodi.json":847,"../resources/dmn/bpmn-io/dc.json":848,"../resources/dmn/camunda/camunda.json":849,"../resources/dmn/json/dmn.json":850,"./dmn-moddle":831,"lodash/object/assign":976}],833:[function(require,module,exports){
 arguments[4][64][0].apply(exports,arguments)
-},{"dup":64}],832:[function(require,module,exports){
+},{"dup":64}],834:[function(require,module,exports){
 'use strict';
 
 var reduce = require('lodash/collection/reduce'),
@@ -87661,21 +87856,21 @@ XMLReader.prototype.handler = function(name) {
 
 module.exports = XMLReader;
 module.exports.ElementHandler = ElementHandler;
-},{"./common":831,"lodash/collection/find":860,"lodash/collection/forEach":861,"lodash/collection/reduce":864,"lodash/function/defer":869,"lodash/object/assign":974,"moddle":836,"moddle/lib/ns":841,"moddle/lib/types":844,"sax":834,"tiny-stack":835}],833:[function(require,module,exports){
+},{"./common":833,"lodash/collection/find":862,"lodash/collection/forEach":863,"lodash/collection/reduce":866,"lodash/function/defer":871,"lodash/object/assign":976,"moddle":838,"moddle/lib/ns":843,"moddle/lib/types":846,"sax":836,"tiny-stack":837}],835:[function(require,module,exports){
 arguments[4][66][0].apply(exports,arguments)
-},{"./common":831,"dup":66,"lodash/collection/filter":859,"lodash/collection/forEach":861,"lodash/collection/map":863,"lodash/lang/isString":972,"lodash/object/assign":974,"moddle/lib/ns":841,"moddle/lib/types":844}],834:[function(require,module,exports){
+},{"./common":833,"dup":66,"lodash/collection/filter":861,"lodash/collection/forEach":863,"lodash/collection/map":865,"lodash/lang/isString":974,"lodash/object/assign":976,"moddle/lib/ns":843,"moddle/lib/types":846}],836:[function(require,module,exports){
 arguments[4][67][0].apply(exports,arguments)
-},{"buffer":1082,"dup":67,"stream":1108,"string_decoder":1109}],835:[function(require,module,exports){
+},{"buffer":1084,"dup":67,"stream":1110,"string_decoder":1111}],837:[function(require,module,exports){
 arguments[4][68][0].apply(exports,arguments)
-},{"dup":68}],836:[function(require,module,exports){
+},{"dup":68}],838:[function(require,module,exports){
 arguments[4][69][0].apply(exports,arguments)
-},{"./lib/moddle":840,"dup":69}],837:[function(require,module,exports){
+},{"./lib/moddle":842,"dup":69}],839:[function(require,module,exports){
 arguments[4][70][0].apply(exports,arguments)
-},{"dup":70}],838:[function(require,module,exports){
+},{"dup":70}],840:[function(require,module,exports){
 arguments[4][71][0].apply(exports,arguments)
-},{"./ns":841,"dup":71,"lodash/collection/forEach":861,"lodash/object/assign":974,"lodash/object/pick":979}],839:[function(require,module,exports){
+},{"./ns":843,"dup":71,"lodash/collection/forEach":863,"lodash/object/assign":976,"lodash/object/pick":981}],841:[function(require,module,exports){
 arguments[4][72][0].apply(exports,arguments)
-},{"./base":837,"dup":72,"lodash/collection/forEach":861}],840:[function(require,module,exports){
+},{"./base":839,"dup":72,"lodash/collection/forEach":863}],842:[function(require,module,exports){
 'use strict';
 
 var isString = require('lodash/lang/isString'),
@@ -87900,11 +88095,11 @@ Moddle.prototype.getTypeDescriptor = function(type) {
   return this.registry.typeMap[type];
 };
 
-},{"./factory":839,"./ns":841,"./properties":842,"./registry":843,"lodash/collection/find":860,"lodash/collection/forEach":861,"lodash/lang/isObject":971,"lodash/lang/isString":972}],841:[function(require,module,exports){
+},{"./factory":841,"./ns":843,"./properties":844,"./registry":845,"lodash/collection/find":862,"lodash/collection/forEach":863,"lodash/lang/isObject":973,"lodash/lang/isString":974}],843:[function(require,module,exports){
 arguments[4][74][0].apply(exports,arguments)
-},{"dup":74}],842:[function(require,module,exports){
+},{"dup":74}],844:[function(require,module,exports){
 arguments[4][75][0].apply(exports,arguments)
-},{"dup":75}],843:[function(require,module,exports){
+},{"dup":75}],845:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -88091,9 +88286,9 @@ Registry.prototype.definePackage = function(target, pkg) {
   this.properties.define(target, '$pkg', { value: pkg });
 };
 
-},{"./descriptor-builder":838,"./ns":841,"./types":844,"lodash/collection/forEach":861,"lodash/object/assign":974}],844:[function(require,module,exports){
+},{"./descriptor-builder":840,"./ns":843,"./types":846,"lodash/collection/forEach":863,"lodash/object/assign":976}],846:[function(require,module,exports){
 arguments[4][77][0].apply(exports,arguments)
-},{"dup":77}],845:[function(require,module,exports){
+},{"dup":77}],847:[function(require,module,exports){
 module.exports={
   "name": "bpmn.io DI for DMN",
   "uri": "http://bpmn.io/schema/dmn/biodi/1.0",
@@ -88135,7 +88330,7 @@ module.exports={
   ]
 }
 
-},{}],846:[function(require,module,exports){
+},{}],848:[function(require,module,exports){
 module.exports={
   "name": "DC",
   "uri": "http://www.omg.org/spec/DD/20100524/DC",
@@ -88236,7 +88431,7 @@ module.exports={
   "associations": []
 }
 
-},{}],847:[function(require,module,exports){
+},{}],849:[function(require,module,exports){
 module.exports={
   "name": "Camunda",
   "uri": "http://camunda.org/schema/1.0/dmn",
@@ -88261,7 +88456,7 @@ module.exports={
   ]
 }
 
-},{}],848:[function(require,module,exports){
+},{}],850:[function(require,module,exports){
 module.exports={
   "name": "DMN",
   "uri": "http://www.omg.org/spec/DMN/20151101/dmn.xsd",
@@ -88588,7 +88783,7 @@ module.exports={
   ]
 }
 
-},{}],849:[function(require,module,exports){
+},{}],851:[function(require,module,exports){
 'use strict';
 
 var hat = require('hat');
@@ -88687,7 +88882,7 @@ Ids.prototype.clear = function() {
     this.unclaim(id);
   }
 };
-},{"hat":850}],850:[function(require,module,exports){
+},{"hat":852}],852:[function(require,module,exports){
 var hat = module.exports = function (bits, base) {
     if (!base) base = 16;
     if (bits === undefined) bits = 128;
@@ -88751,11 +88946,11 @@ hat.rack = function (bits, base, expandBy) {
     return fn;
 };
 
-},{}],851:[function(require,module,exports){
+},{}],853:[function(require,module,exports){
 arguments[4][82][0].apply(exports,arguments)
-},{"dup":82}],852:[function(require,module,exports){
+},{"dup":82}],854:[function(require,module,exports){
 arguments[4][83][0].apply(exports,arguments)
-},{"dup":83}],853:[function(require,module,exports){
+},{"dup":83}],855:[function(require,module,exports){
 var baseFlatten = require('../internal/baseFlatten'),
     baseUniq = require('../internal/baseUniq'),
     restParam = require('../function/restParam');
@@ -88781,23 +88976,23 @@ var union = restParam(function(arrays) {
 
 module.exports = union;
 
-},{"../function/restParam":870,"../internal/baseFlatten":896,"../internal/baseUniq":918}],854:[function(require,module,exports){
+},{"../function/restParam":872,"../internal/baseFlatten":898,"../internal/baseUniq":920}],856:[function(require,module,exports){
 arguments[4][511][0].apply(exports,arguments)
-},{"../internal/baseCallback":885,"../internal/baseUniq":918,"../internal/isIterateeCall":947,"../internal/sortedUniq":962,"dup":511}],855:[function(require,module,exports){
+},{"../internal/baseCallback":887,"../internal/baseUniq":920,"../internal/isIterateeCall":949,"../internal/sortedUniq":964,"dup":511}],857:[function(require,module,exports){
 arguments[4][512][0].apply(exports,arguments)
-},{"./uniq":854,"dup":512}],856:[function(require,module,exports){
+},{"./uniq":856,"dup":512}],858:[function(require,module,exports){
 arguments[4][513][0].apply(exports,arguments)
-},{"../internal/LazyWrapper":871,"../internal/LodashWrapper":872,"../internal/baseLodash":907,"../internal/isObjectLike":951,"../internal/wrapperClone":965,"../lang/isArray":967,"dup":513}],857:[function(require,module,exports){
+},{"../internal/LazyWrapper":873,"../internal/LodashWrapper":874,"../internal/baseLodash":909,"../internal/isObjectLike":953,"../internal/wrapperClone":967,"../lang/isArray":969,"dup":513}],859:[function(require,module,exports){
 arguments[4][256][0].apply(exports,arguments)
-},{"./some":865,"dup":256}],858:[function(require,module,exports){
+},{"./some":867,"dup":256}],860:[function(require,module,exports){
 arguments[4][84][0].apply(exports,arguments)
-},{"../internal/arrayEvery":877,"../internal/baseCallback":885,"../internal/baseEvery":892,"../internal/isIterateeCall":947,"../lang/isArray":967,"dup":84}],859:[function(require,module,exports){
+},{"../internal/arrayEvery":879,"../internal/baseCallback":887,"../internal/baseEvery":894,"../internal/isIterateeCall":949,"../lang/isArray":969,"dup":84}],861:[function(require,module,exports){
 arguments[4][85][0].apply(exports,arguments)
-},{"../internal/arrayFilter":878,"../internal/baseCallback":885,"../internal/baseFilter":893,"../lang/isArray":967,"dup":85}],860:[function(require,module,exports){
+},{"../internal/arrayFilter":880,"../internal/baseCallback":887,"../internal/baseFilter":895,"../lang/isArray":969,"dup":85}],862:[function(require,module,exports){
 arguments[4][86][0].apply(exports,arguments)
-},{"../internal/baseEach":890,"../internal/createFind":930,"dup":86}],861:[function(require,module,exports){
+},{"../internal/baseEach":892,"../internal/createFind":932,"dup":86}],863:[function(require,module,exports){
 arguments[4][87][0].apply(exports,arguments)
-},{"../internal/arrayEach":875,"../internal/baseEach":890,"../internal/createForEach":931,"dup":87}],862:[function(require,module,exports){
+},{"../internal/arrayEach":877,"../internal/baseEach":892,"../internal/createForEach":933,"dup":87}],864:[function(require,module,exports){
 var arrayEachRight = require('../internal/arrayEachRight'),
     baseEachRight = require('../internal/baseEachRight'),
     createForEach = require('../internal/createForEach');
@@ -88825,33 +89020,33 @@ var forEachRight = createForEach(arrayEachRight, baseEachRight);
 
 module.exports = forEachRight;
 
-},{"../internal/arrayEachRight":876,"../internal/baseEachRight":891,"../internal/createForEach":931}],863:[function(require,module,exports){
+},{"../internal/arrayEachRight":878,"../internal/baseEachRight":893,"../internal/createForEach":933}],865:[function(require,module,exports){
 arguments[4][89][0].apply(exports,arguments)
-},{"../internal/arrayMap":879,"../internal/baseCallback":885,"../internal/baseMap":908,"../lang/isArray":967,"dup":89}],864:[function(require,module,exports){
+},{"../internal/arrayMap":881,"../internal/baseCallback":887,"../internal/baseMap":910,"../lang/isArray":969,"dup":89}],866:[function(require,module,exports){
 arguments[4][90][0].apply(exports,arguments)
-},{"../internal/arrayReduce":881,"../internal/baseEach":890,"../internal/createReduce":934,"dup":90}],865:[function(require,module,exports){
+},{"../internal/arrayReduce":883,"../internal/baseEach":892,"../internal/createReduce":936,"dup":90}],867:[function(require,module,exports){
 arguments[4][91][0].apply(exports,arguments)
-},{"../internal/arraySome":882,"../internal/baseCallback":885,"../internal/baseSome":916,"../internal/isIterateeCall":947,"../lang/isArray":967,"dup":91}],866:[function(require,module,exports){
+},{"../internal/arraySome":884,"../internal/baseCallback":887,"../internal/baseSome":918,"../internal/isIterateeCall":949,"../lang/isArray":969,"dup":91}],868:[function(require,module,exports){
 arguments[4][525][0].apply(exports,arguments)
-},{"../internal/getNative":943,"dup":525}],867:[function(require,module,exports){
+},{"../internal/getNative":945,"dup":525}],869:[function(require,module,exports){
 arguments[4][526][0].apply(exports,arguments)
-},{"../internal/createWrapper":935,"../internal/replaceHolders":959,"./restParam":870,"dup":526}],868:[function(require,module,exports){
+},{"../internal/createWrapper":937,"../internal/replaceHolders":961,"./restParam":872,"dup":526}],870:[function(require,module,exports){
 arguments[4][527][0].apply(exports,arguments)
-},{"../date/now":866,"../lang/isObject":971,"dup":527}],869:[function(require,module,exports){
+},{"../date/now":868,"../lang/isObject":973,"dup":527}],871:[function(require,module,exports){
 arguments[4][92][0].apply(exports,arguments)
-},{"../internal/baseDelay":888,"./restParam":870,"dup":92}],870:[function(require,module,exports){
+},{"../internal/baseDelay":890,"./restParam":872,"dup":92}],872:[function(require,module,exports){
 arguments[4][93][0].apply(exports,arguments)
-},{"dup":93}],871:[function(require,module,exports){
+},{"dup":93}],873:[function(require,module,exports){
 arguments[4][529][0].apply(exports,arguments)
-},{"./baseCreate":887,"./baseLodash":907,"dup":529}],872:[function(require,module,exports){
+},{"./baseCreate":889,"./baseLodash":909,"dup":529}],874:[function(require,module,exports){
 arguments[4][530][0].apply(exports,arguments)
-},{"./baseCreate":887,"./baseLodash":907,"dup":530}],873:[function(require,module,exports){
+},{"./baseCreate":889,"./baseLodash":909,"dup":530}],875:[function(require,module,exports){
 arguments[4][94][0].apply(exports,arguments)
-},{"./cachePush":921,"./getNative":943,"dup":94}],874:[function(require,module,exports){
+},{"./cachePush":923,"./getNative":945,"dup":94}],876:[function(require,module,exports){
 arguments[4][532][0].apply(exports,arguments)
-},{"dup":532}],875:[function(require,module,exports){
+},{"dup":532}],877:[function(require,module,exports){
 arguments[4][95][0].apply(exports,arguments)
-},{"dup":95}],876:[function(require,module,exports){
+},{"dup":95}],878:[function(require,module,exports){
 /**
  * A specialized version of `_.forEachRight` for arrays without support for
  * callback shorthands and `this` binding.
@@ -88874,35 +89069,35 @@ function arrayEachRight(array, iteratee) {
 
 module.exports = arrayEachRight;
 
-},{}],877:[function(require,module,exports){
+},{}],879:[function(require,module,exports){
 arguments[4][96][0].apply(exports,arguments)
-},{"dup":96}],878:[function(require,module,exports){
+},{"dup":96}],880:[function(require,module,exports){
 arguments[4][97][0].apply(exports,arguments)
-},{"dup":97}],879:[function(require,module,exports){
+},{"dup":97}],881:[function(require,module,exports){
 arguments[4][98][0].apply(exports,arguments)
-},{"dup":98}],880:[function(require,module,exports){
+},{"dup":98}],882:[function(require,module,exports){
 arguments[4][99][0].apply(exports,arguments)
-},{"dup":99}],881:[function(require,module,exports){
+},{"dup":99}],883:[function(require,module,exports){
 arguments[4][100][0].apply(exports,arguments)
-},{"dup":100}],882:[function(require,module,exports){
+},{"dup":100}],884:[function(require,module,exports){
 arguments[4][101][0].apply(exports,arguments)
-},{"dup":101}],883:[function(require,module,exports){
+},{"dup":101}],885:[function(require,module,exports){
 arguments[4][102][0].apply(exports,arguments)
-},{"../object/keys":975,"dup":102}],884:[function(require,module,exports){
+},{"../object/keys":977,"dup":102}],886:[function(require,module,exports){
 arguments[4][103][0].apply(exports,arguments)
-},{"../object/keys":975,"./baseCopy":886,"dup":103}],885:[function(require,module,exports){
+},{"../object/keys":977,"./baseCopy":888,"dup":103}],887:[function(require,module,exports){
 arguments[4][104][0].apply(exports,arguments)
-},{"../utility/identity":981,"../utility/property":983,"./baseMatches":909,"./baseMatchesProperty":910,"./bindCallback":919,"dup":104}],886:[function(require,module,exports){
+},{"../utility/identity":983,"../utility/property":985,"./baseMatches":911,"./baseMatchesProperty":912,"./bindCallback":921,"dup":104}],888:[function(require,module,exports){
 arguments[4][105][0].apply(exports,arguments)
-},{"dup":105}],887:[function(require,module,exports){
+},{"dup":105}],889:[function(require,module,exports){
 arguments[4][546][0].apply(exports,arguments)
-},{"../lang/isObject":971,"dup":546}],888:[function(require,module,exports){
+},{"../lang/isObject":973,"dup":546}],890:[function(require,module,exports){
 arguments[4][106][0].apply(exports,arguments)
-},{"dup":106}],889:[function(require,module,exports){
+},{"dup":106}],891:[function(require,module,exports){
 arguments[4][107][0].apply(exports,arguments)
-},{"./baseIndexOf":903,"./cacheIndexOf":920,"./createCache":928,"dup":107}],890:[function(require,module,exports){
+},{"./baseIndexOf":905,"./cacheIndexOf":922,"./createCache":930,"dup":107}],892:[function(require,module,exports){
 arguments[4][108][0].apply(exports,arguments)
-},{"./baseForOwn":899,"./createBaseEach":925,"dup":108}],891:[function(require,module,exports){
+},{"./baseForOwn":901,"./createBaseEach":927,"dup":108}],893:[function(require,module,exports){
 var baseForOwnRight = require('./baseForOwnRight'),
     createBaseEach = require('./createBaseEach');
 
@@ -88919,23 +89114,23 @@ var baseEachRight = createBaseEach(baseForOwnRight, true);
 
 module.exports = baseEachRight;
 
-},{"./baseForOwnRight":900,"./createBaseEach":925}],892:[function(require,module,exports){
+},{"./baseForOwnRight":902,"./createBaseEach":927}],894:[function(require,module,exports){
 arguments[4][109][0].apply(exports,arguments)
-},{"./baseEach":890,"dup":109}],893:[function(require,module,exports){
+},{"./baseEach":892,"dup":109}],895:[function(require,module,exports){
 arguments[4][110][0].apply(exports,arguments)
-},{"./baseEach":890,"dup":110}],894:[function(require,module,exports){
+},{"./baseEach":892,"dup":110}],896:[function(require,module,exports){
 arguments[4][111][0].apply(exports,arguments)
-},{"dup":111}],895:[function(require,module,exports){
+},{"dup":111}],897:[function(require,module,exports){
 arguments[4][112][0].apply(exports,arguments)
-},{"dup":112}],896:[function(require,module,exports){
+},{"dup":112}],898:[function(require,module,exports){
 arguments[4][113][0].apply(exports,arguments)
-},{"../lang/isArguments":966,"../lang/isArray":967,"./arrayPush":880,"./isArrayLike":945,"./isObjectLike":951,"dup":113}],897:[function(require,module,exports){
+},{"../lang/isArguments":968,"../lang/isArray":969,"./arrayPush":882,"./isArrayLike":947,"./isObjectLike":953,"dup":113}],899:[function(require,module,exports){
 arguments[4][114][0].apply(exports,arguments)
-},{"./createBaseFor":926,"dup":114}],898:[function(require,module,exports){
+},{"./createBaseFor":928,"dup":114}],900:[function(require,module,exports){
 arguments[4][115][0].apply(exports,arguments)
-},{"../object/keysIn":976,"./baseFor":897,"dup":115}],899:[function(require,module,exports){
+},{"../object/keysIn":978,"./baseFor":899,"dup":115}],901:[function(require,module,exports){
 arguments[4][116][0].apply(exports,arguments)
-},{"../object/keys":975,"./baseFor":897,"dup":116}],900:[function(require,module,exports){
+},{"../object/keys":977,"./baseFor":899,"dup":116}],902:[function(require,module,exports){
 var baseForRight = require('./baseForRight'),
     keys = require('../object/keys');
 
@@ -88954,7 +89149,7 @@ function baseForOwnRight(object, iteratee) {
 
 module.exports = baseForOwnRight;
 
-},{"../object/keys":975,"./baseForRight":901}],901:[function(require,module,exports){
+},{"../object/keys":977,"./baseForRight":903}],903:[function(require,module,exports){
 var createBaseFor = require('./createBaseFor');
 
 /**
@@ -88971,163 +89166,163 @@ var baseForRight = createBaseFor(true);
 
 module.exports = baseForRight;
 
-},{"./createBaseFor":926}],902:[function(require,module,exports){
+},{"./createBaseFor":928}],904:[function(require,module,exports){
 arguments[4][117][0].apply(exports,arguments)
-},{"./toObject":963,"dup":117}],903:[function(require,module,exports){
+},{"./toObject":965,"dup":117}],905:[function(require,module,exports){
 arguments[4][118][0].apply(exports,arguments)
-},{"./indexOfNaN":944,"dup":118}],904:[function(require,module,exports){
+},{"./indexOfNaN":946,"dup":118}],906:[function(require,module,exports){
 arguments[4][119][0].apply(exports,arguments)
-},{"../lang/isObject":971,"./baseIsEqualDeep":905,"./isObjectLike":951,"dup":119}],905:[function(require,module,exports){
+},{"../lang/isObject":973,"./baseIsEqualDeep":907,"./isObjectLike":953,"dup":119}],907:[function(require,module,exports){
 arguments[4][120][0].apply(exports,arguments)
-},{"../lang/isArray":967,"../lang/isTypedArray":973,"./equalArrays":936,"./equalByTag":937,"./equalObjects":938,"dup":120}],906:[function(require,module,exports){
+},{"../lang/isArray":969,"../lang/isTypedArray":975,"./equalArrays":938,"./equalByTag":939,"./equalObjects":940,"dup":120}],908:[function(require,module,exports){
 arguments[4][121][0].apply(exports,arguments)
-},{"./baseIsEqual":904,"./toObject":963,"dup":121}],907:[function(require,module,exports){
+},{"./baseIsEqual":906,"./toObject":965,"dup":121}],909:[function(require,module,exports){
 arguments[4][561][0].apply(exports,arguments)
-},{"dup":561}],908:[function(require,module,exports){
+},{"dup":561}],910:[function(require,module,exports){
 arguments[4][122][0].apply(exports,arguments)
-},{"./baseEach":890,"./isArrayLike":945,"dup":122}],909:[function(require,module,exports){
+},{"./baseEach":892,"./isArrayLike":947,"dup":122}],911:[function(require,module,exports){
 arguments[4][123][0].apply(exports,arguments)
-},{"./baseIsMatch":906,"./getMatchData":942,"./toObject":963,"dup":123}],910:[function(require,module,exports){
+},{"./baseIsMatch":908,"./getMatchData":944,"./toObject":965,"dup":123}],912:[function(require,module,exports){
 arguments[4][124][0].apply(exports,arguments)
-},{"../array/last":852,"../lang/isArray":967,"./baseGet":902,"./baseIsEqual":904,"./baseSlice":915,"./isKey":948,"./isStrictComparable":952,"./toObject":963,"./toPath":964,"dup":124}],911:[function(require,module,exports){
+},{"../array/last":854,"../lang/isArray":969,"./baseGet":904,"./baseIsEqual":906,"./baseSlice":917,"./isKey":950,"./isStrictComparable":954,"./toObject":965,"./toPath":966,"dup":124}],913:[function(require,module,exports){
 arguments[4][125][0].apply(exports,arguments)
-},{"dup":125}],912:[function(require,module,exports){
+},{"dup":125}],914:[function(require,module,exports){
 arguments[4][126][0].apply(exports,arguments)
-},{"./baseGet":902,"./toPath":964,"dup":126}],913:[function(require,module,exports){
+},{"./baseGet":904,"./toPath":966,"dup":126}],915:[function(require,module,exports){
 arguments[4][127][0].apply(exports,arguments)
-},{"dup":127}],914:[function(require,module,exports){
+},{"dup":127}],916:[function(require,module,exports){
 arguments[4][570][0].apply(exports,arguments)
-},{"../utility/identity":981,"./metaMap":954,"dup":570}],915:[function(require,module,exports){
+},{"../utility/identity":983,"./metaMap":956,"dup":570}],917:[function(require,module,exports){
 arguments[4][128][0].apply(exports,arguments)
-},{"dup":128}],916:[function(require,module,exports){
+},{"dup":128}],918:[function(require,module,exports){
 arguments[4][129][0].apply(exports,arguments)
-},{"./baseEach":890,"dup":129}],917:[function(require,module,exports){
+},{"./baseEach":892,"dup":129}],919:[function(require,module,exports){
 arguments[4][130][0].apply(exports,arguments)
-},{"dup":130}],918:[function(require,module,exports){
+},{"dup":130}],920:[function(require,module,exports){
 arguments[4][575][0].apply(exports,arguments)
-},{"./baseIndexOf":903,"./cacheIndexOf":920,"./createCache":928,"dup":575}],919:[function(require,module,exports){
+},{"./baseIndexOf":905,"./cacheIndexOf":922,"./createCache":930,"dup":575}],921:[function(require,module,exports){
 arguments[4][132][0].apply(exports,arguments)
-},{"../utility/identity":981,"dup":132}],920:[function(require,module,exports){
+},{"../utility/identity":983,"dup":132}],922:[function(require,module,exports){
 arguments[4][133][0].apply(exports,arguments)
-},{"../lang/isObject":971,"dup":133}],921:[function(require,module,exports){
+},{"../lang/isObject":973,"dup":133}],923:[function(require,module,exports){
 arguments[4][134][0].apply(exports,arguments)
-},{"../lang/isObject":971,"dup":134}],922:[function(require,module,exports){
+},{"../lang/isObject":973,"dup":134}],924:[function(require,module,exports){
 arguments[4][582][0].apply(exports,arguments)
-},{"dup":582}],923:[function(require,module,exports){
+},{"dup":582}],925:[function(require,module,exports){
 arguments[4][583][0].apply(exports,arguments)
-},{"dup":583}],924:[function(require,module,exports){
+},{"dup":583}],926:[function(require,module,exports){
 arguments[4][135][0].apply(exports,arguments)
-},{"../function/restParam":870,"./bindCallback":919,"./isIterateeCall":947,"dup":135}],925:[function(require,module,exports){
+},{"../function/restParam":872,"./bindCallback":921,"./isIterateeCall":949,"dup":135}],927:[function(require,module,exports){
 arguments[4][136][0].apply(exports,arguments)
-},{"./getLength":941,"./isLength":950,"./toObject":963,"dup":136}],926:[function(require,module,exports){
+},{"./getLength":943,"./isLength":952,"./toObject":965,"dup":136}],928:[function(require,module,exports){
 arguments[4][137][0].apply(exports,arguments)
-},{"./toObject":963,"dup":137}],927:[function(require,module,exports){
+},{"./toObject":965,"dup":137}],929:[function(require,module,exports){
 arguments[4][588][0].apply(exports,arguments)
-},{"./createCtorWrapper":929,"dup":588}],928:[function(require,module,exports){
+},{"./createCtorWrapper":931,"dup":588}],930:[function(require,module,exports){
 arguments[4][138][0].apply(exports,arguments)
-},{"./SetCache":873,"./getNative":943,"dup":138}],929:[function(require,module,exports){
+},{"./SetCache":875,"./getNative":945,"dup":138}],931:[function(require,module,exports){
 arguments[4][590][0].apply(exports,arguments)
-},{"../lang/isObject":971,"./baseCreate":887,"dup":590}],930:[function(require,module,exports){
+},{"../lang/isObject":973,"./baseCreate":889,"dup":590}],932:[function(require,module,exports){
 arguments[4][139][0].apply(exports,arguments)
-},{"../lang/isArray":967,"./baseCallback":885,"./baseFind":894,"./baseFindIndex":895,"dup":139}],931:[function(require,module,exports){
+},{"../lang/isArray":969,"./baseCallback":887,"./baseFind":896,"./baseFindIndex":897,"dup":139}],933:[function(require,module,exports){
 arguments[4][140][0].apply(exports,arguments)
-},{"../lang/isArray":967,"./bindCallback":919,"dup":140}],932:[function(require,module,exports){
+},{"../lang/isArray":969,"./bindCallback":921,"dup":140}],934:[function(require,module,exports){
 arguments[4][594][0].apply(exports,arguments)
-},{"./arrayCopy":874,"./composeArgs":922,"./composeArgsRight":923,"./createCtorWrapper":929,"./isLaziable":949,"./reorder":958,"./replaceHolders":959,"./setData":960,"dup":594}],933:[function(require,module,exports){
+},{"./arrayCopy":876,"./composeArgs":924,"./composeArgsRight":925,"./createCtorWrapper":931,"./isLaziable":951,"./reorder":960,"./replaceHolders":961,"./setData":962,"dup":594}],935:[function(require,module,exports){
 arguments[4][595][0].apply(exports,arguments)
-},{"./createCtorWrapper":929,"dup":595}],934:[function(require,module,exports){
+},{"./createCtorWrapper":931,"dup":595}],936:[function(require,module,exports){
 arguments[4][141][0].apply(exports,arguments)
-},{"../lang/isArray":967,"./baseCallback":885,"./baseReduce":913,"dup":141}],935:[function(require,module,exports){
+},{"../lang/isArray":969,"./baseCallback":887,"./baseReduce":915,"dup":141}],937:[function(require,module,exports){
 arguments[4][597][0].apply(exports,arguments)
-},{"./baseSetData":914,"./createBindWrapper":927,"./createHybridWrapper":932,"./createPartialWrapper":933,"./getData":939,"./mergeData":953,"./setData":960,"dup":597}],936:[function(require,module,exports){
+},{"./baseSetData":916,"./createBindWrapper":929,"./createHybridWrapper":934,"./createPartialWrapper":935,"./getData":941,"./mergeData":955,"./setData":962,"dup":597}],938:[function(require,module,exports){
 arguments[4][142][0].apply(exports,arguments)
-},{"./arraySome":882,"dup":142}],937:[function(require,module,exports){
+},{"./arraySome":884,"dup":142}],939:[function(require,module,exports){
 arguments[4][143][0].apply(exports,arguments)
-},{"dup":143}],938:[function(require,module,exports){
+},{"dup":143}],940:[function(require,module,exports){
 arguments[4][144][0].apply(exports,arguments)
-},{"../object/keys":975,"dup":144}],939:[function(require,module,exports){
+},{"../object/keys":977,"dup":144}],941:[function(require,module,exports){
 arguments[4][601][0].apply(exports,arguments)
-},{"../utility/noop":982,"./metaMap":954,"dup":601}],940:[function(require,module,exports){
+},{"../utility/noop":984,"./metaMap":956,"dup":601}],942:[function(require,module,exports){
 arguments[4][602][0].apply(exports,arguments)
-},{"./realNames":957,"dup":602}],941:[function(require,module,exports){
+},{"./realNames":959,"dup":602}],943:[function(require,module,exports){
 arguments[4][145][0].apply(exports,arguments)
-},{"./baseProperty":911,"dup":145}],942:[function(require,module,exports){
+},{"./baseProperty":913,"dup":145}],944:[function(require,module,exports){
 arguments[4][146][0].apply(exports,arguments)
-},{"../object/pairs":978,"./isStrictComparable":952,"dup":146}],943:[function(require,module,exports){
+},{"../object/pairs":980,"./isStrictComparable":954,"dup":146}],945:[function(require,module,exports){
 arguments[4][147][0].apply(exports,arguments)
-},{"../lang/isNative":969,"dup":147}],944:[function(require,module,exports){
+},{"../lang/isNative":971,"dup":147}],946:[function(require,module,exports){
 arguments[4][148][0].apply(exports,arguments)
-},{"dup":148}],945:[function(require,module,exports){
+},{"dup":148}],947:[function(require,module,exports){
 arguments[4][149][0].apply(exports,arguments)
-},{"./getLength":941,"./isLength":950,"dup":149}],946:[function(require,module,exports){
+},{"./getLength":943,"./isLength":952,"dup":149}],948:[function(require,module,exports){
 arguments[4][150][0].apply(exports,arguments)
-},{"dup":150}],947:[function(require,module,exports){
+},{"dup":150}],949:[function(require,module,exports){
 arguments[4][151][0].apply(exports,arguments)
-},{"../lang/isObject":971,"./isArrayLike":945,"./isIndex":946,"dup":151}],948:[function(require,module,exports){
+},{"../lang/isObject":973,"./isArrayLike":947,"./isIndex":948,"dup":151}],950:[function(require,module,exports){
 arguments[4][152][0].apply(exports,arguments)
-},{"../lang/isArray":967,"./toObject":963,"dup":152}],949:[function(require,module,exports){
+},{"../lang/isArray":969,"./toObject":965,"dup":152}],951:[function(require,module,exports){
 arguments[4][614][0].apply(exports,arguments)
-},{"../chain/lodash":856,"./LazyWrapper":871,"./getData":939,"./getFuncName":940,"dup":614}],950:[function(require,module,exports){
+},{"../chain/lodash":858,"./LazyWrapper":873,"./getData":941,"./getFuncName":942,"dup":614}],952:[function(require,module,exports){
 arguments[4][153][0].apply(exports,arguments)
-},{"dup":153}],951:[function(require,module,exports){
+},{"dup":153}],953:[function(require,module,exports){
 arguments[4][154][0].apply(exports,arguments)
-},{"dup":154}],952:[function(require,module,exports){
+},{"dup":154}],954:[function(require,module,exports){
 arguments[4][155][0].apply(exports,arguments)
-},{"../lang/isObject":971,"dup":155}],953:[function(require,module,exports){
+},{"../lang/isObject":973,"dup":155}],955:[function(require,module,exports){
 arguments[4][618][0].apply(exports,arguments)
-},{"./arrayCopy":874,"./composeArgs":922,"./composeArgsRight":923,"./replaceHolders":959,"dup":618}],954:[function(require,module,exports){
+},{"./arrayCopy":876,"./composeArgs":924,"./composeArgsRight":925,"./replaceHolders":961,"dup":618}],956:[function(require,module,exports){
 arguments[4][619][0].apply(exports,arguments)
-},{"./getNative":943,"dup":619}],955:[function(require,module,exports){
+},{"./getNative":945,"dup":619}],957:[function(require,module,exports){
 arguments[4][156][0].apply(exports,arguments)
-},{"./toObject":963,"dup":156}],956:[function(require,module,exports){
+},{"./toObject":965,"dup":156}],958:[function(require,module,exports){
 arguments[4][157][0].apply(exports,arguments)
-},{"./baseForIn":898,"dup":157}],957:[function(require,module,exports){
+},{"./baseForIn":900,"dup":157}],959:[function(require,module,exports){
 arguments[4][622][0].apply(exports,arguments)
-},{"dup":622}],958:[function(require,module,exports){
+},{"dup":622}],960:[function(require,module,exports){
 arguments[4][623][0].apply(exports,arguments)
-},{"./arrayCopy":874,"./isIndex":946,"dup":623}],959:[function(require,module,exports){
+},{"./arrayCopy":876,"./isIndex":948,"dup":623}],961:[function(require,module,exports){
 arguments[4][624][0].apply(exports,arguments)
-},{"dup":624}],960:[function(require,module,exports){
+},{"dup":624}],962:[function(require,module,exports){
 arguments[4][625][0].apply(exports,arguments)
-},{"../date/now":866,"./baseSetData":914,"dup":625}],961:[function(require,module,exports){
+},{"../date/now":868,"./baseSetData":916,"dup":625}],963:[function(require,module,exports){
 arguments[4][158][0].apply(exports,arguments)
-},{"../lang/isArguments":966,"../lang/isArray":967,"../object/keysIn":976,"./isIndex":946,"./isLength":950,"dup":158}],962:[function(require,module,exports){
+},{"../lang/isArguments":968,"../lang/isArray":969,"../object/keysIn":978,"./isIndex":948,"./isLength":952,"dup":158}],964:[function(require,module,exports){
 arguments[4][627][0].apply(exports,arguments)
-},{"dup":627}],963:[function(require,module,exports){
+},{"dup":627}],965:[function(require,module,exports){
 arguments[4][159][0].apply(exports,arguments)
-},{"../lang/isObject":971,"dup":159}],964:[function(require,module,exports){
+},{"../lang/isObject":973,"dup":159}],966:[function(require,module,exports){
 arguments[4][160][0].apply(exports,arguments)
-},{"../lang/isArray":967,"./baseToString":917,"dup":160}],965:[function(require,module,exports){
+},{"../lang/isArray":969,"./baseToString":919,"dup":160}],967:[function(require,module,exports){
 arguments[4][630][0].apply(exports,arguments)
-},{"./LazyWrapper":871,"./LodashWrapper":872,"./arrayCopy":874,"dup":630}],966:[function(require,module,exports){
+},{"./LazyWrapper":873,"./LodashWrapper":874,"./arrayCopy":876,"dup":630}],968:[function(require,module,exports){
 arguments[4][161][0].apply(exports,arguments)
-},{"../internal/isArrayLike":945,"../internal/isObjectLike":951,"dup":161}],967:[function(require,module,exports){
+},{"../internal/isArrayLike":947,"../internal/isObjectLike":953,"dup":161}],969:[function(require,module,exports){
 arguments[4][162][0].apply(exports,arguments)
-},{"../internal/getNative":943,"../internal/isLength":950,"../internal/isObjectLike":951,"dup":162}],968:[function(require,module,exports){
+},{"../internal/getNative":945,"../internal/isLength":952,"../internal/isObjectLike":953,"dup":162}],970:[function(require,module,exports){
 arguments[4][163][0].apply(exports,arguments)
-},{"./isObject":971,"dup":163}],969:[function(require,module,exports){
+},{"./isObject":973,"dup":163}],971:[function(require,module,exports){
 arguments[4][164][0].apply(exports,arguments)
-},{"../internal/isObjectLike":951,"./isFunction":968,"dup":164}],970:[function(require,module,exports){
+},{"../internal/isObjectLike":953,"./isFunction":970,"dup":164}],972:[function(require,module,exports){
 arguments[4][165][0].apply(exports,arguments)
-},{"../internal/isObjectLike":951,"dup":165}],971:[function(require,module,exports){
+},{"../internal/isObjectLike":953,"dup":165}],973:[function(require,module,exports){
 arguments[4][166][0].apply(exports,arguments)
-},{"dup":166}],972:[function(require,module,exports){
+},{"dup":166}],974:[function(require,module,exports){
 arguments[4][167][0].apply(exports,arguments)
-},{"../internal/isObjectLike":951,"dup":167}],973:[function(require,module,exports){
+},{"../internal/isObjectLike":953,"dup":167}],975:[function(require,module,exports){
 arguments[4][168][0].apply(exports,arguments)
-},{"../internal/isLength":950,"../internal/isObjectLike":951,"dup":168}],974:[function(require,module,exports){
+},{"../internal/isLength":952,"../internal/isObjectLike":953,"dup":168}],976:[function(require,module,exports){
 arguments[4][169][0].apply(exports,arguments)
-},{"../internal/assignWith":883,"../internal/baseAssign":884,"../internal/createAssigner":924,"dup":169}],975:[function(require,module,exports){
+},{"../internal/assignWith":885,"../internal/baseAssign":886,"../internal/createAssigner":926,"dup":169}],977:[function(require,module,exports){
 arguments[4][170][0].apply(exports,arguments)
-},{"../internal/getNative":943,"../internal/isArrayLike":945,"../internal/shimKeys":961,"../lang/isObject":971,"dup":170}],976:[function(require,module,exports){
+},{"../internal/getNative":945,"../internal/isArrayLike":947,"../internal/shimKeys":963,"../lang/isObject":973,"dup":170}],978:[function(require,module,exports){
 arguments[4][171][0].apply(exports,arguments)
-},{"../internal/isIndex":946,"../internal/isLength":950,"../lang/isArguments":966,"../lang/isArray":967,"../lang/isObject":971,"dup":171}],977:[function(require,module,exports){
+},{"../internal/isIndex":948,"../internal/isLength":952,"../lang/isArguments":968,"../lang/isArray":969,"../lang/isObject":973,"dup":171}],979:[function(require,module,exports){
 arguments[4][172][0].apply(exports,arguments)
-},{"../function/restParam":870,"../internal/arrayMap":879,"../internal/baseDifference":889,"../internal/baseFlatten":896,"../internal/bindCallback":919,"../internal/pickByArray":955,"../internal/pickByCallback":956,"./keysIn":976,"dup":172}],978:[function(require,module,exports){
+},{"../function/restParam":872,"../internal/arrayMap":881,"../internal/baseDifference":891,"../internal/baseFlatten":898,"../internal/bindCallback":921,"../internal/pickByArray":957,"../internal/pickByCallback":958,"./keysIn":978,"dup":172}],980:[function(require,module,exports){
 arguments[4][173][0].apply(exports,arguments)
-},{"../internal/toObject":963,"./keys":975,"dup":173}],979:[function(require,module,exports){
+},{"../internal/toObject":965,"./keys":977,"dup":173}],981:[function(require,module,exports){
 arguments[4][174][0].apply(exports,arguments)
-},{"../function/restParam":870,"../internal/baseFlatten":896,"../internal/bindCallback":919,"../internal/pickByArray":955,"../internal/pickByCallback":956,"dup":174}],980:[function(require,module,exports){
+},{"../function/restParam":872,"../internal/baseFlatten":898,"../internal/bindCallback":921,"../internal/pickByArray":957,"../internal/pickByCallback":958,"dup":174}],982:[function(require,module,exports){
 var arrayEach = require('../internal/arrayEach'),
     baseCallback = require('../internal/baseCallback'),
     baseCreate = require('../internal/baseCreate'),
@@ -89190,45 +89385,45 @@ function transform(object, iteratee, accumulator, thisArg) {
 
 module.exports = transform;
 
-},{"../internal/arrayEach":875,"../internal/baseCallback":885,"../internal/baseCreate":887,"../internal/baseForOwn":899,"../lang/isArray":967,"../lang/isFunction":968,"../lang/isObject":971,"../lang/isTypedArray":973}],981:[function(require,module,exports){
+},{"../internal/arrayEach":877,"../internal/baseCallback":887,"../internal/baseCreate":889,"../internal/baseForOwn":901,"../lang/isArray":969,"../lang/isFunction":970,"../lang/isObject":973,"../lang/isTypedArray":975}],983:[function(require,module,exports){
 arguments[4][176][0].apply(exports,arguments)
-},{"dup":176}],982:[function(require,module,exports){
+},{"dup":176}],984:[function(require,module,exports){
 arguments[4][650][0].apply(exports,arguments)
-},{"dup":650}],983:[function(require,module,exports){
+},{"dup":650}],985:[function(require,module,exports){
 arguments[4][177][0].apply(exports,arguments)
-},{"../internal/baseProperty":911,"../internal/basePropertyDeep":912,"../internal/isKey":948,"dup":177}],984:[function(require,module,exports){
+},{"../internal/baseProperty":913,"../internal/basePropertyDeep":914,"../internal/isKey":950,"dup":177}],986:[function(require,module,exports){
 arguments[4][652][0].apply(exports,arguments)
-},{"dup":652}],985:[function(require,module,exports){
+},{"dup":652}],987:[function(require,module,exports){
 arguments[4][653][0].apply(exports,arguments)
-},{"component-classes":992,"dup":653}],986:[function(require,module,exports){
+},{"component-classes":994,"dup":653}],988:[function(require,module,exports){
 arguments[4][178][0].apply(exports,arguments)
-},{"component-delegate":995,"dup":178}],987:[function(require,module,exports){
+},{"component-delegate":997,"dup":178}],989:[function(require,module,exports){
 arguments[4][179][0].apply(exports,arguments)
-},{"domify":999,"dup":179}],988:[function(require,module,exports){
+},{"domify":1001,"dup":179}],990:[function(require,module,exports){
 arguments[4][180][0].apply(exports,arguments)
-},{"component-event":996,"dup":180}],989:[function(require,module,exports){
+},{"component-event":998,"dup":180}],991:[function(require,module,exports){
 arguments[4][659][0].apply(exports,arguments)
-},{"component-matches-selector":997,"dup":659}],990:[function(require,module,exports){
+},{"component-matches-selector":999,"dup":659}],992:[function(require,module,exports){
 arguments[4][181][0].apply(exports,arguments)
-},{"component-query":998,"dup":181}],991:[function(require,module,exports){
+},{"component-query":1000,"dup":181}],993:[function(require,module,exports){
 arguments[4][182][0].apply(exports,arguments)
-},{"dup":182}],992:[function(require,module,exports){
+},{"dup":182}],994:[function(require,module,exports){
 arguments[4][662][0].apply(exports,arguments)
-},{"component-indexof":993,"dup":662,"indexof":993}],993:[function(require,module,exports){
+},{"component-indexof":995,"dup":662,"indexof":995}],995:[function(require,module,exports){
 arguments[4][663][0].apply(exports,arguments)
-},{"dup":663}],994:[function(require,module,exports){
+},{"dup":663}],996:[function(require,module,exports){
 arguments[4][183][0].apply(exports,arguments)
-},{"dup":183,"matches-selector":997}],995:[function(require,module,exports){
+},{"dup":183,"matches-selector":999}],997:[function(require,module,exports){
 arguments[4][184][0].apply(exports,arguments)
-},{"closest":994,"component-closest":994,"component-event":996,"dup":184,"event":996}],996:[function(require,module,exports){
+},{"closest":996,"component-closest":996,"component-event":998,"dup":184,"event":998}],998:[function(require,module,exports){
 arguments[4][185][0].apply(exports,arguments)
-},{"dup":185}],997:[function(require,module,exports){
+},{"dup":185}],999:[function(require,module,exports){
 arguments[4][186][0].apply(exports,arguments)
-},{"component-query":998,"dup":186,"query":998}],998:[function(require,module,exports){
+},{"component-query":1000,"dup":186,"query":1000}],1000:[function(require,module,exports){
 arguments[4][187][0].apply(exports,arguments)
-},{"dup":187}],999:[function(require,module,exports){
+},{"dup":187}],1001:[function(require,module,exports){
 arguments[4][188][0].apply(exports,arguments)
-},{"dup":188}],1000:[function(require,module,exports){
+},{"dup":188}],1002:[function(require,module,exports){
 'use strict';
 
 /**
@@ -89380,10 +89575,10 @@ function splitStr(str, position) {
     after: str.substring(position)
   };
 }
-},{}],1001:[function(require,module,exports){
+},{}],1003:[function(require,module,exports){
 module.exports = require('./lib/Table');
 
-},{"./lib/Table":1002}],1002:[function(require,module,exports){
+},{"./lib/Table":1004}],1004:[function(require,module,exports){
 'use strict';
 
 var di = require('didi');
@@ -89563,7 +89758,7 @@ Table.prototype.clear = function() {
   this.get('eventBus').fire('diagram.clear');
 };
 
-},{"./core":1007,"didi":1067}],1003:[function(require,module,exports){
+},{"./core":1009,"didi":1069}],1005:[function(require,module,exports){
 'use strict';
 
 var Model = require('../model');
@@ -89611,7 +89806,7 @@ ElementFactory.prototype.create = function(type, attrs) {
   return Model.create(type, attrs);
 };
 
-},{"../model":1054}],1004:[function(require,module,exports){
+},{"../model":1056}],1006:[function(require,module,exports){
 'use strict';
 
 var ELEMENT_ID = 'data-element-id';
@@ -89812,7 +90007,7 @@ ElementRegistry.prototype._validateId = function(id) {
   }
 };
 
-},{}],1005:[function(require,module,exports){
+},{}],1007:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -89955,7 +90150,7 @@ GraphicsFactory.prototype.remove = function(element) {
   gfx.parentNode && gfx.parentNode.removeChild(gfx);
 };
 
-},{"lodash/collection/forEach":861}],1006:[function(require,module,exports){
+},{"lodash/collection/forEach":863}],1008:[function(require,module,exports){
 'use strict';
 
 var isNumber = require('lodash/lang/isNumber'),
@@ -90733,7 +90928,7 @@ Sheet.prototype.resized = function() {
   eventBus.fire('sheet.resized');
 };
 
-},{"lodash/collection/every":858,"lodash/collection/forEach":861,"lodash/lang/isNumber":970,"lodash/object/assign":974}],1007:[function(require,module,exports){
+},{"lodash/collection/every":860,"lodash/collection/forEach":863,"lodash/lang/isNumber":972,"lodash/object/assign":976}],1009:[function(require,module,exports){
 module.exports = {
   __depends__: [ require('../draw') ],
   __init__: [ 'sheet' ],
@@ -90744,7 +90939,7 @@ module.exports = {
   eventBus: [ 'type', require('diagram-js/lib/core/EventBus') ]
 };
 
-},{"../draw":1009,"./ElementFactory":1003,"./ElementRegistry":1004,"./GraphicsFactory":1005,"./Sheet":1006,"diagram-js/lib/core/EventBus":1058}],1008:[function(require,module,exports){
+},{"../draw":1011,"./ElementFactory":1005,"./ElementRegistry":1006,"./GraphicsFactory":1007,"./Sheet":1008,"diagram-js/lib/core/EventBus":1060}],1010:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -90848,12 +91043,12 @@ Renderer.prototype.drawCell = function drawCell(gfx, data) {
   return gfx;
 };
 
-},{"lodash/collection/forEach":861}],1009:[function(require,module,exports){
+},{"lodash/collection/forEach":863}],1011:[function(require,module,exports){
 module.exports = {
   renderer: [ 'type', require('./Renderer') ]
 };
 
-},{"./Renderer":1008}],1010:[function(require,module,exports){
+},{"./Renderer":1010}],1012:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -90902,7 +91097,7 @@ AddRow.prototype.getRow = function() {
   return this.row;
 };
 
-},{"diagram-js/lib/util/IdGenerator":1063,"min-dom/lib/domify":987}],1011:[function(require,module,exports){
+},{"diagram-js/lib/util/IdGenerator":1065,"min-dom/lib/domify":989}],1013:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -90933,7 +91128,7 @@ AddRowRenderer.$inject = [
 
 module.exports = AddRowRenderer;
 
-},{"min-dom/lib/classes":985}],1012:[function(require,module,exports){
+},{"min-dom/lib/classes":987}],1014:[function(require,module,exports){
 module.exports = {
   __init__: [ 'addRow', 'addRowRenderer'],
   __depends__: [
@@ -90944,7 +91139,7 @@ module.exports = {
   addRowRenderer: [ 'type', require('./AddRowRenderer') ]
 };
 
-},{"../modeling":1043,"../utility-column":1053,"./AddRow":1010,"./AddRowRenderer":1011}],1013:[function(require,module,exports){
+},{"../modeling":1045,"../utility-column":1055,"./AddRow":1012,"./AddRowRenderer":1013}],1015:[function(require,module,exports){
 'use strict';
 
 /**
@@ -91009,16 +91204,16 @@ ChangeSupport.$inject = [ 'eventBus', 'elementRegistry', 'graphicsFactory' ];
 
 module.exports = ChangeSupport;
 
-},{}],1014:[function(require,module,exports){
+},{}],1016:[function(require,module,exports){
 module.exports = {
   __init__: [ 'changeSupport'],
   changeSupport: [ 'type', require('./ChangeSupport') ]
 };
 
-},{"./ChangeSupport":1013}],1015:[function(require,module,exports){
+},{"./ChangeSupport":1015}],1017:[function(require,module,exports){
 module.exports = "<div>\n  <label></label>\n  <input tabindex=\"0\" />\n  <span class=\"cb-caret\"></span>\n</div>\n";
 
-},{}],1016:[function(require,module,exports){
+},{}],1018:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -91320,7 +91515,7 @@ ComboBox.prototype.enable = function() {
 
 module.exports = ComboBox;
 
-},{"./ComboBoxTemplate.html":1015,"lodash/collection/forEach":861,"lodash/object/assign":974,"min-dom/lib/classes":985,"min-dom/lib/domify":987}],1017:[function(require,module,exports){
+},{"./ComboBoxTemplate.html":1017,"lodash/collection/forEach":863,"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/domify":989}],1019:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -91530,7 +91725,7 @@ ComplexCell.$inject = [ 'eventBus', 'elementRegistry', 'sheet' ];
 
 module.exports = ComplexCell;
 
-},{"lodash/object/assign":974,"min-dom/lib/classes":985,"min-dom/lib/remove":991}],1018:[function(require,module,exports){
+},{"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/remove":993}],1020:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -91538,7 +91733,7 @@ module.exports = {
   complexCell: [ 'type', require('./ComplexCell') ]
 };
 
-},{"./ComplexCell":1017}],1019:[function(require,module,exports){
+},{"./ComplexCell":1019}],1021:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -91603,7 +91798,7 @@ Controls.$inject = [ 'eventBus' ];
 
 module.exports = Controls;
 
-},{"min-dom/lib/classes":985}],1020:[function(require,module,exports){
+},{"min-dom/lib/classes":987}],1022:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -91611,7 +91806,7 @@ module.exports = {
   controls: [ 'type', require('./Controls') ]
 };
 
-},{"./Controls":1019}],1021:[function(require,module,exports){
+},{"./Controls":1021}],1023:[function(require,module,exports){
 'use strict';
 
 var debounce = require('lodash/function/debounce');
@@ -91811,7 +92006,7 @@ EditBehavior.$inject = [
 
 module.exports = EditBehavior;
 
-},{"lodash/function/debounce":868}],1022:[function(require,module,exports){
+},{"lodash/function/debounce":870}],1024:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -91873,7 +92068,7 @@ EditRenderer.$inject = [
 
 module.exports = EditRenderer;
 
-},{"min-dom/lib/classes":985}],1023:[function(require,module,exports){
+},{"min-dom/lib/classes":987}],1025:[function(require,module,exports){
 'use strict';
 
 /**
@@ -92006,7 +92201,7 @@ Selection.prototype.selectBelow = function() {
   }
 };
 
-},{}],1024:[function(require,module,exports){
+},{}],1026:[function(require,module,exports){
 module.exports = {
   __init__: [ 'editBehavior', 'editRenderer' ],
   __depends__: [
@@ -92020,7 +92215,7 @@ module.exports = {
   editRenderer: [ 'type', require('./EditRenderer') ]
 };
 
-},{"../interaction-events":1028,"../keyboard":1030,"../modeling":1043,"./EditBehavior":1021,"./EditRenderer":1022,"./Selection":1023,"diagram-js/lib/features/rules":1061}],1025:[function(require,module,exports){
+},{"../interaction-events":1030,"../keyboard":1032,"../modeling":1045,"./EditBehavior":1023,"./EditRenderer":1024,"./Selection":1025,"diagram-js/lib/features/rules":1063}],1027:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -92154,13 +92349,13 @@ function error(action, message) {
   return new Error(action + ' ' + message);
 }
 
-},{"lodash/collection/forEach":861}],1026:[function(require,module,exports){
+},{"lodash/collection/forEach":863}],1028:[function(require,module,exports){
 module.exports = {
   __init__: [ 'editorActions' ],
   editorActions: [ 'type', require('./EditorActions') ]
 };
 
-},{"./EditorActions":1025}],1027:[function(require,module,exports){
+},{"./EditorActions":1027}],1029:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -92407,13 +92602,13 @@ module.exports = InteractionEvents;
  * @property {Event} originalEvent
  */
 
-},{"diagram-js/lib/util/Mouse":1064,"lodash/collection/forEach":861,"min-dom/lib/delegate":986}],1028:[function(require,module,exports){
+},{"diagram-js/lib/util/Mouse":1066,"lodash/collection/forEach":863,"min-dom/lib/delegate":988}],1030:[function(require,module,exports){
 module.exports = {
   __init__: [ 'interactionEvents' ],
   interactionEvents: [ 'type', require('./InteractionEvents') ]
 };
 
-},{"./InteractionEvents":1027}],1029:[function(require,module,exports){
+},{"./InteractionEvents":1029}],1031:[function(require,module,exports){
 'use strict';
 
 var domEvent = require('min-dom/lib/event'),
@@ -92625,7 +92820,7 @@ function isShift(modifiers) {
   return modifiers.shiftKey;
 }
 
-},{"min-dom/lib/event":988,"min-dom/lib/matches":989}],1030:[function(require,module,exports){
+},{"min-dom/lib/event":990,"min-dom/lib/matches":991}],1032:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('../editor-actions')
@@ -92634,7 +92829,7 @@ module.exports = {
   keyboard: [ 'type', require('./Keyboard') ]
 };
 
-},{"../editor-actions":1026,"./Keyboard":1029}],1031:[function(require,module,exports){
+},{"../editor-actions":1028,"./Keyboard":1031}],1033:[function(require,module,exports){
 'use strict';
 
 var debounce = require('lodash/function/debounce');
@@ -92697,7 +92892,7 @@ LineNumbers.prototype.updateLineNumbers = function() {
   }
 };
 
-},{"lodash/function/debounce":868}],1032:[function(require,module,exports){
+},{"lodash/function/debounce":870}],1034:[function(require,module,exports){
 module.exports = {
   __init__: [ 'lineNumbers' ],
   __depends__: [
@@ -92706,7 +92901,7 @@ module.exports = {
   lineNumbers: [ 'type', require('./LineNumbers') ]
 };
 
-},{"../utility-column":1053,"./LineNumbers":1031}],1033:[function(require,module,exports){
+},{"../utility-column":1055,"./LineNumbers":1033}],1035:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -92879,7 +93074,7 @@ Modeling.prototype.editName = function(newName) {
   return context;
 };
 
-},{"./cmd/ClearRowHandler":1034,"./cmd/CreateColumnHandler":1035,"./cmd/CreateRowHandler":1036,"./cmd/DeleteColumnHandler":1037,"./cmd/DeleteRowHandler":1038,"./cmd/EditCellHandler":1039,"./cmd/EditNameHandler":1040,"./cmd/MoveColumnHandler":1041,"./cmd/MoveRowHandler":1042,"lodash/collection/forEach":861}],1034:[function(require,module,exports){
+},{"./cmd/ClearRowHandler":1036,"./cmd/CreateColumnHandler":1037,"./cmd/CreateRowHandler":1038,"./cmd/DeleteColumnHandler":1039,"./cmd/DeleteRowHandler":1040,"./cmd/EditCellHandler":1041,"./cmd/EditNameHandler":1042,"./cmd/MoveColumnHandler":1043,"./cmd/MoveRowHandler":1044,"lodash/collection/forEach":863}],1036:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -92946,7 +93141,7 @@ DeleteRowHandler.prototype.revert = function(context) {
   });
 };
 
-},{"lodash/collection/forEach":861}],1035:[function(require,module,exports){
+},{"lodash/collection/forEach":863}],1037:[function(require,module,exports){
 'use strict';
 
 /**
@@ -92996,7 +93191,7 @@ CreateColumnHandler.prototype.revert = function(context) {
   this._sheet.removeColumn(context.column);
 };
 
-},{}],1036:[function(require,module,exports){
+},{}],1038:[function(require,module,exports){
 'use strict';
 
 /**
@@ -93046,7 +93241,7 @@ CreateRowHandler.prototype.revert = function(context) {
   this._sheet.removeRow(context.row);
 };
 
-},{}],1037:[function(require,module,exports){
+},{}],1039:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -93108,7 +93303,7 @@ DeleteColumnHandler.prototype.revert = function(context) {
   });
 };
 
-},{"lodash/collection/forEach":861}],1038:[function(require,module,exports){
+},{"lodash/collection/forEach":863}],1040:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -93170,7 +93365,7 @@ DeleteRowHandler.prototype.revert = function(context) {
   });
 };
 
-},{"lodash/collection/forEach":861}],1039:[function(require,module,exports){
+},{"lodash/collection/forEach":863}],1041:[function(require,module,exports){
 'use strict';
 
 /**
@@ -93211,7 +93406,7 @@ EditCellHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],1040:[function(require,module,exports){
+},{}],1042:[function(require,module,exports){
 'use strict';
 
 /**
@@ -93252,7 +93447,7 @@ EditNameHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],1041:[function(require,module,exports){
+},{}],1043:[function(require,module,exports){
 'use strict';
 
 /**
@@ -93301,7 +93496,7 @@ MoveColumnHandler.prototype.revert = function(context) {
   }
 };
 
-},{}],1042:[function(require,module,exports){
+},{}],1044:[function(require,module,exports){
 'use strict';
 
 /**
@@ -93350,7 +93545,7 @@ MoveRowHandler.prototype.revert = function(context) {
   }
 };
 
-},{}],1043:[function(require,module,exports){
+},{}],1045:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('diagram-js/lib/command'),
@@ -93362,7 +93557,7 @@ module.exports = {
   modeling: [ 'type', require('./Modeling') ]
 };
 
-},{"../change-support":1014,"../utility-column":1053,"./Modeling":1033,"diagram-js/lib/command":1057,"diagram-js/lib/features/rules":1061}],1044:[function(require,module,exports){
+},{"../change-support":1016,"../utility-column":1055,"./Modeling":1035,"diagram-js/lib/command":1059,"diagram-js/lib/features/rules":1063}],1046:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -93772,9 +93967,9 @@ PopupMenu.prototype._createEntry = function(entry, container) {
 
 module.exports = PopupMenu;
 
-},{"lodash/collection/forEach":861,"lodash/object/assign":974,"min-dom/lib/attr":984,"min-dom/lib/classes":985,"min-dom/lib/delegate":986,"min-dom/lib/domify":987,"min-dom/lib/remove":991}],1045:[function(require,module,exports){
+},{"lodash/collection/forEach":863,"lodash/object/assign":976,"min-dom/lib/attr":986,"min-dom/lib/classes":987,"min-dom/lib/delegate":988,"min-dom/lib/domify":989,"min-dom/lib/remove":993}],1047:[function(require,module,exports){
 arguments[4][452][0].apply(exports,arguments)
-},{"./PopupMenu":1044,"dup":452}],1046:[function(require,module,exports){
+},{"./PopupMenu":1046,"dup":452}],1048:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -93797,7 +93992,7 @@ DragRenderer.$inject = [
 
 module.exports = DragRenderer;
 
-},{"min-dom/lib/classes":985}],1047:[function(require,module,exports){
+},{"min-dom/lib/classes":987}],1049:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -93974,7 +94169,7 @@ RowDrag.prototype.isDragging = function() {
   return !!this.draggedElement;
 };
 
-},{"min-dom/lib/classes":985,"min-dom/lib/domify":987}],1048:[function(require,module,exports){
+},{"min-dom/lib/classes":987,"min-dom/lib/domify":989}],1050:[function(require,module,exports){
 module.exports = {
   __init__: [ 'rowDrag', 'dragRenderer' ],
   __depends__: [
@@ -93984,7 +94179,7 @@ module.exports = {
   dragRenderer: [ 'type', require('./DragRenderer') ]
 };
 
-},{"../utility-column":1053,"./DragRenderer":1046,"./RowDrag":1047}],1049:[function(require,module,exports){
+},{"../utility-column":1055,"./DragRenderer":1048,"./RowDrag":1049}],1051:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -94030,7 +94225,7 @@ TableName.prototype.getNode = function() {
   return this.node.querySelector('h3');
 };
 
-},{"min-dom/lib/domify":987}],1050:[function(require,module,exports){
+},{"min-dom/lib/domify":989}],1052:[function(require,module,exports){
 'use strict';
 
 /**
@@ -94077,7 +94272,7 @@ UtilityColumn.prototype.getColumn = function() {
   return this.column;
 };
 
-},{}],1051:[function(require,module,exports){
+},{}],1053:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -94101,7 +94296,7 @@ UtilityColumnRenderer.$inject = [
 
 module.exports = UtilityColumnRenderer;
 
-},{"min-dom/lib/classes":985}],1052:[function(require,module,exports){
+},{"min-dom/lib/classes":987}],1054:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -94133,7 +94328,7 @@ UtilityColumnRules.prototype.init = function() {
 
 };
 
-},{"diagram-js/lib/features/rules/RuleProvider":1059,"inherits":851}],1053:[function(require,module,exports){
+},{"diagram-js/lib/features/rules/RuleProvider":1061,"inherits":853}],1055:[function(require,module,exports){
 module.exports = {
   __init__: [ 'utilityColumn', 'utilityColumnRules', 'utilityColumnRenderer' ],
   __depends__: [
@@ -94145,7 +94340,7 @@ module.exports = {
   utilityColumnRenderer: [ 'type', require('./UtilityColumnRenderer') ]
 };
 
-},{"./UtilityColumn":1050,"./UtilityColumnRenderer":1051,"./UtilityColumnRules":1052,"diagram-js/lib/command":1057,"diagram-js/lib/features/rules":1061}],1054:[function(require,module,exports){
+},{"./UtilityColumn":1052,"./UtilityColumnRenderer":1053,"./UtilityColumnRules":1054,"diagram-js/lib/command":1059,"diagram-js/lib/features/rules":1063}],1056:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -94212,9 +94407,9 @@ module.exports.Table = Table;
 module.exports.Row = Row;
 module.exports.Column = Column;
 
-},{"inherits":851,"lodash/object/assign":974}],1055:[function(require,module,exports){
+},{"inherits":853,"lodash/object/assign":976}],1057:[function(require,module,exports){
 arguments[4][373][0].apply(exports,arguments)
-},{"dup":373,"lodash/collection/forEach":861,"lodash/lang/isArray":967,"lodash/lang/isFunction":968,"lodash/lang/isNumber":970}],1056:[function(require,module,exports){
+},{"dup":373,"lodash/collection/forEach":863,"lodash/lang/isArray":969,"lodash/lang/isFunction":970,"lodash/lang/isNumber":972}],1058:[function(require,module,exports){
 'use strict';
 
 var unique = require('lodash/array/unique'),
@@ -94714,57 +94909,57 @@ CommandStack.prototype._setHandler = function(command, handler) {
   this._handlerMap[command] = handler;
 };
 
-},{"../core/EventBus":1058,"lodash/array/unique":855,"lodash/lang/isArray":967,"lodash/object/assign":974}],1057:[function(require,module,exports){
+},{"../core/EventBus":1060,"lodash/array/unique":857,"lodash/lang/isArray":969,"lodash/object/assign":976}],1059:[function(require,module,exports){
 arguments[4][375][0].apply(exports,arguments)
-},{"./CommandStack":1056,"dup":375}],1058:[function(require,module,exports){
+},{"./CommandStack":1058,"dup":375}],1060:[function(require,module,exports){
 arguments[4][379][0].apply(exports,arguments)
-},{"dup":379,"lodash/function/bind":867,"lodash/lang/isArray":967,"lodash/lang/isFunction":968,"lodash/lang/isNumber":970,"lodash/object/assign":974}],1059:[function(require,module,exports){
+},{"dup":379,"lodash/function/bind":869,"lodash/lang/isArray":969,"lodash/lang/isFunction":970,"lodash/lang/isNumber":972,"lodash/object/assign":976}],1061:[function(require,module,exports){
 arguments[4][457][0].apply(exports,arguments)
-},{"../../command/CommandInterceptor":1055,"dup":457,"inherits":851}],1060:[function(require,module,exports){
+},{"../../command/CommandInterceptor":1057,"dup":457,"inherits":853}],1062:[function(require,module,exports){
 arguments[4][458][0].apply(exports,arguments)
-},{"dup":458}],1061:[function(require,module,exports){
+},{"dup":458}],1063:[function(require,module,exports){
 arguments[4][459][0].apply(exports,arguments)
-},{"./Rules":1060,"dup":459}],1062:[function(require,module,exports){
+},{"./Rules":1062,"dup":459}],1064:[function(require,module,exports){
 arguments[4][488][0].apply(exports,arguments)
-},{"dup":488}],1063:[function(require,module,exports){
+},{"dup":488}],1065:[function(require,module,exports){
 arguments[4][491][0].apply(exports,arguments)
-},{"dup":491}],1064:[function(require,module,exports){
+},{"dup":491}],1066:[function(require,module,exports){
 arguments[4][495][0].apply(exports,arguments)
-},{"./Event":1062,"./Platform":1065,"dup":495}],1065:[function(require,module,exports){
+},{"./Event":1064,"./Platform":1067,"dup":495}],1067:[function(require,module,exports){
 arguments[4][496][0].apply(exports,arguments)
-},{"dup":496}],1066:[function(require,module,exports){
+},{"dup":496}],1068:[function(require,module,exports){
 arguments[4][502][0].apply(exports,arguments)
-},{"dup":502}],1067:[function(require,module,exports){
+},{"dup":502}],1069:[function(require,module,exports){
 arguments[4][503][0].apply(exports,arguments)
-},{"./annotation":1066,"./injector":1068,"./module":1069,"dup":503}],1068:[function(require,module,exports){
+},{"./annotation":1068,"./injector":1070,"./module":1071,"dup":503}],1070:[function(require,module,exports){
 arguments[4][504][0].apply(exports,arguments)
-},{"./annotation":1066,"./module":1069,"dup":504}],1069:[function(require,module,exports){
+},{"./annotation":1068,"./module":1071,"dup":504}],1071:[function(require,module,exports){
 arguments[4][505][0].apply(exports,arguments)
-},{"dup":505}],1070:[function(require,module,exports){
+},{"dup":505}],1072:[function(require,module,exports){
 arguments[4][192][0].apply(exports,arguments)
-},{"./appendTo":1071,"dup":192}],1071:[function(require,module,exports){
+},{"./appendTo":1073,"dup":192}],1073:[function(require,module,exports){
 arguments[4][193][0].apply(exports,arguments)
-},{"./util/ensureImported":1077,"dup":193}],1072:[function(require,module,exports){
+},{"./util/ensureImported":1079,"dup":193}],1074:[function(require,module,exports){
 arguments[4][194][0].apply(exports,arguments)
-},{"dup":194}],1073:[function(require,module,exports){
+},{"dup":194}],1075:[function(require,module,exports){
 arguments[4][196][0].apply(exports,arguments)
-},{"./remove":1076,"dup":196}],1074:[function(require,module,exports){
+},{"./remove":1078,"dup":196}],1076:[function(require,module,exports){
 arguments[4][197][0].apply(exports,arguments)
-},{"./attr":1072,"./util/ns":1078,"./util/parse":1079,"dup":197}],1075:[function(require,module,exports){
+},{"./attr":1074,"./util/ns":1080,"./util/parse":1081,"dup":197}],1077:[function(require,module,exports){
 arguments[4][198][0].apply(exports,arguments)
-},{"./appendTo":1071,"./clear":1073,"./util/parse":1079,"./util/serialize":1080,"dup":198}],1076:[function(require,module,exports){
+},{"./appendTo":1073,"./clear":1075,"./util/parse":1081,"./util/serialize":1082,"dup":198}],1078:[function(require,module,exports){
 arguments[4][199][0].apply(exports,arguments)
-},{"dup":199}],1077:[function(require,module,exports){
+},{"dup":199}],1079:[function(require,module,exports){
 arguments[4][200][0].apply(exports,arguments)
-},{"dup":200}],1078:[function(require,module,exports){
+},{"dup":200}],1080:[function(require,module,exports){
 arguments[4][201][0].apply(exports,arguments)
-},{"dup":201}],1079:[function(require,module,exports){
+},{"dup":201}],1081:[function(require,module,exports){
 arguments[4][202][0].apply(exports,arguments)
-},{"./ns":1078,"dup":202}],1080:[function(require,module,exports){
+},{"./ns":1080,"dup":202}],1082:[function(require,module,exports){
 arguments[4][203][0].apply(exports,arguments)
-},{"dup":203}],1081:[function(require,module,exports){
+},{"dup":203}],1083:[function(require,module,exports){
 
-},{}],1082:[function(require,module,exports){
+},{}],1084:[function(require,module,exports){
 (function (global){
 /*!
  * The buffer module from node.js, for the browser.
@@ -96316,7 +96511,7 @@ function blitBuffer (src, dst, offset, length) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"base64-js":1083,"ieee754":1084,"isarray":1085}],1083:[function(require,module,exports){
+},{"base64-js":1085,"ieee754":1086,"isarray":1087}],1085:[function(require,module,exports){
 var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 ;(function (exports) {
@@ -96442,7 +96637,7 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 	exports.fromByteArray = uint8ToBase64
 }(typeof exports === 'undefined' ? (this.base64js = {}) : exports))
 
-},{}],1084:[function(require,module,exports){
+},{}],1086:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -96528,14 +96723,14 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],1085:[function(require,module,exports){
+},{}],1087:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],1086:[function(require,module,exports){
+},{}],1088:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -96838,9 +97033,9 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],1087:[function(require,module,exports){
+},{}],1089:[function(require,module,exports){
 arguments[4][82][0].apply(exports,arguments)
-},{"dup":82}],1088:[function(require,module,exports){
+},{"dup":82}],1090:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -96863,7 +97058,7 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],1089:[function(require,module,exports){
+},{}],1091:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -97049,10 +97244,10 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],1090:[function(require,module,exports){
+},{}],1092:[function(require,module,exports){
 module.exports = require('./lib/_stream_duplex.js');
 
-},{"./lib/_stream_duplex.js":1091}],1091:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":1093}],1093:[function(require,module,exports){
 // a duplex stream is just a stream that is both readable and writable.
 // Since JS doesn't have multiple prototypal inheritance, this class
 // prototypally inherits from Readable, and then parasitically from
@@ -97128,7 +97323,7 @@ function forEach(xs, f) {
     f(xs[i], i);
   }
 }
-},{"./_stream_readable":1093,"./_stream_writable":1095,"core-util-is":1098,"inherits":1087,"process-nextick-args":1100}],1092:[function(require,module,exports){
+},{"./_stream_readable":1095,"./_stream_writable":1097,"core-util-is":1100,"inherits":1089,"process-nextick-args":1102}],1094:[function(require,module,exports){
 // a passthrough stream.
 // basically just the most minimal sort of Transform stream.
 // Every written chunk gets output as-is.
@@ -97155,7 +97350,7 @@ function PassThrough(options) {
 PassThrough.prototype._transform = function (chunk, encoding, cb) {
   cb(null, chunk);
 };
-},{"./_stream_transform":1094,"core-util-is":1098,"inherits":1087}],1093:[function(require,module,exports){
+},{"./_stream_transform":1096,"core-util-is":1100,"inherits":1089}],1095:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -98092,7 +98287,7 @@ function indexOf(xs, x) {
   return -1;
 }
 }).call(this,require('_process'))
-},{"./_stream_duplex":1091,"./internal/streams/BufferList":1096,"./internal/streams/stream":1097,"_process":1089,"core-util-is":1098,"events":1086,"inherits":1087,"isarray":1099,"process-nextick-args":1100,"safe-buffer":1101,"string_decoder/":1102,"util":1081}],1094:[function(require,module,exports){
+},{"./_stream_duplex":1093,"./internal/streams/BufferList":1098,"./internal/streams/stream":1099,"_process":1091,"core-util-is":1100,"events":1088,"inherits":1089,"isarray":1101,"process-nextick-args":1102,"safe-buffer":1103,"string_decoder/":1104,"util":1083}],1096:[function(require,module,exports){
 // a transform stream is a readable/writable stream where you do
 // something with the data.  Sometimes it's called a "filter",
 // but that's not a great name for it, since that implies a thing where
@@ -98275,7 +98470,7 @@ function done(stream, er, data) {
 
   return stream.push(null);
 }
-},{"./_stream_duplex":1091,"core-util-is":1098,"inherits":1087}],1095:[function(require,module,exports){
+},{"./_stream_duplex":1093,"core-util-is":1100,"inherits":1089}],1097:[function(require,module,exports){
 (function (process){
 // A bit simpler than readable streams.
 // Implement an async ._write(chunk, encoding, cb), and it'll handle all
@@ -98821,7 +99016,7 @@ function CorkedRequest(state) {
   };
 }
 }).call(this,require('_process'))
-},{"./_stream_duplex":1091,"./internal/streams/stream":1097,"_process":1089,"core-util-is":1098,"inherits":1087,"process-nextick-args":1100,"safe-buffer":1101,"util-deprecate":1103}],1096:[function(require,module,exports){
+},{"./_stream_duplex":1093,"./internal/streams/stream":1099,"_process":1091,"core-util-is":1100,"inherits":1089,"process-nextick-args":1102,"safe-buffer":1103,"util-deprecate":1105}],1098:[function(require,module,exports){
 'use strict';
 
 /*<replacement>*/
@@ -98886,10 +99081,10 @@ BufferList.prototype.concat = function (n) {
   }
   return ret;
 };
-},{"safe-buffer":1101}],1097:[function(require,module,exports){
+},{"safe-buffer":1103}],1099:[function(require,module,exports){
 module.exports = require('events').EventEmitter;
 
-},{"events":1086}],1098:[function(require,module,exports){
+},{"events":1088}],1100:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -99000,9 +99195,9 @@ function objectToString(o) {
 }
 
 }).call(this,{"isBuffer":require("../../../../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../../../../insert-module-globals/node_modules/is-buffer/index.js":1088}],1099:[function(require,module,exports){
-arguments[4][1085][0].apply(exports,arguments)
-},{"dup":1085}],1100:[function(require,module,exports){
+},{"../../../../insert-module-globals/node_modules/is-buffer/index.js":1090}],1101:[function(require,module,exports){
+arguments[4][1087][0].apply(exports,arguments)
+},{"dup":1087}],1102:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -99049,10 +99244,10 @@ function nextTick(fn, arg1, arg2, arg3) {
 }
 
 }).call(this,require('_process'))
-},{"_process":1089}],1101:[function(require,module,exports){
+},{"_process":1091}],1103:[function(require,module,exports){
 module.exports = require('buffer')
 
-},{"buffer":1082}],1102:[function(require,module,exports){
+},{"buffer":1084}],1104:[function(require,module,exports){
 'use strict';
 
 var Buffer = require('safe-buffer').Buffer;
@@ -99325,7 +99520,7 @@ function simpleWrite(buf) {
 function simpleEnd(buf) {
   return buf && buf.length ? this.write(buf) : '';
 }
-},{"safe-buffer":1101}],1103:[function(require,module,exports){
+},{"safe-buffer":1103}],1105:[function(require,module,exports){
 (function (global){
 
 /**
@@ -99396,10 +99591,10 @@ function config (name) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],1104:[function(require,module,exports){
+},{}],1106:[function(require,module,exports){
 module.exports = require('./readable').PassThrough
 
-},{"./readable":1105}],1105:[function(require,module,exports){
+},{"./readable":1107}],1107:[function(require,module,exports){
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Stream = exports;
 exports.Readable = exports;
@@ -99408,13 +99603,13 @@ exports.Duplex = require('./lib/_stream_duplex.js');
 exports.Transform = require('./lib/_stream_transform.js');
 exports.PassThrough = require('./lib/_stream_passthrough.js');
 
-},{"./lib/_stream_duplex.js":1091,"./lib/_stream_passthrough.js":1092,"./lib/_stream_readable.js":1093,"./lib/_stream_transform.js":1094,"./lib/_stream_writable.js":1095}],1106:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":1093,"./lib/_stream_passthrough.js":1094,"./lib/_stream_readable.js":1095,"./lib/_stream_transform.js":1096,"./lib/_stream_writable.js":1097}],1108:[function(require,module,exports){
 module.exports = require('./readable').Transform
 
-},{"./readable":1105}],1107:[function(require,module,exports){
+},{"./readable":1107}],1109:[function(require,module,exports){
 module.exports = require('./lib/_stream_writable.js');
 
-},{"./lib/_stream_writable.js":1095}],1108:[function(require,module,exports){
+},{"./lib/_stream_writable.js":1097}],1110:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -99543,7 +99738,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":1086,"inherits":1087,"readable-stream/duplex.js":1090,"readable-stream/passthrough.js":1104,"readable-stream/readable.js":1105,"readable-stream/transform.js":1106,"readable-stream/writable.js":1107}],1109:[function(require,module,exports){
+},{"events":1088,"inherits":1089,"readable-stream/duplex.js":1092,"readable-stream/passthrough.js":1106,"readable-stream/readable.js":1107,"readable-stream/transform.js":1108,"readable-stream/writable.js":1109}],1111:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -99766,7 +99961,7 @@ function base64DetectIncompleteChar(buffer) {
   this.charLength = this.charReceived ? 3 : 0;
 }
 
-},{"buffer":1082}],1110:[function(require,module,exports){
+},{"buffer":1084}],1112:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.1
  * http://jquery.com/
@@ -108958,7 +109153,7 @@ return jQuery;
 
 }));
 
-},{}],1111:[function(require,module,exports){
+},{}],1113:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -115747,7 +115942,7 @@ return jQuery;
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],1112:[function(require,module,exports){
+},{}],1114:[function(require,module,exports){
 (function (global){
 //! moment.js
 //! version : 2.9.0
@@ -118794,7 +118989,7 @@ return jQuery;
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],1113:[function(require,module,exports){
+},{}],1115:[function(require,module,exports){
 /*
  * angular-ui-bootstrap
  * http://angular-ui.github.io/bootstrap/
