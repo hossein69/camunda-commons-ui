@@ -4135,7 +4135,7 @@ var angular = require('camunda-bpm-sdk-js/vendor/angular'),
     copy = angular.copy,
     $ = require('jquery'),
 
-    template = "<div class=\"search-field\">\n  <form ng-submit=\"createSearch()\"\n        ng-class=\"{'has-search': searches.length, 'focused': focused}\">\n\n    <div class=\"form-container search-container\"\n         ng-style=\"{'padding-right': getRightPadding()}\"\n         ng-class=\"{'has-icon': !!mode}\">\n      <div ng-if=\"isMatchTypeActive && searches.length > 0\"\n           class=\"match-type\">\n        <button ng-click=\"switchMatchType()\"\n                type=\"button\"\n                class=\"btn btn-default btn-xs\"\n                ng-disabled=\"searches.length < 2\">\n          {{ (matchType ? 'MATCH_TYPE_ANY' : 'MATCH_TYPE_ALL') | translate }}\n        </button>\n        <span ng-disabled=\"searches.length < 2\">{{ 'MATCH_TYPE' | translate }}</span>\n      </div>\n      <span ng-if=\"mode\"\n            class=\"search-type glyphicon\"\n            ng-class=\"'glyphicon-' + mode\"></span>\n      <span cam-widget-search-pill\n            ng-repeat=\"search in searches\"\n            extended=\"search.extended\"\n            basic=\"search.basic\"\n            allow-dates=\"search.allowDates\"\n            enforce-dates=\"search.enforceDates\"\n            valid=\"search.valid\"\n            name=\"search.name\"\n            potential-names=\"search.potentialNames\"\n            type=\"search.type\"\n            operator=\"search.operator\"\n            value=\"search.value\"\n            options=\"search.options\"\n            invalid-text=\"{{ translations.invalid }}\"\n            delete-text=\"{{ translations.deleteSearch }}\"\n            on-change=\"handleChange($index, field, before, value, $event)\"\n            on-delete=\"deleteSearch($index)\"></span>\n      <input class=\"form-control main-field\"\n             type=\"text\"\n             ng-model=\"inputQuery\"\n             ng-keydown=\"onKeydown($event)\"\n             typeahead=\"type as type.value for type in dropdownTypes | filter:$viewValue:instantTypeahead\"\n             typeahead-on-select=\"createSearch($item)\"\n             instant-typeahead />\n    </div>\n  </form>\n  <div class=\"controls\">\n    <span ng-if=\"total\"\n          class=\"total-results\"\n          tooltip=\"Total number of results\">\n      {{total}}\n    </span>\n\n    <span cam-share-link></span>\n\n    <span class=\"dropdown stored-criteria\">\n      <button ng-disabled=\"!searches.length && !hasCriteriaSets()\"\n              class=\"dropdown-toggle btn btn-default\">\n        <span class=\"glyphicon glyphicon-floppy-disk\"></span>\n        <span class=\"caret\"></span>\n      </button>\n\n      <ul class=\"dropdown-menu dropdown-menu-right\"\n          ng-if=\"searchCriteriaStorage.group || hasCriteriaSets()\">\n        <li ng-if=\"searchCriteriaStorage.group\">\n          <div class=\"input-group input-group-sm\">\n            <input type=\"text\"\n                   class=\"form-control\"\n                   ng-model=\"searchCriteriaStorage.nameInput\"\n                   ng-click=\"storedCriteriaInputClick($event)\"\n                   ng-keydown=\"searchCriteriaInputKeydown($event)\" />\n            <span class=\"input-group-btn\">\n              <button ng-disabled=\"!searchCriteriaStorage.nameInput\"\n                      ng-click=\"storedCriteriaSaveClick($event)\"\n                      class=\"btn btn-default\"\n                      type=\"button\">\n                <span class=\"glyphicon glyphicon-ok\"></span>\n              </button>\n            </span>\n          </div>\n        </li>\n\n        <li role=\"separator\"\n            class=\"divider\"\n            ng-if=\"searchCriteriaStorage.group && hasCriteriaSets()\"></li>\n\n        <li class=\"stored-criteria-set\"\n            ng-if=\"hasCriteriaSets()\"\n            ng-repeat=\"(key, value) in searchCriteriaStorage.available\">\n          <div>\n            <a class=\"glyphicon glyphicon-remove-sign\"\n               ng-click=\"dropCriteriaSet($event, key)\"\n               href></a>\n\n            <a href\n               ng-click=\"loadCriteriaSet($event, key)\">{{ key }}</a>\n          </div>\n        </li>\n      </ul>\n    </span>\n  </div>\n</div>\n";
+    template = "<div class=\"search-field\">\n  <form ng-submit=\"createSearch()\"\n        ng-class=\"{'has-search': searches.length, 'focused': focused}\">\n\n    <div class=\"form-container search-container\"\n         ng-style=\"{'padding-right': getRightPadding()}\"\n         ng-class=\"{'has-icon': !!mode}\">\n      <div ng-if=\"isMatchAnyActive && searches.length > 0\"\n           class=\"match-any\">\n        <button ng-click=\"newMatchType()\"\n                type=\"button\"\n                class=\"btn btn-default btn-xs\"\n                ng-disabled=\"searches.length < 2\">\n          {{ (matchAny ? 'MATCH_TYPE_ANY' : 'MATCH_TYPE_ALL') | translate }}\n        </button>\n        <span ng-disabled=\"searches.length < 2\">{{ 'MATCH_TYPE' | translate }}</span>\n      </div>\n      <span ng-if=\"mode\"\n            class=\"search-type glyphicon\"\n            ng-class=\"'glyphicon-' + mode\"></span>\n      <span cam-widget-search-pill\n            ng-repeat=\"search in searches\"\n            extended=\"search.extended\"\n            basic=\"search.basic\"\n            allow-dates=\"search.allowDates\"\n            enforce-dates=\"search.enforceDates\"\n            valid=\"search.valid\"\n            name=\"search.name\"\n            potential-names=\"search.potentialNames\"\n            type=\"search.type\"\n            operator=\"search.operator\"\n            value=\"search.value\"\n            options=\"search.options\"\n            invalid-text=\"{{ translations.invalid }}\"\n            delete-text=\"{{ translations.deleteSearch }}\"\n            on-change=\"handleChange($index, field, before, value, $event)\"\n            on-delete=\"deleteSearch($index)\"></span>\n      <input class=\"form-control main-field\"\n             type=\"text\"\n             ng-model=\"inputQuery\"\n             ng-keydown=\"onKeydown($event)\"\n             typeahead=\"type as type.value for type in dropdownTypes | filter:$viewValue:instantTypeahead\"\n             typeahead-on-select=\"createSearch($item)\"\n             instant-typeahead />\n    </div>\n  </form>\n  <div class=\"controls\">\n    <span ng-if=\"total\"\n          class=\"total-results\"\n          tooltip=\"Total number of results\">\n      {{total}}\n    </span>\n\n    <span cam-share-link></span>\n\n    <span class=\"dropdown stored-criteria\">\n      <button ng-disabled=\"!searches.length && !hasCriteriaSets()\"\n              class=\"dropdown-toggle btn btn-default\">\n        <span class=\"glyphicon glyphicon-floppy-disk\"></span>\n        <span class=\"caret\"></span>\n      </button>\n\n      <ul class=\"dropdown-menu dropdown-menu-right\"\n          ng-if=\"searchCriteriaStorage.group || hasCriteriaSets()\">\n        <li ng-if=\"searchCriteriaStorage.group\">\n          <div class=\"input-group input-group-sm\">\n            <input type=\"text\"\n                   class=\"form-control\"\n                   ng-model=\"searchCriteriaStorage.nameInput\"\n                   ng-click=\"storedCriteriaInputClick($event)\"\n                   ng-keydown=\"searchCriteriaInputKeydown($event)\" />\n            <span class=\"input-group-btn\">\n              <button ng-disabled=\"!searchCriteriaStorage.nameInput\"\n                      ng-click=\"storedCriteriaSaveClick($event)\"\n                      class=\"btn btn-default\"\n                      type=\"button\">\n                <span class=\"glyphicon glyphicon-ok\"></span>\n              </button>\n            </span>\n          </div>\n        </li>\n\n        <li role=\"separator\"\n            class=\"divider\"\n            ng-if=\"searchCriteriaStorage.group && hasCriteriaSets()\"></li>\n\n        <li class=\"stored-criteria-set\"\n            ng-if=\"hasCriteriaSets()\"\n            ng-repeat=\"(key, value) in searchCriteriaStorage.available\">\n          <div>\n            <a class=\"glyphicon glyphicon-remove-sign\"\n               ng-click=\"dropCriteriaSet($event, key)\"\n               href></a>\n\n            <a href\n               ng-click=\"loadCriteriaSet($event, key)\">{{ key }}</a>\n          </div>\n        </li>\n      </ul>\n    </span>\n  </div>\n</div>\n";
 
 
 var dateRegex = /^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(|\.[0-9]{0,4})([+-][0-9]{4}|Z)$/;
@@ -4236,14 +4236,16 @@ module.exports = ['$timeout', '$location', 'search', 'widgetLocalConf',
         storageGroup: '=?camWidgetSearchStorageGroup',
         searchId: '@camWidgetSearchId',
         total: '=?camWidgetSearchTotal',
-        matchType: '=?camWidgetSearchMatchType'
+        matchAny: '=?camWidgetSearchMatchAny'
       },
 
       link: function($scope, element) {
-        $scope.isMatchTypeActive = typeof $scope.matchType != 'undefined';
+        $scope.isMatchAnyActive = typeof $scope.matchAny != 'undefined';
 
-        $scope.switchMatchType = function() {
-          handleSearchesUpdate($scope.matchType !== true);
+        $scope.newMatchType = function() {
+          if ($scope.isMatchAnyActive === true) {
+            $scope.matchAny = $scope.matchAny !== true;
+          }
         };
 
         $scope.focused = false;
@@ -4572,7 +4574,7 @@ module.exports = ['$timeout', '$location', 'search', 'widgetLocalConf',
           return out;
         };
 
-        var handleSearchesUpdate = function(switchMatchType) {
+        var handleSearchesUpdate = function() {
           var searches = $scope.searches;
           // add valid searches to validSearchesBuffer
           angular.forEach(searches, function(search) {
@@ -4590,19 +4592,19 @@ module.exports = ['$timeout', '$location', 'search', 'widgetLocalConf',
 
           var queryObj = {};
           queryObj[searchId+'Query'] = JSON.stringify(extractSearches($scope.validSearchesBuffer));
-          $scope.matchType = $location.search().hasOwnProperty(searchId+'OrQuery');
 
-          if (arguments.length == 1) {
-            $scope.matchType = switchMatchType;
+          if ($scope.isMatchAnyActive === true) {
+            var newLocation;
 
-            $location.url($location.url().replace('&' + searchId + 'OrQuery', ''));
-            $location.replace();
-
-            if (switchMatchType == true) {
-              queryObj[searchId + 'OrQuery'] = true;
+            if ($scope.matchAny === true && !$location.search().hasOwnProperty(searchId+'OrQuery')) {
+              newLocation = $location.url() + '&' + searchId + 'OrQuery';
+            } else if ($scope.matchAny === false) {
+              newLocation = $location.url().replace('&' + searchId + 'OrQuery', '');
             }
-          }
 
+            $location.url(newLocation);
+            $location.replace();
+          }
           // ignore URL updates for all search widget instances for this update
           IGNORE_URL_UPDATE = true;
 
@@ -4614,12 +4616,12 @@ module.exports = ['$timeout', '$location', 'search', 'widgetLocalConf',
           updateSearchTypes();
         };
 
-        $scope.$watch('searches', handleSearchesUpdate, true);
+        $scope.$watch('[searches, matchAny]', handleSearchesUpdate, true);
 
         $scope.$on('$locationChangeSuccess', function() {
-          if(!IGNORE_URL_UPDATE && $location.search().hasOwnProperty(searchId+'Query')) {
-            $scope.matchType = $location.search().hasOwnProperty(searchId+'OrQuery');
+          $scope.matchAny = $location.search().hasOwnProperty(searchId+'OrQuery');
 
+          if(!IGNORE_URL_UPDATE && $location.search().hasOwnProperty(searchId+'Query')) {
             // make new array of searches from the url
             var searches = getSearchesFromURL();
 
@@ -4799,12 +4801,10 @@ module.exports = ['$timeout', '$location', 'search', 'widgetLocalConf',
           var original = stored[info.group][info.name];
           $scope.searches = filteredSearches(original);
           // provided by Harry Potter, DO NOT REMOVE
-          if ($scope.isMatchTypeActive) {
-            $scope.matchType = original[original.length - 1]['matchType'];
-            handleSearchesUpdate($scope.matchType);
-          } else {
-            handleSearchesUpdate();
+          if ($scope.isMatchAnyActive === true) {
+            $scope.matchAny = original[original.length - 1]['matchAny'];
           }
+          handleSearchesUpdate();
         };
 
 
@@ -4831,8 +4831,8 @@ module.exports = ['$timeout', '$location', 'search', 'widgetLocalConf',
           stored[searchCriteriaStorage.group] = stored[searchCriteriaStorage.group] || {};
           stored[searchCriteriaStorage.group][name] = extractSearches($scope.validSearchesBuffer);
 
-          if ($scope.isMatchTypeActive) {
-            stored[searchCriteriaStorage.group][name].push({matchType: $scope.matchType});
+          if ($scope.isMatchAnyActive === true) {
+            stored[searchCriteriaStorage.group][name].push({matchAny: $scope.matchAny});
           }
 
           widgetLocalConf.set('searchCriteria', stored);
