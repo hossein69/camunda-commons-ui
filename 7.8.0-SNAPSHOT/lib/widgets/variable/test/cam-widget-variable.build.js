@@ -12,7 +12,7 @@ var varUtils = {};
 
 function camundaFormattedDate(date) {
   date = date || new Date();
-  return date.toISOString().slice(0, -1) + '+0000';
+  return date.toISOString().slice(0, -5);
 }
 varUtils.camundaFormattedDate = camundaFormattedDate;
 
@@ -385,7 +385,7 @@ var vars = [
   {
     name:   'dateVar',
     type:   'Date',
-    value:  '2015-03-23T13:14:06.340+0200'
+    value:  '2015-03-23T13:14:06.340'
   },
   {
     name:   'doubleVar',
@@ -456,7 +456,7 @@ var FLOAT_PATTERN = /^(0|(-?(((0|[1-9]\d*)\.\d+)|([1-9]\d*))))([eE][-+]?[0-9]+)?
 
 var BOOLEAN_PATTERN = /^(true|false)$/;
 
-var DATE_PATTERN = /^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(|\.[0-9]{0,4})([+-][0-9]{4}|Z)$/;
+var DATE_PATTERN = /^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(|\.[0-9]{0,4})$/;
 
 var isType = function(value, type) {
   switch(type) {

@@ -2,13 +2,16 @@
 'use strict';
 
 
-var template = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-xs-12\">\n      Powered by <a href=\"http://camunda.org\">camunda BPM</a> /\n      <span class=\"version\">{{version}}</span>\n    </div>\n  </div>\n</div>\n";
+var template = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-xs-6\" style=\"text-align: left;\">\n      Date and Time displayed in local timezone: <i>{{timezoneName}}</i>\n    </div>\n    <div class=\"col-xs-6\">\n      Powered by <a href=\"http://camunda.org\">camunda BPM</a> /\n      <span class=\"version\">{{version}}</span>\n    </div>\n  </div>\n</div>\n";
 
 module.exports = [function() {
   return {
     template: template,
     scope: {
       version: '@'
+    },
+    link: function($scope) {
+      $scope.timezoneName = Intl.DateTimeFormat().resolvedOptions().timeZone;
     }
   };
 }];
