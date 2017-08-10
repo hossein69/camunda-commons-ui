@@ -62,7 +62,9 @@ varUtils.types = [
   'Null',
   'Object',
   'Short',
-  'String'
+  'String',
+  'Json',
+  'Xml'
 ];
 
 
@@ -77,7 +79,9 @@ varUtils.defaultValues = {
   'Null':       '',
   'Short':      0,
   'String':     '',
-  'Object':     {}
+  'Object':     {},
+  'Json':       '',
+  'Xml':        ''
 };
 
 
@@ -456,7 +460,22 @@ var FLOAT_PATTERN = /^(0|(-?(((0|[1-9]\d*)\.\d+)|([1-9]\d*))))([eE][-+]?[0-9]+)?
 
 var BOOLEAN_PATTERN = /^(true|false)$/;
 
-var DATE_PATTERN = /^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(|\.[0-9]{0,4})$/;
+var DATE_PATTERN = /^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(|\.[0-9]{0,4})([+-][0-9]{4}|Z)$/;
+
+var parser = new DOMParser();
+
+var isValidXML = function(value) {
+  return parser.parseFromString(value, 'text/xml').documentElement.getElementsByTagName('parsererror').length === 0;
+};
+
+var isValidJSON = function(value) {
+  try {
+    JSON.parse(value);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
 
 var isType = function(value, type) {
   switch(type) {
@@ -471,6 +490,10 @@ var isType = function(value, type) {
     return BOOLEAN_PATTERN.test(value);
   case 'Date':
     return DATE_PATTERN.test(dateToString(value));
+  case 'Xml':
+    return isValidXML(value);
+  case 'Json':
+    return isValidJSON(value);
   }
 };
 
