@@ -1214,7 +1214,7 @@ module.exports = function() {
   };
 };
 
-},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1113}],6:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":211,"jquery":1118}],6:[function(require,module,exports){
 'use strict';
 
 
@@ -1314,7 +1314,7 @@ module.exports = [
     };
   }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":207}],7:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":211}],7:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular'),
@@ -1371,7 +1371,7 @@ directivesModule.config([
 
 module.exports = directivesModule;
 
-},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":1116,"../util/index":18,"./autoFill":2,"./compileTemplate":3,"./email":4,"./engineSelect":5,"./inPlaceTextField":6,"./instantTypeahead":8,"./nl2br":9,"./notificationsPanel":10,"./passwordRepeat":11,"./showIfAuthorized":12,"camunda-bpm-sdk-js/vendor/angular":207}],8:[function(require,module,exports){
+},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":1120,"../util/index":18,"./autoFill":2,"./compileTemplate":3,"./email":4,"./engineSelect":5,"./inPlaceTextField":6,"./instantTypeahead":8,"./nl2br":9,"./notificationsPanel":10,"./passwordRepeat":11,"./showIfAuthorized":12,"camunda-bpm-sdk-js/vendor/angular":211}],8:[function(require,module,exports){
   'use strict';
 
   var secretEmptyKey = '[$empty$]';
@@ -1736,7 +1736,7 @@ module.exports = AbbreviateNumberFilter;
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular');
-var moment = require('moment');
+var moment = require('camunda-bpm-sdk-js/vendor/moment');
 require('angular-translate');
 
 
@@ -1794,7 +1794,7 @@ filtersModule.config([
 
 module.exports = filtersModule;
 
-},{"angular-translate":45,"camunda-bpm-sdk-js/vendor/angular":207,"moment":1115}],15:[function(require,module,exports){
+},{"angular-translate":45,"camunda-bpm-sdk-js/vendor/angular":211,"camunda-bpm-sdk-js/vendor/moment":212}],15:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular');
@@ -1846,7 +1846,7 @@ searchModule.factory('search', SearchFactory);
 
 module.exports = searchModule;
 
-},{"camunda-bpm-sdk-js/vendor/angular":207}],16:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":211}],16:[function(require,module,exports){
 'use strict';
 module.exports = ['$window', function($window) {
   var storage = $window.localStorage;
@@ -1903,7 +1903,7 @@ module.exports = angular.module('cam.commons.util', [])
   .provider('Uri', uriProvider)
   .service('Notifications', notifications);
 
-},{"./notifications":19,"./uriFilter":20,"./uriProvider":21,"camunda-bpm-sdk-js/vendor/angular":207}],19:[function(require,module,exports){
+},{"./notifications":19,"./uriFilter":20,"./uriProvider":21,"camunda-bpm-sdk-js/vendor/angular":211}],19:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular');
@@ -2054,7 +2054,7 @@ module.exports = [
     };
   }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":207}],20:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":211}],20:[function(require,module,exports){
 'use strict';
 
 var UriFilter = [ 'Uri', function(Uri) {
@@ -2135,7 +2135,7 @@ module.exports = function() {
   }];
 };
 
-},{"camunda-bpm-sdk-js/vendor/angular":207}],22:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":211}],22:[function(require,module,exports){
 'use strict';
 
 
@@ -2514,7 +2514,7 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
     };
   }];
 
-},{"bpmn-js/lib/NavigatedViewer":46,"camunda-bpm-sdk-js/vendor/angular":207}],23:[function(require,module,exports){
+},{"bpmn-js/lib/NavigatedViewer":46,"camunda-bpm-sdk-js/vendor/angular":211}],23:[function(require,module,exports){
 'use strict';
 
 
@@ -2536,7 +2536,7 @@ module.exports = ['$location', function($location) {
 
 var throttle = require('lodash').throttle;
 var LineChart = require('./../../chart/line');
-var moment = require('moment'); // this should be left as-is to support development with `line.html`
+var moment = require('camunda-bpm-sdk-js/vendor/moment'); // this should be left as-is to support development with `line.html`
 var abbreviateNumber = require('./../../filter/abbreviateNumber')();
 
 
@@ -2637,7 +2637,8 @@ module.exports = ['$window', function($window) {
     template: '<!-- keule!! pech jehabt! -->'
   };
 }];
-},{"./../../chart/line":1,"./../../filter/abbreviateNumber":13,"lodash":1114,"moment":1115}],25:[function(require,module,exports){
+
+},{"./../../chart/line":1,"./../../filter/abbreviateNumber":13,"camunda-bpm-sdk-js/vendor/moment":212,"lodash":1119}],25:[function(require,module,exports){
 'use strict';
 
 var Clipboard = require('clipboard');
@@ -2709,7 +2710,7 @@ module.exports = ['$timeout', function($timeout) {
   };
 }];
 
-},{"clipboard":209}],26:[function(require,module,exports){
+},{"clipboard":214}],26:[function(require,module,exports){
 'use strict';
 
 
@@ -3056,7 +3057,7 @@ module.exports = ['$compile', '$location', '$rootScope', 'search', 'debounce',
     };
   }];
 
-},{"cmmn-js/lib/NavigatedViewer":216}],27:[function(require,module,exports){
+},{"cmmn-js/lib/NavigatedViewer":221}],27:[function(require,module,exports){
 'use strict';
 
 
@@ -3368,7 +3369,7 @@ module.exports = ['$window', function($window) {
   };
 }];
 
-},{"../../util/change-dmn-namespace":17,"camunda-bpm-sdk-js/vendor/angular":207,"dmn-js/lib/Modeler":686,"dmn-js/lib/NavigatedViewer":687}],29:[function(require,module,exports){
+},{"../../util/change-dmn-namespace":17,"camunda-bpm-sdk-js/vendor/angular":211,"dmn-js/lib/Modeler":691,"dmn-js/lib/NavigatedViewer":692}],29:[function(require,module,exports){
 'use strict';
 
 
@@ -3482,7 +3483,7 @@ module.exports = [function() {
   };
 }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":207}],31:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":211}],31:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular'),
@@ -3537,7 +3538,7 @@ widgetModule.filter('camQueryComponent', camQueryComponent);
 
 module.exports = widgetModule;
 
-},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":1116,"../directives/index":7,"../filter/date/index":14,"../search/index":15,"./../services/cam-local-configuration":16,"./bpmn-viewer/cam-widget-bpmn-viewer":22,"./cam-share-link/cam-share-link":23,"./chart-line/cam-widget-chart-line":24,"./clipboard/cam-widget-clipboard":25,"./cmmn-viewer/cam-widget-cmmn-viewer":26,"./debug/cam-widget-debug":27,"./dmn-viewer/cam-widget-dmn-viewer":28,"./footer/cam-widget-footer":29,"./header/cam-widget-header":30,"./inline-field/cam-widget-inline-field":32,"./loader/cam-widget-loader":34,"./search-pill/cam-query-component":35,"./search-pill/cam-widget-search-pill":36,"./search/cam-widget-search":37,"./variable/cam-variable-validator":39,"./variable/cam-widget-variable":40,"./variables-table/cam-render-var-template":41,"./variables-table/cam-widget-variables-table":42,"camunda-bpm-sdk-js/vendor/angular":207}],32:[function(require,module,exports){
+},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":1120,"../directives/index":7,"../filter/date/index":14,"../search/index":15,"./../services/cam-local-configuration":16,"./bpmn-viewer/cam-widget-bpmn-viewer":22,"./cam-share-link/cam-share-link":23,"./chart-line/cam-widget-chart-line":24,"./clipboard/cam-widget-clipboard":25,"./cmmn-viewer/cam-widget-cmmn-viewer":26,"./debug/cam-widget-debug":27,"./dmn-viewer/cam-widget-dmn-viewer":28,"./footer/cam-widget-footer":29,"./header/cam-widget-header":30,"./inline-field/cam-widget-inline-field":32,"./loader/cam-widget-loader":34,"./search-pill/cam-query-component":35,"./search-pill/cam-widget-search-pill":36,"./search/cam-widget-search":37,"./variable/cam-variable-validator":39,"./variable/cam-widget-variable":40,"./variables-table/cam-render-var-template":41,"./variables-table/cam-widget-variables-table":42,"camunda-bpm-sdk-js/vendor/angular":211}],32:[function(require,module,exports){
 'use strict';
 
 
@@ -3979,7 +3980,7 @@ module.exports = [
     };
   }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1113}],33:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":211,"jquery":1118}],33:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular'),
@@ -4002,7 +4003,7 @@ angular.element(document).ready(function() {
   angular.bootstrap(document.body, [testModule.name]);
 });
 
-},{"../../index":31,"camunda-bpm-sdk-js/vendor/angular":207}],34:[function(require,module,exports){
+},{"../../index":31,"camunda-bpm-sdk-js/vendor/angular":211}],34:[function(require,module,exports){
 'use strict';
 
 
@@ -4035,7 +4036,7 @@ module.exports = [function() {
   };
 }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":207}],35:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":211}],35:[function(require,module,exports){
 'use strict';
 
 module.exports = [
@@ -4168,7 +4169,7 @@ module.exports = ['$timeout',
     };
   }];
 
-},{"jquery":1113}],37:[function(require,module,exports){
+},{"jquery":1118}],37:[function(require,module,exports){
 'use strict';
 
 
@@ -4886,7 +4887,7 @@ module.exports = ['$timeout', '$location', 'search', 'widgetLocalConf',
     };
   }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":207,"jquery":1113}],38:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":211,"jquery":1118}],38:[function(require,module,exports){
 'use strict';
 
 
@@ -5056,7 +5057,7 @@ varUtils.validate = function($scope) {
 
 module.exports = varUtils;
 
-},{"camunda-bpm-sdk-js/lib/forms/type-util":204,"camunda-bpm-sdk-js/vendor/angular":207}],39:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/lib/forms/type-util":204,"camunda-bpm-sdk-js/vendor/angular":211}],39:[function(require,module,exports){
 'use strict';
 
 var typeUtils = require('camunda-bpm-sdk-js/lib/forms/type-util');
@@ -5246,7 +5247,7 @@ module.exports = [
     };
   }];
 
-},{"./cam-variable-utils":38,"camunda-bpm-sdk-js/vendor/angular":207}],41:[function(require,module,exports){
+},{"./cam-variable-utils":38,"camunda-bpm-sdk-js/vendor/angular":211}],41:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -5282,7 +5283,7 @@ module.exports = [
     };
   }];
 
-},{"jquery":1113}],42:[function(require,module,exports){
+},{"jquery":1118}],42:[function(require,module,exports){
 'use strict';
 
 
@@ -5609,7 +5610,7 @@ module.exports = [
     };
   }];
 
-},{"../variable/cam-variable-utils":38,"camunda-bpm-sdk-js/vendor/angular":207}],43:[function(require,module,exports){
+},{"../variable/cam-variable-utils":38,"camunda-bpm-sdk-js/vendor/angular":211}],43:[function(require,module,exports){
 /**
  * @license AngularJS v1.2.29
  * (c) 2010-2014 Google, Inc. http://angularjs.org
@@ -7252,7 +7253,7 @@ NavigatedViewer.prototype._navigationModules = [
 NavigatedViewer.prototype._modules = [].concat(
   NavigatedViewer.prototype._modules,
   NavigatedViewer.prototype._navigationModules);
-},{"./Viewer":47,"diagram-js/lib/navigation/movecanvas":477,"diagram-js/lib/navigation/zoomscroll":481,"inherits":82}],47:[function(require,module,exports){
+},{"./Viewer":47,"diagram-js/lib/navigation/movecanvas":482,"diagram-js/lib/navigation/zoomscroll":486,"inherits":82}],47:[function(require,module,exports){
 /**
  * The code in the <project-logo></project-logo> area
  * must not be changed.
@@ -7731,7 +7732,7 @@ function addProjectLogo(container) {
 
 /* </project-logo> */
 
-},{"./core":48,"./import/Importer":54,"./util/PoweredByUtil":60,"bpmn-moddle":61,"diagram-js":371,"diagram-js/lib/features/overlays":448,"diagram-js/lib/features/selection":463,"diagram-js/lib/i18n/translate":470,"inherits":82,"lodash/lang/isNumber":165,"lodash/lang/isString":167,"lodash/object/assign":169,"lodash/object/omit":172,"min-dom/lib/domify":179,"min-dom/lib/event":180,"min-dom/lib/query":181,"min-dom/lib/remove":182,"tiny-svg/lib/innerSVG":198}],48:[function(require,module,exports){
+},{"./core":48,"./import/Importer":54,"./util/PoweredByUtil":60,"bpmn-moddle":61,"diagram-js":376,"diagram-js/lib/features/overlays":453,"diagram-js/lib/features/selection":468,"diagram-js/lib/i18n/translate":475,"inherits":82,"lodash/lang/isNumber":165,"lodash/lang/isString":167,"lodash/object/assign":169,"lodash/object/omit":172,"min-dom/lib/domify":179,"min-dom/lib/event":180,"min-dom/lib/query":181,"min-dom/lib/remove":182,"tiny-svg/lib/innerSVG":198}],48:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('../draw'),
@@ -9528,7 +9529,7 @@ function getRectPath(shape) {
   return componentsToPath(rectPath);
 }
 
-},{"../util/DiUtil":57,"../util/ModelUtil":59,"diagram-js/lib/draw/BaseRenderer":382,"diagram-js/lib/util/RenderUtil":499,"diagram-js/lib/util/SvgTransformUtil":500,"diagram-js/lib/util/Text":501,"inherits":82,"lodash/collection/every":84,"lodash/collection/forEach":87,"lodash/collection/includes":88,"lodash/collection/some":91,"lodash/lang/isObject":166,"lodash/object/assign":169,"min-dom/lib/query":181,"tiny-svg/lib/append":192,"tiny-svg/lib/attr":194,"tiny-svg/lib/classes":195,"tiny-svg/lib/create":197}],50:[function(require,module,exports){
+},{"../util/DiUtil":57,"../util/ModelUtil":59,"diagram-js/lib/draw/BaseRenderer":387,"diagram-js/lib/util/RenderUtil":504,"diagram-js/lib/util/SvgTransformUtil":505,"diagram-js/lib/util/Text":506,"inherits":82,"lodash/collection/every":84,"lodash/collection/forEach":87,"lodash/collection/includes":88,"lodash/collection/some":91,"lodash/lang/isObject":166,"lodash/object/assign":169,"min-dom/lib/query":181,"tiny-svg/lib/append":192,"tiny-svg/lib/attr":194,"tiny-svg/lib/classes":195,"tiny-svg/lib/create":197}],50:[function(require,module,exports){
 'use strict';
 
 /**
@@ -10806,7 +10807,7 @@ module.exports = {
   ],
   bpmnImporter: [ 'type', require('./BpmnImporter') ]
 };
-},{"./BpmnImporter":52,"diagram-js/lib/i18n/translate":470}],57:[function(require,module,exports){
+},{"./BpmnImporter":52,"diagram-js/lib/i18n/translate":475}],57:[function(require,module,exports){
 'use strict';
 
 var is = require('./ModelUtil').is,
@@ -14103,7 +14104,7 @@ if (!String.fromCodePoint) {
 })(typeof exports === "undefined" ? sax = {} : exports);
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":1084,"stream":1111,"string_decoder":1112}],68:[function(require,module,exports){
+},{"buffer":1089,"stream":1116,"string_decoder":1117}],68:[function(require,module,exports){
 /**
  * Tiny stack for browser or server
  *
@@ -23191,12 +23192,12 @@ var FLOAT_PATTERN = /^(0|(-?(((0|[1-9]\d*)\.\d+)|([1-9]\d*))))([eE][-+]?[0-9]+)?
 
 var BOOLEAN_PATTERN = /^(true|false)$/;
 
-var DATE_PATTERN = /^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(|\.[0-9]{0,4})([+-][0-9]{4}|Z)$/;
+var DATE_PATTERN = /^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(|\.[0-9]{0,4})$/;
 
-var parser = new DOMParser();
+var xmlParser = require('fast-xml-parser');
 
 var isValidXML = function(value) {
-  return parser.parseFromString(value, 'text/xml').documentElement.getElementsByTagName('parsererror').length === 0;
+  return value ? xmlParser.validate(value) : false;
 };
 
 var isValidJSON = function(value) {
@@ -23289,7 +23290,7 @@ module.exports = {
   dateToString : dateToString
 };
 
-},{}],205:[function(require,module,exports){
+},{"fast-xml-parser":207}],205:[function(require,module,exports){
 /**
  * @license AngularJS v1.2.29
  * (c) 2010-2014 Google, Inc. http://angularjs.org
@@ -45464,11 +45465,3367 @@ require('./angular');
 module.exports = angular;
 
 },{"./angular":205}],207:[function(require,module,exports){
+var getAllMatches = require("./util").getAllMatches;
+
+var xmlNode = function(tagname,parent,val){
+    this.tagname = tagname;
+    this.parent = parent;
+    this.child = [];
+    this.val = val;
+    this.addChild = function (child){
+        this.child.push(child);
+    };
+};
+
+//var tagsRegx = new RegExp("<(\\/?[a-zA-Z0-9_:]+)([^>\\/]*)(\\/?)>([^<]+)?","g");
+//var tagsRegx = new RegExp("<(\\/?[\\w:-]+)([^>]*)>([^<]+)?","g");
+//var cdataRegx = "<!\\[CDATA\\[([^\\]\\]]*)\\]\\]>";
+var cdataRegx = "<!\\[CDATA\\[(.*?)(\\]\\]>)";
+var tagsRegx = new RegExp("<(\\/?[\\w:\\-\._]+)([^>]*)>("+cdataRegx+")*([^<]+)?","g");
+
+var defaultOptions = {
+    attrPrefix : "@_",
+    textNodeName : "#text",
+    ignoreNonTextNodeAttr : true,
+    ignoreTextNodeAttr : true,
+    ignoreNameSpace : false,
+    ignoreRootElement : false,
+    textNodeConversion : true,
+    textAttrConversion : false,
+    arrayMode : false
+};
+
+var buildOptions = function (options){
+    if(!options) options = {};
+    var props = ["attrPrefix","ignoreNonTextNodeAttr","ignoreTextNodeAttr","ignoreNameSpace","ignoreRootElement","textNodeName","textNodeConversion","textAttrConversion","arrayMode"];
+    for (var i = 0; i < props.length; i++) {
+        if(options[props[i]] === undefined){
+            options[props[i]] = defaultOptions[props[i]];
+        }
+    }
+    return options;
+};
+
+var getTraversalObj =function (xmlData,options){
+    options = buildOptions(options);
+    //xmlData = xmlData.replace(/>(\s+)/g, ">");//Remove spaces and make it single line.
+    var tags = getAllMatches(xmlData,tagsRegx);
+    var xmlObj = new xmlNode('!xml');
+    var currentNode = xmlObj;
+
+    for (var i = 0; i < tags.length ; i++) {
+        var tag = resolveNameSpace(tags[i][1],options.ignoreNameSpace),
+            nexttag = i+1 < tags.length ? resolveNameSpace(tags[i+1][1],options.ignoreNameSpace) : undefined,
+            attrsStr = tags[i][2], attrs,
+            val = tags[i][4] ===  undefined ? tags[i][6] :  simplifyCDATA(tags[i][0]);
+        if(tag.indexOf("/") === 0){//ending tag
+            currentNode = currentNode.parent;
+            continue;
+        }
+
+        var selfClosingTag = attrsStr.charAt(attrsStr.length-1) === '/';
+        var childNode = new xmlNode(tag,currentNode);
+
+        if(selfClosingTag){
+            attrs = buildAttributesArr(attrsStr,options.ignoreTextNodeAttr,options.attrPrefix,options.ignoreNameSpace,options.textAttrConversion);
+            childNode.val = attrs || "";
+            currentNode.addChild(childNode);
+        }else if( ("/" + tag) === nexttag){ //Text node
+            attrs = buildAttributesArr(attrsStr,options.ignoreTextNodeAttr,options.attrPrefix,options.ignoreNameSpace,options.textAttrConversion);
+            val = parseValue(val,options.textNodeConversion);
+            if(attrs){
+                attrs[options.textNodeName] = val;
+                childNode.val = attrs;
+            }else{
+                if(val !== undefined && val != null){
+                    childNode.val = val;    
+                }else{
+                    childNode.val = "";
+                }
+            }
+            currentNode.addChild(childNode);
+            i++;
+        }else{//starting tag
+            attrs = buildAttributesArr(attrsStr,options.ignoreNonTextNodeAttr,options.attrPrefix,options.ignoreNameSpace,options.textAttrConversion);
+            if(attrs){
+                for (var prop in attrs) {
+                  if(attrs.hasOwnProperty(prop)){
+                    childNode.addChild(new xmlNode(prop,childNode,attrs[prop]));
+                  }
+                }
+            }
+            currentNode.addChild(childNode);
+            currentNode = childNode;
+        }
+    }
+    return xmlObj;
+};
+
+var xml2json = function (xmlData,options){
+    return convertToJson(getTraversalObj(xmlData,options), buildOptions(options).arrayMode);
+};
+
+var cdRegx = new RegExp(cdataRegx,"g");
+
+function simplifyCDATA(cdata){
+    var result = getAllMatches(cdata,cdRegx);
+    var val = "";
+    for (var i = 0; i < result.length ; i++) {
+        val+=result[i][1];
+    }
+    return val;
+}
+
+function resolveNameSpace(tagname,ignore){
+    if(ignore){
+        var tags = tagname.split(":");
+        var prefix = tagname.charAt(0) === "/" ? "/" : "";
+        if(tags.length === 2) {
+            tagname = prefix + tags[1];
+        }
+    }
+    return tagname;
+}
+
+function parseValue(val,conversion){
+    if(val){
+        if(!conversion || isNaN(val)){
+            val = "" + val ;
+        }else{
+            if(val.indexOf(".") !== -1){
+                val = Number.parseFloat(val);
+            }else{
+                val = Number.parseInt(val,10);
+            }
+        }
+    }else{
+        val = "";
+    }
+    return val;
+}
+
+//var attrsRegx = new RegExp("(\\S+)=\\s*[\"']?((?:.(?![\"']?\\s+(?:\\S+)=|[>\"']))+.)[\"']?","g");
+//var attrsRegx = new RegExp("(\\S+)=\\s*(['\"])((?:.(?!\\2))*.)","g");
+var attrsRegx = new RegExp("(\\S+)\\s*=\\s*(['\"])(.*?)\\2","g");
+function buildAttributesArr(attrStr,ignore,prefix,ignoreNS,conversion){
+    attrStr = attrStr || attrStr.trim();
+    
+    if(!ignore && attrStr.length > 3){
+
+        var matches = getAllMatches(attrStr,attrsRegx);
+        var attrs = {};
+        for (var i = 0; i < matches.length; i++) {
+            var attrName = prefix + resolveNameSpace( matches[i][1],ignoreNS);
+            attrs[attrName] = parseValue(matches[i][3],conversion);
+        }
+        return attrs;
+    }
+}
+
+var convertToJson = function (node, arrayMode){
+    var jObj = {};
+    if(node.val !== undefined && node.val != null || node.val === "") {
+        return node.val;
+    }else{
+        for (var index = 0; index < node.child.length; index++) {
+            var prop = node.child[index].tagname;
+            var obj = convertToJson(node.child[index], arrayMode);
+            if(jObj[prop] !== undefined){
+                if(!Array.isArray(jObj[prop])){
+                    var swap = jObj[prop];
+                    jObj[prop] = [];
+                    jObj[prop].push(swap);
+                }
+                jObj[prop].push(obj);
+            }else{
+                jObj[prop] = arrayMode ? [obj] : obj;
+            }
+        }
+    }
+    return jObj;
+};
+
+exports.parse = xml2json;
+exports.getTraversalObj = getTraversalObj;
+exports.convertToJson = convertToJson;
+exports.validate = require("./validator").validate;
+
+},{"./util":208,"./validator":209}],208:[function(require,module,exports){
+var getAllMatches = function(string, regex) {
+  var matches = [];
+  var match = regex.exec(string);
+  while (match) {
+  	var allmatches = [];
+    for (var index = 0; index < match.length; index++) {
+  		allmatches.push(match[index]);
+  	}
+    matches.push(allmatches);
+    match = regex.exec(string);
+  }
+  return matches;
+};
+
+
+var doesMatch = function(string,regex){
+  var match = regex.exec(string);
+  if(match === null || match === undefined) return false;
+  else return true;
+}
+
+var doesNotMatch = function(string,regex){
+  return !doesMatch(string,regex);
+}
+
+exports.doesMatch = doesMatch
+exports.doesNotMatch = doesNotMatch
+exports.getAllMatches = getAllMatches;
+},{}],209:[function(require,module,exports){
+var util = require("./util");
+
+
+var tagsPattern = new RegExp("<\\/?([\\w:\\-_\.]+)\\s*\/?>","g");
+exports.validate = function(xmlData){
+    xmlData = xmlData.replace(/\n/g,"");//make it single line
+    xmlData = xmlData.replace(/(<!\[CDATA\[.*?\]\]>)/g,"");//Remove all CDATA
+    xmlData = xmlData.replace(/(<!--.*?(?:-->))/g,"");//Remove all comments
+    if(validateAttributes(xmlData) !== true) return false;
+    xmlData = xmlData.replace(/(\s+(?:[\w:\-]+)\s*=\s*(['\"]).*?\2)/g,"");//Remove all attributes
+    xmlData = xmlData.replace(/(^\s*<\?xml\s*\?>)/g,"");//Remove XML starting tag
+    if(xmlData.indexOf("<![CDATA[") > 0 || xmlData.indexOf("<!--") > 0 ) return false;
+    var tags = util.getAllMatches(xmlData,tagsPattern);
+    if(tags.length === 0) return false; //non xml string
+    
+    var result = checkForMatchingTag(tags,0);
+    
+
+    if(result !== true) return false; else return true; 
+    
+}
+
+
+var startsWithXML = new RegExp("^[Xx][Mm][Ll]");
+var startsWith = new RegExp("^([a-zA-Z]|_)[\\w\.\\-_:]*");
+
+function validateTagName(tagname){
+    if(util.doesMatch(tagname,startsWithXML)) return false;
+    else if(util.doesNotMatch(tagname,startsWith)) return false;
+    else return true;
+}
+
+var attrStringPattern = new RegExp("<[\\w:\\-_\.]+(.*?)\/?>","g");
+var attrPattern = new RegExp("\\s+([\\w:\-]+)\\s*=\\s*(['\"])(.*?)\\2","g");
+function validateAttributes(xmlData){
+    var attrStrings = util.getAllMatches(xmlData,attrStringPattern);
+    for (i=0;i<attrStrings.length;i++){
+        if(attrStrings[i][1].trim().length > 0 && attrStrings[i][1].trim().length < 4){ //invalid attributes 
+            return false;
+        }else if(attrStrings[i][1].trim().length !== 0){
+            var attrsList = util.getAllMatches(attrStrings[i][1],attrPattern);
+            var attrNames=[];
+            for (j=0;j<attrsList.length;j++){
+                if(attrNames.hasOwnProperty(attrsList[j][1])){//duplicate attributes
+                    return false;
+                }else{
+                    attrNames[attrsList[j][1]]=1;
+                    //validate attribute value
+                    //if(!validateAttrValue(attrsList[3])) return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+function checkForMatchingTag(tags,i){
+    if(tags.length === i) {
+        return true;
+    }else if(tags[i][0].indexOf("</") === 0) {//closing tag
+        return i;
+    }else if(tags[i][0].indexOf("/>") === tags[i][0].length-2){//Self closing tag
+        if(validateTagName(tags[i][0].substring(1)) === false) return -1;
+        return checkForMatchingTag(tags,i+1);
+
+    }else if(tags.length > i+1){
+        if(tags[i+1][0].indexOf("</") === 0){//next tag
+            if(validateTagName(tags[i][1]) === false) return -1;
+            if(tags[i][1] === tags[i+1][1]) {//matching with next closing tag
+                return checkForMatchingTag(tags,i+2);
+            }else {
+                return -1;//not matching
+            }
+        }else
+            var nextIndex = checkForMatchingTag(tags,i+1);
+            if(nextIndex !== -1 && tags[nextIndex][0].indexOf("</") === 0){
+                if(validateTagName(tags[i][1]) === false) return -1;
+                if(tags[i][1] === tags[nextIndex][1]) {
+                    return checkForMatchingTag(tags,nextIndex+1);
+                }else {
+                    return -1;//not matching
+                }
+            }
+    }
+    return -1;
+}
+
+
+},{"./util":208}],210:[function(require,module,exports){
+(function (global){
+//! moment.js
+//! version : 2.9.0
+//! authors : Tim Wood, Iskren Chernev, Moment.js contributors
+//! license : MIT
+//! momentjs.com
+
+(function (undefined) {
+    /************************************
+        Constants
+    ************************************/
+
+    var moment,
+        VERSION = '2.9.0',
+        // the global-scope this is NOT the global object in Node.js
+        globalScope = (typeof global !== 'undefined' && (typeof window === 'undefined' || window === global.window)) ? global : this,
+        oldGlobalMoment,
+        round = Math.round,
+        hasOwnProperty = Object.prototype.hasOwnProperty,
+        i,
+
+        YEAR = 0,
+        MONTH = 1,
+        DATE = 2,
+        HOUR = 3,
+        MINUTE = 4,
+        SECOND = 5,
+        MILLISECOND = 6,
+
+        // internal storage for locale config files
+        locales = {},
+
+        // extra moment internal properties (plugins register props here)
+        momentProperties = [],
+
+        // check for nodeJS
+        hasModule = (typeof module !== 'undefined' && module && module.exports),
+
+        // ASP.NET json date format regex
+        aspNetJsonRegex = /^\/?Date\((\-?\d+)/i,
+        aspNetTimeSpanJsonRegex = /(\-)?(?:(\d*)\.)?(\d+)\:(\d+)(?:\:(\d+)\.?(\d{3})?)?/,
+
+        // from http://docs.closure-library.googlecode.com/git/closure_goog_date_date.js.source.html
+        // somewhat more in line with 4.4.3.2 2004 spec, but allows decimal anywhere
+        isoDurationRegex = /^(-)?P(?:(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?|([0-9,.]*)W)$/,
+
+        // format tokens
+        formattingTokens = /(\[[^\[]*\])|(\\)?(Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Q|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|mm?|ss?|S{1,4}|x|X|zz?|ZZ?|.)/g,
+        localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g,
+
+        // parsing token regexes
+        parseTokenOneOrTwoDigits = /\d\d?/, // 0 - 99
+        parseTokenOneToThreeDigits = /\d{1,3}/, // 0 - 999
+        parseTokenOneToFourDigits = /\d{1,4}/, // 0 - 9999
+        parseTokenOneToSixDigits = /[+\-]?\d{1,6}/, // -999,999 - 999,999
+        parseTokenDigits = /\d+/, // nonzero number of digits
+        parseTokenWord = /[0-9]*['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+|[\u0600-\u06FF\/]+(\s*?[\u0600-\u06FF]+){1,2}/i, // any word (or two) characters or numbers including two/three word month in arabic.
+        parseTokenTimezone = /Z|[\+\-]\d\d:?\d\d/gi, // +00:00 -00:00 +0000 -0000 or Z
+        parseTokenT = /T/i, // T (ISO separator)
+        parseTokenOffsetMs = /[\+\-]?\d+/, // 1234567890123
+        parseTokenTimestampMs = /[\+\-]?\d+(\.\d{1,3})?/, // 123456789 123456789.123
+
+        //strict parsing regexes
+        parseTokenOneDigit = /\d/, // 0 - 9
+        parseTokenTwoDigits = /\d\d/, // 00 - 99
+        parseTokenThreeDigits = /\d{3}/, // 000 - 999
+        parseTokenFourDigits = /\d{4}/, // 0000 - 9999
+        parseTokenSixDigits = /[+-]?\d{6}/, // -999,999 - 999,999
+        parseTokenSignedNumber = /[+-]?\d+/, // -inf - inf
+
+        // iso 8601 regex
+        // 0000-00-00 0000-W00 or 0000-W00-0 + T + 00 or 00:00 or 00:00:00 or 00:00:00.000 + +00:00 or +0000 or +00)
+        isoRegex = /^\s*(?:[+-]\d{6}|\d{4})-(?:(\d\d-\d\d)|(W\d\d$)|(W\d\d-\d)|(\d\d\d))((T| )(\d\d(:\d\d(:\d\d(\.\d+)?)?)?)?([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
+
+        isoFormat = 'YYYY-MM-DDTHH:mm:ssZ',
+
+        isoDates = [
+            ['YYYYYY-MM-DD', /[+-]\d{6}-\d{2}-\d{2}/],
+            ['YYYY-MM-DD', /\d{4}-\d{2}-\d{2}/],
+            ['GGGG-[W]WW-E', /\d{4}-W\d{2}-\d/],
+            ['GGGG-[W]WW', /\d{4}-W\d{2}/],
+            ['YYYY-DDD', /\d{4}-\d{3}/]
+        ],
+
+        // iso time formats and regexes
+        isoTimes = [
+            ['HH:mm:ss.SSSS', /(T| )\d\d:\d\d:\d\d\.\d+/],
+            ['HH:mm:ss', /(T| )\d\d:\d\d:\d\d/],
+            ['HH:mm', /(T| )\d\d:\d\d/],
+            ['HH', /(T| )\d\d/]
+        ],
+
+        // timezone chunker '+10:00' > ['10', '00'] or '-1530' > ['-', '15', '30']
+        parseTimezoneChunker = /([\+\-]|\d\d)/gi,
+
+        // getter and setter names
+        proxyGettersAndSetters = 'Date|Hours|Minutes|Seconds|Milliseconds'.split('|'),
+        unitMillisecondFactors = {
+            'Milliseconds' : 1,
+            'Seconds' : 1e3,
+            'Minutes' : 6e4,
+            'Hours' : 36e5,
+            'Days' : 864e5,
+            'Months' : 2592e6,
+            'Years' : 31536e6
+        },
+
+        unitAliases = {
+            ms : 'millisecond',
+            s : 'second',
+            m : 'minute',
+            h : 'hour',
+            d : 'day',
+            D : 'date',
+            w : 'week',
+            W : 'isoWeek',
+            M : 'month',
+            Q : 'quarter',
+            y : 'year',
+            DDD : 'dayOfYear',
+            e : 'weekday',
+            E : 'isoWeekday',
+            gg: 'weekYear',
+            GG: 'isoWeekYear'
+        },
+
+        camelFunctions = {
+            dayofyear : 'dayOfYear',
+            isoweekday : 'isoWeekday',
+            isoweek : 'isoWeek',
+            weekyear : 'weekYear',
+            isoweekyear : 'isoWeekYear'
+        },
+
+        // format function strings
+        formatFunctions = {},
+
+        // default relative time thresholds
+        relativeTimeThresholds = {
+            s: 45,  // seconds to minute
+            m: 45,  // minutes to hour
+            h: 22,  // hours to day
+            d: 26,  // days to month
+            M: 11   // months to year
+        },
+
+        // tokens to ordinalize and pad
+        ordinalizeTokens = 'DDD w W M D d'.split(' '),
+        paddedTokens = 'M D H h m s w W'.split(' '),
+
+        formatTokenFunctions = {
+            M    : function () {
+                return this.month() + 1;
+            },
+            MMM  : function (format) {
+                return this.localeData().monthsShort(this, format);
+            },
+            MMMM : function (format) {
+                return this.localeData().months(this, format);
+            },
+            D    : function () {
+                return this.date();
+            },
+            DDD  : function () {
+                return this.dayOfYear();
+            },
+            d    : function () {
+                return this.day();
+            },
+            dd   : function (format) {
+                return this.localeData().weekdaysMin(this, format);
+            },
+            ddd  : function (format) {
+                return this.localeData().weekdaysShort(this, format);
+            },
+            dddd : function (format) {
+                return this.localeData().weekdays(this, format);
+            },
+            w    : function () {
+                return this.week();
+            },
+            W    : function () {
+                return this.isoWeek();
+            },
+            YY   : function () {
+                return leftZeroFill(this.year() % 100, 2);
+            },
+            YYYY : function () {
+                return leftZeroFill(this.year(), 4);
+            },
+            YYYYY : function () {
+                return leftZeroFill(this.year(), 5);
+            },
+            YYYYYY : function () {
+                var y = this.year(), sign = y >= 0 ? '+' : '-';
+                return sign + leftZeroFill(Math.abs(y), 6);
+            },
+            gg   : function () {
+                return leftZeroFill(this.weekYear() % 100, 2);
+            },
+            gggg : function () {
+                return leftZeroFill(this.weekYear(), 4);
+            },
+            ggggg : function () {
+                return leftZeroFill(this.weekYear(), 5);
+            },
+            GG   : function () {
+                return leftZeroFill(this.isoWeekYear() % 100, 2);
+            },
+            GGGG : function () {
+                return leftZeroFill(this.isoWeekYear(), 4);
+            },
+            GGGGG : function () {
+                return leftZeroFill(this.isoWeekYear(), 5);
+            },
+            e : function () {
+                return this.weekday();
+            },
+            E : function () {
+                return this.isoWeekday();
+            },
+            a    : function () {
+                return this.localeData().meridiem(this.hours(), this.minutes(), true);
+            },
+            A    : function () {
+                return this.localeData().meridiem(this.hours(), this.minutes(), false);
+            },
+            H    : function () {
+                return this.hours();
+            },
+            h    : function () {
+                return this.hours() % 12 || 12;
+            },
+            m    : function () {
+                return this.minutes();
+            },
+            s    : function () {
+                return this.seconds();
+            },
+            S    : function () {
+                return toInt(this.milliseconds() / 100);
+            },
+            SS   : function () {
+                return leftZeroFill(toInt(this.milliseconds() / 10), 2);
+            },
+            SSS  : function () {
+                return leftZeroFill(this.milliseconds(), 3);
+            },
+            SSSS : function () {
+                return leftZeroFill(this.milliseconds(), 3);
+            },
+            Z    : function () {
+                var a = this.utcOffset(),
+                    b = '+';
+                if (a < 0) {
+                    a = -a;
+                    b = '-';
+                }
+                return b + leftZeroFill(toInt(a / 60), 2) + ':' + leftZeroFill(toInt(a) % 60, 2);
+            },
+            ZZ   : function () {
+                var a = this.utcOffset(),
+                    b = '+';
+                if (a < 0) {
+                    a = -a;
+                    b = '-';
+                }
+                return b + leftZeroFill(toInt(a / 60), 2) + leftZeroFill(toInt(a) % 60, 2);
+            },
+            z : function () {
+                return this.zoneAbbr();
+            },
+            zz : function () {
+                return this.zoneName();
+            },
+            x    : function () {
+                return this.valueOf();
+            },
+            X    : function () {
+                return this.unix();
+            },
+            Q : function () {
+                return this.quarter();
+            }
+        },
+
+        deprecations = {},
+
+        lists = ['months', 'monthsShort', 'weekdays', 'weekdaysShort', 'weekdaysMin'],
+
+        updateInProgress = false;
+
+    // Pick the first defined of two or three arguments. dfl comes from
+    // default.
+    function dfl(a, b, c) {
+        switch (arguments.length) {
+            case 2: return a != null ? a : b;
+            case 3: return a != null ? a : b != null ? b : c;
+            default: throw new Error('Implement me');
+        }
+    }
+
+    function hasOwnProp(a, b) {
+        return hasOwnProperty.call(a, b);
+    }
+
+    function defaultParsingFlags() {
+        // We need to deep clone this object, and es5 standard is not very
+        // helpful.
+        return {
+            empty : false,
+            unusedTokens : [],
+            unusedInput : [],
+            overflow : -2,
+            charsLeftOver : 0,
+            nullInput : false,
+            invalidMonth : null,
+            invalidFormat : false,
+            userInvalidated : false,
+            iso: false
+        };
+    }
+
+    function printMsg(msg) {
+        if (moment.suppressDeprecationWarnings === false &&
+                typeof console !== 'undefined' && console.warn) {
+            console.warn('Deprecation warning: ' + msg);
+        }
+    }
+
+    function deprecate(msg, fn) {
+        var firstTime = true;
+        return extend(function () {
+            if (firstTime) {
+                printMsg(msg);
+                firstTime = false;
+            }
+            return fn.apply(this, arguments);
+        }, fn);
+    }
+
+    function deprecateSimple(name, msg) {
+        if (!deprecations[name]) {
+            printMsg(msg);
+            deprecations[name] = true;
+        }
+    }
+
+    function padToken(func, count) {
+        return function (a) {
+            return leftZeroFill(func.call(this, a), count);
+        };
+    }
+    function ordinalizeToken(func, period) {
+        return function (a) {
+            return this.localeData().ordinal(func.call(this, a), period);
+        };
+    }
+
+    function monthDiff(a, b) {
+        // difference in months
+        var wholeMonthDiff = ((b.year() - a.year()) * 12) + (b.month() - a.month()),
+            // b is in (anchor - 1 month, anchor + 1 month)
+            anchor = a.clone().add(wholeMonthDiff, 'months'),
+            anchor2, adjust;
+
+        if (b - anchor < 0) {
+            anchor2 = a.clone().add(wholeMonthDiff - 1, 'months');
+            // linear across the month
+            adjust = (b - anchor) / (anchor - anchor2);
+        } else {
+            anchor2 = a.clone().add(wholeMonthDiff + 1, 'months');
+            // linear across the month
+            adjust = (b - anchor) / (anchor2 - anchor);
+        }
+
+        return -(wholeMonthDiff + adjust);
+    }
+
+    while (ordinalizeTokens.length) {
+        i = ordinalizeTokens.pop();
+        formatTokenFunctions[i + 'o'] = ordinalizeToken(formatTokenFunctions[i], i);
+    }
+    while (paddedTokens.length) {
+        i = paddedTokens.pop();
+        formatTokenFunctions[i + i] = padToken(formatTokenFunctions[i], 2);
+    }
+    formatTokenFunctions.DDDD = padToken(formatTokenFunctions.DDD, 3);
+
+
+    function meridiemFixWrap(locale, hour, meridiem) {
+        var isPm;
+
+        if (meridiem == null) {
+            // nothing to do
+            return hour;
+        }
+        if (locale.meridiemHour != null) {
+            return locale.meridiemHour(hour, meridiem);
+        } else if (locale.isPM != null) {
+            // Fallback
+            isPm = locale.isPM(meridiem);
+            if (isPm && hour < 12) {
+                hour += 12;
+            }
+            if (!isPm && hour === 12) {
+                hour = 0;
+            }
+            return hour;
+        } else {
+            // thie is not supposed to happen
+            return hour;
+        }
+    }
+
+    /************************************
+        Constructors
+    ************************************/
+
+    function Locale() {
+    }
+
+    // Moment prototype object
+    function Moment(config, skipOverflow) {
+        if (skipOverflow !== false) {
+            checkOverflow(config);
+        }
+        copyConfig(this, config);
+        this._d = new Date(+config._d);
+        // Prevent infinite loop in case updateOffset creates new moment
+        // objects.
+        if (updateInProgress === false) {
+            updateInProgress = true;
+            moment.updateOffset(this);
+            updateInProgress = false;
+        }
+    }
+
+    // Duration Constructor
+    function Duration(duration) {
+        var normalizedInput = normalizeObjectUnits(duration),
+            years = normalizedInput.year || 0,
+            quarters = normalizedInput.quarter || 0,
+            months = normalizedInput.month || 0,
+            weeks = normalizedInput.week || 0,
+            days = normalizedInput.day || 0,
+            hours = normalizedInput.hour || 0,
+            minutes = normalizedInput.minute || 0,
+            seconds = normalizedInput.second || 0,
+            milliseconds = normalizedInput.millisecond || 0;
+
+        // representation for dateAddRemove
+        this._milliseconds = +milliseconds +
+            seconds * 1e3 + // 1000
+            minutes * 6e4 + // 1000 * 60
+            hours * 36e5; // 1000 * 60 * 60
+        // Because of dateAddRemove treats 24 hours as different from a
+        // day when working around DST, we need to store them separately
+        this._days = +days +
+            weeks * 7;
+        // It is impossible translate months into days without knowing
+        // which months you are are talking about, so we have to store
+        // it separately.
+        this._months = +months +
+            quarters * 3 +
+            years * 12;
+
+        this._data = {};
+
+        this._locale = moment.localeData();
+
+        this._bubble();
+    }
+
+    /************************************
+        Helpers
+    ************************************/
+
+
+    function extend(a, b) {
+        for (var i in b) {
+            if (hasOwnProp(b, i)) {
+                a[i] = b[i];
+            }
+        }
+
+        if (hasOwnProp(b, 'toString')) {
+            a.toString = b.toString;
+        }
+
+        if (hasOwnProp(b, 'valueOf')) {
+            a.valueOf = b.valueOf;
+        }
+
+        return a;
+    }
+
+    function copyConfig(to, from) {
+        var i, prop, val;
+
+        if (typeof from._isAMomentObject !== 'undefined') {
+            to._isAMomentObject = from._isAMomentObject;
+        }
+        if (typeof from._i !== 'undefined') {
+            to._i = from._i;
+        }
+        if (typeof from._f !== 'undefined') {
+            to._f = from._f;
+        }
+        if (typeof from._l !== 'undefined') {
+            to._l = from._l;
+        }
+        if (typeof from._strict !== 'undefined') {
+            to._strict = from._strict;
+        }
+        if (typeof from._tzm !== 'undefined') {
+            to._tzm = from._tzm;
+        }
+        if (typeof from._isUTC !== 'undefined') {
+            to._isUTC = from._isUTC;
+        }
+        if (typeof from._offset !== 'undefined') {
+            to._offset = from._offset;
+        }
+        if (typeof from._pf !== 'undefined') {
+            to._pf = from._pf;
+        }
+        if (typeof from._locale !== 'undefined') {
+            to._locale = from._locale;
+        }
+
+        if (momentProperties.length > 0) {
+            for (i in momentProperties) {
+                prop = momentProperties[i];
+                val = from[prop];
+                if (typeof val !== 'undefined') {
+                    to[prop] = val;
+                }
+            }
+        }
+
+        return to;
+    }
+
+    function absRound(number) {
+        if (number < 0) {
+            return Math.ceil(number);
+        } else {
+            return Math.floor(number);
+        }
+    }
+
+    // left zero fill a number
+    // see http://jsperf.com/left-zero-filling for performance comparison
+    function leftZeroFill(number, targetLength, forceSign) {
+        var output = '' + Math.abs(number),
+            sign = number >= 0;
+
+        while (output.length < targetLength) {
+            output = '0' + output;
+        }
+        return (sign ? (forceSign ? '+' : '') : '-') + output;
+    }
+
+    function positiveMomentsDifference(base, other) {
+        var res = {milliseconds: 0, months: 0};
+
+        res.months = other.month() - base.month() +
+            (other.year() - base.year()) * 12;
+        if (base.clone().add(res.months, 'M').isAfter(other)) {
+            --res.months;
+        }
+
+        res.milliseconds = +other - +(base.clone().add(res.months, 'M'));
+
+        return res;
+    }
+
+    function momentsDifference(base, other) {
+        var res;
+        other = makeAs(other, base);
+        if (base.isBefore(other)) {
+            res = positiveMomentsDifference(base, other);
+        } else {
+            res = positiveMomentsDifference(other, base);
+            res.milliseconds = -res.milliseconds;
+            res.months = -res.months;
+        }
+
+        return res;
+    }
+
+    // TODO: remove 'name' arg after deprecation is removed
+    function createAdder(direction, name) {
+        return function (val, period) {
+            var dur, tmp;
+            //invert the arguments, but complain about it
+            if (period !== null && !isNaN(+period)) {
+                deprecateSimple(name, 'moment().' + name  + '(period, number) is deprecated. Please use moment().' + name + '(number, period).');
+                tmp = val; val = period; period = tmp;
+            }
+
+            val = typeof val === 'string' ? +val : val;
+            dur = moment.duration(val, period);
+            addOrSubtractDurationFromMoment(this, dur, direction);
+            return this;
+        };
+    }
+
+    function addOrSubtractDurationFromMoment(mom, duration, isAdding, updateOffset) {
+        var milliseconds = duration._milliseconds,
+            days = duration._days,
+            months = duration._months;
+        updateOffset = updateOffset == null ? true : updateOffset;
+
+        if (milliseconds) {
+            mom._d.setTime(+mom._d + milliseconds * isAdding);
+        }
+        if (days) {
+            rawSetter(mom, 'Date', rawGetter(mom, 'Date') + days * isAdding);
+        }
+        if (months) {
+            rawMonthSetter(mom, rawGetter(mom, 'Month') + months * isAdding);
+        }
+        if (updateOffset) {
+            moment.updateOffset(mom, days || months);
+        }
+    }
+
+    // check if is an array
+    function isArray(input) {
+        return Object.prototype.toString.call(input) === '[object Array]';
+    }
+
+    function isDate(input) {
+        return Object.prototype.toString.call(input) === '[object Date]' ||
+            input instanceof Date;
+    }
+
+    // compare two arrays, return the number of differences
+    function compareArrays(array1, array2, dontConvert) {
+        var len = Math.min(array1.length, array2.length),
+            lengthDiff = Math.abs(array1.length - array2.length),
+            diffs = 0,
+            i;
+        for (i = 0; i < len; i++) {
+            if ((dontConvert && array1[i] !== array2[i]) ||
+                (!dontConvert && toInt(array1[i]) !== toInt(array2[i]))) {
+                diffs++;
+            }
+        }
+        return diffs + lengthDiff;
+    }
+
+    function normalizeUnits(units) {
+        if (units) {
+            var lowered = units.toLowerCase().replace(/(.)s$/, '$1');
+            units = unitAliases[units] || camelFunctions[lowered] || lowered;
+        }
+        return units;
+    }
+
+    function normalizeObjectUnits(inputObject) {
+        var normalizedInput = {},
+            normalizedProp,
+            prop;
+
+        for (prop in inputObject) {
+            if (hasOwnProp(inputObject, prop)) {
+                normalizedProp = normalizeUnits(prop);
+                if (normalizedProp) {
+                    normalizedInput[normalizedProp] = inputObject[prop];
+                }
+            }
+        }
+
+        return normalizedInput;
+    }
+
+    function makeList(field) {
+        var count, setter;
+
+        if (field.indexOf('week') === 0) {
+            count = 7;
+            setter = 'day';
+        }
+        else if (field.indexOf('month') === 0) {
+            count = 12;
+            setter = 'month';
+        }
+        else {
+            return;
+        }
+
+        moment[field] = function (format, index) {
+            var i, getter,
+                method = moment._locale[field],
+                results = [];
+
+            if (typeof format === 'number') {
+                index = format;
+                format = undefined;
+            }
+
+            getter = function (i) {
+                var m = moment().utc().set(setter, i);
+                return method.call(moment._locale, m, format || '');
+            };
+
+            if (index != null) {
+                return getter(index);
+            }
+            else {
+                for (i = 0; i < count; i++) {
+                    results.push(getter(i));
+                }
+                return results;
+            }
+        };
+    }
+
+    function toInt(argumentForCoercion) {
+        var coercedNumber = +argumentForCoercion,
+            value = 0;
+
+        if (coercedNumber !== 0 && isFinite(coercedNumber)) {
+            if (coercedNumber >= 0) {
+                value = Math.floor(coercedNumber);
+            } else {
+                value = Math.ceil(coercedNumber);
+            }
+        }
+
+        return value;
+    }
+
+    function daysInMonth(year, month) {
+        return new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+    }
+
+    function weeksInYear(year, dow, doy) {
+        return weekOfYear(moment([year, 11, 31 + dow - doy]), dow, doy).week;
+    }
+
+    function daysInYear(year) {
+        return isLeapYear(year) ? 366 : 365;
+    }
+
+    function isLeapYear(year) {
+        return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+    }
+
+    function checkOverflow(m) {
+        var overflow;
+        if (m._a && m._pf.overflow === -2) {
+            overflow =
+                m._a[MONTH] < 0 || m._a[MONTH] > 11 ? MONTH :
+                m._a[DATE] < 1 || m._a[DATE] > daysInMonth(m._a[YEAR], m._a[MONTH]) ? DATE :
+                m._a[HOUR] < 0 || m._a[HOUR] > 24 ||
+                    (m._a[HOUR] === 24 && (m._a[MINUTE] !== 0 ||
+                                           m._a[SECOND] !== 0 ||
+                                           m._a[MILLISECOND] !== 0)) ? HOUR :
+                m._a[MINUTE] < 0 || m._a[MINUTE] > 59 ? MINUTE :
+                m._a[SECOND] < 0 || m._a[SECOND] > 59 ? SECOND :
+                m._a[MILLISECOND] < 0 || m._a[MILLISECOND] > 999 ? MILLISECOND :
+                -1;
+
+            if (m._pf._overflowDayOfYear && (overflow < YEAR || overflow > DATE)) {
+                overflow = DATE;
+            }
+
+            m._pf.overflow = overflow;
+        }
+    }
+
+    function isValid(m) {
+        if (m._isValid == null) {
+            m._isValid = !isNaN(m._d.getTime()) &&
+                m._pf.overflow < 0 &&
+                !m._pf.empty &&
+                !m._pf.invalidMonth &&
+                !m._pf.nullInput &&
+                !m._pf.invalidFormat &&
+                !m._pf.userInvalidated;
+
+            if (m._strict) {
+                m._isValid = m._isValid &&
+                    m._pf.charsLeftOver === 0 &&
+                    m._pf.unusedTokens.length === 0 &&
+                    m._pf.bigHour === undefined;
+            }
+        }
+        return m._isValid;
+    }
+
+    function normalizeLocale(key) {
+        return key ? key.toLowerCase().replace('_', '-') : key;
+    }
+
+    // pick the locale from the array
+    // try ['en-au', 'en-gb'] as 'en-au', 'en-gb', 'en', as in move through the list trying each
+    // substring from most specific to least, but move to the next array item if it's a more specific variant than the current root
+    function chooseLocale(names) {
+        var i = 0, j, next, locale, split;
+
+        while (i < names.length) {
+            split = normalizeLocale(names[i]).split('-');
+            j = split.length;
+            next = normalizeLocale(names[i + 1]);
+            next = next ? next.split('-') : null;
+            while (j > 0) {
+                locale = loadLocale(split.slice(0, j).join('-'));
+                if (locale) {
+                    return locale;
+                }
+                if (next && next.length >= j && compareArrays(split, next, true) >= j - 1) {
+                    //the next array item is better than a shallower substring of this one
+                    break;
+                }
+                j--;
+            }
+            i++;
+        }
+        return null;
+    }
+
+    function loadLocale(name) {
+        var oldLocale = null;
+        if (!locales[name] && hasModule) {
+            try {
+                oldLocale = moment.locale();
+                require('./locale/' + name);
+                // because defineLocale currently also sets the global locale, we want to undo that for lazy loaded locales
+                moment.locale(oldLocale);
+            } catch (e) { }
+        }
+        return locales[name];
+    }
+
+    // Return a moment from input, that is local/utc/utcOffset equivalent to
+    // model.
+    function makeAs(input, model) {
+        var res, diff;
+        if (model._isUTC) {
+            res = model.clone();
+            diff = (moment.isMoment(input) || isDate(input) ?
+                    +input : +moment(input)) - (+res);
+            // Use low-level api, because this fn is low-level api.
+            res._d.setTime(+res._d + diff);
+            moment.updateOffset(res, false);
+            return res;
+        } else {
+            return moment(input).local();
+        }
+    }
+
+    /************************************
+        Locale
+    ************************************/
+
+
+    extend(Locale.prototype, {
+
+        set : function (config) {
+            var prop, i;
+            for (i in config) {
+                prop = config[i];
+                if (typeof prop === 'function') {
+                    this[i] = prop;
+                } else {
+                    this['_' + i] = prop;
+                }
+            }
+            // Lenient ordinal parsing accepts just a number in addition to
+            // number + (possibly) stuff coming from _ordinalParseLenient.
+            this._ordinalParseLenient = new RegExp(this._ordinalParse.source + '|' + /\d{1,2}/.source);
+        },
+
+        _months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
+        months : function (m) {
+            return this._months[m.month()];
+        },
+
+        _monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
+        monthsShort : function (m) {
+            return this._monthsShort[m.month()];
+        },
+
+        monthsParse : function (monthName, format, strict) {
+            var i, mom, regex;
+
+            if (!this._monthsParse) {
+                this._monthsParse = [];
+                this._longMonthsParse = [];
+                this._shortMonthsParse = [];
+            }
+
+            for (i = 0; i < 12; i++) {
+                // make the regex if we don't have it already
+                mom = moment.utc([2000, i]);
+                if (strict && !this._longMonthsParse[i]) {
+                    this._longMonthsParse[i] = new RegExp('^' + this.months(mom, '').replace('.', '') + '$', 'i');
+                    this._shortMonthsParse[i] = new RegExp('^' + this.monthsShort(mom, '').replace('.', '') + '$', 'i');
+                }
+                if (!strict && !this._monthsParse[i]) {
+                    regex = '^' + this.months(mom, '') + '|^' + this.monthsShort(mom, '');
+                    this._monthsParse[i] = new RegExp(regex.replace('.', ''), 'i');
+                }
+                // test the regex
+                if (strict && format === 'MMMM' && this._longMonthsParse[i].test(monthName)) {
+                    return i;
+                } else if (strict && format === 'MMM' && this._shortMonthsParse[i].test(monthName)) {
+                    return i;
+                } else if (!strict && this._monthsParse[i].test(monthName)) {
+                    return i;
+                }
+            }
+        },
+
+        _weekdays : 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_'),
+        weekdays : function (m) {
+            return this._weekdays[m.day()];
+        },
+
+        _weekdaysShort : 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
+        weekdaysShort : function (m) {
+            return this._weekdaysShort[m.day()];
+        },
+
+        _weekdaysMin : 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
+        weekdaysMin : function (m) {
+            return this._weekdaysMin[m.day()];
+        },
+
+        weekdaysParse : function (weekdayName) {
+            var i, mom, regex;
+
+            if (!this._weekdaysParse) {
+                this._weekdaysParse = [];
+            }
+
+            for (i = 0; i < 7; i++) {
+                // make the regex if we don't have it already
+                if (!this._weekdaysParse[i]) {
+                    mom = moment([2000, 1]).day(i);
+                    regex = '^' + this.weekdays(mom, '') + '|^' + this.weekdaysShort(mom, '') + '|^' + this.weekdaysMin(mom, '');
+                    this._weekdaysParse[i] = new RegExp(regex.replace('.', ''), 'i');
+                }
+                // test the regex
+                if (this._weekdaysParse[i].test(weekdayName)) {
+                    return i;
+                }
+            }
+        },
+
+        _longDateFormat : {
+            LTS : 'h:mm:ss A',
+            LT : 'h:mm A',
+            L : 'MM/DD/YYYY',
+            LL : 'MMMM D, YYYY',
+            LLL : 'MMMM D, YYYY LT',
+            LLLL : 'dddd, MMMM D, YYYY LT'
+        },
+        longDateFormat : function (key) {
+            var output = this._longDateFormat[key];
+            if (!output && this._longDateFormat[key.toUpperCase()]) {
+                output = this._longDateFormat[key.toUpperCase()].replace(/MMMM|MM|DD|dddd/g, function (val) {
+                    return val.slice(1);
+                });
+                this._longDateFormat[key] = output;
+            }
+            return output;
+        },
+
+        isPM : function (input) {
+            // IE8 Quirks Mode & IE7 Standards Mode do not allow accessing strings like arrays
+            // Using charAt should be more compatible.
+            return ((input + '').toLowerCase().charAt(0) === 'p');
+        },
+
+        _meridiemParse : /[ap]\.?m?\.?/i,
+        meridiem : function (hours, minutes, isLower) {
+            if (hours > 11) {
+                return isLower ? 'pm' : 'PM';
+            } else {
+                return isLower ? 'am' : 'AM';
+            }
+        },
+
+
+        _calendar : {
+            sameDay : '[Today at] LT',
+            nextDay : '[Tomorrow at] LT',
+            nextWeek : 'dddd [at] LT',
+            lastDay : '[Yesterday at] LT',
+            lastWeek : '[Last] dddd [at] LT',
+            sameElse : 'L'
+        },
+        calendar : function (key, mom, now) {
+            var output = this._calendar[key];
+            return typeof output === 'function' ? output.apply(mom, [now]) : output;
+        },
+
+        _relativeTime : {
+            future : 'in %s',
+            past : '%s ago',
+            s : 'a few seconds',
+            m : 'a minute',
+            mm : '%d minutes',
+            h : 'an hour',
+            hh : '%d hours',
+            d : 'a day',
+            dd : '%d days',
+            M : 'a month',
+            MM : '%d months',
+            y : 'a year',
+            yy : '%d years'
+        },
+
+        relativeTime : function (number, withoutSuffix, string, isFuture) {
+            var output = this._relativeTime[string];
+            return (typeof output === 'function') ?
+                output(number, withoutSuffix, string, isFuture) :
+                output.replace(/%d/i, number);
+        },
+
+        pastFuture : function (diff, output) {
+            var format = this._relativeTime[diff > 0 ? 'future' : 'past'];
+            return typeof format === 'function' ? format(output) : format.replace(/%s/i, output);
+        },
+
+        ordinal : function (number) {
+            return this._ordinal.replace('%d', number);
+        },
+        _ordinal : '%d',
+        _ordinalParse : /\d{1,2}/,
+
+        preparse : function (string) {
+            return string;
+        },
+
+        postformat : function (string) {
+            return string;
+        },
+
+        week : function (mom) {
+            return weekOfYear(mom, this._week.dow, this._week.doy).week;
+        },
+
+        _week : {
+            dow : 0, // Sunday is the first day of the week.
+            doy : 6  // The week that contains Jan 1st is the first week of the year.
+        },
+
+        firstDayOfWeek : function () {
+            return this._week.dow;
+        },
+
+        firstDayOfYear : function () {
+            return this._week.doy;
+        },
+
+        _invalidDate: 'Invalid date',
+        invalidDate: function () {
+            return this._invalidDate;
+        }
+    });
+
+    /************************************
+        Formatting
+    ************************************/
+
+
+    function removeFormattingTokens(input) {
+        if (input.match(/\[[\s\S]/)) {
+            return input.replace(/^\[|\]$/g, '');
+        }
+        return input.replace(/\\/g, '');
+    }
+
+    function makeFormatFunction(format) {
+        var array = format.match(formattingTokens), i, length;
+
+        for (i = 0, length = array.length; i < length; i++) {
+            if (formatTokenFunctions[array[i]]) {
+                array[i] = formatTokenFunctions[array[i]];
+            } else {
+                array[i] = removeFormattingTokens(array[i]);
+            }
+        }
+
+        return function (mom) {
+            var output = '';
+            for (i = 0; i < length; i++) {
+                output += array[i] instanceof Function ? array[i].call(mom, format) : array[i];
+            }
+            return output;
+        };
+    }
+
+    // format date using native date object
+    function formatMoment(m, format) {
+        if (!m.isValid()) {
+            return m.localeData().invalidDate();
+        }
+
+        format = expandFormat(format, m.localeData());
+
+        if (!formatFunctions[format]) {
+            formatFunctions[format] = makeFormatFunction(format);
+        }
+
+        return formatFunctions[format](m);
+    }
+
+    function expandFormat(format, locale) {
+        var i = 5;
+
+        function replaceLongDateFormatTokens(input) {
+            return locale.longDateFormat(input) || input;
+        }
+
+        localFormattingTokens.lastIndex = 0;
+        while (i >= 0 && localFormattingTokens.test(format)) {
+            format = format.replace(localFormattingTokens, replaceLongDateFormatTokens);
+            localFormattingTokens.lastIndex = 0;
+            i -= 1;
+        }
+
+        return format;
+    }
+
+
+    /************************************
+        Parsing
+    ************************************/
+
+
+    // get the regex to find the next token
+    function getParseRegexForToken(token, config) {
+        var a, strict = config._strict;
+        switch (token) {
+        case 'Q':
+            return parseTokenOneDigit;
+        case 'DDDD':
+            return parseTokenThreeDigits;
+        case 'YYYY':
+        case 'GGGG':
+        case 'gggg':
+            return strict ? parseTokenFourDigits : parseTokenOneToFourDigits;
+        case 'Y':
+        case 'G':
+        case 'g':
+            return parseTokenSignedNumber;
+        case 'YYYYYY':
+        case 'YYYYY':
+        case 'GGGGG':
+        case 'ggggg':
+            return strict ? parseTokenSixDigits : parseTokenOneToSixDigits;
+        case 'S':
+            if (strict) {
+                return parseTokenOneDigit;
+            }
+            /* falls through */
+        case 'SS':
+            if (strict) {
+                return parseTokenTwoDigits;
+            }
+            /* falls through */
+        case 'SSS':
+            if (strict) {
+                return parseTokenThreeDigits;
+            }
+            /* falls through */
+        case 'DDD':
+            return parseTokenOneToThreeDigits;
+        case 'MMM':
+        case 'MMMM':
+        case 'dd':
+        case 'ddd':
+        case 'dddd':
+            return parseTokenWord;
+        case 'a':
+        case 'A':
+            return config._locale._meridiemParse;
+        case 'x':
+            return parseTokenOffsetMs;
+        case 'X':
+            return parseTokenTimestampMs;
+        case 'Z':
+        case 'ZZ':
+            return parseTokenTimezone;
+        case 'T':
+            return parseTokenT;
+        case 'SSSS':
+            return parseTokenDigits;
+        case 'MM':
+        case 'DD':
+        case 'YY':
+        case 'GG':
+        case 'gg':
+        case 'HH':
+        case 'hh':
+        case 'mm':
+        case 'ss':
+        case 'ww':
+        case 'WW':
+            return strict ? parseTokenTwoDigits : parseTokenOneOrTwoDigits;
+        case 'M':
+        case 'D':
+        case 'd':
+        case 'H':
+        case 'h':
+        case 'm':
+        case 's':
+        case 'w':
+        case 'W':
+        case 'e':
+        case 'E':
+            return parseTokenOneOrTwoDigits;
+        case 'Do':
+            return strict ? config._locale._ordinalParse : config._locale._ordinalParseLenient;
+        default :
+            a = new RegExp(regexpEscape(unescapeFormat(token.replace('\\', '')), 'i'));
+            return a;
+        }
+    }
+
+    function utcOffsetFromString(string) {
+        string = string || '';
+        var possibleTzMatches = (string.match(parseTokenTimezone) || []),
+            tzChunk = possibleTzMatches[possibleTzMatches.length - 1] || [],
+            parts = (tzChunk + '').match(parseTimezoneChunker) || ['-', 0, 0],
+            minutes = +(parts[1] * 60) + toInt(parts[2]);
+
+        return parts[0] === '+' ? minutes : -minutes;
+    }
+
+    // function to convert string input to date
+    function addTimeToArrayFromToken(token, input, config) {
+        var a, datePartArray = config._a;
+
+        switch (token) {
+        // QUARTER
+        case 'Q':
+            if (input != null) {
+                datePartArray[MONTH] = (toInt(input) - 1) * 3;
+            }
+            break;
+        // MONTH
+        case 'M' : // fall through to MM
+        case 'MM' :
+            if (input != null) {
+                datePartArray[MONTH] = toInt(input) - 1;
+            }
+            break;
+        case 'MMM' : // fall through to MMMM
+        case 'MMMM' :
+            a = config._locale.monthsParse(input, token, config._strict);
+            // if we didn't find a month name, mark the date as invalid.
+            if (a != null) {
+                datePartArray[MONTH] = a;
+            } else {
+                config._pf.invalidMonth = input;
+            }
+            break;
+        // DAY OF MONTH
+        case 'D' : // fall through to DD
+        case 'DD' :
+            if (input != null) {
+                datePartArray[DATE] = toInt(input);
+            }
+            break;
+        case 'Do' :
+            if (input != null) {
+                datePartArray[DATE] = toInt(parseInt(
+                            input.match(/\d{1,2}/)[0], 10));
+            }
+            break;
+        // DAY OF YEAR
+        case 'DDD' : // fall through to DDDD
+        case 'DDDD' :
+            if (input != null) {
+                config._dayOfYear = toInt(input);
+            }
+
+            break;
+        // YEAR
+        case 'YY' :
+            datePartArray[YEAR] = moment.parseTwoDigitYear(input);
+            break;
+        case 'YYYY' :
+        case 'YYYYY' :
+        case 'YYYYYY' :
+            datePartArray[YEAR] = toInt(input);
+            break;
+        // AM / PM
+        case 'a' : // fall through to A
+        case 'A' :
+            config._meridiem = input;
+            // config._isPm = config._locale.isPM(input);
+            break;
+        // HOUR
+        case 'h' : // fall through to hh
+        case 'hh' :
+            config._pf.bigHour = true;
+            /* falls through */
+        case 'H' : // fall through to HH
+        case 'HH' :
+            datePartArray[HOUR] = toInt(input);
+            break;
+        // MINUTE
+        case 'm' : // fall through to mm
+        case 'mm' :
+            datePartArray[MINUTE] = toInt(input);
+            break;
+        // SECOND
+        case 's' : // fall through to ss
+        case 'ss' :
+            datePartArray[SECOND] = toInt(input);
+            break;
+        // MILLISECOND
+        case 'S' :
+        case 'SS' :
+        case 'SSS' :
+        case 'SSSS' :
+            datePartArray[MILLISECOND] = toInt(('0.' + input) * 1000);
+            break;
+        // UNIX OFFSET (MILLISECONDS)
+        case 'x':
+            config._d = new Date(toInt(input));
+            break;
+        // UNIX TIMESTAMP WITH MS
+        case 'X':
+            config._d = new Date(parseFloat(input) * 1000);
+            break;
+        // TIMEZONE
+        case 'Z' : // fall through to ZZ
+        case 'ZZ' :
+            config._useUTC = true;
+            config._tzm = utcOffsetFromString(input);
+            break;
+        // WEEKDAY - human
+        case 'dd':
+        case 'ddd':
+        case 'dddd':
+            a = config._locale.weekdaysParse(input);
+            // if we didn't get a weekday name, mark the date as invalid
+            if (a != null) {
+                config._w = config._w || {};
+                config._w['d'] = a;
+            } else {
+                config._pf.invalidWeekday = input;
+            }
+            break;
+        // WEEK, WEEK DAY - numeric
+        case 'w':
+        case 'ww':
+        case 'W':
+        case 'WW':
+        case 'd':
+        case 'e':
+        case 'E':
+            token = token.substr(0, 1);
+            /* falls through */
+        case 'gggg':
+        case 'GGGG':
+        case 'GGGGG':
+            token = token.substr(0, 2);
+            if (input) {
+                config._w = config._w || {};
+                config._w[token] = toInt(input);
+            }
+            break;
+        case 'gg':
+        case 'GG':
+            config._w = config._w || {};
+            config._w[token] = moment.parseTwoDigitYear(input);
+        }
+    }
+
+    function dayOfYearFromWeekInfo(config) {
+        var w, weekYear, week, weekday, dow, doy, temp;
+
+        w = config._w;
+        if (w.GG != null || w.W != null || w.E != null) {
+            dow = 1;
+            doy = 4;
+
+            // TODO: We need to take the current isoWeekYear, but that depends on
+            // how we interpret now (local, utc, fixed offset). So create
+            // a now version of current config (take local/utc/offset flags, and
+            // create now).
+            weekYear = dfl(w.GG, config._a[YEAR], weekOfYear(moment(), 1, 4).year);
+            week = dfl(w.W, 1);
+            weekday = dfl(w.E, 1);
+        } else {
+            dow = config._locale._week.dow;
+            doy = config._locale._week.doy;
+
+            weekYear = dfl(w.gg, config._a[YEAR], weekOfYear(moment(), dow, doy).year);
+            week = dfl(w.w, 1);
+
+            if (w.d != null) {
+                // weekday -- low day numbers are considered next week
+                weekday = w.d;
+                if (weekday < dow) {
+                    ++week;
+                }
+            } else if (w.e != null) {
+                // local weekday -- counting starts from begining of week
+                weekday = w.e + dow;
+            } else {
+                // default to begining of week
+                weekday = dow;
+            }
+        }
+        temp = dayOfYearFromWeeks(weekYear, week, weekday, doy, dow);
+
+        config._a[YEAR] = temp.year;
+        config._dayOfYear = temp.dayOfYear;
+    }
+
+    // convert an array to a date.
+    // the array should mirror the parameters below
+    // note: all values past the year are optional and will default to the lowest possible value.
+    // [year, month, day , hour, minute, second, millisecond]
+    function dateFromConfig(config) {
+        var i, date, input = [], currentDate, yearToUse;
+
+        if (config._d) {
+            return;
+        }
+
+        currentDate = currentDateArray(config);
+
+        //compute day of the year from weeks and weekdays
+        if (config._w && config._a[DATE] == null && config._a[MONTH] == null) {
+            dayOfYearFromWeekInfo(config);
+        }
+
+        //if the day of the year is set, figure out what it is
+        if (config._dayOfYear) {
+            yearToUse = dfl(config._a[YEAR], currentDate[YEAR]);
+
+            if (config._dayOfYear > daysInYear(yearToUse)) {
+                config._pf._overflowDayOfYear = true;
+            }
+
+            date = makeUTCDate(yearToUse, 0, config._dayOfYear);
+            config._a[MONTH] = date.getUTCMonth();
+            config._a[DATE] = date.getUTCDate();
+        }
+
+        // Default to current date.
+        // * if no year, month, day of month are given, default to today
+        // * if day of month is given, default month and year
+        // * if month is given, default only year
+        // * if year is given, don't default anything
+        for (i = 0; i < 3 && config._a[i] == null; ++i) {
+            config._a[i] = input[i] = currentDate[i];
+        }
+
+        // Zero out whatever was not defaulted, including time
+        for (; i < 7; i++) {
+            config._a[i] = input[i] = (config._a[i] == null) ? (i === 2 ? 1 : 0) : config._a[i];
+        }
+
+        // Check for 24:00:00.000
+        if (config._a[HOUR] === 24 &&
+                config._a[MINUTE] === 0 &&
+                config._a[SECOND] === 0 &&
+                config._a[MILLISECOND] === 0) {
+            config._nextDay = true;
+            config._a[HOUR] = 0;
+        }
+
+        config._d = (config._useUTC ? makeUTCDate : makeDate).apply(null, input);
+        // Apply timezone offset from input. The actual utcOffset can be changed
+        // with parseZone.
+        if (config._tzm != null) {
+            config._d.setUTCMinutes(config._d.getUTCMinutes() - config._tzm);
+        }
+
+        if (config._nextDay) {
+            config._a[HOUR] = 24;
+        }
+    }
+
+    function dateFromObject(config) {
+        var normalizedInput;
+
+        if (config._d) {
+            return;
+        }
+
+        normalizedInput = normalizeObjectUnits(config._i);
+        config._a = [
+            normalizedInput.year,
+            normalizedInput.month,
+            normalizedInput.day || normalizedInput.date,
+            normalizedInput.hour,
+            normalizedInput.minute,
+            normalizedInput.second,
+            normalizedInput.millisecond
+        ];
+
+        dateFromConfig(config);
+    }
+
+    function currentDateArray(config) {
+        var now = new Date();
+        if (config._useUTC) {
+            return [
+                now.getUTCFullYear(),
+                now.getUTCMonth(),
+                now.getUTCDate()
+            ];
+        } else {
+            return [now.getFullYear(), now.getMonth(), now.getDate()];
+        }
+    }
+
+    // date from string and format string
+    function makeDateFromStringAndFormat(config) {
+        if (config._f === moment.ISO_8601) {
+            parseISO(config);
+            return;
+        }
+
+        config._a = [];
+        config._pf.empty = true;
+
+        // This array is used to make a Date, either with `new Date` or `Date.UTC`
+        var string = '' + config._i,
+            i, parsedInput, tokens, token, skipped,
+            stringLength = string.length,
+            totalParsedInputLength = 0;
+
+        tokens = expandFormat(config._f, config._locale).match(formattingTokens) || [];
+
+        for (i = 0; i < tokens.length; i++) {
+            token = tokens[i];
+            parsedInput = (string.match(getParseRegexForToken(token, config)) || [])[0];
+            if (parsedInput) {
+                skipped = string.substr(0, string.indexOf(parsedInput));
+                if (skipped.length > 0) {
+                    config._pf.unusedInput.push(skipped);
+                }
+                string = string.slice(string.indexOf(parsedInput) + parsedInput.length);
+                totalParsedInputLength += parsedInput.length;
+            }
+            // don't parse if it's not a known token
+            if (formatTokenFunctions[token]) {
+                if (parsedInput) {
+                    config._pf.empty = false;
+                }
+                else {
+                    config._pf.unusedTokens.push(token);
+                }
+                addTimeToArrayFromToken(token, parsedInput, config);
+            }
+            else if (config._strict && !parsedInput) {
+                config._pf.unusedTokens.push(token);
+            }
+        }
+
+        // add remaining unparsed input length to the string
+        config._pf.charsLeftOver = stringLength - totalParsedInputLength;
+        if (string.length > 0) {
+            config._pf.unusedInput.push(string);
+        }
+
+        // clear _12h flag if hour is <= 12
+        if (config._pf.bigHour === true && config._a[HOUR] <= 12) {
+            config._pf.bigHour = undefined;
+        }
+        // handle meridiem
+        config._a[HOUR] = meridiemFixWrap(config._locale, config._a[HOUR],
+                config._meridiem);
+        dateFromConfig(config);
+        checkOverflow(config);
+    }
+
+    function unescapeFormat(s) {
+        return s.replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g, function (matched, p1, p2, p3, p4) {
+            return p1 || p2 || p3 || p4;
+        });
+    }
+
+    // Code from http://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript
+    function regexpEscape(s) {
+        return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    }
+
+    // date from string and array of format strings
+    function makeDateFromStringAndArray(config) {
+        var tempConfig,
+            bestMoment,
+
+            scoreToBeat,
+            i,
+            currentScore;
+
+        if (config._f.length === 0) {
+            config._pf.invalidFormat = true;
+            config._d = new Date(NaN);
+            return;
+        }
+
+        for (i = 0; i < config._f.length; i++) {
+            currentScore = 0;
+            tempConfig = copyConfig({}, config);
+            if (config._useUTC != null) {
+                tempConfig._useUTC = config._useUTC;
+            }
+            tempConfig._pf = defaultParsingFlags();
+            tempConfig._f = config._f[i];
+            makeDateFromStringAndFormat(tempConfig);
+
+            if (!isValid(tempConfig)) {
+                continue;
+            }
+
+            // if there is any input that was not parsed add a penalty for that format
+            currentScore += tempConfig._pf.charsLeftOver;
+
+            //or tokens
+            currentScore += tempConfig._pf.unusedTokens.length * 10;
+
+            tempConfig._pf.score = currentScore;
+
+            if (scoreToBeat == null || currentScore < scoreToBeat) {
+                scoreToBeat = currentScore;
+                bestMoment = tempConfig;
+            }
+        }
+
+        extend(config, bestMoment || tempConfig);
+    }
+
+    // date from iso format
+    function parseISO(config) {
+        var i, l,
+            string = config._i,
+            match = isoRegex.exec(string);
+
+        if (match) {
+            config._pf.iso = true;
+            for (i = 0, l = isoDates.length; i < l; i++) {
+                if (isoDates[i][1].exec(string)) {
+                    // match[5] should be 'T' or undefined
+                    config._f = isoDates[i][0] + (match[6] || ' ');
+                    break;
+                }
+            }
+            for (i = 0, l = isoTimes.length; i < l; i++) {
+                if (isoTimes[i][1].exec(string)) {
+                    config._f += isoTimes[i][0];
+                    break;
+                }
+            }
+            if (string.match(parseTokenTimezone)) {
+                config._f += 'Z';
+            }
+            makeDateFromStringAndFormat(config);
+        } else {
+            config._isValid = false;
+        }
+    }
+
+    // date from iso format or fallback
+    function makeDateFromString(config) {
+        parseISO(config);
+        if (config._isValid === false) {
+            delete config._isValid;
+            moment.createFromInputFallback(config);
+        }
+    }
+
+    function map(arr, fn) {
+        var res = [], i;
+        for (i = 0; i < arr.length; ++i) {
+            res.push(fn(arr[i], i));
+        }
+        return res;
+    }
+
+    function makeDateFromInput(config) {
+        var input = config._i, matched;
+        if (input === undefined) {
+            config._d = new Date();
+        } else if (isDate(input)) {
+            config._d = new Date(+input);
+        } else if ((matched = aspNetJsonRegex.exec(input)) !== null) {
+            config._d = new Date(+matched[1]);
+        } else if (typeof input === 'string') {
+            makeDateFromString(config);
+        } else if (isArray(input)) {
+            config._a = map(input.slice(0), function (obj) {
+                return parseInt(obj, 10);
+            });
+            dateFromConfig(config);
+        } else if (typeof(input) === 'object') {
+            dateFromObject(config);
+        } else if (typeof(input) === 'number') {
+            // from milliseconds
+            config._d = new Date(input);
+        } else {
+            moment.createFromInputFallback(config);
+        }
+    }
+
+    function makeDate(y, m, d, h, M, s, ms) {
+        //can't just apply() to create a date:
+        //http://stackoverflow.com/questions/181348/instantiating-a-javascript-object-by-calling-prototype-constructor-apply
+        var date = new Date(y, m, d, h, M, s, ms);
+
+        //the date constructor doesn't accept years < 1970
+        if (y < 1970) {
+            date.setFullYear(y);
+        }
+        return date;
+    }
+
+    function makeUTCDate(y) {
+        var date = new Date(Date.UTC.apply(null, arguments));
+        if (y < 1970) {
+            date.setUTCFullYear(y);
+        }
+        return date;
+    }
+
+    function parseWeekday(input, locale) {
+        if (typeof input === 'string') {
+            if (!isNaN(input)) {
+                input = parseInt(input, 10);
+            }
+            else {
+                input = locale.weekdaysParse(input);
+                if (typeof input !== 'number') {
+                    return null;
+                }
+            }
+        }
+        return input;
+    }
+
+    /************************************
+        Relative Time
+    ************************************/
+
+
+    // helper function for moment.fn.from, moment.fn.fromNow, and moment.duration.fn.humanize
+    function substituteTimeAgo(string, number, withoutSuffix, isFuture, locale) {
+        return locale.relativeTime(number || 1, !!withoutSuffix, string, isFuture);
+    }
+
+    function relativeTime(posNegDuration, withoutSuffix, locale) {
+        var duration = moment.duration(posNegDuration).abs(),
+            seconds = round(duration.as('s')),
+            minutes = round(duration.as('m')),
+            hours = round(duration.as('h')),
+            days = round(duration.as('d')),
+            months = round(duration.as('M')),
+            years = round(duration.as('y')),
+
+            args = seconds < relativeTimeThresholds.s && ['s', seconds] ||
+                minutes === 1 && ['m'] ||
+                minutes < relativeTimeThresholds.m && ['mm', minutes] ||
+                hours === 1 && ['h'] ||
+                hours < relativeTimeThresholds.h && ['hh', hours] ||
+                days === 1 && ['d'] ||
+                days < relativeTimeThresholds.d && ['dd', days] ||
+                months === 1 && ['M'] ||
+                months < relativeTimeThresholds.M && ['MM', months] ||
+                years === 1 && ['y'] || ['yy', years];
+
+        args[2] = withoutSuffix;
+        args[3] = +posNegDuration > 0;
+        args[4] = locale;
+        return substituteTimeAgo.apply({}, args);
+    }
+
+
+    /************************************
+        Week of Year
+    ************************************/
+
+
+    // firstDayOfWeek       0 = sun, 6 = sat
+    //                      the day of the week that starts the week
+    //                      (usually sunday or monday)
+    // firstDayOfWeekOfYear 0 = sun, 6 = sat
+    //                      the first week is the week that contains the first
+    //                      of this day of the week
+    //                      (eg. ISO weeks use thursday (4))
+    function weekOfYear(mom, firstDayOfWeek, firstDayOfWeekOfYear) {
+        var end = firstDayOfWeekOfYear - firstDayOfWeek,
+            daysToDayOfWeek = firstDayOfWeekOfYear - mom.day(),
+            adjustedMoment;
+
+
+        if (daysToDayOfWeek > end) {
+            daysToDayOfWeek -= 7;
+        }
+
+        if (daysToDayOfWeek < end - 7) {
+            daysToDayOfWeek += 7;
+        }
+
+        adjustedMoment = moment(mom).add(daysToDayOfWeek, 'd');
+        return {
+            week: Math.ceil(adjustedMoment.dayOfYear() / 7),
+            year: adjustedMoment.year()
+        };
+    }
+
+    //http://en.wikipedia.org/wiki/ISO_week_date#Calculating_a_date_given_the_year.2C_week_number_and_weekday
+    function dayOfYearFromWeeks(year, week, weekday, firstDayOfWeekOfYear, firstDayOfWeek) {
+        var d = makeUTCDate(year, 0, 1).getUTCDay(), daysToAdd, dayOfYear;
+
+        d = d === 0 ? 7 : d;
+        weekday = weekday != null ? weekday : firstDayOfWeek;
+        daysToAdd = firstDayOfWeek - d + (d > firstDayOfWeekOfYear ? 7 : 0) - (d < firstDayOfWeek ? 7 : 0);
+        dayOfYear = 7 * (week - 1) + (weekday - firstDayOfWeek) + daysToAdd + 1;
+
+        return {
+            year: dayOfYear > 0 ? year : year - 1,
+            dayOfYear: dayOfYear > 0 ?  dayOfYear : daysInYear(year - 1) + dayOfYear
+        };
+    }
+
+    /************************************
+        Top Level Functions
+    ************************************/
+
+    function makeMoment(config) {
+        var input = config._i,
+            format = config._f,
+            res;
+
+        config._locale = config._locale || moment.localeData(config._l);
+
+        if (input === null || (format === undefined && input === '')) {
+            return moment.invalid({nullInput: true});
+        }
+
+        if (typeof input === 'string') {
+            config._i = input = config._locale.preparse(input);
+        }
+
+        if (moment.isMoment(input)) {
+            return new Moment(input, true);
+        } else if (format) {
+            if (isArray(format)) {
+                makeDateFromStringAndArray(config);
+            } else {
+                makeDateFromStringAndFormat(config);
+            }
+        } else {
+            makeDateFromInput(config);
+        }
+
+        res = new Moment(config);
+        if (res._nextDay) {
+            // Adding is smart enough around DST
+            res.add(1, 'd');
+            res._nextDay = undefined;
+        }
+
+        return res;
+    }
+
+    moment = function (input, format, locale, strict) {
+        var c;
+
+        if (typeof(locale) === 'boolean') {
+            strict = locale;
+            locale = undefined;
+        }
+        // object construction must be done this way.
+        // https://github.com/moment/moment/issues/1423
+        c = {};
+        c._isAMomentObject = true;
+        c._i = input;
+        c._f = format;
+        c._l = locale;
+        c._strict = strict;
+        c._isUTC = false;
+        c._pf = defaultParsingFlags();
+
+        return makeMoment(c);
+    };
+
+    moment.suppressDeprecationWarnings = false;
+
+    moment.createFromInputFallback = deprecate(
+        'moment construction falls back to js Date. This is ' +
+        'discouraged and will be removed in upcoming major ' +
+        'release. Please refer to ' +
+        'https://github.com/moment/moment/issues/1407 for more info.',
+        function (config) {
+            config._d = new Date(config._i + (config._useUTC ? ' UTC' : ''));
+        }
+    );
+
+    // Pick a moment m from moments so that m[fn](other) is true for all
+    // other. This relies on the function fn to be transitive.
+    //
+    // moments should either be an array of moment objects or an array, whose
+    // first element is an array of moment objects.
+    function pickBy(fn, moments) {
+        var res, i;
+        if (moments.length === 1 && isArray(moments[0])) {
+            moments = moments[0];
+        }
+        if (!moments.length) {
+            return moment();
+        }
+        res = moments[0];
+        for (i = 1; i < moments.length; ++i) {
+            if (moments[i][fn](res)) {
+                res = moments[i];
+            }
+        }
+        return res;
+    }
+
+    moment.min = function () {
+        var args = [].slice.call(arguments, 0);
+
+        return pickBy('isBefore', args);
+    };
+
+    moment.max = function () {
+        var args = [].slice.call(arguments, 0);
+
+        return pickBy('isAfter', args);
+    };
+
+    // creating with utc
+    moment.utc = function (input, format, locale, strict) {
+        var c;
+
+        if (typeof(locale) === 'boolean') {
+            strict = locale;
+            locale = undefined;
+        }
+        // object construction must be done this way.
+        // https://github.com/moment/moment/issues/1423
+        c = {};
+        c._isAMomentObject = true;
+        c._useUTC = true;
+        c._isUTC = true;
+        c._l = locale;
+        c._i = input;
+        c._f = format;
+        c._strict = strict;
+        c._pf = defaultParsingFlags();
+
+        return makeMoment(c).utc();
+    };
+
+    // creating with unix timestamp (in seconds)
+    moment.unix = function (input) {
+        return moment(input * 1000);
+    };
+
+    // duration
+    moment.duration = function (input, key) {
+        var duration = input,
+            // matching against regexp is expensive, do it on demand
+            match = null,
+            sign,
+            ret,
+            parseIso,
+            diffRes;
+
+        if (moment.isDuration(input)) {
+            duration = {
+                ms: input._milliseconds,
+                d: input._days,
+                M: input._months
+            };
+        } else if (typeof input === 'number') {
+            duration = {};
+            if (key) {
+                duration[key] = input;
+            } else {
+                duration.milliseconds = input;
+            }
+        } else if (!!(match = aspNetTimeSpanJsonRegex.exec(input))) {
+            sign = (match[1] === '-') ? -1 : 1;
+            duration = {
+                y: 0,
+                d: toInt(match[DATE]) * sign,
+                h: toInt(match[HOUR]) * sign,
+                m: toInt(match[MINUTE]) * sign,
+                s: toInt(match[SECOND]) * sign,
+                ms: toInt(match[MILLISECOND]) * sign
+            };
+        } else if (!!(match = isoDurationRegex.exec(input))) {
+            sign = (match[1] === '-') ? -1 : 1;
+            parseIso = function (inp) {
+                // We'd normally use ~~inp for this, but unfortunately it also
+                // converts floats to ints.
+                // inp may be undefined, so careful calling replace on it.
+                var res = inp && parseFloat(inp.replace(',', '.'));
+                // apply sign while we're at it
+                return (isNaN(res) ? 0 : res) * sign;
+            };
+            duration = {
+                y: parseIso(match[2]),
+                M: parseIso(match[3]),
+                d: parseIso(match[4]),
+                h: parseIso(match[5]),
+                m: parseIso(match[6]),
+                s: parseIso(match[7]),
+                w: parseIso(match[8])
+            };
+        } else if (duration == null) {// checks for null or undefined
+            duration = {};
+        } else if (typeof duration === 'object' &&
+                ('from' in duration || 'to' in duration)) {
+            diffRes = momentsDifference(moment(duration.from), moment(duration.to));
+
+            duration = {};
+            duration.ms = diffRes.milliseconds;
+            duration.M = diffRes.months;
+        }
+
+        ret = new Duration(duration);
+
+        if (moment.isDuration(input) && hasOwnProp(input, '_locale')) {
+            ret._locale = input._locale;
+        }
+
+        return ret;
+    };
+
+    // version number
+    moment.version = VERSION;
+
+    // default format
+    moment.defaultFormat = isoFormat;
+
+    // constant that refers to the ISO standard
+    moment.ISO_8601 = function () {};
+
+    // Plugins that add properties should also add the key here (null value),
+    // so we can properly clone ourselves.
+    moment.momentProperties = momentProperties;
+
+    // This function will be called whenever a moment is mutated.
+    // It is intended to keep the offset in sync with the timezone.
+    moment.updateOffset = function () {};
+
+    // This function allows you to set a threshold for relative time strings
+    moment.relativeTimeThreshold = function (threshold, limit) {
+        if (relativeTimeThresholds[threshold] === undefined) {
+            return false;
+        }
+        if (limit === undefined) {
+            return relativeTimeThresholds[threshold];
+        }
+        relativeTimeThresholds[threshold] = limit;
+        return true;
+    };
+
+    moment.lang = deprecate(
+        'moment.lang is deprecated. Use moment.locale instead.',
+        function (key, value) {
+            return moment.locale(key, value);
+        }
+    );
+
+    // This function will load locale and then set the global locale.  If
+    // no arguments are passed in, it will simply return the current global
+    // locale key.
+    moment.locale = function (key, values) {
+        var data;
+        if (key) {
+            if (typeof(values) !== 'undefined') {
+                data = moment.defineLocale(key, values);
+            }
+            else {
+                data = moment.localeData(key);
+            }
+
+            if (data) {
+                moment.duration._locale = moment._locale = data;
+            }
+        }
+
+        return moment._locale._abbr;
+    };
+
+    moment.defineLocale = function (name, values) {
+        if (values !== null) {
+            values.abbr = name;
+            if (!locales[name]) {
+                locales[name] = new Locale();
+            }
+            locales[name].set(values);
+
+            // backwards compat for now: also set the locale
+            moment.locale(name);
+
+            return locales[name];
+        } else {
+            // useful for testing
+            delete locales[name];
+            return null;
+        }
+    };
+
+    moment.langData = deprecate(
+        'moment.langData is deprecated. Use moment.localeData instead.',
+        function (key) {
+            return moment.localeData(key);
+        }
+    );
+
+    // returns locale data
+    moment.localeData = function (key) {
+        var locale;
+
+        if (key && key._locale && key._locale._abbr) {
+            key = key._locale._abbr;
+        }
+
+        if (!key) {
+            return moment._locale;
+        }
+
+        if (!isArray(key)) {
+            //short-circuit everything else
+            locale = loadLocale(key);
+            if (locale) {
+                return locale;
+            }
+            key = [key];
+        }
+
+        return chooseLocale(key);
+    };
+
+    // compare moment object
+    moment.isMoment = function (obj) {
+        return obj instanceof Moment ||
+            (obj != null && hasOwnProp(obj, '_isAMomentObject'));
+    };
+
+    // for typechecking Duration objects
+    moment.isDuration = function (obj) {
+        return obj instanceof Duration;
+    };
+
+    for (i = lists.length - 1; i >= 0; --i) {
+        makeList(lists[i]);
+    }
+
+    moment.normalizeUnits = function (units) {
+        return normalizeUnits(units);
+    };
+
+    moment.invalid = function (flags) {
+        var m = moment.utc(NaN);
+        if (flags != null) {
+            extend(m._pf, flags);
+        }
+        else {
+            m._pf.userInvalidated = true;
+        }
+
+        return m;
+    };
+
+    moment.parseZone = function () {
+        return moment.apply(null, arguments).parseZone();
+    };
+
+    moment.parseTwoDigitYear = function (input) {
+        return toInt(input) + (toInt(input) > 68 ? 1900 : 2000);
+    };
+
+    moment.isDate = isDate;
+
+    /************************************
+        Moment Prototype
+    ************************************/
+
+
+    extend(moment.fn = Moment.prototype, {
+
+        clone : function () {
+            return moment(this);
+        },
+
+        valueOf : function () {
+            return +this._d - ((this._offset || 0) * 60000);
+        },
+
+        unix : function () {
+            return Math.floor(+this / 1000);
+        },
+
+        toString : function () {
+            return this.clone().locale('en').format('ddd MMM DD YYYY HH:mm:ss [GMT]ZZ');
+        },
+
+        toDate : function () {
+            return this._offset ? new Date(+this) : this._d;
+        },
+
+        toISOString : function () {
+            var m = moment(this).utc();
+            if (0 < m.year() && m.year() <= 9999) {
+                if ('function' === typeof Date.prototype.toISOString) {
+                    // native implementation is ~50x faster, use it when we can
+                    return this.toDate().toISOString();
+                } else {
+                    return formatMoment(m, 'YYYY-MM-DD[T]HH:mm:ss.SSS[Z]');
+                }
+            } else {
+                return formatMoment(m, 'YYYYYY-MM-DD[T]HH:mm:ss.SSS[Z]');
+            }
+        },
+
+        toArray : function () {
+            var m = this;
+            return [
+                m.year(),
+                m.month(),
+                m.date(),
+                m.hours(),
+                m.minutes(),
+                m.seconds(),
+                m.milliseconds()
+            ];
+        },
+
+        isValid : function () {
+            return isValid(this);
+        },
+
+        isDSTShifted : function () {
+            if (this._a) {
+                return this.isValid() && compareArrays(this._a, (this._isUTC ? moment.utc(this._a) : moment(this._a)).toArray()) > 0;
+            }
+
+            return false;
+        },
+
+        parsingFlags : function () {
+            return extend({}, this._pf);
+        },
+
+        invalidAt: function () {
+            return this._pf.overflow;
+        },
+
+        utc : function (keepLocalTime) {
+            return this.utcOffset(0, keepLocalTime);
+        },
+
+        local : function (keepLocalTime) {
+            if (this._isUTC) {
+                this.utcOffset(0, keepLocalTime);
+                this._isUTC = false;
+
+                if (keepLocalTime) {
+                    this.subtract(this._dateUtcOffset(), 'm');
+                }
+            }
+            return this;
+        },
+
+        format : function (inputString) {
+            var output = formatMoment(this, inputString || moment.defaultFormat);
+            return this.localeData().postformat(output);
+        },
+
+        add : createAdder(1, 'add'),
+
+        subtract : createAdder(-1, 'subtract'),
+
+        diff : function (input, units, asFloat) {
+            var that = makeAs(input, this),
+                zoneDiff = (that.utcOffset() - this.utcOffset()) * 6e4,
+                anchor, diff, output, daysAdjust;
+
+            units = normalizeUnits(units);
+
+            if (units === 'year' || units === 'month' || units === 'quarter') {
+                output = monthDiff(this, that);
+                if (units === 'quarter') {
+                    output = output / 3;
+                } else if (units === 'year') {
+                    output = output / 12;
+                }
+            } else {
+                diff = this - that;
+                output = units === 'second' ? diff / 1e3 : // 1000
+                    units === 'minute' ? diff / 6e4 : // 1000 * 60
+                    units === 'hour' ? diff / 36e5 : // 1000 * 60 * 60
+                    units === 'day' ? (diff - zoneDiff) / 864e5 : // 1000 * 60 * 60 * 24, negate dst
+                    units === 'week' ? (diff - zoneDiff) / 6048e5 : // 1000 * 60 * 60 * 24 * 7, negate dst
+                    diff;
+            }
+            return asFloat ? output : absRound(output);
+        },
+
+        from : function (time, withoutSuffix) {
+            return moment.duration({to: this, from: time}).locale(this.locale()).humanize(!withoutSuffix);
+        },
+
+        fromNow : function (withoutSuffix) {
+            return this.from(moment(), withoutSuffix);
+        },
+
+        calendar : function (time) {
+            // We want to compare the start of today, vs this.
+            // Getting start-of-today depends on whether we're locat/utc/offset
+            // or not.
+            var now = time || moment(),
+                sod = makeAs(now, this).startOf('day'),
+                diff = this.diff(sod, 'days', true),
+                format = diff < -6 ? 'sameElse' :
+                    diff < -1 ? 'lastWeek' :
+                    diff < 0 ? 'lastDay' :
+                    diff < 1 ? 'sameDay' :
+                    diff < 2 ? 'nextDay' :
+                    diff < 7 ? 'nextWeek' : 'sameElse';
+            return this.format(this.localeData().calendar(format, this, moment(now)));
+        },
+
+        isLeapYear : function () {
+            return isLeapYear(this.year());
+        },
+
+        isDST : function () {
+            return (this.utcOffset() > this.clone().month(0).utcOffset() ||
+                this.utcOffset() > this.clone().month(5).utcOffset());
+        },
+
+        day : function (input) {
+            var day = this._isUTC ? this._d.getUTCDay() : this._d.getDay();
+            if (input != null) {
+                input = parseWeekday(input, this.localeData());
+                return this.add(input - day, 'd');
+            } else {
+                return day;
+            }
+        },
+
+        month : makeAccessor('Month', true),
+
+        startOf : function (units) {
+            units = normalizeUnits(units);
+            // the following switch intentionally omits break keywords
+            // to utilize falling through the cases.
+            switch (units) {
+            case 'year':
+                this.month(0);
+                /* falls through */
+            case 'quarter':
+            case 'month':
+                this.date(1);
+                /* falls through */
+            case 'week':
+            case 'isoWeek':
+            case 'day':
+                this.hours(0);
+                /* falls through */
+            case 'hour':
+                this.minutes(0);
+                /* falls through */
+            case 'minute':
+                this.seconds(0);
+                /* falls through */
+            case 'second':
+                this.milliseconds(0);
+                /* falls through */
+            }
+
+            // weeks are a special case
+            if (units === 'week') {
+                this.weekday(0);
+            } else if (units === 'isoWeek') {
+                this.isoWeekday(1);
+            }
+
+            // quarters are also special
+            if (units === 'quarter') {
+                this.month(Math.floor(this.month() / 3) * 3);
+            }
+
+            return this;
+        },
+
+        endOf: function (units) {
+            units = normalizeUnits(units);
+            if (units === undefined || units === 'millisecond') {
+                return this;
+            }
+            return this.startOf(units).add(1, (units === 'isoWeek' ? 'week' : units)).subtract(1, 'ms');
+        },
+
+        isAfter: function (input, units) {
+            var inputMs;
+            units = normalizeUnits(typeof units !== 'undefined' ? units : 'millisecond');
+            if (units === 'millisecond') {
+                input = moment.isMoment(input) ? input : moment(input);
+                return +this > +input;
+            } else {
+                inputMs = moment.isMoment(input) ? +input : +moment(input);
+                return inputMs < +this.clone().startOf(units);
+            }
+        },
+
+        isBefore: function (input, units) {
+            var inputMs;
+            units = normalizeUnits(typeof units !== 'undefined' ? units : 'millisecond');
+            if (units === 'millisecond') {
+                input = moment.isMoment(input) ? input : moment(input);
+                return +this < +input;
+            } else {
+                inputMs = moment.isMoment(input) ? +input : +moment(input);
+                return +this.clone().endOf(units) < inputMs;
+            }
+        },
+
+        isBetween: function (from, to, units) {
+            return this.isAfter(from, units) && this.isBefore(to, units);
+        },
+
+        isSame: function (input, units) {
+            var inputMs;
+            units = normalizeUnits(units || 'millisecond');
+            if (units === 'millisecond') {
+                input = moment.isMoment(input) ? input : moment(input);
+                return +this === +input;
+            } else {
+                inputMs = +moment(input);
+                return +(this.clone().startOf(units)) <= inputMs && inputMs <= +(this.clone().endOf(units));
+            }
+        },
+
+        min: deprecate(
+                 'moment().min is deprecated, use moment.min instead. https://github.com/moment/moment/issues/1548',
+                 function (other) {
+                     other = moment.apply(null, arguments);
+                     return other < this ? this : other;
+                 }
+         ),
+
+        max: deprecate(
+                'moment().max is deprecated, use moment.max instead. https://github.com/moment/moment/issues/1548',
+                function (other) {
+                    other = moment.apply(null, arguments);
+                    return other > this ? this : other;
+                }
+        ),
+
+        zone : deprecate(
+                'moment().zone is deprecated, use moment().utcOffset instead. ' +
+                'https://github.com/moment/moment/issues/1779',
+                function (input, keepLocalTime) {
+                    if (input != null) {
+                        if (typeof input !== 'string') {
+                            input = -input;
+                        }
+
+                        this.utcOffset(input, keepLocalTime);
+
+                        return this;
+                    } else {
+                        return -this.utcOffset();
+                    }
+                }
+        ),
+
+        // keepLocalTime = true means only change the timezone, without
+        // affecting the local hour. So 5:31:26 +0300 --[utcOffset(2, true)]-->
+        // 5:31:26 +0200 It is possible that 5:31:26 doesn't exist with offset
+        // +0200, so we adjust the time as needed, to be valid.
+        //
+        // Keeping the time actually adds/subtracts (one hour)
+        // from the actual represented time. That is why we call updateOffset
+        // a second time. In case it wants us to change the offset again
+        // _changeInProgress == true case, then we have to adjust, because
+        // there is no such time in the given timezone.
+        utcOffset : function (input, keepLocalTime) {
+            var offset = this._offset || 0,
+                localAdjust;
+            if (input != null) {
+                if (typeof input === 'string') {
+                    input = utcOffsetFromString(input);
+                }
+                if (Math.abs(input) < 16) {
+                    input = input * 60;
+                }
+                if (!this._isUTC && keepLocalTime) {
+                    localAdjust = this._dateUtcOffset();
+                }
+                this._offset = input;
+                this._isUTC = true;
+                if (localAdjust != null) {
+                    this.add(localAdjust, 'm');
+                }
+                if (offset !== input) {
+                    if (!keepLocalTime || this._changeInProgress) {
+                        addOrSubtractDurationFromMoment(this,
+                                moment.duration(input - offset, 'm'), 1, false);
+                    } else if (!this._changeInProgress) {
+                        this._changeInProgress = true;
+                        moment.updateOffset(this, true);
+                        this._changeInProgress = null;
+                    }
+                }
+
+                return this;
+            } else {
+                return this._isUTC ? offset : this._dateUtcOffset();
+            }
+        },
+
+        isLocal : function () {
+            return !this._isUTC;
+        },
+
+        isUtcOffset : function () {
+            return this._isUTC;
+        },
+
+        isUtc : function () {
+            return this._isUTC && this._offset === 0;
+        },
+
+        zoneAbbr : function () {
+            return this._isUTC ? 'UTC' : '';
+        },
+
+        zoneName : function () {
+            return this._isUTC ? 'Coordinated Universal Time' : '';
+        },
+
+        parseZone : function () {
+            if (this._tzm) {
+                this.utcOffset(this._tzm);
+            } else if (typeof this._i === 'string') {
+                this.utcOffset(utcOffsetFromString(this._i));
+            }
+            return this;
+        },
+
+        hasAlignedHourOffset : function (input) {
+            if (!input) {
+                input = 0;
+            }
+            else {
+                input = moment(input).utcOffset();
+            }
+
+            return (this.utcOffset() - input) % 60 === 0;
+        },
+
+        daysInMonth : function () {
+            return daysInMonth(this.year(), this.month());
+        },
+
+        dayOfYear : function (input) {
+            var dayOfYear = round((moment(this).startOf('day') - moment(this).startOf('year')) / 864e5) + 1;
+            return input == null ? dayOfYear : this.add((input - dayOfYear), 'd');
+        },
+
+        quarter : function (input) {
+            return input == null ? Math.ceil((this.month() + 1) / 3) : this.month((input - 1) * 3 + this.month() % 3);
+        },
+
+        weekYear : function (input) {
+            var year = weekOfYear(this, this.localeData()._week.dow, this.localeData()._week.doy).year;
+            return input == null ? year : this.add((input - year), 'y');
+        },
+
+        isoWeekYear : function (input) {
+            var year = weekOfYear(this, 1, 4).year;
+            return input == null ? year : this.add((input - year), 'y');
+        },
+
+        week : function (input) {
+            var week = this.localeData().week(this);
+            return input == null ? week : this.add((input - week) * 7, 'd');
+        },
+
+        isoWeek : function (input) {
+            var week = weekOfYear(this, 1, 4).week;
+            return input == null ? week : this.add((input - week) * 7, 'd');
+        },
+
+        weekday : function (input) {
+            var weekday = (this.day() + 7 - this.localeData()._week.dow) % 7;
+            return input == null ? weekday : this.add(input - weekday, 'd');
+        },
+
+        isoWeekday : function (input) {
+            // behaves the same as moment#day except
+            // as a getter, returns 7 instead of 0 (1-7 range instead of 0-6)
+            // as a setter, sunday should belong to the previous week.
+            return input == null ? this.day() || 7 : this.day(this.day() % 7 ? input : input - 7);
+        },
+
+        isoWeeksInYear : function () {
+            return weeksInYear(this.year(), 1, 4);
+        },
+
+        weeksInYear : function () {
+            var weekInfo = this.localeData()._week;
+            return weeksInYear(this.year(), weekInfo.dow, weekInfo.doy);
+        },
+
+        get : function (units) {
+            units = normalizeUnits(units);
+            return this[units]();
+        },
+
+        set : function (units, value) {
+            var unit;
+            if (typeof units === 'object') {
+                for (unit in units) {
+                    this.set(unit, units[unit]);
+                }
+            }
+            else {
+                units = normalizeUnits(units);
+                if (typeof this[units] === 'function') {
+                    this[units](value);
+                }
+            }
+            return this;
+        },
+
+        // If passed a locale key, it will set the locale for this
+        // instance.  Otherwise, it will return the locale configuration
+        // variables for this instance.
+        locale : function (key) {
+            var newLocaleData;
+
+            if (key === undefined) {
+                return this._locale._abbr;
+            } else {
+                newLocaleData = moment.localeData(key);
+                if (newLocaleData != null) {
+                    this._locale = newLocaleData;
+                }
+                return this;
+            }
+        },
+
+        lang : deprecate(
+            'moment().lang() is deprecated. Instead, use moment().localeData() to get the language configuration. Use moment().locale() to change languages.',
+            function (key) {
+                if (key === undefined) {
+                    return this.localeData();
+                } else {
+                    return this.locale(key);
+                }
+            }
+        ),
+
+        localeData : function () {
+            return this._locale;
+        },
+
+        _dateUtcOffset : function () {
+            // On Firefox.24 Date#getTimezoneOffset returns a floating point.
+            // https://github.com/moment/moment/pull/1871
+            return -Math.round(this._d.getTimezoneOffset() / 15) * 15;
+        }
+
+    });
+
+    function rawMonthSetter(mom, value) {
+        var dayOfMonth;
+
+        // TODO: Move this out of here!
+        if (typeof value === 'string') {
+            value = mom.localeData().monthsParse(value);
+            // TODO: Another silent failure?
+            if (typeof value !== 'number') {
+                return mom;
+            }
+        }
+
+        dayOfMonth = Math.min(mom.date(),
+                daysInMonth(mom.year(), value));
+        mom._d['set' + (mom._isUTC ? 'UTC' : '') + 'Month'](value, dayOfMonth);
+        return mom;
+    }
+
+    function rawGetter(mom, unit) {
+        return mom._d['get' + (mom._isUTC ? 'UTC' : '') + unit]();
+    }
+
+    function rawSetter(mom, unit, value) {
+        if (unit === 'Month') {
+            return rawMonthSetter(mom, value);
+        } else {
+            return mom._d['set' + (mom._isUTC ? 'UTC' : '') + unit](value);
+        }
+    }
+
+    function makeAccessor(unit, keepTime) {
+        return function (value) {
+            if (value != null) {
+                rawSetter(this, unit, value);
+                moment.updateOffset(this, keepTime);
+                return this;
+            } else {
+                return rawGetter(this, unit);
+            }
+        };
+    }
+
+    moment.fn.millisecond = moment.fn.milliseconds = makeAccessor('Milliseconds', false);
+    moment.fn.second = moment.fn.seconds = makeAccessor('Seconds', false);
+    moment.fn.minute = moment.fn.minutes = makeAccessor('Minutes', false);
+    // Setting the hour should keep the time, because the user explicitly
+    // specified which hour he wants. So trying to maintain the same hour (in
+    // a new timezone) makes sense. Adding/subtracting hours does not follow
+    // this rule.
+    moment.fn.hour = moment.fn.hours = makeAccessor('Hours', true);
+    // moment.fn.month is defined separately
+    moment.fn.date = makeAccessor('Date', true);
+    moment.fn.dates = deprecate('dates accessor is deprecated. Use date instead.', makeAccessor('Date', true));
+    moment.fn.year = makeAccessor('FullYear', true);
+    moment.fn.years = deprecate('years accessor is deprecated. Use year instead.', makeAccessor('FullYear', true));
+
+    // add plural methods
+    moment.fn.days = moment.fn.day;
+    moment.fn.months = moment.fn.month;
+    moment.fn.weeks = moment.fn.week;
+    moment.fn.isoWeeks = moment.fn.isoWeek;
+    moment.fn.quarters = moment.fn.quarter;
+
+    // add aliased format methods
+    moment.fn.toJSON = moment.fn.toISOString;
+
+    // alias isUtc for dev-friendliness
+    moment.fn.isUTC = moment.fn.isUtc;
+
+    /************************************
+        Duration Prototype
+    ************************************/
+
+
+    function daysToYears (days) {
+        // 400 years have 146097 days (taking into account leap year rules)
+        return days * 400 / 146097;
+    }
+
+    function yearsToDays (years) {
+        // years * 365 + absRound(years / 4) -
+        //     absRound(years / 100) + absRound(years / 400);
+        return years * 146097 / 400;
+    }
+
+    extend(moment.duration.fn = Duration.prototype, {
+
+        _bubble : function () {
+            var milliseconds = this._milliseconds,
+                days = this._days,
+                months = this._months,
+                data = this._data,
+                seconds, minutes, hours, years = 0;
+
+            // The following code bubbles up values, see the tests for
+            // examples of what that means.
+            data.milliseconds = milliseconds % 1000;
+
+            seconds = absRound(milliseconds / 1000);
+            data.seconds = seconds % 60;
+
+            minutes = absRound(seconds / 60);
+            data.minutes = minutes % 60;
+
+            hours = absRound(minutes / 60);
+            data.hours = hours % 24;
+
+            days += absRound(hours / 24);
+
+            // Accurately convert days to years, assume start from year 0.
+            years = absRound(daysToYears(days));
+            days -= absRound(yearsToDays(years));
+
+            // 30 days to a month
+            // TODO (iskren): Use anchor date (like 1st Jan) to compute this.
+            months += absRound(days / 30);
+            days %= 30;
+
+            // 12 months -> 1 year
+            years += absRound(months / 12);
+            months %= 12;
+
+            data.days = days;
+            data.months = months;
+            data.years = years;
+        },
+
+        abs : function () {
+            this._milliseconds = Math.abs(this._milliseconds);
+            this._days = Math.abs(this._days);
+            this._months = Math.abs(this._months);
+
+            this._data.milliseconds = Math.abs(this._data.milliseconds);
+            this._data.seconds = Math.abs(this._data.seconds);
+            this._data.minutes = Math.abs(this._data.minutes);
+            this._data.hours = Math.abs(this._data.hours);
+            this._data.months = Math.abs(this._data.months);
+            this._data.years = Math.abs(this._data.years);
+
+            return this;
+        },
+
+        weeks : function () {
+            return absRound(this.days() / 7);
+        },
+
+        valueOf : function () {
+            return this._milliseconds +
+              this._days * 864e5 +
+              (this._months % 12) * 2592e6 +
+              toInt(this._months / 12) * 31536e6;
+        },
+
+        humanize : function (withSuffix) {
+            var output = relativeTime(this, !withSuffix, this.localeData());
+
+            if (withSuffix) {
+                output = this.localeData().pastFuture(+this, output);
+            }
+
+            return this.localeData().postformat(output);
+        },
+
+        add : function (input, val) {
+            // supports only 2.0-style add(1, 's') or add(moment)
+            var dur = moment.duration(input, val);
+
+            this._milliseconds += dur._milliseconds;
+            this._days += dur._days;
+            this._months += dur._months;
+
+            this._bubble();
+
+            return this;
+        },
+
+        subtract : function (input, val) {
+            var dur = moment.duration(input, val);
+
+            this._milliseconds -= dur._milliseconds;
+            this._days -= dur._days;
+            this._months -= dur._months;
+
+            this._bubble();
+
+            return this;
+        },
+
+        get : function (units) {
+            units = normalizeUnits(units);
+            return this[units.toLowerCase() + 's']();
+        },
+
+        as : function (units) {
+            var days, months;
+            units = normalizeUnits(units);
+
+            if (units === 'month' || units === 'year') {
+                days = this._days + this._milliseconds / 864e5;
+                months = this._months + daysToYears(days) * 12;
+                return units === 'month' ? months : months / 12;
+            } else {
+                // handle milliseconds separately because of floating point math errors (issue #1867)
+                days = this._days + Math.round(yearsToDays(this._months / 12));
+                switch (units) {
+                    case 'week': return days / 7 + this._milliseconds / 6048e5;
+                    case 'day': return days + this._milliseconds / 864e5;
+                    case 'hour': return days * 24 + this._milliseconds / 36e5;
+                    case 'minute': return days * 24 * 60 + this._milliseconds / 6e4;
+                    case 'second': return days * 24 * 60 * 60 + this._milliseconds / 1000;
+                    // Math.floor prevents floating point math errors here
+                    case 'millisecond': return Math.floor(days * 24 * 60 * 60 * 1000) + this._milliseconds;
+                    default: throw new Error('Unknown unit ' + units);
+                }
+            }
+        },
+
+        lang : moment.fn.lang,
+        locale : moment.fn.locale,
+
+        toIsoString : deprecate(
+            'toIsoString() is deprecated. Please use toISOString() instead ' +
+            '(notice the capitals)',
+            function () {
+                return this.toISOString();
+            }
+        ),
+
+        toISOString : function () {
+            // inspired by https://github.com/dordille/moment-isoduration/blob/master/moment.isoduration.js
+            var years = Math.abs(this.years()),
+                months = Math.abs(this.months()),
+                days = Math.abs(this.days()),
+                hours = Math.abs(this.hours()),
+                minutes = Math.abs(this.minutes()),
+                seconds = Math.abs(this.seconds() + this.milliseconds() / 1000);
+
+            if (!this.asSeconds()) {
+                // this is the same as C#'s (Noda) and python (isodate)...
+                // but not other JS (goog.date)
+                return 'P0D';
+            }
+
+            return (this.asSeconds() < 0 ? '-' : '') +
+                'P' +
+                (years ? years + 'Y' : '') +
+                (months ? months + 'M' : '') +
+                (days ? days + 'D' : '') +
+                ((hours || minutes || seconds) ? 'T' : '') +
+                (hours ? hours + 'H' : '') +
+                (minutes ? minutes + 'M' : '') +
+                (seconds ? seconds + 'S' : '');
+        },
+
+        localeData : function () {
+            return this._locale;
+        },
+
+        toJSON : function () {
+            return this.toISOString();
+        }
+    });
+
+    moment.duration.fn.toString = moment.duration.fn.toISOString;
+
+    function makeDurationGetter(name) {
+        moment.duration.fn[name] = function () {
+            return this._data[name];
+        };
+    }
+
+    for (i in unitMillisecondFactors) {
+        if (hasOwnProp(unitMillisecondFactors, i)) {
+            makeDurationGetter(i.toLowerCase());
+        }
+    }
+
+    moment.duration.fn.asMilliseconds = function () {
+        return this.as('ms');
+    };
+    moment.duration.fn.asSeconds = function () {
+        return this.as('s');
+    };
+    moment.duration.fn.asMinutes = function () {
+        return this.as('m');
+    };
+    moment.duration.fn.asHours = function () {
+        return this.as('h');
+    };
+    moment.duration.fn.asDays = function () {
+        return this.as('d');
+    };
+    moment.duration.fn.asWeeks = function () {
+        return this.as('weeks');
+    };
+    moment.duration.fn.asMonths = function () {
+        return this.as('M');
+    };
+    moment.duration.fn.asYears = function () {
+        return this.as('y');
+    };
+
+    /************************************
+        Default Locale
+    ************************************/
+
+
+    // Set default locale, other locale will inherit from English.
+    moment.locale('en', {
+        ordinalParse: /\d{1,2}(th|st|nd|rd)/,
+        ordinal : function (number) {
+            var b = number % 10,
+                output = (toInt(number % 100 / 10) === 1) ? 'th' :
+                (b === 1) ? 'st' :
+                (b === 2) ? 'nd' :
+                (b === 3) ? 'rd' : 'th';
+            return number + output;
+        }
+    });
+
+    /* EMBED_LOCALES */
+
+    /************************************
+        Exposing Moment
+    ************************************/
+
+    function makeGlobal(shouldDeprecate) {
+        /*global ender:false */
+        if (typeof ender !== 'undefined') {
+            return;
+        }
+        oldGlobalMoment = globalScope.moment;
+        if (shouldDeprecate) {
+            globalScope.moment = deprecate(
+                    'Accessing Moment through the global scope is ' +
+                    'deprecated, and will be removed in an upcoming ' +
+                    'release.',
+                    moment);
+        } else {
+            globalScope.moment = moment;
+        }
+    }
+
+    // CommonJS module is defined
+    if (hasModule) {
+        module.exports = moment;
+    } else if (typeof define === 'function' && define.amd) {
+        define(function (require, exports, module) {
+            if (module.config && module.config() && module.config().noGlobal === true) {
+                // release the global variable
+                globalScope.moment = oldGlobalMoment;
+            }
+
+            return moment;
+        });
+        makeGlobal(true);
+    } else {
+        makeGlobal();
+    }
+}).call(this);
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],211:[function(require,module,exports){
 'use strict';
 
 module.exports = require('angular');
 
-},{"angular":206}],208:[function(require,module,exports){
+},{"angular":206}],212:[function(require,module,exports){
+'use strict';
+
+module.exports = require('moment');
+
+},{"moment":210}],213:[function(require,module,exports){
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
         define(['module', 'select'], factory);
@@ -45693,7 +49050,7 @@ module.exports = require('angular');
 
     module.exports = ClipboardAction;
 });
-},{"select":214}],209:[function(require,module,exports){
+},{"select":219}],214:[function(require,module,exports){
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
         define(['module', './clipboard-action', 'tiny-emitter', 'good-listener'], factory);
@@ -45853,7 +49210,7 @@ module.exports = require('angular');
 
     module.exports = Clipboard;
 });
-},{"./clipboard-action":208,"good-listener":213,"tiny-emitter":215}],210:[function(require,module,exports){
+},{"./clipboard-action":213,"good-listener":218,"tiny-emitter":220}],215:[function(require,module,exports){
 var DOCUMENT_NODE_TYPE = 9;
 
 /**
@@ -45888,7 +49245,7 @@ function closest (element, selector) {
 
 module.exports = closest;
 
-},{}],211:[function(require,module,exports){
+},{}],216:[function(require,module,exports){
 var closest = require('./closest');
 
 /**
@@ -45934,7 +49291,7 @@ function listener(element, selector, type, callback) {
 
 module.exports = delegate;
 
-},{"./closest":210}],212:[function(require,module,exports){
+},{"./closest":215}],217:[function(require,module,exports){
 /**
  * Check if argument is a HTML element.
  *
@@ -45985,7 +49342,7 @@ exports.fn = function(value) {
     return type === '[object Function]';
 };
 
-},{}],213:[function(require,module,exports){
+},{}],218:[function(require,module,exports){
 var is = require('./is');
 var delegate = require('delegate');
 
@@ -46082,7 +49439,7 @@ function listenSelector(selector, type, callback) {
 
 module.exports = listen;
 
-},{"./is":212,"delegate":211}],214:[function(require,module,exports){
+},{"./is":217,"delegate":216}],219:[function(require,module,exports){
 function select(element) {
     var selectedText;
 
@@ -46127,7 +49484,7 @@ function select(element) {
 
 module.exports = select;
 
-},{}],215:[function(require,module,exports){
+},{}],220:[function(require,module,exports){
 function E () {
   // Keep this empty so it's easier to inherit from
   // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
@@ -46195,9 +49552,9 @@ E.prototype = {
 
 module.exports = E;
 
-},{}],216:[function(require,module,exports){
+},{}],221:[function(require,module,exports){
 arguments[4][46][0].apply(exports,arguments)
-},{"./Viewer":217,"diagram-js/lib/navigation/movecanvas":477,"diagram-js/lib/navigation/zoomscroll":481,"dup":46,"inherits":254}],217:[function(require,module,exports){
+},{"./Viewer":222,"diagram-js/lib/navigation/movecanvas":482,"diagram-js/lib/navigation/zoomscroll":486,"dup":46,"inherits":259}],222:[function(require,module,exports){
 /**
  * The code in the <project-logo></project-logo> area
  * must not be changed.
@@ -46625,7 +49982,7 @@ function addProjectLogo(container) {
 
 /* </project-logo> */
 
-},{"./core":219,"./import/Importer":226,"./util/PoweredByUtil":232,"cmmn-moddle":233,"diagram-js":371,"diagram-js/lib/features/overlays":448,"diagram-js/lib/features/selection":463,"inherits":254,"lodash/lang/isNumber":333,"lodash/lang/isString":335,"lodash/object/assign":337,"lodash/object/omit":340,"min-dom/lib/domify":346,"min-dom/lib/event":347,"min-dom/lib/query":348,"min-dom/lib/remove":349,"tiny-svg/lib/innerSVG":365}],218:[function(require,module,exports){
+},{"./core":224,"./import/Importer":231,"./util/PoweredByUtil":237,"cmmn-moddle":238,"diagram-js":376,"diagram-js/lib/features/overlays":453,"diagram-js/lib/features/selection":468,"inherits":259,"lodash/lang/isNumber":338,"lodash/lang/isString":340,"lodash/object/assign":342,"lodash/object/omit":345,"min-dom/lib/domify":351,"min-dom/lib/event":352,"min-dom/lib/query":353,"min-dom/lib/remove":354,"tiny-svg/lib/innerSVG":370}],223:[function(require,module,exports){
 'use strict';
 
 var ModelUtil = require('../util/ModelUtil'),
@@ -46942,7 +50299,7 @@ function isDefinition(item) {
     'cmmn:CaseFileItemDefinition'
   ]);
 }
-},{"../features/modeling/util/ModelingUtil":223,"../util/ModelUtil":231,"lodash/collection/forEach":259,"lodash/lang/isArray":330}],219:[function(require,module,exports){
+},{"../features/modeling/util/ModelingUtil":228,"../util/ModelUtil":236,"lodash/collection/forEach":264,"lodash/lang/isArray":335}],224:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('../draw'),
@@ -46950,7 +50307,7 @@ module.exports = {
   ],
   itemRegistry: [ 'type', require('./ItemRegistry') ]
 };
-},{"../draw":222,"../import":228,"./ItemRegistry":218}],220:[function(require,module,exports){
+},{"../draw":227,"../import":233,"./ItemRegistry":223}],225:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits'),
@@ -48182,7 +51539,7 @@ CmmnRenderer.$inject = [ 'eventBus', 'styles', 'pathMap' ];
 
 module.exports = CmmnRenderer;
 
-},{"../util/DiUtil":229,"../util/ModelUtil":231,"diagram-js/lib/draw/BaseRenderer":382,"diagram-js/lib/util/RenderUtil":499,"diagram-js/lib/util/SvgTransformUtil":500,"diagram-js/lib/util/Text":501,"inherits":254,"lodash/lang/isArray":330,"lodash/lang/isObject":334,"lodash/object/assign":337,"min-dom/lib/query":348,"tiny-svg/lib/append":359,"tiny-svg/lib/attr":361,"tiny-svg/lib/classes":362,"tiny-svg/lib/create":364}],221:[function(require,module,exports){
+},{"../util/DiUtil":234,"../util/ModelUtil":236,"diagram-js/lib/draw/BaseRenderer":387,"diagram-js/lib/util/RenderUtil":504,"diagram-js/lib/util/SvgTransformUtil":505,"diagram-js/lib/util/Text":506,"inherits":259,"lodash/lang/isArray":335,"lodash/lang/isObject":339,"lodash/object/assign":342,"min-dom/lib/query":353,"tiny-svg/lib/append":364,"tiny-svg/lib/attr":366,"tiny-svg/lib/classes":367,"tiny-svg/lib/create":369}],226:[function(require,module,exports){
 'use strict';
 
 /**
@@ -48519,13 +51876,13 @@ function format(str, obj) {
   });
 }
 
-},{}],222:[function(require,module,exports){
+},{}],227:[function(require,module,exports){
 module.exports = {
   __init__: [ 'cmmnRenderer' ],
   cmmnRenderer: [ 'type', require('./CmmnRenderer') ],
   pathMap: [ 'type', require('./PathMap') ]
 };
-},{"./CmmnRenderer":220,"./PathMap":221}],223:[function(require,module,exports){
+},{"./CmmnRenderer":225,"./PathMap":226}],228:[function(require,module,exports){
 'use strict';
 
 var any = require('lodash/collection/any');
@@ -48664,7 +52021,7 @@ function isLabel(element) {
 }
 
 module.exports.isLabel = isLabel;
-},{"../../../util/ModelUtil":231,"diagram-js/lib/model":475,"lodash/collection/any":256}],224:[function(require,module,exports){
+},{"../../../util/ModelUtil":236,"diagram-js/lib/model":480,"lodash/collection/any":261}],229:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -48916,7 +52273,7 @@ CmmnImporter.prototype._getEnd = function(semantic, side) {
 CmmnImporter.prototype._getElement = function(semantic) {
   return this._elementRegistry.get(semantic.id);
 };
-},{"../util/DiUtil":229,"../util/LabelUtil":230,"../util/ModelUtil":231,"./Util":227,"lodash/collection/map":260,"lodash/object/assign":337}],225:[function(require,module,exports){
+},{"../util/DiUtil":234,"../util/LabelUtil":235,"../util/ModelUtil":236,"./Util":232,"lodash/collection/map":265,"lodash/object/assign":342}],230:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -49309,7 +52666,7 @@ function CmmnTreeWalker(handler) {
 }
 
 module.exports = CmmnTreeWalker;
-},{"../util/ModelUtil":231,"./Util":227,"diagram-js/lib/util/Collections":484,"lodash/collection/filter":257,"lodash/collection/forEach":259,"object-refs":356}],226:[function(require,module,exports){
+},{"../util/ModelUtil":236,"./Util":232,"diagram-js/lib/util/Collections":489,"lodash/collection/filter":262,"lodash/collection/forEach":264,"object-refs":361}],231:[function(require,module,exports){
 'use strict';
 
 var CmmnTreeWalker = require('./CmmnTreeWalker');
@@ -49383,13 +52740,13 @@ function importCmmnDiagram(diagram, definitions, done) {
 }
 
 module.exports.importCmmnDiagram = importCmmnDiagram;
-},{"./CmmnTreeWalker":225}],227:[function(require,module,exports){
+},{"./CmmnTreeWalker":230}],232:[function(require,module,exports){
 arguments[4][55][0].apply(exports,arguments)
-},{"dup":55}],228:[function(require,module,exports){
+},{"dup":55}],233:[function(require,module,exports){
 module.exports = {
   cmmnImporter: [ 'type', require('./CmmnImporter') ]
 };
-},{"./CmmnImporter":224}],229:[function(require,module,exports){
+},{"./CmmnImporter":229}],234:[function(require,module,exports){
 'use strict';
 
 var is = require('./ModelUtil').is,
@@ -49429,7 +52786,7 @@ module.exports.isStandardEventVisible = function(element) {
   var cmmnElement = element.cmmnElementRef;
   return !!(is(cmmnElement, 'cmmn:OnPart') && element.isStandardEventVisible);
 };
-},{"./ModelUtil":231}],230:[function(require,module,exports){
+},{"./ModelUtil":236}],235:[function(require,module,exports){
 'use strict';
 
 var is = require('../util/ModelUtil').is;
@@ -49554,7 +52911,7 @@ module.exports.getLabelBounds = function(semantic) {
     return semantic.di.label.bounds;
   }
 };
-},{"../util/ModelUtil":231,"lodash/object/assign":337}],231:[function(require,module,exports){
+},{"../util/ModelUtil":236,"lodash/object/assign":342}],236:[function(require,module,exports){
 'use strict';
 
 function isInstanceOf(bo, type) {
@@ -49812,7 +53169,7 @@ function getTransitions(element) {
 }
 
 module.exports.getTransitions = getTransitions;
-},{}],232:[function(require,module,exports){
+},{}],237:[function(require,module,exports){
 /**
  * This file must not be changed or exchanged.
  *
@@ -49896,9 +53253,9 @@ function open() {
 }
 
 module.exports.open = open;
-},{"min-dom/lib/delegate":345,"min-dom/lib/domify":346}],233:[function(require,module,exports){
+},{"min-dom/lib/delegate":350,"min-dom/lib/domify":351}],238:[function(require,module,exports){
 arguments[4][61][0].apply(exports,arguments)
-},{"./lib/simple":235,"dup":61}],234:[function(require,module,exports){
+},{"./lib/simple":240,"dup":61}],239:[function(require,module,exports){
 'use strict';
 
 var isString = require('lodash/lang/isString'),
@@ -49979,7 +53336,7 @@ CmmnModdle.prototype.toXML = function(element, options, done) {
   }
 };
 
-},{"lodash/lang/isFunction":331,"lodash/lang/isString":335,"lodash/object/assign":337,"moddle":241,"moddle-xml/lib/reader":237,"moddle-xml/lib/writer":238}],235:[function(require,module,exports){
+},{"lodash/lang/isFunction":336,"lodash/lang/isString":340,"lodash/object/assign":342,"moddle":246,"moddle-xml/lib/reader":242,"moddle-xml/lib/writer":243}],240:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign');
@@ -49996,35 +53353,35 @@ var packages = {
 module.exports = function(additionalPackages, options) {
   return new CmmnModdle(assign({}, packages, additionalPackages), options);
 };
-},{"../resources/cmmn/json/cmmn.json":250,"../resources/cmmn/json/cmmndi.json":251,"../resources/cmmn/json/dc.json":252,"../resources/cmmn/json/di.json":253,"./cmmn-moddle":234,"lodash/object/assign":337}],236:[function(require,module,exports){
+},{"../resources/cmmn/json/cmmn.json":255,"../resources/cmmn/json/cmmndi.json":256,"../resources/cmmn/json/dc.json":257,"../resources/cmmn/json/di.json":258,"./cmmn-moddle":239,"lodash/object/assign":342}],241:[function(require,module,exports){
 arguments[4][64][0].apply(exports,arguments)
-},{"dup":64}],237:[function(require,module,exports){
+},{"dup":64}],242:[function(require,module,exports){
 arguments[4][65][0].apply(exports,arguments)
-},{"./common":236,"dup":65,"lodash/collection/find":258,"lodash/collection/forEach":259,"lodash/collection/reduce":261,"lodash/function/defer":263,"lodash/object/assign":337,"moddle":241,"moddle/lib/ns":246,"moddle/lib/types":249,"sax":239,"tiny-stack":240}],238:[function(require,module,exports){
+},{"./common":241,"dup":65,"lodash/collection/find":263,"lodash/collection/forEach":264,"lodash/collection/reduce":266,"lodash/function/defer":268,"lodash/object/assign":342,"moddle":246,"moddle/lib/ns":251,"moddle/lib/types":254,"sax":244,"tiny-stack":245}],243:[function(require,module,exports){
 arguments[4][66][0].apply(exports,arguments)
-},{"./common":236,"dup":66,"lodash/collection/filter":257,"lodash/collection/forEach":259,"lodash/collection/map":260,"lodash/lang/isString":335,"lodash/object/assign":337,"moddle/lib/ns":246,"moddle/lib/types":249}],239:[function(require,module,exports){
+},{"./common":241,"dup":66,"lodash/collection/filter":262,"lodash/collection/forEach":264,"lodash/collection/map":265,"lodash/lang/isString":340,"lodash/object/assign":342,"moddle/lib/ns":251,"moddle/lib/types":254}],244:[function(require,module,exports){
 arguments[4][67][0].apply(exports,arguments)
-},{"buffer":1084,"dup":67,"stream":1111,"string_decoder":1112}],240:[function(require,module,exports){
+},{"buffer":1089,"dup":67,"stream":1116,"string_decoder":1117}],245:[function(require,module,exports){
 arguments[4][68][0].apply(exports,arguments)
-},{"dup":68}],241:[function(require,module,exports){
+},{"dup":68}],246:[function(require,module,exports){
 arguments[4][69][0].apply(exports,arguments)
-},{"./lib/moddle":245,"dup":69}],242:[function(require,module,exports){
+},{"./lib/moddle":250,"dup":69}],247:[function(require,module,exports){
 arguments[4][70][0].apply(exports,arguments)
-},{"dup":70}],243:[function(require,module,exports){
+},{"dup":70}],248:[function(require,module,exports){
 arguments[4][71][0].apply(exports,arguments)
-},{"./ns":246,"dup":71,"lodash/collection/forEach":259,"lodash/object/assign":337,"lodash/object/pick":342}],244:[function(require,module,exports){
+},{"./ns":251,"dup":71,"lodash/collection/forEach":264,"lodash/object/assign":342,"lodash/object/pick":347}],249:[function(require,module,exports){
 arguments[4][72][0].apply(exports,arguments)
-},{"./base":242,"dup":72,"lodash/collection/forEach":259}],245:[function(require,module,exports){
+},{"./base":247,"dup":72,"lodash/collection/forEach":264}],250:[function(require,module,exports){
 arguments[4][73][0].apply(exports,arguments)
-},{"./factory":244,"./ns":246,"./properties":247,"./registry":248,"dup":73,"lodash/collection/find":258,"lodash/collection/forEach":259,"lodash/lang/isObject":334,"lodash/lang/isString":335}],246:[function(require,module,exports){
+},{"./factory":249,"./ns":251,"./properties":252,"./registry":253,"dup":73,"lodash/collection/find":263,"lodash/collection/forEach":264,"lodash/lang/isObject":339,"lodash/lang/isString":340}],251:[function(require,module,exports){
 arguments[4][74][0].apply(exports,arguments)
-},{"dup":74}],247:[function(require,module,exports){
+},{"dup":74}],252:[function(require,module,exports){
 arguments[4][75][0].apply(exports,arguments)
-},{"dup":75}],248:[function(require,module,exports){
+},{"dup":75}],253:[function(require,module,exports){
 arguments[4][76][0].apply(exports,arguments)
-},{"./descriptor-builder":243,"./ns":246,"./types":249,"dup":76,"lodash/collection/forEach":259,"lodash/object/assign":337}],249:[function(require,module,exports){
+},{"./descriptor-builder":248,"./ns":251,"./types":254,"dup":76,"lodash/collection/forEach":264,"lodash/object/assign":342}],254:[function(require,module,exports){
 arguments[4][77][0].apply(exports,arguments)
-},{"dup":77}],250:[function(require,module,exports){
+},{"dup":77}],255:[function(require,module,exports){
 module.exports={
   "name": "CMMN",
   "uri": "http://www.omg.org/spec/CMMN/20151109/MODEL",
@@ -51505,7 +54862,7 @@ module.exports={
   },
   "prefix": "cmmn"
 }
-},{}],251:[function(require,module,exports){
+},{}],256:[function(require,module,exports){
 module.exports={
   "name": "CMMNDI",
   "uri": "http://www.omg.org/spec/CMMN/20151109/CMMNDI",
@@ -51692,7 +55049,7 @@ module.exports={
   "associations": [],
   "prefix": "cmmndi"
 }
-},{}],252:[function(require,module,exports){
+},{}],257:[function(require,module,exports){
 module.exports={
   "name": "DC",
   "uri": "http://www.omg.org/spec/CMMN/20151109/DC",
@@ -51785,7 +55142,7 @@ module.exports={
   "prefix": "dc",
   "associations": []
 }
-},{}],253:[function(require,module,exports){
+},{}],258:[function(require,module,exports){
 module.exports={
   "name": "DI",
   "uri": "http://www.omg.org/spec/CMMN/20151109/DI",
@@ -51907,244 +55264,244 @@ module.exports={
     "tagAlias": "lowerCase"
   }
 }
-},{}],254:[function(require,module,exports){
+},{}],259:[function(require,module,exports){
 arguments[4][82][0].apply(exports,arguments)
-},{"dup":82}],255:[function(require,module,exports){
+},{"dup":82}],260:[function(require,module,exports){
 arguments[4][83][0].apply(exports,arguments)
-},{"dup":83}],256:[function(require,module,exports){
+},{"dup":83}],261:[function(require,module,exports){
 module.exports = require('./some');
 
-},{"./some":262}],257:[function(require,module,exports){
+},{"./some":267}],262:[function(require,module,exports){
 arguments[4][85][0].apply(exports,arguments)
-},{"../internal/arrayFilter":267,"../internal/baseCallback":274,"../internal/baseFilter":279,"../lang/isArray":330,"dup":85}],258:[function(require,module,exports){
+},{"../internal/arrayFilter":272,"../internal/baseCallback":279,"../internal/baseFilter":284,"../lang/isArray":335,"dup":85}],263:[function(require,module,exports){
 arguments[4][86][0].apply(exports,arguments)
-},{"../internal/baseEach":278,"../internal/createFind":307,"dup":86}],259:[function(require,module,exports){
+},{"../internal/baseEach":283,"../internal/createFind":312,"dup":86}],264:[function(require,module,exports){
 arguments[4][87][0].apply(exports,arguments)
-},{"../internal/arrayEach":266,"../internal/baseEach":278,"../internal/createForEach":308,"dup":87}],260:[function(require,module,exports){
+},{"../internal/arrayEach":271,"../internal/baseEach":283,"../internal/createForEach":313,"dup":87}],265:[function(require,module,exports){
 arguments[4][89][0].apply(exports,arguments)
-},{"../internal/arrayMap":268,"../internal/baseCallback":274,"../internal/baseMap":291,"../lang/isArray":330,"dup":89}],261:[function(require,module,exports){
+},{"../internal/arrayMap":273,"../internal/baseCallback":279,"../internal/baseMap":296,"../lang/isArray":335,"dup":89}],266:[function(require,module,exports){
 arguments[4][90][0].apply(exports,arguments)
-},{"../internal/arrayReduce":270,"../internal/baseEach":278,"../internal/createReduce":309,"dup":90}],262:[function(require,module,exports){
+},{"../internal/arrayReduce":275,"../internal/baseEach":283,"../internal/createReduce":314,"dup":90}],267:[function(require,module,exports){
 arguments[4][91][0].apply(exports,arguments)
-},{"../internal/arraySome":271,"../internal/baseCallback":274,"../internal/baseSome":298,"../internal/isIterateeCall":319,"../lang/isArray":330,"dup":91}],263:[function(require,module,exports){
+},{"../internal/arraySome":276,"../internal/baseCallback":279,"../internal/baseSome":303,"../internal/isIterateeCall":324,"../lang/isArray":335,"dup":91}],268:[function(require,module,exports){
 arguments[4][92][0].apply(exports,arguments)
-},{"../internal/baseDelay":276,"./restParam":264,"dup":92}],264:[function(require,module,exports){
+},{"../internal/baseDelay":281,"./restParam":269,"dup":92}],269:[function(require,module,exports){
 arguments[4][93][0].apply(exports,arguments)
-},{"dup":93}],265:[function(require,module,exports){
+},{"dup":93}],270:[function(require,module,exports){
 arguments[4][94][0].apply(exports,arguments)
-},{"./cachePush":302,"./getNative":315,"dup":94}],266:[function(require,module,exports){
+},{"./cachePush":307,"./getNative":320,"dup":94}],271:[function(require,module,exports){
 arguments[4][95][0].apply(exports,arguments)
-},{"dup":95}],267:[function(require,module,exports){
+},{"dup":95}],272:[function(require,module,exports){
 arguments[4][97][0].apply(exports,arguments)
-},{"dup":97}],268:[function(require,module,exports){
+},{"dup":97}],273:[function(require,module,exports){
 arguments[4][98][0].apply(exports,arguments)
-},{"dup":98}],269:[function(require,module,exports){
+},{"dup":98}],274:[function(require,module,exports){
 arguments[4][99][0].apply(exports,arguments)
-},{"dup":99}],270:[function(require,module,exports){
+},{"dup":99}],275:[function(require,module,exports){
 arguments[4][100][0].apply(exports,arguments)
-},{"dup":100}],271:[function(require,module,exports){
+},{"dup":100}],276:[function(require,module,exports){
 arguments[4][101][0].apply(exports,arguments)
-},{"dup":101}],272:[function(require,module,exports){
+},{"dup":101}],277:[function(require,module,exports){
 arguments[4][102][0].apply(exports,arguments)
-},{"../object/keys":338,"dup":102}],273:[function(require,module,exports){
+},{"../object/keys":343,"dup":102}],278:[function(require,module,exports){
 arguments[4][103][0].apply(exports,arguments)
-},{"../object/keys":338,"./baseCopy":275,"dup":103}],274:[function(require,module,exports){
+},{"../object/keys":343,"./baseCopy":280,"dup":103}],279:[function(require,module,exports){
 arguments[4][104][0].apply(exports,arguments)
-},{"../utility/identity":343,"../utility/property":344,"./baseMatches":292,"./baseMatchesProperty":293,"./bindCallback":300,"dup":104}],275:[function(require,module,exports){
+},{"../utility/identity":348,"../utility/property":349,"./baseMatches":297,"./baseMatchesProperty":298,"./bindCallback":305,"dup":104}],280:[function(require,module,exports){
 arguments[4][105][0].apply(exports,arguments)
-},{"dup":105}],276:[function(require,module,exports){
+},{"dup":105}],281:[function(require,module,exports){
 arguments[4][106][0].apply(exports,arguments)
-},{"dup":106}],277:[function(require,module,exports){
+},{"dup":106}],282:[function(require,module,exports){
 arguments[4][107][0].apply(exports,arguments)
-},{"./baseIndexOf":287,"./cacheIndexOf":301,"./createCache":306,"dup":107}],278:[function(require,module,exports){
+},{"./baseIndexOf":292,"./cacheIndexOf":306,"./createCache":311,"dup":107}],283:[function(require,module,exports){
 arguments[4][108][0].apply(exports,arguments)
-},{"./baseForOwn":285,"./createBaseEach":304,"dup":108}],279:[function(require,module,exports){
+},{"./baseForOwn":290,"./createBaseEach":309,"dup":108}],284:[function(require,module,exports){
 arguments[4][110][0].apply(exports,arguments)
-},{"./baseEach":278,"dup":110}],280:[function(require,module,exports){
+},{"./baseEach":283,"dup":110}],285:[function(require,module,exports){
 arguments[4][111][0].apply(exports,arguments)
-},{"dup":111}],281:[function(require,module,exports){
+},{"dup":111}],286:[function(require,module,exports){
 arguments[4][112][0].apply(exports,arguments)
-},{"dup":112}],282:[function(require,module,exports){
+},{"dup":112}],287:[function(require,module,exports){
 arguments[4][113][0].apply(exports,arguments)
-},{"../lang/isArguments":329,"../lang/isArray":330,"./arrayPush":269,"./isArrayLike":317,"./isObjectLike":322,"dup":113}],283:[function(require,module,exports){
+},{"../lang/isArguments":334,"../lang/isArray":335,"./arrayPush":274,"./isArrayLike":322,"./isObjectLike":327,"dup":113}],288:[function(require,module,exports){
 arguments[4][114][0].apply(exports,arguments)
-},{"./createBaseFor":305,"dup":114}],284:[function(require,module,exports){
+},{"./createBaseFor":310,"dup":114}],289:[function(require,module,exports){
 arguments[4][115][0].apply(exports,arguments)
-},{"../object/keysIn":339,"./baseFor":283,"dup":115}],285:[function(require,module,exports){
+},{"../object/keysIn":344,"./baseFor":288,"dup":115}],290:[function(require,module,exports){
 arguments[4][116][0].apply(exports,arguments)
-},{"../object/keys":338,"./baseFor":283,"dup":116}],286:[function(require,module,exports){
+},{"../object/keys":343,"./baseFor":288,"dup":116}],291:[function(require,module,exports){
 arguments[4][117][0].apply(exports,arguments)
-},{"./toObject":327,"dup":117}],287:[function(require,module,exports){
+},{"./toObject":332,"dup":117}],292:[function(require,module,exports){
 arguments[4][118][0].apply(exports,arguments)
-},{"./indexOfNaN":316,"dup":118}],288:[function(require,module,exports){
+},{"./indexOfNaN":321,"dup":118}],293:[function(require,module,exports){
 arguments[4][119][0].apply(exports,arguments)
-},{"../lang/isObject":334,"./baseIsEqualDeep":289,"./isObjectLike":322,"dup":119}],289:[function(require,module,exports){
+},{"../lang/isObject":339,"./baseIsEqualDeep":294,"./isObjectLike":327,"dup":119}],294:[function(require,module,exports){
 arguments[4][120][0].apply(exports,arguments)
-},{"../lang/isArray":330,"../lang/isTypedArray":336,"./equalArrays":310,"./equalByTag":311,"./equalObjects":312,"dup":120}],290:[function(require,module,exports){
+},{"../lang/isArray":335,"../lang/isTypedArray":341,"./equalArrays":315,"./equalByTag":316,"./equalObjects":317,"dup":120}],295:[function(require,module,exports){
 arguments[4][121][0].apply(exports,arguments)
-},{"./baseIsEqual":288,"./toObject":327,"dup":121}],291:[function(require,module,exports){
+},{"./baseIsEqual":293,"./toObject":332,"dup":121}],296:[function(require,module,exports){
 arguments[4][122][0].apply(exports,arguments)
-},{"./baseEach":278,"./isArrayLike":317,"dup":122}],292:[function(require,module,exports){
+},{"./baseEach":283,"./isArrayLike":322,"dup":122}],297:[function(require,module,exports){
 arguments[4][123][0].apply(exports,arguments)
-},{"./baseIsMatch":290,"./getMatchData":314,"./toObject":327,"dup":123}],293:[function(require,module,exports){
+},{"./baseIsMatch":295,"./getMatchData":319,"./toObject":332,"dup":123}],298:[function(require,module,exports){
 arguments[4][124][0].apply(exports,arguments)
-},{"../array/last":255,"../lang/isArray":330,"./baseGet":286,"./baseIsEqual":288,"./baseSlice":297,"./isKey":320,"./isStrictComparable":323,"./toObject":327,"./toPath":328,"dup":124}],294:[function(require,module,exports){
+},{"../array/last":260,"../lang/isArray":335,"./baseGet":291,"./baseIsEqual":293,"./baseSlice":302,"./isKey":325,"./isStrictComparable":328,"./toObject":332,"./toPath":333,"dup":124}],299:[function(require,module,exports){
 arguments[4][125][0].apply(exports,arguments)
-},{"dup":125}],295:[function(require,module,exports){
+},{"dup":125}],300:[function(require,module,exports){
 arguments[4][126][0].apply(exports,arguments)
-},{"./baseGet":286,"./toPath":328,"dup":126}],296:[function(require,module,exports){
+},{"./baseGet":291,"./toPath":333,"dup":126}],301:[function(require,module,exports){
 arguments[4][127][0].apply(exports,arguments)
-},{"dup":127}],297:[function(require,module,exports){
+},{"dup":127}],302:[function(require,module,exports){
 arguments[4][128][0].apply(exports,arguments)
-},{"dup":128}],298:[function(require,module,exports){
+},{"dup":128}],303:[function(require,module,exports){
 arguments[4][129][0].apply(exports,arguments)
-},{"./baseEach":278,"dup":129}],299:[function(require,module,exports){
+},{"./baseEach":283,"dup":129}],304:[function(require,module,exports){
 arguments[4][130][0].apply(exports,arguments)
-},{"dup":130}],300:[function(require,module,exports){
+},{"dup":130}],305:[function(require,module,exports){
 arguments[4][132][0].apply(exports,arguments)
-},{"../utility/identity":343,"dup":132}],301:[function(require,module,exports){
+},{"../utility/identity":348,"dup":132}],306:[function(require,module,exports){
 arguments[4][133][0].apply(exports,arguments)
-},{"../lang/isObject":334,"dup":133}],302:[function(require,module,exports){
+},{"../lang/isObject":339,"dup":133}],307:[function(require,module,exports){
 arguments[4][134][0].apply(exports,arguments)
-},{"../lang/isObject":334,"dup":134}],303:[function(require,module,exports){
+},{"../lang/isObject":339,"dup":134}],308:[function(require,module,exports){
 arguments[4][135][0].apply(exports,arguments)
-},{"../function/restParam":264,"./bindCallback":300,"./isIterateeCall":319,"dup":135}],304:[function(require,module,exports){
+},{"../function/restParam":269,"./bindCallback":305,"./isIterateeCall":324,"dup":135}],309:[function(require,module,exports){
 arguments[4][136][0].apply(exports,arguments)
-},{"./getLength":313,"./isLength":321,"./toObject":327,"dup":136}],305:[function(require,module,exports){
+},{"./getLength":318,"./isLength":326,"./toObject":332,"dup":136}],310:[function(require,module,exports){
 arguments[4][137][0].apply(exports,arguments)
-},{"./toObject":327,"dup":137}],306:[function(require,module,exports){
+},{"./toObject":332,"dup":137}],311:[function(require,module,exports){
 arguments[4][138][0].apply(exports,arguments)
-},{"./SetCache":265,"./getNative":315,"dup":138}],307:[function(require,module,exports){
+},{"./SetCache":270,"./getNative":320,"dup":138}],312:[function(require,module,exports){
 arguments[4][139][0].apply(exports,arguments)
-},{"../lang/isArray":330,"./baseCallback":274,"./baseFind":280,"./baseFindIndex":281,"dup":139}],308:[function(require,module,exports){
+},{"../lang/isArray":335,"./baseCallback":279,"./baseFind":285,"./baseFindIndex":286,"dup":139}],313:[function(require,module,exports){
 arguments[4][140][0].apply(exports,arguments)
-},{"../lang/isArray":330,"./bindCallback":300,"dup":140}],309:[function(require,module,exports){
+},{"../lang/isArray":335,"./bindCallback":305,"dup":140}],314:[function(require,module,exports){
 arguments[4][141][0].apply(exports,arguments)
-},{"../lang/isArray":330,"./baseCallback":274,"./baseReduce":296,"dup":141}],310:[function(require,module,exports){
+},{"../lang/isArray":335,"./baseCallback":279,"./baseReduce":301,"dup":141}],315:[function(require,module,exports){
 arguments[4][142][0].apply(exports,arguments)
-},{"./arraySome":271,"dup":142}],311:[function(require,module,exports){
+},{"./arraySome":276,"dup":142}],316:[function(require,module,exports){
 arguments[4][143][0].apply(exports,arguments)
-},{"dup":143}],312:[function(require,module,exports){
+},{"dup":143}],317:[function(require,module,exports){
 arguments[4][144][0].apply(exports,arguments)
-},{"../object/keys":338,"dup":144}],313:[function(require,module,exports){
+},{"../object/keys":343,"dup":144}],318:[function(require,module,exports){
 arguments[4][145][0].apply(exports,arguments)
-},{"./baseProperty":294,"dup":145}],314:[function(require,module,exports){
+},{"./baseProperty":299,"dup":145}],319:[function(require,module,exports){
 arguments[4][146][0].apply(exports,arguments)
-},{"../object/pairs":341,"./isStrictComparable":323,"dup":146}],315:[function(require,module,exports){
+},{"../object/pairs":346,"./isStrictComparable":328,"dup":146}],320:[function(require,module,exports){
 arguments[4][147][0].apply(exports,arguments)
-},{"../lang/isNative":332,"dup":147}],316:[function(require,module,exports){
+},{"../lang/isNative":337,"dup":147}],321:[function(require,module,exports){
 arguments[4][148][0].apply(exports,arguments)
-},{"dup":148}],317:[function(require,module,exports){
+},{"dup":148}],322:[function(require,module,exports){
 arguments[4][149][0].apply(exports,arguments)
-},{"./getLength":313,"./isLength":321,"dup":149}],318:[function(require,module,exports){
+},{"./getLength":318,"./isLength":326,"dup":149}],323:[function(require,module,exports){
 arguments[4][150][0].apply(exports,arguments)
-},{"dup":150}],319:[function(require,module,exports){
+},{"dup":150}],324:[function(require,module,exports){
 arguments[4][151][0].apply(exports,arguments)
-},{"../lang/isObject":334,"./isArrayLike":317,"./isIndex":318,"dup":151}],320:[function(require,module,exports){
+},{"../lang/isObject":339,"./isArrayLike":322,"./isIndex":323,"dup":151}],325:[function(require,module,exports){
 arguments[4][152][0].apply(exports,arguments)
-},{"../lang/isArray":330,"./toObject":327,"dup":152}],321:[function(require,module,exports){
+},{"../lang/isArray":335,"./toObject":332,"dup":152}],326:[function(require,module,exports){
 arguments[4][153][0].apply(exports,arguments)
-},{"dup":153}],322:[function(require,module,exports){
+},{"dup":153}],327:[function(require,module,exports){
 arguments[4][154][0].apply(exports,arguments)
-},{"dup":154}],323:[function(require,module,exports){
+},{"dup":154}],328:[function(require,module,exports){
 arguments[4][155][0].apply(exports,arguments)
-},{"../lang/isObject":334,"dup":155}],324:[function(require,module,exports){
+},{"../lang/isObject":339,"dup":155}],329:[function(require,module,exports){
 arguments[4][156][0].apply(exports,arguments)
-},{"./toObject":327,"dup":156}],325:[function(require,module,exports){
+},{"./toObject":332,"dup":156}],330:[function(require,module,exports){
 arguments[4][157][0].apply(exports,arguments)
-},{"./baseForIn":284,"dup":157}],326:[function(require,module,exports){
+},{"./baseForIn":289,"dup":157}],331:[function(require,module,exports){
 arguments[4][158][0].apply(exports,arguments)
-},{"../lang/isArguments":329,"../lang/isArray":330,"../object/keysIn":339,"./isIndex":318,"./isLength":321,"dup":158}],327:[function(require,module,exports){
+},{"../lang/isArguments":334,"../lang/isArray":335,"../object/keysIn":344,"./isIndex":323,"./isLength":326,"dup":158}],332:[function(require,module,exports){
 arguments[4][159][0].apply(exports,arguments)
-},{"../lang/isObject":334,"dup":159}],328:[function(require,module,exports){
+},{"../lang/isObject":339,"dup":159}],333:[function(require,module,exports){
 arguments[4][160][0].apply(exports,arguments)
-},{"../lang/isArray":330,"./baseToString":299,"dup":160}],329:[function(require,module,exports){
+},{"../lang/isArray":335,"./baseToString":304,"dup":160}],334:[function(require,module,exports){
 arguments[4][161][0].apply(exports,arguments)
-},{"../internal/isArrayLike":317,"../internal/isObjectLike":322,"dup":161}],330:[function(require,module,exports){
+},{"../internal/isArrayLike":322,"../internal/isObjectLike":327,"dup":161}],335:[function(require,module,exports){
 arguments[4][162][0].apply(exports,arguments)
-},{"../internal/getNative":315,"../internal/isLength":321,"../internal/isObjectLike":322,"dup":162}],331:[function(require,module,exports){
+},{"../internal/getNative":320,"../internal/isLength":326,"../internal/isObjectLike":327,"dup":162}],336:[function(require,module,exports){
 arguments[4][163][0].apply(exports,arguments)
-},{"./isObject":334,"dup":163}],332:[function(require,module,exports){
+},{"./isObject":339,"dup":163}],337:[function(require,module,exports){
 arguments[4][164][0].apply(exports,arguments)
-},{"../internal/isObjectLike":322,"./isFunction":331,"dup":164}],333:[function(require,module,exports){
+},{"../internal/isObjectLike":327,"./isFunction":336,"dup":164}],338:[function(require,module,exports){
 arguments[4][165][0].apply(exports,arguments)
-},{"../internal/isObjectLike":322,"dup":165}],334:[function(require,module,exports){
+},{"../internal/isObjectLike":327,"dup":165}],339:[function(require,module,exports){
 arguments[4][166][0].apply(exports,arguments)
-},{"dup":166}],335:[function(require,module,exports){
+},{"dup":166}],340:[function(require,module,exports){
 arguments[4][167][0].apply(exports,arguments)
-},{"../internal/isObjectLike":322,"dup":167}],336:[function(require,module,exports){
+},{"../internal/isObjectLike":327,"dup":167}],341:[function(require,module,exports){
 arguments[4][168][0].apply(exports,arguments)
-},{"../internal/isLength":321,"../internal/isObjectLike":322,"dup":168}],337:[function(require,module,exports){
+},{"../internal/isLength":326,"../internal/isObjectLike":327,"dup":168}],342:[function(require,module,exports){
 arguments[4][169][0].apply(exports,arguments)
-},{"../internal/assignWith":272,"../internal/baseAssign":273,"../internal/createAssigner":303,"dup":169}],338:[function(require,module,exports){
+},{"../internal/assignWith":277,"../internal/baseAssign":278,"../internal/createAssigner":308,"dup":169}],343:[function(require,module,exports){
 arguments[4][170][0].apply(exports,arguments)
-},{"../internal/getNative":315,"../internal/isArrayLike":317,"../internal/shimKeys":326,"../lang/isObject":334,"dup":170}],339:[function(require,module,exports){
+},{"../internal/getNative":320,"../internal/isArrayLike":322,"../internal/shimKeys":331,"../lang/isObject":339,"dup":170}],344:[function(require,module,exports){
 arguments[4][171][0].apply(exports,arguments)
-},{"../internal/isIndex":318,"../internal/isLength":321,"../lang/isArguments":329,"../lang/isArray":330,"../lang/isObject":334,"dup":171}],340:[function(require,module,exports){
+},{"../internal/isIndex":323,"../internal/isLength":326,"../lang/isArguments":334,"../lang/isArray":335,"../lang/isObject":339,"dup":171}],345:[function(require,module,exports){
 arguments[4][172][0].apply(exports,arguments)
-},{"../function/restParam":264,"../internal/arrayMap":268,"../internal/baseDifference":277,"../internal/baseFlatten":282,"../internal/bindCallback":300,"../internal/pickByArray":324,"../internal/pickByCallback":325,"./keysIn":339,"dup":172}],341:[function(require,module,exports){
+},{"../function/restParam":269,"../internal/arrayMap":273,"../internal/baseDifference":282,"../internal/baseFlatten":287,"../internal/bindCallback":305,"../internal/pickByArray":329,"../internal/pickByCallback":330,"./keysIn":344,"dup":172}],346:[function(require,module,exports){
 arguments[4][173][0].apply(exports,arguments)
-},{"../internal/toObject":327,"./keys":338,"dup":173}],342:[function(require,module,exports){
+},{"../internal/toObject":332,"./keys":343,"dup":173}],347:[function(require,module,exports){
 arguments[4][174][0].apply(exports,arguments)
-},{"../function/restParam":264,"../internal/baseFlatten":282,"../internal/bindCallback":300,"../internal/pickByArray":324,"../internal/pickByCallback":325,"dup":174}],343:[function(require,module,exports){
+},{"../function/restParam":269,"../internal/baseFlatten":287,"../internal/bindCallback":305,"../internal/pickByArray":329,"../internal/pickByCallback":330,"dup":174}],348:[function(require,module,exports){
 arguments[4][176][0].apply(exports,arguments)
-},{"dup":176}],344:[function(require,module,exports){
+},{"dup":176}],349:[function(require,module,exports){
 arguments[4][177][0].apply(exports,arguments)
-},{"../internal/baseProperty":294,"../internal/basePropertyDeep":295,"../internal/isKey":320,"dup":177}],345:[function(require,module,exports){
+},{"../internal/baseProperty":299,"../internal/basePropertyDeep":300,"../internal/isKey":325,"dup":177}],350:[function(require,module,exports){
 arguments[4][178][0].apply(exports,arguments)
-},{"component-delegate":351,"dup":178}],346:[function(require,module,exports){
+},{"component-delegate":356,"dup":178}],351:[function(require,module,exports){
 arguments[4][179][0].apply(exports,arguments)
-},{"domify":355,"dup":179}],347:[function(require,module,exports){
+},{"domify":360,"dup":179}],352:[function(require,module,exports){
 arguments[4][180][0].apply(exports,arguments)
-},{"component-event":352,"dup":180}],348:[function(require,module,exports){
+},{"component-event":357,"dup":180}],353:[function(require,module,exports){
 arguments[4][181][0].apply(exports,arguments)
-},{"component-query":354,"dup":181}],349:[function(require,module,exports){
+},{"component-query":359,"dup":181}],354:[function(require,module,exports){
 arguments[4][182][0].apply(exports,arguments)
-},{"dup":182}],350:[function(require,module,exports){
+},{"dup":182}],355:[function(require,module,exports){
 arguments[4][183][0].apply(exports,arguments)
-},{"dup":183,"matches-selector":353}],351:[function(require,module,exports){
+},{"dup":183,"matches-selector":358}],356:[function(require,module,exports){
 arguments[4][184][0].apply(exports,arguments)
-},{"closest":350,"component-closest":350,"component-event":352,"dup":184,"event":352}],352:[function(require,module,exports){
+},{"closest":355,"component-closest":355,"component-event":357,"dup":184,"event":357}],357:[function(require,module,exports){
 arguments[4][185][0].apply(exports,arguments)
-},{"dup":185}],353:[function(require,module,exports){
+},{"dup":185}],358:[function(require,module,exports){
 arguments[4][186][0].apply(exports,arguments)
-},{"component-query":354,"dup":186,"query":354}],354:[function(require,module,exports){
+},{"component-query":359,"dup":186,"query":359}],359:[function(require,module,exports){
 arguments[4][187][0].apply(exports,arguments)
-},{"dup":187}],355:[function(require,module,exports){
+},{"dup":187}],360:[function(require,module,exports){
 arguments[4][188][0].apply(exports,arguments)
-},{"dup":188}],356:[function(require,module,exports){
+},{"dup":188}],361:[function(require,module,exports){
 arguments[4][189][0].apply(exports,arguments)
-},{"./lib/collection":357,"./lib/refs":358,"dup":189}],357:[function(require,module,exports){
+},{"./lib/collection":362,"./lib/refs":363,"dup":189}],362:[function(require,module,exports){
 arguments[4][190][0].apply(exports,arguments)
-},{"dup":190}],358:[function(require,module,exports){
+},{"dup":190}],363:[function(require,module,exports){
 arguments[4][191][0].apply(exports,arguments)
-},{"./collection":357,"dup":191}],359:[function(require,module,exports){
+},{"./collection":362,"dup":191}],364:[function(require,module,exports){
 arguments[4][192][0].apply(exports,arguments)
-},{"./appendTo":360,"dup":192}],360:[function(require,module,exports){
+},{"./appendTo":365,"dup":192}],365:[function(require,module,exports){
 arguments[4][193][0].apply(exports,arguments)
-},{"./util/ensureImported":367,"dup":193}],361:[function(require,module,exports){
+},{"./util/ensureImported":372,"dup":193}],366:[function(require,module,exports){
 arguments[4][194][0].apply(exports,arguments)
-},{"dup":194}],362:[function(require,module,exports){
+},{"dup":194}],367:[function(require,module,exports){
 arguments[4][195][0].apply(exports,arguments)
-},{"dup":195}],363:[function(require,module,exports){
+},{"dup":195}],368:[function(require,module,exports){
 arguments[4][196][0].apply(exports,arguments)
-},{"./remove":366,"dup":196}],364:[function(require,module,exports){
+},{"./remove":371,"dup":196}],369:[function(require,module,exports){
 arguments[4][197][0].apply(exports,arguments)
-},{"./attr":361,"./util/ns":368,"./util/parse":369,"dup":197}],365:[function(require,module,exports){
+},{"./attr":366,"./util/ns":373,"./util/parse":374,"dup":197}],370:[function(require,module,exports){
 arguments[4][198][0].apply(exports,arguments)
-},{"./appendTo":360,"./clear":363,"./util/parse":369,"./util/serialize":370,"dup":198}],366:[function(require,module,exports){
+},{"./appendTo":365,"./clear":368,"./util/parse":374,"./util/serialize":375,"dup":198}],371:[function(require,module,exports){
 arguments[4][199][0].apply(exports,arguments)
-},{"dup":199}],367:[function(require,module,exports){
+},{"dup":199}],372:[function(require,module,exports){
 arguments[4][200][0].apply(exports,arguments)
-},{"dup":200}],368:[function(require,module,exports){
+},{"dup":200}],373:[function(require,module,exports){
 arguments[4][201][0].apply(exports,arguments)
-},{"dup":201}],369:[function(require,module,exports){
+},{"dup":201}],374:[function(require,module,exports){
 arguments[4][202][0].apply(exports,arguments)
-},{"./ns":368,"dup":202}],370:[function(require,module,exports){
+},{"./ns":373,"dup":202}],375:[function(require,module,exports){
 arguments[4][203][0].apply(exports,arguments)
-},{"dup":203}],371:[function(require,module,exports){
+},{"dup":203}],376:[function(require,module,exports){
 module.exports = require('./lib/Diagram');
-},{"./lib/Diagram":372}],372:[function(require,module,exports){
+},{"./lib/Diagram":377}],377:[function(require,module,exports){
 'use strict';
 
 var di = require('didi');
@@ -52346,7 +55703,7 @@ Diagram.prototype.clear = function() {
   this.get('eventBus').fire('diagram.clear');
 };
 
-},{"./core":381,"didi":503}],373:[function(require,module,exports){
+},{"./core":386,"didi":508}],378:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -52497,7 +55854,7 @@ forEach(hooks, function(hook) {
   };
 });
 
-},{"lodash/collection/forEach":518,"lodash/lang/isArray":633,"lodash/lang/isFunction":634,"lodash/lang/isNumber":636}],374:[function(require,module,exports){
+},{"lodash/collection/forEach":523,"lodash/lang/isArray":638,"lodash/lang/isFunction":639,"lodash/lang/isNumber":641}],379:[function(require,module,exports){
 'use strict';
 
 var unique = require('lodash/array/unique'),
@@ -53001,12 +56358,12 @@ CommandStack.prototype._setHandler = function(command, handler) {
   this._handlerMap[command] = handler;
 };
 
-},{"../core/EventBus":379,"lodash/array/unique":512,"lodash/lang/isArray":633,"lodash/object/assign":642}],375:[function(require,module,exports){
+},{"../core/EventBus":384,"lodash/array/unique":517,"lodash/lang/isArray":638,"lodash/object/assign":647}],380:[function(require,module,exports){
 module.exports = {
   commandStack: [ 'type', require('./CommandStack') ]
 };
 
-},{"./CommandStack":374}],376:[function(require,module,exports){
+},{"./CommandStack":379}],381:[function(require,module,exports){
 'use strict';
 
 var isNumber = require('lodash/lang/isNumber'),
@@ -53992,7 +57349,7 @@ Canvas.prototype.resized = function() {
   this._eventBus.fire('canvas.resized');
 };
 
-},{"../util/Collections":484,"../util/Elements":487,"lodash/collection/every":515,"lodash/collection/forEach":518,"lodash/function/debounce":527,"lodash/lang/isNumber":636,"lodash/object/assign":642,"tiny-svg/lib/append":673,"tiny-svg/lib/attr":675,"tiny-svg/lib/classes":676,"tiny-svg/lib/create":679,"tiny-svg/lib/geometry":680,"tiny-svg/lib/transform":682}],377:[function(require,module,exports){
+},{"../util/Collections":489,"../util/Elements":492,"lodash/collection/every":520,"lodash/collection/forEach":523,"lodash/function/debounce":532,"lodash/lang/isNumber":641,"lodash/object/assign":647,"tiny-svg/lib/append":678,"tiny-svg/lib/attr":680,"tiny-svg/lib/classes":681,"tiny-svg/lib/create":684,"tiny-svg/lib/geometry":685,"tiny-svg/lib/transform":687}],382:[function(require,module,exports){
 'use strict';
 
 var Model = require('../model');
@@ -54043,7 +57400,7 @@ ElementFactory.prototype.create = function(type, attrs) {
 
   return Model.create(type, attrs);
 };
-},{"../model":475,"lodash/object/assign":642}],378:[function(require,module,exports){
+},{"../model":480,"lodash/object/assign":647}],383:[function(require,module,exports){
 'use strict';
 
 var ELEMENT_ID = 'data-element-id';
@@ -54245,7 +57602,7 @@ ElementRegistry.prototype._validateId = function(id) {
   }
 };
 
-},{"tiny-svg/lib/attr":675}],379:[function(require,module,exports){
+},{"tiny-svg/lib/attr":680}],384:[function(require,module,exports){
 'use strict';
 
 var isFunction = require('lodash/lang/isFunction'),
@@ -54703,7 +58060,7 @@ function invokeFunction(fn, args) {
   return fn.apply(null, args);
 }
 
-},{"lodash/function/bind":526,"lodash/lang/isArray":633,"lodash/lang/isFunction":634,"lodash/lang/isNumber":636,"lodash/object/assign":642}],380:[function(require,module,exports){
+},{"lodash/function/bind":531,"lodash/lang/isArray":638,"lodash/lang/isFunction":639,"lodash/lang/isNumber":641,"lodash/object/assign":647}],385:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -54920,7 +58277,7 @@ function prependTo(newNode, parentNode) {
   parentNode.insertBefore(newNode, parentNode.firstChild);
 }
 
-},{"../util/GraphicsUtil":490,"../util/SvgTransformUtil":500,"lodash/collection/forEach":518,"lodash/collection/reduce":521,"min-dom/lib/clear":654,"tiny-svg/lib/append":673,"tiny-svg/lib/attr":675,"tiny-svg/lib/classes":676,"tiny-svg/lib/create":679,"tiny-svg/lib/remove":681}],381:[function(require,module,exports){
+},{"../util/GraphicsUtil":495,"../util/SvgTransformUtil":505,"lodash/collection/forEach":523,"lodash/collection/reduce":526,"min-dom/lib/clear":659,"tiny-svg/lib/append":678,"tiny-svg/lib/attr":680,"tiny-svg/lib/classes":681,"tiny-svg/lib/create":684,"tiny-svg/lib/remove":686}],386:[function(require,module,exports){
 module.exports = {
   __depends__: [ require('../draw') ],
   __init__: [ 'canvas' ],
@@ -54930,7 +58287,7 @@ module.exports = {
   eventBus: [ 'type', require('./EventBus') ],
   graphicsFactory: [ 'type', require('./GraphicsFactory') ]
 };
-},{"../draw":385,"./Canvas":376,"./ElementFactory":377,"./ElementRegistry":378,"./EventBus":379,"./GraphicsFactory":380}],382:[function(require,module,exports){
+},{"../draw":390,"./Canvas":381,"./ElementFactory":382,"./ElementRegistry":383,"./EventBus":384,"./GraphicsFactory":385}],387:[function(require,module,exports){
 'use strict';
 
 var DEFAULT_RENDER_PRIORITY = 1000;
@@ -55021,7 +58378,7 @@ BaseRenderer.prototype.getConnectionPath = function() {};
 
 module.exports = BaseRenderer;
 
-},{}],383:[function(require,module,exports){
+},{}],388:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -55126,7 +58483,7 @@ DefaultRenderer.$inject = [ 'eventBus', 'styles' ];
 
 module.exports = DefaultRenderer;
 
-},{"../util/RenderUtil":499,"./BaseRenderer":382,"inherits":507,"tiny-svg/lib/append":673,"tiny-svg/lib/attr":675,"tiny-svg/lib/create":679}],384:[function(require,module,exports){
+},{"../util/RenderUtil":504,"./BaseRenderer":387,"inherits":512,"tiny-svg/lib/append":678,"tiny-svg/lib/attr":680,"tiny-svg/lib/create":684}],389:[function(require,module,exports){
 'use strict';
 
 var isArray = require('lodash/lang/isArray'),
@@ -55203,14 +58560,14 @@ function Styles() {
 
 module.exports = Styles;
 
-},{"lodash/collection/reduce":521,"lodash/lang/isArray":633,"lodash/object/assign":642}],385:[function(require,module,exports){
+},{"lodash/collection/reduce":526,"lodash/lang/isArray":638,"lodash/object/assign":647}],390:[function(require,module,exports){
 module.exports = {
   __init__: [ 'defaultRenderer' ],
   defaultRenderer: [ 'type', require('./DefaultRenderer') ],
   styles: [ 'type', require('./Styles') ]
 };
 
-},{"./DefaultRenderer":383,"./Styles":384}],386:[function(require,module,exports){
+},{"./DefaultRenderer":388,"./Styles":389}],391:[function(require,module,exports){
 'use strict';
 
 var Geometry = require('../../util/Geometry'),
@@ -55480,7 +58837,7 @@ BendpointMove.$inject = [ 'injector', 'eventBus', 'canvas', 'dragging', 'graphic
 
 module.exports = BendpointMove;
 
-},{"../../util/Geometry":489,"../../util/SvgTransformUtil":500,"./BendpointUtil":388,"tiny-svg/lib/classes":676,"tiny-svg/lib/remove":681}],387:[function(require,module,exports){
+},{"../../util/Geometry":494,"../../util/SvgTransformUtil":505,"./BendpointUtil":393,"tiny-svg/lib/classes":681,"tiny-svg/lib/remove":686}],392:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -55680,7 +59037,7 @@ BendpointSnapping.$inject = [ 'eventBus' ];
 
 module.exports = BendpointSnapping;
 
-},{"lodash/collection/forEach":518,"lodash/lang/isArray":633,"lodash/object/assign":642}],388:[function(require,module,exports){
+},{"lodash/collection/forEach":523,"lodash/lang/isArray":638,"lodash/object/assign":647}],393:[function(require,module,exports){
 'use strict';
 
 var Events = require('../../util/Event'),
@@ -55811,7 +59168,7 @@ module.exports.addSegmentDragger = function(parentGfx, segmentStart, segmentEnd)
   return groupGfx;
 };
 
-},{"../../util/Event":488,"../../util/Geometry":489,"../../util/SvgTransformUtil":500,"tiny-svg/lib/append":673,"tiny-svg/lib/attr":675,"tiny-svg/lib/classes":676,"tiny-svg/lib/create":679}],389:[function(require,module,exports){
+},{"../../util/Event":493,"../../util/Geometry":494,"../../util/SvgTransformUtil":505,"tiny-svg/lib/append":678,"tiny-svg/lib/attr":680,"tiny-svg/lib/classes":681,"tiny-svg/lib/create":684}],394:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -56084,7 +59441,7 @@ Bendpoints.$inject = [
 
 module.exports = Bendpoints;
 
-},{"../../util/Geometry":489,"../../util/LineIntersection":493,"../../util/SvgTransformUtil":500,"./BendpointUtil":388,"lodash/collection/forEach":518,"min-dom/lib/event":658,"min-dom/lib/query":660,"tiny-svg/lib/append":673,"tiny-svg/lib/attr":675,"tiny-svg/lib/classes":676,"tiny-svg/lib/create":679,"tiny-svg/lib/remove":681}],390:[function(require,module,exports){
+},{"../../util/Geometry":494,"../../util/LineIntersection":498,"../../util/SvgTransformUtil":505,"./BendpointUtil":393,"lodash/collection/forEach":523,"min-dom/lib/event":663,"min-dom/lib/query":665,"tiny-svg/lib/append":678,"tiny-svg/lib/attr":680,"tiny-svg/lib/classes":681,"tiny-svg/lib/create":684,"tiny-svg/lib/remove":686}],395:[function(require,module,exports){
 'use strict';
 
 var Geometry = require('../../util/Geometry'),
@@ -56487,7 +59844,7 @@ ConnectionSegmentMove.$inject = [
 
 module.exports = ConnectionSegmentMove;
 
-},{"../../layout/LayoutUtil":474,"../../util/Geometry":489,"../../util/SvgTransformUtil":500,"./BendpointUtil":388,"tiny-svg/lib/classes":676,"tiny-svg/lib/remove":681}],391:[function(require,module,exports){
+},{"../../layout/LayoutUtil":479,"../../util/Geometry":494,"../../util/SvgTransformUtil":505,"./BendpointUtil":393,"tiny-svg/lib/classes":681,"tiny-svg/lib/remove":686}],396:[function(require,module,exports){
 module.exports = {
   __depends__: [ require('../dragging'), require('../rules') ],
   __init__: [ 'bendpoints', 'bendpointSnapping' ],
@@ -56497,7 +59854,7 @@ module.exports = {
   bendpointSnapping: [ 'type', require('./BendpointSnapping') ]
 };
 
-},{"../dragging":406,"../rules":459,"./BendpointMove":386,"./BendpointSnapping":387,"./Bendpoints":389,"./ConnectionSegmentMove":390}],392:[function(require,module,exports){
+},{"../dragging":411,"../rules":464,"./BendpointMove":391,"./BendpointSnapping":392,"./Bendpoints":394,"./ConnectionSegmentMove":395}],397:[function(require,module,exports){
 'use strict';
 
 var getElementType = require('../../util/Elements').getType;
@@ -56560,12 +59917,12 @@ ChangeSupport.$inject = [ 'eventBus', 'canvas', 'elementRegistry', 'graphicsFact
 
 module.exports = ChangeSupport;
 
-},{"../../util/Elements":487}],393:[function(require,module,exports){
+},{"../../util/Elements":492}],398:[function(require,module,exports){
 module.exports = {
   __init__: [ 'changeSupport'],
   changeSupport: [ 'type', require('./ChangeSupport') ]
 };
-},{"./ChangeSupport":392}],394:[function(require,module,exports){
+},{"./ChangeSupport":397}],399:[function(require,module,exports){
 'use strict';
 
 /**
@@ -56595,12 +59952,12 @@ Clipboard.prototype.clear = function() {
 Clipboard.prototype.isEmpty = function() {
   return !this._data;
 };
-},{}],395:[function(require,module,exports){
+},{}],400:[function(require,module,exports){
 module.exports = {
   clipboard: [ 'type', require('./Clipboard') ]
 };
 
-},{"./Clipboard":394}],396:[function(require,module,exports){
+},{"./Clipboard":399}],401:[function(require,module,exports){
 'use strict';
 
 var LayoutUtil = require('../../layout/LayoutUtil');
@@ -56784,7 +60141,7 @@ Connect.$inject = [ 'eventBus', 'dragging', 'modeling', 'rules', 'canvas', 'grap
 
 module.exports = Connect;
 
-},{"../../layout/LayoutUtil":474,"tiny-svg/lib/append":673,"tiny-svg/lib/attr":675,"tiny-svg/lib/create":679,"tiny-svg/lib/remove":681}],397:[function(require,module,exports){
+},{"../../layout/LayoutUtil":479,"tiny-svg/lib/append":678,"tiny-svg/lib/attr":680,"tiny-svg/lib/create":684,"tiny-svg/lib/remove":686}],402:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('../selection'),
@@ -56794,7 +60151,7 @@ module.exports = {
   connect: [ 'type', require('./Connect') ]
 };
 
-},{"../dragging":406,"../rules":459,"../selection":463,"./Connect":396}],398:[function(require,module,exports){
+},{"../dragging":411,"../rules":464,"../selection":468,"./Connect":401}],403:[function(require,module,exports){
 'use strict';
 
 var isFunction = require('lodash/lang/isFunction'),
@@ -57097,7 +60454,7 @@ function addClasses(element, classNames) {
     classes.add(cls);
   });
 }
-},{"lodash/collection/forEach":518,"lodash/lang/isArray":633,"lodash/lang/isFunction":634,"min-dom/lib/attr":652,"min-dom/lib/classes":653,"min-dom/lib/delegate":656,"min-dom/lib/domify":657,"min-dom/lib/event":658,"min-dom/lib/query":660}],399:[function(require,module,exports){
+},{"lodash/collection/forEach":523,"lodash/lang/isArray":638,"lodash/lang/isFunction":639,"min-dom/lib/attr":657,"min-dom/lib/classes":658,"min-dom/lib/delegate":661,"min-dom/lib/domify":662,"min-dom/lib/event":663,"min-dom/lib/query":665}],404:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('../interaction-events'),
@@ -57105,7 +60462,7 @@ module.exports = {
   ],
   contextPad: [ 'type', require('./ContextPad') ]
 };
-},{"../interaction-events":410,"../overlays":448,"./ContextPad":398}],400:[function(require,module,exports){
+},{"../interaction-events":415,"../overlays":453,"./ContextPad":403}],405:[function(require,module,exports){
 'use strict';
 
 var isArray = require('lodash/lang/isArray'),
@@ -57568,7 +60925,7 @@ CopyPaste.prototype.createTree = function(elements) {
   return tree;
 };
 
-},{"../../util/CopyPasteUtil":485,"../../util/Elements":487,"../../util/PositionUtil":497,"lodash/array/findIndex":508,"lodash/collection/find":517,"lodash/collection/forEach":518,"lodash/collection/map":520,"lodash/collection/reduce":521,"lodash/collection/sortBy":524,"lodash/lang/isArray":633}],401:[function(require,module,exports){
+},{"../../util/CopyPasteUtil":490,"../../util/Elements":492,"../../util/PositionUtil":502,"lodash/array/findIndex":513,"lodash/collection/find":522,"lodash/collection/forEach":523,"lodash/collection/map":525,"lodash/collection/reduce":526,"lodash/collection/sortBy":529,"lodash/lang/isArray":638}],406:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('../clipboard'),
@@ -57579,7 +60936,7 @@ module.exports = {
   copyPaste: [ 'type', require('./CopyPaste') ]
 };
 
-},{"../clipboard":395,"../mouse-tracking":441,"../rules":459,"./CopyPaste":400}],402:[function(require,module,exports){
+},{"../clipboard":400,"../mouse-tracking":446,"../rules":464,"./CopyPaste":405}],407:[function(require,module,exports){
 'use strict';
 
 var LOW_PRIORITY = 750;
@@ -57780,7 +61137,7 @@ Create.$inject = [ 'eventBus', 'dragging', 'rules', 'modeling', 'canvas', 'style
 
 module.exports = Create;
 
-},{"../../util/SvgTransformUtil":500,"tiny-svg/lib/append":673,"tiny-svg/lib/attr":675,"tiny-svg/lib/classes":676,"tiny-svg/lib/create":679,"tiny-svg/lib/remove":681}],403:[function(require,module,exports){
+},{"../../util/SvgTransformUtil":505,"tiny-svg/lib/append":678,"tiny-svg/lib/attr":680,"tiny-svg/lib/classes":681,"tiny-svg/lib/create":684,"tiny-svg/lib/remove":686}],408:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('../dragging'),
@@ -57790,7 +61147,7 @@ module.exports = {
   create: [ 'type', require('./Create') ]
 };
 
-},{"../dragging":406,"../rules":459,"../selection":463,"./Create":402}],404:[function(require,module,exports){
+},{"../dragging":411,"../rules":464,"../selection":468,"./Create":407}],409:[function(require,module,exports){
 'use strict';
 
 /* global TouchEvent */
@@ -58300,7 +61657,7 @@ Dragging.$inject = [ 'eventBus', 'canvas', 'selection' ];
 
 module.exports = Dragging;
 
-},{"../../core/EventBus":379,"../../util/ClickTrap":483,"../../util/Cursor":486,"../../util/Event":488,"lodash/object/assign":642,"min-dom/lib/event":658}],405:[function(require,module,exports){
+},{"../../core/EventBus":384,"../../util/ClickTrap":488,"../../util/Cursor":491,"../../util/Event":493,"lodash/object/assign":647,"min-dom/lib/event":663}],410:[function(require,module,exports){
 'use strict';
 
 var domClosest = require('min-dom/lib/closest');
@@ -58391,7 +61748,7 @@ HoverFix.$inject = [ 'eventBus', 'dragging', 'elementRegistry' ];
 
 module.exports = HoverFix;
 
-},{"../../util/Event":488,"min-dom/lib/closest":655}],406:[function(require,module,exports){
+},{"../../util/Event":493,"min-dom/lib/closest":660}],411:[function(require,module,exports){
 module.exports = {
   __init__: [
     'hoverFix'
@@ -58402,7 +61759,7 @@ module.exports = {
   dragging: [ 'type', require('./Dragging') ],
   hoverFix: [ 'type', require('./HoverFix') ]
 };
-},{"../selection":463,"./Dragging":404,"./HoverFix":405}],407:[function(require,module,exports){
+},{"../selection":468,"./Dragging":409,"./HoverFix":410}],412:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -58616,7 +61973,7 @@ function error(action, message) {
   return new Error(action + ' ' + message);
 }
 
-},{"lodash/collection/forEach":518,"lodash/lang/isArray":633}],408:[function(require,module,exports){
+},{"lodash/collection/forEach":523,"lodash/lang/isArray":638}],413:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('../selection'),
@@ -58627,7 +61984,7 @@ module.exports = {
   editorActions: [ 'type', require('./EditorActions') ]
 };
 
-},{"../../navigation/zoomscroll":481,"../copy-paste":401,"../selection":463,"./EditorActions":407}],409:[function(require,module,exports){
+},{"../../navigation/zoomscroll":486,"../copy-paste":406,"../selection":468,"./EditorActions":412}],414:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -58927,12 +62284,12 @@ module.exports = InteractionEvents;
  * @property {Event} originalEvent
  */
 
-},{"../../util/Mouse":495,"../../util/RenderUtil":499,"lodash/collection/forEach":518,"min-dom/lib/delegate":656,"min-dom/lib/query":660,"tiny-svg/lib/append":673,"tiny-svg/lib/attr":675,"tiny-svg/lib/create":679}],410:[function(require,module,exports){
+},{"../../util/Mouse":500,"../../util/RenderUtil":504,"lodash/collection/forEach":523,"min-dom/lib/delegate":661,"min-dom/lib/query":665,"tiny-svg/lib/append":678,"tiny-svg/lib/attr":680,"tiny-svg/lib/create":684}],415:[function(require,module,exports){
 module.exports = {
   __init__: [ 'interactionEvents' ],
   interactionEvents: [ 'type', require('./InteractionEvents') ]
 };
-},{"./InteractionEvents":409}],411:[function(require,module,exports){
+},{"./InteractionEvents":414}],416:[function(require,module,exports){
 'use strict';
 
 var domEvent = require('min-dom/lib/event'),
@@ -59247,13 +62604,13 @@ function isShift(modifiers) {
   return modifiers.shiftKey;
 }
 
-},{"min-dom/lib/event":658,"min-dom/lib/matches":659}],412:[function(require,module,exports){
+},{"min-dom/lib/event":663,"min-dom/lib/matches":664}],417:[function(require,module,exports){
 module.exports = {
   __init__: [ 'keyboard' ],
   keyboard: [ 'type', require('./Keyboard') ]
 };
 
-},{"./Keyboard":411}],413:[function(require,module,exports){
+},{"./Keyboard":416}],418:[function(require,module,exports){
 'use strict';
 
 var values = require('lodash/object/values');
@@ -59507,7 +62864,7 @@ function toBBox(event) {
   return bbox;
 }
 
-},{"../../util/Elements":487,"../../util/Mouse":495,"lodash/object/values":648,"tiny-svg/lib/append":673,"tiny-svg/lib/attr":675,"tiny-svg/lib/create":679,"tiny-svg/lib/remove":681}],414:[function(require,module,exports){
+},{"../../util/Elements":492,"../../util/Mouse":500,"lodash/object/values":653,"tiny-svg/lib/append":678,"tiny-svg/lib/attr":680,"tiny-svg/lib/create":684,"tiny-svg/lib/remove":686}],419:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -59516,7 +62873,7 @@ module.exports = {
   lassoTool: [ 'type', require('./LassoTool') ]
 };
 
-},{"../tool-manager":466,"./LassoTool":413}],415:[function(require,module,exports){
+},{"../tool-manager":471,"./LassoTool":418}],420:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -59948,7 +63305,7 @@ Modeling.prototype.toggleCollapse = function(shape, hints) {
   this._commandStack.execute('shape.toggleCollapse', context);
 };
 
-},{"../../model":475,"./cmd/AlignElementsHandler":416,"./cmd/AppendShapeHandler":417,"./cmd/CreateConnectionHandler":418,"./cmd/CreateLabelHandler":419,"./cmd/CreateShapeHandler":420,"./cmd/DeleteConnectionHandler":421,"./cmd/DeleteElementsHandler":422,"./cmd/DeleteShapeHandler":423,"./cmd/DistributeElementsHandler":424,"./cmd/LayoutConnectionHandler":425,"./cmd/MoveConnectionHandler":426,"./cmd/MoveElementsHandler":427,"./cmd/MoveShapeHandler":428,"./cmd/PasteHandler":430,"./cmd/ReconnectConnectionHandler":431,"./cmd/ReplaceShapeHandler":432,"./cmd/ResizeShapeHandler":433,"./cmd/SpaceToolHandler":434,"./cmd/ToggleShapeCollapseHandler":435,"./cmd/UpdateAttachmentHandler":436,"./cmd/UpdateWaypointsHandler":437,"lodash/collection/forEach":518}],416:[function(require,module,exports){
+},{"../../model":480,"./cmd/AlignElementsHandler":421,"./cmd/AppendShapeHandler":422,"./cmd/CreateConnectionHandler":423,"./cmd/CreateLabelHandler":424,"./cmd/CreateShapeHandler":425,"./cmd/DeleteConnectionHandler":426,"./cmd/DeleteElementsHandler":427,"./cmd/DeleteShapeHandler":428,"./cmd/DistributeElementsHandler":429,"./cmd/LayoutConnectionHandler":430,"./cmd/MoveConnectionHandler":431,"./cmd/MoveElementsHandler":432,"./cmd/MoveShapeHandler":433,"./cmd/PasteHandler":435,"./cmd/ReconnectConnectionHandler":436,"./cmd/ReplaceShapeHandler":437,"./cmd/ResizeShapeHandler":438,"./cmd/SpaceToolHandler":439,"./cmd/ToggleShapeCollapseHandler":440,"./cmd/UpdateAttachmentHandler":441,"./cmd/UpdateWaypointsHandler":442,"lodash/collection/forEach":523}],421:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -60007,7 +63364,7 @@ AlignElements.prototype.postExecute = function(context) {
 
 };
 
-},{"lodash/collection/forEach":518}],417:[function(require,module,exports){
+},{"lodash/collection/forEach":523}],422:[function(require,module,exports){
 'use strict';
 
 var any = require('lodash/collection/any');
@@ -60074,7 +63431,7 @@ function existsConnection(source, target) {
     return c.target === target;
   });
 }
-},{"./NoopHandler":429,"inherits":507,"lodash/collection/any":514}],418:[function(require,module,exports){
+},{"./NoopHandler":434,"inherits":512,"lodash/collection/any":519}],423:[function(require,module,exports){
 'use strict';
 
 
@@ -60136,7 +63493,7 @@ CreateConnectionHandler.prototype.revert = function(context) {
   connection.source = null;
   connection.target = null;
 };
-},{}],419:[function(require,module,exports){
+},{}],424:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -60209,7 +63566,7 @@ function ensureValidDimensions(label) {
     }
   });
 }
-},{"./CreateShapeHandler":420,"inherits":507}],420:[function(require,module,exports){
+},{"./CreateShapeHandler":425,"inherits":512}],425:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign');
@@ -60282,7 +63639,7 @@ CreateShapeHandler.prototype.revert = function(context) {
   // (3) remove form canvas
   this._canvas.removeShape(context.shape);
 };
-},{"lodash/object/assign":642}],421:[function(require,module,exports){
+},{"lodash/object/assign":647}],426:[function(require,module,exports){
 'use strict';
 
 var Collections = require('../../../util/Collections');
@@ -60355,7 +63712,7 @@ DeleteConnectionHandler.prototype.revert = function(context) {
   return connection;
 };
 
-},{"../../../util/Collections":484}],422:[function(require,module,exports){
+},{"../../../util/Collections":489}],427:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -60395,7 +63752,7 @@ DeleteElementsHandler.prototype.postExecute = function(context) {
     }
   });
 };
-},{"./NoopHandler":429,"inherits":507,"lodash/collection/forEach":518}],423:[function(require,module,exports){
+},{"./NoopHandler":434,"inherits":512,"lodash/collection/forEach":523}],428:[function(require,module,exports){
 'use strict';
 
 var Collections = require('../../../util/Collections');
@@ -60501,7 +63858,7 @@ DeleteShapeHandler.prototype.revert = function(context) {
   return shape;
 };
 
-},{"../../../util/Collections":484,"../../../util/Removal":498}],424:[function(require,module,exports){
+},{"../../../util/Collections":489,"../../../util/Removal":503}],429:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -60658,7 +64015,7 @@ DistributeElements.prototype.postExecute = function(context) {
 
 };
 
-},{"lodash/collection/forEach":518,"lodash/collection/sortBy":524}],425:[function(require,module,exports){
+},{"lodash/collection/forEach":523,"lodash/collection/sortBy":529}],430:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign');
@@ -60753,7 +64110,7 @@ function sendToFront(connection) {
   return insertIndex;
 }
 
-},{"lodash/object/assign":642}],426:[function(require,module,exports){
+},{"lodash/object/assign":647}],431:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -60835,7 +64192,7 @@ MoveConnectionHandler.prototype.revert = function(context) {
 
   return connection;
 };
-},{"../../../util/Collections":484,"lodash/collection/forEach":518}],427:[function(require,module,exports){
+},{"../../../util/Collections":489,"lodash/collection/forEach":523}],432:[function(require,module,exports){
 'use strict';
 
 var MoveHelper = require('./helper/MoveHelper');
@@ -60873,7 +64230,7 @@ MoveElementsHandler.prototype.postExecute = function(context) {
 MoveElementsHandler.prototype.execute = function(context) { };
 MoveElementsHandler.prototype.revert = function(context) { };
 
-},{"./helper/MoveHelper":439}],428:[function(require,module,exports){
+},{"./helper/MoveHelper":444}],433:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -60988,7 +64345,7 @@ MoveShapeHandler.prototype.getNewParent = function(context) {
   return context.newParent || context.shape.parent;
 };
 
-},{"../../../util/Collections":484,"./helper/AnchorsHelper":438,"./helper/MoveHelper":439,"lodash/collection/forEach":518,"lodash/object/assign":642,"lodash/object/pick":647}],429:[function(require,module,exports){
+},{"../../../util/Collections":489,"./helper/AnchorsHelper":443,"./helper/MoveHelper":444,"lodash/collection/forEach":523,"lodash/object/assign":647,"lodash/object/pick":652}],434:[function(require,module,exports){
 'use strict';
 
 function NoopHandler() {}
@@ -60997,7 +64354,7 @@ module.exports = NoopHandler;
 
 NoopHandler.prototype.execute = function() {};
 NoopHandler.prototype.revert = function() {};
-},{}],430:[function(require,module,exports){
+},{}],435:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -61282,7 +64639,7 @@ PasteHandler.prototype._getCreatedElement = function(id, tree) {
   return tree.createdElements[id] && tree.createdElements[id].element;
 };
 
-},{"./NoopHandler":429,"inherits":507,"lodash/collection/forEach":518,"lodash/collection/map":520,"lodash/collection/sortBy":524,"lodash/lang/clone":631}],431:[function(require,module,exports){
+},{"./NoopHandler":434,"inherits":512,"lodash/collection/forEach":523,"lodash/collection/map":525,"lodash/collection/sortBy":529,"lodash/lang/clone":636}],436:[function(require,module,exports){
 'use strict';
 
 var isArray = require('lodash/lang/isArray');
@@ -61357,7 +64714,7 @@ ReconnectConnectionHandler.prototype.revert = function(context) {
 
   return connection;
 };
-},{"lodash/lang/isArray":633}],432:[function(require,module,exports){
+},{"lodash/lang/isArray":638}],437:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -61515,7 +64872,7 @@ ReplaceShapeHandler.prototype.reconnectEnd = function(connection, newTarget, doc
   modeling.reconnectEnd(connection, newTarget, dockingPoint);
 };
 
-},{"lodash/collection/forEach":518}],433:[function(require,module,exports){
+},{"lodash/collection/forEach":523}],438:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -61619,7 +64976,7 @@ ResizeShapeHandler.prototype.revert = function(context) {
   return shape;
 };
 
-},{"./helper/AnchorsHelper":438,"lodash/collection/forEach":518,"lodash/object/assign":642}],434:[function(require,module,exports){
+},{"./helper/AnchorsHelper":443,"lodash/collection/forEach":523,"lodash/object/assign":647}],439:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -61670,7 +65027,7 @@ SpaceToolHandler.prototype.postExecute = function(context) {
 SpaceToolHandler.prototype.execute = function(context) {};
 SpaceToolHandler.prototype.revert = function(context) {};
 
-},{"../../space-tool/SpaceUtil":464,"lodash/collection/forEach":518}],435:[function(require,module,exports){
+},{"../../space-tool/SpaceUtil":469,"lodash/collection/forEach":523}],440:[function(require,module,exports){
 'use strict';
 
 /**
@@ -61756,7 +65113,7 @@ function restoreVisibility(elements, lastState) {
   });
 }
 
-},{}],436:[function(require,module,exports){
+},{}],441:[function(require,module,exports){
 'use strict';
 
 var Collections = require('../../../util/Collections');
@@ -61830,7 +65187,7 @@ function addAttacher(host, attacher, idx) {
   Collections.add(attachers, attacher, idx);
 }
 
-},{"../../../util/Collections":484}],437:[function(require,module,exports){
+},{"../../../util/Collections":489}],442:[function(require,module,exports){
 'use strict';
 
 function UpdateWaypointsHandler() { }
@@ -61858,7 +65215,7 @@ UpdateWaypointsHandler.prototype.revert = function(context) {
 
   return connection;
 };
-},{}],438:[function(require,module,exports){
+},{}],443:[function(require,module,exports){
 'use strict';
 
 var getNewAttachPoint = require('../../../../util/AttachUtil').getNewAttachPoint;
@@ -61929,7 +65286,7 @@ function safeGetWaypoints(connection) {
   return waypoints;
 }
 
-},{"../../../../util/AttachUtil":482}],439:[function(require,module,exports){
+},{"../../../../util/AttachUtil":487}],444:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -62028,7 +65385,7 @@ MoveHelper.prototype.getClosure = function(elements) {
   return Elements.getClosure(elements);
 };
 
-},{"../../../../util/Elements":487,"./AnchorsHelper":438,"lodash/collection/forEach":518}],440:[function(require,module,exports){
+},{"../../../../util/Elements":492,"./AnchorsHelper":443,"lodash/collection/forEach":523}],445:[function(require,module,exports){
 'use strict';
 
 var bind = require('lodash/function/bind');
@@ -62089,7 +65446,7 @@ MouseTracking.prototype._setMousePosition = function(event) {
   this._mouseY = event.layerY;
 };
 
-},{"lodash/function/bind":526}],441:[function(require,module,exports){
+},{"lodash/function/bind":531}],446:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -62097,7 +65454,7 @@ module.exports = {
   mouseTracking: [ 'type', require('./MouseTracking') ]
 };
 
-},{"./MouseTracking":440}],442:[function(require,module,exports){
+},{"./MouseTracking":445}],447:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -62321,7 +65678,7 @@ function removeNested(elements) {
   });
 }
 
-},{"../../util/Event":488,"lodash/collection/filter":516,"lodash/collection/groupBy":519,"lodash/object/assign":642}],443:[function(require,module,exports){
+},{"../../util/Event":493,"lodash/collection/filter":521,"lodash/collection/groupBy":524,"lodash/object/assign":647}],448:[function(require,module,exports){
 'use strict';
 
 var flatten = require('lodash/array/flatten'),
@@ -62541,7 +65898,7 @@ function isConnection(element) {
   return element.waypoints;
 }
 
-},{"../../util/Elements":487,"../../util/SvgTransformUtil":500,"lodash/array/flatten":509,"lodash/collection/filter":516,"lodash/collection/find":517,"lodash/collection/forEach":518,"lodash/collection/groupBy":519,"lodash/collection/map":520,"lodash/collection/size":522,"tiny-svg/lib/append":673,"tiny-svg/lib/attr":675,"tiny-svg/lib/clear":677,"tiny-svg/lib/create":679}],444:[function(require,module,exports){
+},{"../../util/Elements":492,"../../util/SvgTransformUtil":505,"lodash/array/flatten":514,"lodash/collection/filter":521,"lodash/collection/find":522,"lodash/collection/forEach":523,"lodash/collection/groupBy":524,"lodash/collection/map":525,"lodash/collection/size":527,"tiny-svg/lib/append":678,"tiny-svg/lib/attr":680,"tiny-svg/lib/clear":682,"tiny-svg/lib/create":684}],449:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('../interaction-events'),
@@ -62556,7 +65913,7 @@ module.exports = {
   movePreview: [ 'type', require('./MovePreview') ]
 };
 
-},{"../dragging":406,"../interaction-events":410,"../outline":446,"../preview-support":454,"../rules":459,"../selection":463,"./Move":442,"./MovePreview":443}],445:[function(require,module,exports){
+},{"../dragging":411,"../interaction-events":415,"../outline":451,"../preview-support":459,"../rules":464,"../selection":468,"./Move":447,"./MovePreview":448}],450:[function(require,module,exports){
 'use strict';
 
 var getBBox = require('../../util/Elements').getBBox;
@@ -62679,14 +66036,14 @@ Outline.$inject = ['eventBus', 'styles', 'elementRegistry'];
 
 module.exports = Outline;
 
-},{"../../util/Elements":487,"lodash/object/assign":642,"min-dom/lib/query":660,"tiny-svg/lib/append":673,"tiny-svg/lib/attr":675,"tiny-svg/lib/create":679}],446:[function(require,module,exports){
+},{"../../util/Elements":492,"lodash/object/assign":647,"min-dom/lib/query":665,"tiny-svg/lib/append":678,"tiny-svg/lib/attr":680,"tiny-svg/lib/create":684}],451:[function(require,module,exports){
 'use strict';
 
 module.exports = {
   __init__: [ 'outline' ],
   outline: [ 'type', require('./Outline') ]
 };
-},{"./Outline":445}],447:[function(require,module,exports){
+},{"./Outline":450}],452:[function(require,module,exports){
 'use strict';
 
 var isArray = require('lodash/lang/isArray'),
@@ -63237,12 +66594,12 @@ Overlays.prototype._init = function() {
   eventBus.on('diagram.clear', this.clear, this);
 };
 
-},{"../../util/Elements":487,"../../util/IdGenerator":491,"lodash/collection/filter":516,"lodash/collection/find":517,"lodash/collection/forEach":518,"lodash/lang/isArray":633,"lodash/lang/isObject":637,"lodash/lang/isString":639,"lodash/object/assign":642,"min-dom/lib/attr":652,"min-dom/lib/classes":653,"min-dom/lib/clear":654,"min-dom/lib/domify":657,"min-dom/lib/remove":661}],448:[function(require,module,exports){
+},{"../../util/Elements":492,"../../util/IdGenerator":496,"lodash/collection/filter":521,"lodash/collection/find":522,"lodash/collection/forEach":523,"lodash/lang/isArray":638,"lodash/lang/isObject":642,"lodash/lang/isString":644,"lodash/object/assign":647,"min-dom/lib/attr":657,"min-dom/lib/classes":658,"min-dom/lib/clear":659,"min-dom/lib/domify":662,"min-dom/lib/remove":666}],453:[function(require,module,exports){
 module.exports = {
   __init__: [ 'overlays' ],
   overlays: [ 'type', require('./Overlays') ]
 };
-},{"./Overlays":447}],449:[function(require,module,exports){
+},{"./Overlays":452}],454:[function(require,module,exports){
 'use strict';
 
 var isFunction = require('lodash/lang/isFunction'),
@@ -63583,7 +66940,7 @@ function addClasses(element, classNames) {
   });
 }
 
-},{"lodash/collection/forEach":518,"lodash/lang/isArray":633,"lodash/lang/isFunction":634,"min-dom/lib/attr":652,"min-dom/lib/classes":653,"min-dom/lib/clear":654,"min-dom/lib/delegate":656,"min-dom/lib/domify":657,"min-dom/lib/event":658,"min-dom/lib/matches":659,"min-dom/lib/query":660}],450:[function(require,module,exports){
+},{"lodash/collection/forEach":523,"lodash/lang/isArray":638,"lodash/lang/isFunction":639,"min-dom/lib/attr":657,"min-dom/lib/classes":658,"min-dom/lib/clear":659,"min-dom/lib/delegate":661,"min-dom/lib/domify":662,"min-dom/lib/event":663,"min-dom/lib/matches":664,"min-dom/lib/query":665}],455:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -63592,7 +66949,7 @@ module.exports = {
   palette: [ 'type', require('./Palette') ]
 };
 
-},{"../tool-manager":466,"./Palette":449}],451:[function(require,module,exports){
+},{"../tool-manager":471,"./Palette":454}],456:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -64028,7 +67385,7 @@ PopupMenu.prototype._unbindHandlers = function() {
 
 module.exports = PopupMenu;
 
-},{"lodash/collection/find":517,"lodash/collection/forEach":518,"lodash/object/assign":642,"min-dom/lib/attr":652,"min-dom/lib/classes":653,"min-dom/lib/delegate":656,"min-dom/lib/domify":657,"min-dom/lib/remove":661}],452:[function(require,module,exports){
+},{"lodash/collection/find":522,"lodash/collection/forEach":523,"lodash/object/assign":647,"min-dom/lib/attr":657,"min-dom/lib/classes":658,"min-dom/lib/delegate":661,"min-dom/lib/domify":662,"min-dom/lib/remove":666}],457:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -64036,7 +67393,7 @@ module.exports = {
   popupMenu: [ 'type', require('./PopupMenu') ]
 };
 
-},{"./PopupMenu":451}],453:[function(require,module,exports){
+},{"./PopupMenu":456}],458:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -64156,7 +67513,7 @@ function isConnection(element) {
   return element.waypoints;
 }
 
-},{"lodash/collection/forEach":518,"tiny-svg/lib/append":673,"tiny-svg/lib/attr":675,"tiny-svg/lib/clone":678,"tiny-svg/lib/create":679}],454:[function(require,module,exports){
+},{"lodash/collection/forEach":523,"tiny-svg/lib/append":678,"tiny-svg/lib/attr":680,"tiny-svg/lib/clone":683,"tiny-svg/lib/create":684}],459:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -64164,7 +67521,7 @@ module.exports = {
   previewSupport: [ 'type', require('./PreviewSupport') ]
 };
 
-},{"./PreviewSupport":453}],455:[function(require,module,exports){
+},{"./PreviewSupport":458}],460:[function(require,module,exports){
 'use strict';
 
 
@@ -64213,7 +67570,7 @@ Replace.prototype.replaceElement = function(oldElement, newElementData, options)
   return newElement;
 };
 
-},{}],456:[function(require,module,exports){
+},{}],461:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -64221,7 +67578,7 @@ module.exports = {
   replace: [ 'type', require('./Replace') ]
 };
 
-},{"./Replace":455}],457:[function(require,module,exports){
+},{"./Replace":460}],462:[function(require,module,exports){
 
 'use strict';
 
@@ -64314,7 +67671,7 @@ RuleProvider.prototype.addRule = function(actions, priority, fn) {
  * Implement this method to add new rules during provider initialization.
  */
 RuleProvider.prototype.init = function() {};
-},{"../../command/CommandInterceptor":373,"inherits":507}],458:[function(require,module,exports){
+},{"../../command/CommandInterceptor":378,"inherits":512}],463:[function(require,module,exports){
 'use strict';
 
 /**
@@ -64365,13 +67722,13 @@ Rules.prototype.allowed = function(action, context) {
   // map undefined to true, i.e. no rules
   return allowed === undefined ? true : allowed;
 };
-},{}],459:[function(require,module,exports){
+},{}],464:[function(require,module,exports){
 module.exports = {
   __init__: [ 'rules' ],
   rules: [ 'type', require('./Rules') ]
 };
 
-},{"./Rules":458}],460:[function(require,module,exports){
+},{"./Rules":463}],465:[function(require,module,exports){
 'use strict';
 
 var isArray = require('lodash/lang/isArray'),
@@ -64470,7 +67827,7 @@ Selection.prototype.select = function(elements, add) {
   this._eventBus.fire('selection.changed', { oldSelection: oldSelection, newSelection: selectedElements });
 };
 
-},{"lodash/collection/forEach":518,"lodash/lang/isArray":633}],461:[function(require,module,exports){
+},{"lodash/collection/forEach":523,"lodash/lang/isArray":638}],466:[function(require,module,exports){
 'use strict';
 
 var hasPrimaryModifier = require('../../util/Mouse').hasPrimaryModifier;
@@ -64550,7 +67907,7 @@ function SelectionBehavior(eventBus, selection, canvas, elementRegistry) {
 SelectionBehavior.$inject = [ 'eventBus', 'selection', 'canvas', 'elementRegistry' ];
 module.exports = SelectionBehavior;
 
-},{"../../util/Mouse":495,"lodash/collection/find":517}],462:[function(require,module,exports){
+},{"../../util/Mouse":500,"lodash/collection/find":522}],467:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -64627,7 +67984,7 @@ SelectionVisuals.$inject = [
 
 module.exports = SelectionVisuals;
 
-},{"lodash/collection/forEach":518}],463:[function(require,module,exports){
+},{"lodash/collection/forEach":523}],468:[function(require,module,exports){
 module.exports = {
   __init__: [ 'selectionVisuals', 'selectionBehavior' ],
   __depends__: [
@@ -64639,7 +67996,7 @@ module.exports = {
   selectionBehavior: [ 'type', require('./SelectionBehavior') ]
 };
 
-},{"../interaction-events":410,"../outline":446,"./Selection":460,"./SelectionBehavior":461,"./SelectionVisuals":462}],464:[function(require,module,exports){
+},{"../interaction-events":415,"../outline":451,"./Selection":465,"./SelectionBehavior":466,"./SelectionVisuals":467}],469:[function(require,module,exports){
 'use strict';
 
 /**
@@ -64729,7 +68086,7 @@ module.exports.resizeBounds = function(bounds, direction, delta) {
     throw new Error('unrecognized direction: ' + direction);
   }
 };
-},{}],465:[function(require,module,exports){
+},{}],470:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -64826,7 +68183,7 @@ ToolManager.prototype.bindEvents = function(name, events) {
   }, this);
 };
 
-},{"lodash/collection/forEach":518}],466:[function(require,module,exports){
+},{"lodash/collection/forEach":523}],471:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -64835,7 +68192,7 @@ module.exports = {
   toolManager: [ 'type', require('./ToolManager') ]
 };
 
-},{"../dragging":406,"./ToolManager":465}],467:[function(require,module,exports){
+},{"../dragging":411,"./ToolManager":470}],472:[function(require,module,exports){
 'use strict';
 
 var svgAppend = require('tiny-svg/lib/append'),
@@ -64894,7 +68251,7 @@ TouchFix.prototype.addBBoxMarker = function(svg) {
   svgAppend(svg, rect2);
 };
 
-},{"tiny-svg/lib/append":673,"tiny-svg/lib/attr":675,"tiny-svg/lib/create":679}],468:[function(require,module,exports){
+},{"tiny-svg/lib/append":678,"tiny-svg/lib/attr":680,"tiny-svg/lib/create":684}],473:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -65225,18 +68582,18 @@ TouchInteractionEvents.$inject = [
 
 module.exports = TouchInteractionEvents;
 
-},{"../../util/Event":488,"hammerjs":506,"lodash/collection/forEach":518,"min-dom/lib/closest":655,"min-dom/lib/event":658}],469:[function(require,module,exports){
+},{"../../util/Event":493,"hammerjs":511,"lodash/collection/forEach":523,"min-dom/lib/closest":660,"min-dom/lib/event":663}],474:[function(require,module,exports){
 module.exports = {
   __depends__: [ require('../interaction-events') ],
   __init__: [ 'touchInteractionEvents' ],
   touchInteractionEvents: [ 'type', require('./TouchInteractionEvents') ],
   touchFix: [ 'type', require('./TouchFix') ]
 };
-},{"../interaction-events":410,"./TouchFix":467,"./TouchInteractionEvents":468}],470:[function(require,module,exports){
+},{"../interaction-events":415,"./TouchFix":472,"./TouchInteractionEvents":473}],475:[function(require,module,exports){
 module.exports = {
   translate: [ 'value', require('./translate') ]
 };
-},{"./translate":471}],471:[function(require,module,exports){
+},{"./translate":476}],476:[function(require,module,exports){
 'use strict';
 
 /**
@@ -65265,7 +68622,7 @@ module.exports = function translate(template, replacements) {
     return replacements[key] || '{' + key + '}';
   });
 };
-},{}],472:[function(require,module,exports){
+},{}],477:[function(require,module,exports){
 'use strict';
 
 var getMid = require('./LayoutUtil').getMid;
@@ -65304,7 +68661,7 @@ BaseLayouter.prototype.layoutConnection = function(connection, hints) {
   ];
 };
 
-},{"./LayoutUtil":474}],473:[function(require,module,exports){
+},{"./LayoutUtil":479}],478:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign');
@@ -65401,7 +68758,7 @@ CroppingConnectionDocking.prototype._getGfx = function(element) {
   return this._elementRegistry.getGraphics(element);
 };
 
-},{"./LayoutUtil":474,"lodash/object/assign":642}],474:[function(require,module,exports){
+},{"./LayoutUtil":479,"lodash/object/assign":647}],479:[function(require,module,exports){
 'use strict';
 
 var isObject = require('lodash/lang/isObject'),
@@ -65591,7 +68948,7 @@ function getIntersections(a, b) {
 
 module.exports.getIntersections = getIntersections;
 
-},{"../util/Geometry":489,"../util/Intersection":492,"lodash/collection/sortBy":524,"lodash/lang/isObject":637}],475:[function(require,module,exports){
+},{"../util/Geometry":494,"../util/Intersection":497,"lodash/collection/sortBy":529,"lodash/lang/isObject":642}],480:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -65807,7 +69164,7 @@ module.exports.Shape = Shape;
 module.exports.Connection = Connection;
 module.exports.Label = Label;
 
-},{"inherits":507,"lodash/object/assign":642,"object-refs":670}],476:[function(require,module,exports){
+},{"inherits":512,"lodash/object/assign":647,"object-refs":675}],481:[function(require,module,exports){
 'use strict';
 
 var Cursor = require('../../util/Cursor'),
@@ -65904,16 +69261,16 @@ MoveCanvas.$inject = [ 'eventBus', 'canvas' ];
 
 module.exports = MoveCanvas;
 
-},{"../../util/ClickTrap":483,"../../util/Cursor":486,"../../util/Event":488,"../../util/Math":494,"min-dom/lib/closest":655,"min-dom/lib/event":658}],477:[function(require,module,exports){
+},{"../../util/ClickTrap":488,"../../util/Cursor":491,"../../util/Event":493,"../../util/Math":499,"min-dom/lib/closest":660,"min-dom/lib/event":663}],482:[function(require,module,exports){
 module.exports = {
   __init__: [ 'moveCanvas' ],
   moveCanvas: [ 'type', require('./MoveCanvas') ]
 };
-},{"./MoveCanvas":476}],478:[function(require,module,exports){
+},{"./MoveCanvas":481}],483:[function(require,module,exports){
 module.exports = {
   __depends__: [ require('../../features/touch') ]
 };
-},{"../../features/touch":469}],479:[function(require,module,exports){
+},{"../../features/touch":474}],484:[function(require,module,exports){
 'use strict';
 
 var domEvent = require('min-dom/lib/event'),
@@ -66102,7 +69459,7 @@ ZoomScroll.prototype._init = function(newEnabled) {
   this.toggle(newEnabled);
 };
 
-},{"../../util/Math":494,"../../util/Mouse":495,"../../util/Platform":496,"./ZoomUtil":480,"lodash/function/bind":526,"min-dom/lib/closest":655,"min-dom/lib/event":658}],480:[function(require,module,exports){
+},{"../../util/Math":499,"../../util/Mouse":500,"../../util/Platform":501,"./ZoomUtil":485,"lodash/function/bind":531,"min-dom/lib/closest":660,"min-dom/lib/event":663}],485:[function(require,module,exports){
 'use strict';
 
 
@@ -66126,12 +69483,12 @@ module.exports.cap = function(range, scale) {
   return Math.max(range.min, Math.min(range.max, scale));
 };
 
-},{"../../util/Math":494}],481:[function(require,module,exports){
+},{"../../util/Math":499}],486:[function(require,module,exports){
 module.exports = {
   __init__: [ 'zoomScroll' ],
   zoomScroll: [ 'type', require('./ZoomScroll') ]
 };
-},{"./ZoomScroll":479}],482:[function(require,module,exports){
+},{"./ZoomScroll":484}],487:[function(require,module,exports){
 'use strict';
 
 var roundPoint = require('../layout/LayoutUtil').roundPoint;
@@ -66203,7 +69560,7 @@ function getNewAttachShapeDelta(shape, oldBounds, newBounds) {
 
 module.exports.getNewAttachShapeDelta = getNewAttachShapeDelta;
 
-},{"../layout/LayoutUtil":474,"./PositionUtil":497}],483:[function(require,module,exports){
+},{"../layout/LayoutUtil":479,"./PositionUtil":502}],488:[function(require,module,exports){
 'use strict';
 
 var domEvent = require('min-dom/lib/event'),
@@ -66234,7 +69591,7 @@ function install() {
 }
 
 module.exports.install = install;
-},{"./Event":488,"min-dom/lib/event":658}],484:[function(require,module,exports){
+},{"./Event":493,"min-dom/lib/event":663}],489:[function(require,module,exports){
 'use strict';
 
 /**
@@ -66325,7 +69682,7 @@ module.exports.indexOf = function(collection, element) {
   return collection.indexOf(element);
 };
 
-},{}],485:[function(require,module,exports){
+},{}],490:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -66371,7 +69728,7 @@ function getTopLevel(elements) {
 
 module.exports.getTopLevel = getTopLevel;
 
-},{"lodash/collection/forEach":518}],486:[function(require,module,exports){
+},{"lodash/collection/forEach":523}],491:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -66399,7 +69756,7 @@ module.exports.has = function(mode) {
   return classes.has('djs-cursor-' + mode);
 };
 
-},{"min-dom/lib/classes":653}],487:[function(require,module,exports){
+},{"min-dom/lib/classes":658}],492:[function(require,module,exports){
 'use strict';
 
 var isArray = require('lodash/lang/isArray'),
@@ -66697,7 +70054,7 @@ function getElementType(element) {
 }
 
 module.exports.getType = getElementType;
-},{"lodash/collection/forEach":518,"lodash/collection/groupBy":519,"lodash/lang/isArray":633,"lodash/lang/isNumber":636}],488:[function(require,module,exports){
+},{"lodash/collection/forEach":523,"lodash/collection/groupBy":524,"lodash/lang/isArray":638,"lodash/lang/isNumber":641}],493:[function(require,module,exports){
 'use strict';
 
 function __preventDefault(event) {
@@ -66768,7 +70125,7 @@ function toPoint(event) {
 
 module.exports.toPoint = toPoint;
 
-},{}],489:[function(require,module,exports){
+},{}],494:[function(require,module,exports){
 'use strict';
 
 /**
@@ -66873,7 +70230,7 @@ module.exports.getMidPoint = function(p, q) {
   };
 };
 
-},{}],490:[function(require,module,exports){
+},{}],495:[function(require,module,exports){
 'use strict';
 
 var domQuery = require('min-dom/lib/query');
@@ -66909,7 +70266,7 @@ function getChildren(gfx) {
 module.exports.getVisual = getVisual;
 module.exports.getChildren = getChildren;
 
-},{"min-dom/lib/query":660}],491:[function(require,module,exports){
+},{"min-dom/lib/query":665}],496:[function(require,module,exports){
 'use strict';
 
 /**
@@ -66942,7 +70299,7 @@ IdGenerator.prototype.next = function() {
   return this._prefix + (++this._counter);
 };
 
-},{}],492:[function(require,module,exports){
+},{}],497:[function(require,module,exports){
 /* eslint no-fallthrough: "off" */
 
 'use strict';
@@ -68336,7 +71693,7 @@ paths.clone = pathClone;
 
 module.exports.intersection = pathIntersection;
 
-},{}],493:[function(require,module,exports){
+},{}],498:[function(require,module,exports){
 'use strict';
 
 var pointDistance = require('./Geometry').pointDistance;
@@ -68449,7 +71806,7 @@ module.exports.getApproxIntersection = function(waypoints, reference) {
   return getBendpointIntersection(waypoints, reference) || getPathIntersection(waypoints, reference);
 };
 
-},{"./Geometry":489,"./Intersection":492}],494:[function(require,module,exports){
+},{"./Geometry":494,"./Intersection":497}],499:[function(require,module,exports){
 'use strict';
 
 /**
@@ -68472,7 +71829,7 @@ function substract(p1, p2) {
 
 module.exports.substract = substract;
 
-},{}],495:[function(require,module,exports){
+},{}],500:[function(require,module,exports){
 'use strict';
 
 var getOriginalEvent = require('./Event').getOriginal;
@@ -68511,13 +71868,13 @@ module.exports.hasSecondaryModifier = function(event) {
   return isPrimaryButton(event) && originalEvent.shiftKey;
 };
 
-},{"./Event":488,"./Platform":496}],496:[function(require,module,exports){
+},{"./Event":493,"./Platform":501}],501:[function(require,module,exports){
 'use strict';
 
 module.exports.isMac = function isMac() {
   return (/mac/i).test(navigator.platform);
 };
-},{}],497:[function(require,module,exports){
+},{}],502:[function(require,module,exports){
 'use strict';
 
 function center(bounds) {
@@ -68539,7 +71896,7 @@ function delta(a, b) {
 
 module.exports.delta = delta;
 
-},{}],498:[function(require,module,exports){
+},{}],503:[function(require,module,exports){
 'use strict';
 
 
@@ -68578,7 +71935,7 @@ module.exports.saveClear = function(collection, removeFn) {
   return collection;
 };
 
-},{}],499:[function(require,module,exports){
+},{}],504:[function(require,module,exports){
 'use strict';
 
 var svgAttr = require('tiny-svg/lib/attr'),
@@ -68619,7 +71976,7 @@ module.exports.updateLine = function(gfx, points) {
   return gfx;
 };
 
-},{"tiny-svg/lib/attr":675,"tiny-svg/lib/create":679}],500:[function(require,module,exports){
+},{"tiny-svg/lib/attr":680,"tiny-svg/lib/create":684}],505:[function(require,module,exports){
 'use strict';
 
 var svgTransform = require('tiny-svg/lib/transform');
@@ -68684,7 +72041,7 @@ module.exports.scale = function(gfx, amount) {
   svgTransform(gfx, scale);
 };
 
-},{"tiny-svg/lib/geometry":680,"tiny-svg/lib/transform":682}],501:[function(require,module,exports){
+},{"tiny-svg/lib/geometry":685,"tiny-svg/lib/transform":687}],506:[function(require,module,exports){
 'use strict';
 
 var isObject = require('lodash/lang/isObject'),
@@ -68967,7 +72324,7 @@ Text.prototype.createText = function(parent, text, options) {
 
 module.exports = Text;
 
-},{"lodash/collection/forEach":518,"lodash/collection/reduce":521,"lodash/lang/isObject":637,"lodash/object/assign":642,"lodash/object/merge":645,"lodash/object/pick":647,"tiny-svg/lib/append":673,"tiny-svg/lib/attr":675,"tiny-svg/lib/create":679,"tiny-svg/lib/remove":681}],502:[function(require,module,exports){
+},{"lodash/collection/forEach":523,"lodash/collection/reduce":526,"lodash/lang/isObject":642,"lodash/object/assign":647,"lodash/object/merge":650,"lodash/object/pick":652,"tiny-svg/lib/append":678,"tiny-svg/lib/attr":680,"tiny-svg/lib/create":684,"tiny-svg/lib/remove":686}],507:[function(require,module,exports){
 
 var isArray = function(obj) {
   return Object.prototype.toString.call(obj) === '[object Array]';
@@ -69017,14 +72374,14 @@ exports.annotate = annotate;
 exports.parse = parse;
 exports.isArray = isArray;
 
-},{}],503:[function(require,module,exports){
+},{}],508:[function(require,module,exports){
 module.exports = {
   annotate: require('./annotation').annotate,
   Module: require('./module'),
   Injector: require('./injector')
 };
 
-},{"./annotation":502,"./injector":504,"./module":505}],504:[function(require,module,exports){
+},{"./annotation":507,"./injector":509,"./module":510}],509:[function(require,module,exports){
 var Module = require('./module');
 var autoAnnotate = require('./annotation').parse;
 var annotate = require('./annotation').annotate;
@@ -69254,7 +72611,7 @@ var Injector = function(modules, parent) {
 
 module.exports = Injector;
 
-},{"./annotation":502,"./module":505}],505:[function(require,module,exports){
+},{"./annotation":507,"./module":510}],510:[function(require,module,exports){
 var Module = function() {
   var providers = [];
 
@@ -69280,7 +72637,7 @@ var Module = function() {
 
 module.exports = Module;
 
-},{}],506:[function(require,module,exports){
+},{}],511:[function(require,module,exports){
 /*! Hammer.JS - v2.0.7 - 2016-04-22
  * http://hammerjs.github.io/
  *
@@ -71925,9 +75282,9 @@ if (typeof define === 'function' && define.amd) {
 
 })(window, document, 'Hammer');
 
-},{}],507:[function(require,module,exports){
+},{}],512:[function(require,module,exports){
 arguments[4][82][0].apply(exports,arguments)
-},{"dup":82}],508:[function(require,module,exports){
+},{"dup":82}],513:[function(require,module,exports){
 var createFindIndex = require('../internal/createFindIndex');
 
 /**
@@ -71982,7 +75339,7 @@ var findIndex = createFindIndex();
 
 module.exports = findIndex;
 
-},{"../internal/createFindIndex":592}],509:[function(require,module,exports){
+},{"../internal/createFindIndex":597}],514:[function(require,module,exports){
 var baseFlatten = require('../internal/baseFlatten'),
     isIterateeCall = require('../internal/isIterateeCall');
 
@@ -72016,9 +75373,9 @@ function flatten(array, isDeep, guard) {
 
 module.exports = flatten;
 
-},{"../internal/baseFlatten":552,"../internal/isIterateeCall":612}],510:[function(require,module,exports){
+},{"../internal/baseFlatten":557,"../internal/isIterateeCall":617}],515:[function(require,module,exports){
 arguments[4][83][0].apply(exports,arguments)
-},{"dup":83}],511:[function(require,module,exports){
+},{"dup":83}],516:[function(require,module,exports){
 var baseCallback = require('../internal/baseCallback'),
     baseUniq = require('../internal/baseUniq'),
     isIterateeCall = require('../internal/isIterateeCall'),
@@ -72091,10 +75448,10 @@ function uniq(array, isSorted, iteratee, thisArg) {
 
 module.exports = uniq;
 
-},{"../internal/baseCallback":542,"../internal/baseUniq":575,"../internal/isIterateeCall":612,"../internal/sortedUniq":627}],512:[function(require,module,exports){
+},{"../internal/baseCallback":547,"../internal/baseUniq":580,"../internal/isIterateeCall":617,"../internal/sortedUniq":632}],517:[function(require,module,exports){
 module.exports = require('./uniq');
 
-},{"./uniq":511}],513:[function(require,module,exports){
+},{"./uniq":516}],518:[function(require,module,exports){
 var LazyWrapper = require('../internal/LazyWrapper'),
     LodashWrapper = require('../internal/LodashWrapper'),
     baseLodash = require('../internal/baseLodash'),
@@ -72221,17 +75578,17 @@ lodash.prototype = baseLodash.prototype;
 
 module.exports = lodash;
 
-},{"../internal/LazyWrapper":529,"../internal/LodashWrapper":530,"../internal/baseLodash":561,"../internal/isObjectLike":616,"../internal/wrapperClone":630,"../lang/isArray":633}],514:[function(require,module,exports){
-arguments[4][256][0].apply(exports,arguments)
-},{"./some":523,"dup":256}],515:[function(require,module,exports){
+},{"../internal/LazyWrapper":534,"../internal/LodashWrapper":535,"../internal/baseLodash":566,"../internal/isObjectLike":621,"../internal/wrapperClone":635,"../lang/isArray":638}],519:[function(require,module,exports){
+arguments[4][261][0].apply(exports,arguments)
+},{"./some":528,"dup":261}],520:[function(require,module,exports){
 arguments[4][84][0].apply(exports,arguments)
-},{"../internal/arrayEvery":534,"../internal/baseCallback":542,"../internal/baseEvery":548,"../internal/isIterateeCall":612,"../lang/isArray":633,"dup":84}],516:[function(require,module,exports){
+},{"../internal/arrayEvery":539,"../internal/baseCallback":547,"../internal/baseEvery":553,"../internal/isIterateeCall":617,"../lang/isArray":638,"dup":84}],521:[function(require,module,exports){
 arguments[4][85][0].apply(exports,arguments)
-},{"../internal/arrayFilter":535,"../internal/baseCallback":542,"../internal/baseFilter":549,"../lang/isArray":633,"dup":85}],517:[function(require,module,exports){
+},{"../internal/arrayFilter":540,"../internal/baseCallback":547,"../internal/baseFilter":554,"../lang/isArray":638,"dup":85}],522:[function(require,module,exports){
 arguments[4][86][0].apply(exports,arguments)
-},{"../internal/baseEach":547,"../internal/createFind":591,"dup":86}],518:[function(require,module,exports){
+},{"../internal/baseEach":552,"../internal/createFind":596,"dup":86}],523:[function(require,module,exports){
 arguments[4][87][0].apply(exports,arguments)
-},{"../internal/arrayEach":533,"../internal/baseEach":547,"../internal/createForEach":593,"dup":87}],519:[function(require,module,exports){
+},{"../internal/arrayEach":538,"../internal/baseEach":552,"../internal/createForEach":598,"dup":87}],524:[function(require,module,exports){
 var createAggregator = require('../internal/createAggregator');
 
 /** Used for native method references. */
@@ -72292,11 +75649,11 @@ var groupBy = createAggregator(function(result, value, key) {
 
 module.exports = groupBy;
 
-},{"../internal/createAggregator":584}],520:[function(require,module,exports){
+},{"../internal/createAggregator":589}],525:[function(require,module,exports){
 arguments[4][89][0].apply(exports,arguments)
-},{"../internal/arrayMap":536,"../internal/baseCallback":542,"../internal/baseMap":562,"../lang/isArray":633,"dup":89}],521:[function(require,module,exports){
+},{"../internal/arrayMap":541,"../internal/baseCallback":547,"../internal/baseMap":567,"../lang/isArray":638,"dup":89}],526:[function(require,module,exports){
 arguments[4][90][0].apply(exports,arguments)
-},{"../internal/arrayReduce":538,"../internal/baseEach":547,"../internal/createReduce":596,"dup":90}],522:[function(require,module,exports){
+},{"../internal/arrayReduce":543,"../internal/baseEach":552,"../internal/createReduce":601,"dup":90}],527:[function(require,module,exports){
 var getLength = require('../internal/getLength'),
     isLength = require('../internal/isLength'),
     keys = require('../object/keys');
@@ -72328,9 +75685,9 @@ function size(collection) {
 
 module.exports = size;
 
-},{"../internal/getLength":603,"../internal/isLength":615,"../object/keys":643}],523:[function(require,module,exports){
+},{"../internal/getLength":608,"../internal/isLength":620,"../object/keys":648}],528:[function(require,module,exports){
 arguments[4][91][0].apply(exports,arguments)
-},{"../internal/arraySome":539,"../internal/baseCallback":542,"../internal/baseSome":572,"../internal/isIterateeCall":612,"../lang/isArray":633,"dup":91}],524:[function(require,module,exports){
+},{"../internal/arraySome":544,"../internal/baseCallback":547,"../internal/baseSome":577,"../internal/isIterateeCall":617,"../lang/isArray":638,"dup":91}],529:[function(require,module,exports){
 var baseCallback = require('../internal/baseCallback'),
     baseMap = require('../internal/baseMap'),
     baseSortBy = require('../internal/baseSortBy'),
@@ -72403,7 +75760,7 @@ function sortBy(collection, iteratee, thisArg) {
 
 module.exports = sortBy;
 
-},{"../internal/baseCallback":542,"../internal/baseMap":562,"../internal/baseSortBy":573,"../internal/compareAscending":581,"../internal/isIterateeCall":612}],525:[function(require,module,exports){
+},{"../internal/baseCallback":547,"../internal/baseMap":567,"../internal/baseSortBy":578,"../internal/compareAscending":586,"../internal/isIterateeCall":617}],530:[function(require,module,exports){
 var getNative = require('../internal/getNative');
 
 /* Native method references for those with the same name as other `lodash` methods. */
@@ -72429,7 +75786,7 @@ var now = nativeNow || function() {
 
 module.exports = now;
 
-},{"../internal/getNative":605}],526:[function(require,module,exports){
+},{"../internal/getNative":610}],531:[function(require,module,exports){
 var createWrapper = require('../internal/createWrapper'),
     replaceHolders = require('../internal/replaceHolders'),
     restParam = require('./restParam');
@@ -72487,7 +75844,7 @@ bind.placeholder = {};
 
 module.exports = bind;
 
-},{"../internal/createWrapper":597,"../internal/replaceHolders":624,"./restParam":528}],527:[function(require,module,exports){
+},{"../internal/createWrapper":602,"../internal/replaceHolders":629,"./restParam":533}],532:[function(require,module,exports){
 var isObject = require('../lang/isObject'),
     now = require('../date/now');
 
@@ -72670,9 +76027,9 @@ function debounce(func, wait, options) {
 
 module.exports = debounce;
 
-},{"../date/now":525,"../lang/isObject":637}],528:[function(require,module,exports){
+},{"../date/now":530,"../lang/isObject":642}],533:[function(require,module,exports){
 arguments[4][93][0].apply(exports,arguments)
-},{"dup":93}],529:[function(require,module,exports){
+},{"dup":93}],534:[function(require,module,exports){
 var baseCreate = require('./baseCreate'),
     baseLodash = require('./baseLodash');
 
@@ -72700,7 +76057,7 @@ LazyWrapper.prototype.constructor = LazyWrapper;
 
 module.exports = LazyWrapper;
 
-},{"./baseCreate":546,"./baseLodash":561}],530:[function(require,module,exports){
+},{"./baseCreate":551,"./baseLodash":566}],535:[function(require,module,exports){
 var baseCreate = require('./baseCreate'),
     baseLodash = require('./baseLodash');
 
@@ -72723,9 +76080,9 @@ LodashWrapper.prototype.constructor = LodashWrapper;
 
 module.exports = LodashWrapper;
 
-},{"./baseCreate":546,"./baseLodash":561}],531:[function(require,module,exports){
+},{"./baseCreate":551,"./baseLodash":566}],536:[function(require,module,exports){
 arguments[4][94][0].apply(exports,arguments)
-},{"./cachePush":580,"./getNative":605,"dup":94}],532:[function(require,module,exports){
+},{"./cachePush":585,"./getNative":610,"dup":94}],537:[function(require,module,exports){
 /**
  * Copies the values of `source` to `array`.
  *
@@ -72747,27 +76104,27 @@ function arrayCopy(source, array) {
 
 module.exports = arrayCopy;
 
-},{}],533:[function(require,module,exports){
+},{}],538:[function(require,module,exports){
 arguments[4][95][0].apply(exports,arguments)
-},{"dup":95}],534:[function(require,module,exports){
+},{"dup":95}],539:[function(require,module,exports){
 arguments[4][96][0].apply(exports,arguments)
-},{"dup":96}],535:[function(require,module,exports){
+},{"dup":96}],540:[function(require,module,exports){
 arguments[4][97][0].apply(exports,arguments)
-},{"dup":97}],536:[function(require,module,exports){
+},{"dup":97}],541:[function(require,module,exports){
 arguments[4][98][0].apply(exports,arguments)
-},{"dup":98}],537:[function(require,module,exports){
+},{"dup":98}],542:[function(require,module,exports){
 arguments[4][99][0].apply(exports,arguments)
-},{"dup":99}],538:[function(require,module,exports){
+},{"dup":99}],543:[function(require,module,exports){
 arguments[4][100][0].apply(exports,arguments)
-},{"dup":100}],539:[function(require,module,exports){
+},{"dup":100}],544:[function(require,module,exports){
 arguments[4][101][0].apply(exports,arguments)
-},{"dup":101}],540:[function(require,module,exports){
+},{"dup":101}],545:[function(require,module,exports){
 arguments[4][102][0].apply(exports,arguments)
-},{"../object/keys":643,"dup":102}],541:[function(require,module,exports){
+},{"../object/keys":648,"dup":102}],546:[function(require,module,exports){
 arguments[4][103][0].apply(exports,arguments)
-},{"../object/keys":643,"./baseCopy":545,"dup":103}],542:[function(require,module,exports){
+},{"../object/keys":648,"./baseCopy":550,"dup":103}],547:[function(require,module,exports){
 arguments[4][104][0].apply(exports,arguments)
-},{"../utility/identity":649,"../utility/property":651,"./baseMatches":563,"./baseMatchesProperty":564,"./bindCallback":577,"dup":104}],543:[function(require,module,exports){
+},{"../utility/identity":654,"../utility/property":656,"./baseMatches":568,"./baseMatchesProperty":569,"./bindCallback":582,"dup":104}],548:[function(require,module,exports){
 var arrayCopy = require('./arrayCopy'),
     arrayEach = require('./arrayEach'),
     baseAssign = require('./baseAssign'),
@@ -72897,7 +76254,7 @@ function baseClone(value, isDeep, customizer, key, object, stackA, stackB) {
 
 module.exports = baseClone;
 
-},{"../lang/isArray":633,"../lang/isObject":637,"./arrayCopy":532,"./arrayEach":533,"./baseAssign":541,"./baseForOwn":555,"./initCloneArray":607,"./initCloneByTag":608,"./initCloneObject":609}],544:[function(require,module,exports){
+},{"../lang/isArray":638,"../lang/isObject":642,"./arrayCopy":537,"./arrayEach":538,"./baseAssign":546,"./baseForOwn":560,"./initCloneArray":612,"./initCloneByTag":613,"./initCloneObject":614}],549:[function(require,module,exports){
 /**
  * The base implementation of `compareAscending` which compares values and
  * sorts them in ascending order without guaranteeing a stable sort.
@@ -72933,9 +76290,9 @@ function baseCompareAscending(value, other) {
 
 module.exports = baseCompareAscending;
 
-},{}],545:[function(require,module,exports){
+},{}],550:[function(require,module,exports){
 arguments[4][105][0].apply(exports,arguments)
-},{"dup":105}],546:[function(require,module,exports){
+},{"dup":105}],551:[function(require,module,exports){
 var isObject = require('../lang/isObject');
 
 /**
@@ -72960,35 +76317,35 @@ var baseCreate = (function() {
 
 module.exports = baseCreate;
 
-},{"../lang/isObject":637}],547:[function(require,module,exports){
+},{"../lang/isObject":642}],552:[function(require,module,exports){
 arguments[4][108][0].apply(exports,arguments)
-},{"./baseForOwn":555,"./createBaseEach":586,"dup":108}],548:[function(require,module,exports){
+},{"./baseForOwn":560,"./createBaseEach":591,"dup":108}],553:[function(require,module,exports){
 arguments[4][109][0].apply(exports,arguments)
-},{"./baseEach":547,"dup":109}],549:[function(require,module,exports){
+},{"./baseEach":552,"dup":109}],554:[function(require,module,exports){
 arguments[4][110][0].apply(exports,arguments)
-},{"./baseEach":547,"dup":110}],550:[function(require,module,exports){
+},{"./baseEach":552,"dup":110}],555:[function(require,module,exports){
 arguments[4][111][0].apply(exports,arguments)
-},{"dup":111}],551:[function(require,module,exports){
+},{"dup":111}],556:[function(require,module,exports){
 arguments[4][112][0].apply(exports,arguments)
-},{"dup":112}],552:[function(require,module,exports){
+},{"dup":112}],557:[function(require,module,exports){
 arguments[4][113][0].apply(exports,arguments)
-},{"../lang/isArguments":632,"../lang/isArray":633,"./arrayPush":537,"./isArrayLike":610,"./isObjectLike":616,"dup":113}],553:[function(require,module,exports){
+},{"../lang/isArguments":637,"../lang/isArray":638,"./arrayPush":542,"./isArrayLike":615,"./isObjectLike":621,"dup":113}],558:[function(require,module,exports){
 arguments[4][114][0].apply(exports,arguments)
-},{"./createBaseFor":587,"dup":114}],554:[function(require,module,exports){
+},{"./createBaseFor":592,"dup":114}],559:[function(require,module,exports){
 arguments[4][115][0].apply(exports,arguments)
-},{"../object/keysIn":644,"./baseFor":553,"dup":115}],555:[function(require,module,exports){
+},{"../object/keysIn":649,"./baseFor":558,"dup":115}],560:[function(require,module,exports){
 arguments[4][116][0].apply(exports,arguments)
-},{"../object/keys":643,"./baseFor":553,"dup":116}],556:[function(require,module,exports){
+},{"../object/keys":648,"./baseFor":558,"dup":116}],561:[function(require,module,exports){
 arguments[4][117][0].apply(exports,arguments)
-},{"./toObject":628,"dup":117}],557:[function(require,module,exports){
+},{"./toObject":633,"dup":117}],562:[function(require,module,exports){
 arguments[4][118][0].apply(exports,arguments)
-},{"./indexOfNaN":606,"dup":118}],558:[function(require,module,exports){
+},{"./indexOfNaN":611,"dup":118}],563:[function(require,module,exports){
 arguments[4][119][0].apply(exports,arguments)
-},{"../lang/isObject":637,"./baseIsEqualDeep":559,"./isObjectLike":616,"dup":119}],559:[function(require,module,exports){
+},{"../lang/isObject":642,"./baseIsEqualDeep":564,"./isObjectLike":621,"dup":119}],564:[function(require,module,exports){
 arguments[4][120][0].apply(exports,arguments)
-},{"../lang/isArray":633,"../lang/isTypedArray":640,"./equalArrays":598,"./equalByTag":599,"./equalObjects":600,"dup":120}],560:[function(require,module,exports){
+},{"../lang/isArray":638,"../lang/isTypedArray":645,"./equalArrays":603,"./equalByTag":604,"./equalObjects":605,"dup":120}],565:[function(require,module,exports){
 arguments[4][121][0].apply(exports,arguments)
-},{"./baseIsEqual":558,"./toObject":628,"dup":121}],561:[function(require,module,exports){
+},{"./baseIsEqual":563,"./toObject":633,"dup":121}],566:[function(require,module,exports){
 /**
  * The function whose prototype all chaining wrappers inherit from.
  *
@@ -73000,13 +76357,13 @@ function baseLodash() {
 
 module.exports = baseLodash;
 
-},{}],562:[function(require,module,exports){
+},{}],567:[function(require,module,exports){
 arguments[4][122][0].apply(exports,arguments)
-},{"./baseEach":547,"./isArrayLike":610,"dup":122}],563:[function(require,module,exports){
+},{"./baseEach":552,"./isArrayLike":615,"dup":122}],568:[function(require,module,exports){
 arguments[4][123][0].apply(exports,arguments)
-},{"./baseIsMatch":560,"./getMatchData":604,"./toObject":628,"dup":123}],564:[function(require,module,exports){
+},{"./baseIsMatch":565,"./getMatchData":609,"./toObject":633,"dup":123}],569:[function(require,module,exports){
 arguments[4][124][0].apply(exports,arguments)
-},{"../array/last":510,"../lang/isArray":633,"./baseGet":556,"./baseIsEqual":558,"./baseSlice":571,"./isKey":613,"./isStrictComparable":617,"./toObject":628,"./toPath":629,"dup":124}],565:[function(require,module,exports){
+},{"../array/last":515,"../lang/isArray":638,"./baseGet":561,"./baseIsEqual":563,"./baseSlice":576,"./isKey":618,"./isStrictComparable":622,"./toObject":633,"./toPath":634,"dup":124}],570:[function(require,module,exports){
 var arrayEach = require('./arrayEach'),
     baseMergeDeep = require('./baseMergeDeep'),
     isArray = require('../lang/isArray'),
@@ -73064,7 +76421,7 @@ function baseMerge(object, source, customizer, stackA, stackB) {
 
 module.exports = baseMerge;
 
-},{"../lang/isArray":633,"../lang/isObject":637,"../lang/isTypedArray":640,"../object/keys":643,"./arrayEach":533,"./baseMergeDeep":566,"./isArrayLike":610,"./isObjectLike":616}],566:[function(require,module,exports){
+},{"../lang/isArray":638,"../lang/isObject":642,"../lang/isTypedArray":645,"../object/keys":648,"./arrayEach":538,"./baseMergeDeep":571,"./isArrayLike":615,"./isObjectLike":621}],571:[function(require,module,exports){
 var arrayCopy = require('./arrayCopy'),
     isArguments = require('../lang/isArguments'),
     isArray = require('../lang/isArray'),
@@ -73133,13 +76490,13 @@ function baseMergeDeep(object, source, key, mergeFunc, customizer, stackA, stack
 
 module.exports = baseMergeDeep;
 
-},{"../lang/isArguments":632,"../lang/isArray":633,"../lang/isPlainObject":638,"../lang/isTypedArray":640,"../lang/toPlainObject":641,"./arrayCopy":532,"./isArrayLike":610}],567:[function(require,module,exports){
+},{"../lang/isArguments":637,"../lang/isArray":638,"../lang/isPlainObject":643,"../lang/isTypedArray":645,"../lang/toPlainObject":646,"./arrayCopy":537,"./isArrayLike":615}],572:[function(require,module,exports){
 arguments[4][125][0].apply(exports,arguments)
-},{"dup":125}],568:[function(require,module,exports){
+},{"dup":125}],573:[function(require,module,exports){
 arguments[4][126][0].apply(exports,arguments)
-},{"./baseGet":556,"./toPath":629,"dup":126}],569:[function(require,module,exports){
+},{"./baseGet":561,"./toPath":634,"dup":126}],574:[function(require,module,exports){
 arguments[4][127][0].apply(exports,arguments)
-},{"dup":127}],570:[function(require,module,exports){
+},{"dup":127}],575:[function(require,module,exports){
 var identity = require('../utility/identity'),
     metaMap = require('./metaMap');
 
@@ -73158,11 +76515,11 @@ var baseSetData = !metaMap ? identity : function(func, data) {
 
 module.exports = baseSetData;
 
-},{"../utility/identity":649,"./metaMap":619}],571:[function(require,module,exports){
+},{"../utility/identity":654,"./metaMap":624}],576:[function(require,module,exports){
 arguments[4][128][0].apply(exports,arguments)
-},{"dup":128}],572:[function(require,module,exports){
+},{"dup":128}],577:[function(require,module,exports){
 arguments[4][129][0].apply(exports,arguments)
-},{"./baseEach":547,"dup":129}],573:[function(require,module,exports){
+},{"./baseEach":552,"dup":129}],578:[function(require,module,exports){
 /**
  * The base implementation of `_.sortBy` which uses `comparer` to define
  * the sort order of `array` and replaces criteria objects with their
@@ -73185,9 +76542,9 @@ function baseSortBy(array, comparer) {
 
 module.exports = baseSortBy;
 
-},{}],574:[function(require,module,exports){
+},{}],579:[function(require,module,exports){
 arguments[4][130][0].apply(exports,arguments)
-},{"dup":130}],575:[function(require,module,exports){
+},{"dup":130}],580:[function(require,module,exports){
 var baseIndexOf = require('./baseIndexOf'),
     cacheIndexOf = require('./cacheIndexOf'),
     createCache = require('./createCache');
@@ -73249,11 +76606,11 @@ function baseUniq(array, iteratee) {
 
 module.exports = baseUniq;
 
-},{"./baseIndexOf":557,"./cacheIndexOf":579,"./createCache":589}],576:[function(require,module,exports){
+},{"./baseIndexOf":562,"./cacheIndexOf":584,"./createCache":594}],581:[function(require,module,exports){
 arguments[4][131][0].apply(exports,arguments)
-},{"dup":131}],577:[function(require,module,exports){
+},{"dup":131}],582:[function(require,module,exports){
 arguments[4][132][0].apply(exports,arguments)
-},{"../utility/identity":649,"dup":132}],578:[function(require,module,exports){
+},{"../utility/identity":654,"dup":132}],583:[function(require,module,exports){
 (function (global){
 /** Native method references. */
 var ArrayBuffer = global.ArrayBuffer,
@@ -73277,11 +76634,11 @@ function bufferClone(buffer) {
 module.exports = bufferClone;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],579:[function(require,module,exports){
+},{}],584:[function(require,module,exports){
 arguments[4][133][0].apply(exports,arguments)
-},{"../lang/isObject":637,"dup":133}],580:[function(require,module,exports){
+},{"../lang/isObject":642,"dup":133}],585:[function(require,module,exports){
 arguments[4][134][0].apply(exports,arguments)
-},{"../lang/isObject":637,"dup":134}],581:[function(require,module,exports){
+},{"../lang/isObject":642,"dup":134}],586:[function(require,module,exports){
 var baseCompareAscending = require('./baseCompareAscending');
 
 /**
@@ -73299,7 +76656,7 @@ function compareAscending(object, other) {
 
 module.exports = compareAscending;
 
-},{"./baseCompareAscending":544}],582:[function(require,module,exports){
+},{"./baseCompareAscending":549}],587:[function(require,module,exports){
 /* Native method references for those with the same name as other `lodash` methods. */
 var nativeMax = Math.max;
 
@@ -73335,7 +76692,7 @@ function composeArgs(args, partials, holders) {
 
 module.exports = composeArgs;
 
-},{}],583:[function(require,module,exports){
+},{}],588:[function(require,module,exports){
 /* Native method references for those with the same name as other `lodash` methods. */
 var nativeMax = Math.max;
 
@@ -73373,7 +76730,7 @@ function composeArgsRight(args, partials, holders) {
 
 module.exports = composeArgsRight;
 
-},{}],584:[function(require,module,exports){
+},{}],589:[function(require,module,exports){
 var baseCallback = require('./baseCallback'),
     baseEach = require('./baseEach'),
     isArray = require('../lang/isArray');
@@ -73410,13 +76767,13 @@ function createAggregator(setter, initializer) {
 
 module.exports = createAggregator;
 
-},{"../lang/isArray":633,"./baseCallback":542,"./baseEach":547}],585:[function(require,module,exports){
+},{"../lang/isArray":638,"./baseCallback":547,"./baseEach":552}],590:[function(require,module,exports){
 arguments[4][135][0].apply(exports,arguments)
-},{"../function/restParam":528,"./bindCallback":577,"./isIterateeCall":612,"dup":135}],586:[function(require,module,exports){
+},{"../function/restParam":533,"./bindCallback":582,"./isIterateeCall":617,"dup":135}],591:[function(require,module,exports){
 arguments[4][136][0].apply(exports,arguments)
-},{"./getLength":603,"./isLength":615,"./toObject":628,"dup":136}],587:[function(require,module,exports){
+},{"./getLength":608,"./isLength":620,"./toObject":633,"dup":136}],592:[function(require,module,exports){
 arguments[4][137][0].apply(exports,arguments)
-},{"./toObject":628,"dup":137}],588:[function(require,module,exports){
+},{"./toObject":633,"dup":137}],593:[function(require,module,exports){
 (function (global){
 var createCtorWrapper = require('./createCtorWrapper');
 
@@ -73442,9 +76799,9 @@ function createBindWrapper(func, thisArg) {
 module.exports = createBindWrapper;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./createCtorWrapper":590}],589:[function(require,module,exports){
+},{"./createCtorWrapper":595}],594:[function(require,module,exports){
 arguments[4][138][0].apply(exports,arguments)
-},{"./SetCache":531,"./getNative":605,"dup":138}],590:[function(require,module,exports){
+},{"./SetCache":536,"./getNative":610,"dup":138}],595:[function(require,module,exports){
 var baseCreate = require('./baseCreate'),
     isObject = require('../lang/isObject');
 
@@ -73483,9 +76840,9 @@ function createCtorWrapper(Ctor) {
 
 module.exports = createCtorWrapper;
 
-},{"../lang/isObject":637,"./baseCreate":546}],591:[function(require,module,exports){
+},{"../lang/isObject":642,"./baseCreate":551}],596:[function(require,module,exports){
 arguments[4][139][0].apply(exports,arguments)
-},{"../lang/isArray":633,"./baseCallback":542,"./baseFind":550,"./baseFindIndex":551,"dup":139}],592:[function(require,module,exports){
+},{"../lang/isArray":638,"./baseCallback":547,"./baseFind":555,"./baseFindIndex":556,"dup":139}],597:[function(require,module,exports){
 var baseCallback = require('./baseCallback'),
     baseFindIndex = require('./baseFindIndex');
 
@@ -73508,9 +76865,9 @@ function createFindIndex(fromRight) {
 
 module.exports = createFindIndex;
 
-},{"./baseCallback":542,"./baseFindIndex":551}],593:[function(require,module,exports){
+},{"./baseCallback":547,"./baseFindIndex":556}],598:[function(require,module,exports){
 arguments[4][140][0].apply(exports,arguments)
-},{"../lang/isArray":633,"./bindCallback":577,"dup":140}],594:[function(require,module,exports){
+},{"../lang/isArray":638,"./bindCallback":582,"dup":140}],599:[function(require,module,exports){
 (function (global){
 var arrayCopy = require('./arrayCopy'),
     composeArgs = require('./composeArgs'),
@@ -73625,7 +76982,7 @@ function createHybridWrapper(func, bitmask, thisArg, partials, holders, partials
 module.exports = createHybridWrapper;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./arrayCopy":532,"./composeArgs":582,"./composeArgsRight":583,"./createCtorWrapper":590,"./isLaziable":614,"./reorder":623,"./replaceHolders":624,"./setData":625}],595:[function(require,module,exports){
+},{"./arrayCopy":537,"./composeArgs":587,"./composeArgsRight":588,"./createCtorWrapper":595,"./isLaziable":619,"./reorder":628,"./replaceHolders":629,"./setData":630}],600:[function(require,module,exports){
 (function (global){
 var createCtorWrapper = require('./createCtorWrapper');
 
@@ -73672,9 +77029,9 @@ function createPartialWrapper(func, bitmask, thisArg, partials) {
 module.exports = createPartialWrapper;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./createCtorWrapper":590}],596:[function(require,module,exports){
+},{"./createCtorWrapper":595}],601:[function(require,module,exports){
 arguments[4][141][0].apply(exports,arguments)
-},{"../lang/isArray":633,"./baseCallback":542,"./baseReduce":569,"dup":141}],597:[function(require,module,exports){
+},{"../lang/isArray":638,"./baseCallback":547,"./baseReduce":574,"dup":141}],602:[function(require,module,exports){
 var baseSetData = require('./baseSetData'),
     createBindWrapper = require('./createBindWrapper'),
     createHybridWrapper = require('./createHybridWrapper'),
@@ -73762,13 +77119,13 @@ function createWrapper(func, bitmask, thisArg, partials, holders, argPos, ary, a
 
 module.exports = createWrapper;
 
-},{"./baseSetData":570,"./createBindWrapper":588,"./createHybridWrapper":594,"./createPartialWrapper":595,"./getData":601,"./mergeData":618,"./setData":625}],598:[function(require,module,exports){
+},{"./baseSetData":575,"./createBindWrapper":593,"./createHybridWrapper":599,"./createPartialWrapper":600,"./getData":606,"./mergeData":623,"./setData":630}],603:[function(require,module,exports){
 arguments[4][142][0].apply(exports,arguments)
-},{"./arraySome":539,"dup":142}],599:[function(require,module,exports){
+},{"./arraySome":544,"dup":142}],604:[function(require,module,exports){
 arguments[4][143][0].apply(exports,arguments)
-},{"dup":143}],600:[function(require,module,exports){
+},{"dup":143}],605:[function(require,module,exports){
 arguments[4][144][0].apply(exports,arguments)
-},{"../object/keys":643,"dup":144}],601:[function(require,module,exports){
+},{"../object/keys":648,"dup":144}],606:[function(require,module,exports){
 var metaMap = require('./metaMap'),
     noop = require('../utility/noop');
 
@@ -73785,7 +77142,7 @@ var getData = !metaMap ? noop : function(func) {
 
 module.exports = getData;
 
-},{"../utility/noop":650,"./metaMap":619}],602:[function(require,module,exports){
+},{"../utility/noop":655,"./metaMap":624}],607:[function(require,module,exports){
 var realNames = require('./realNames');
 
 /**
@@ -73812,15 +77169,15 @@ function getFuncName(func) {
 
 module.exports = getFuncName;
 
-},{"./realNames":622}],603:[function(require,module,exports){
+},{"./realNames":627}],608:[function(require,module,exports){
 arguments[4][145][0].apply(exports,arguments)
-},{"./baseProperty":567,"dup":145}],604:[function(require,module,exports){
+},{"./baseProperty":572,"dup":145}],609:[function(require,module,exports){
 arguments[4][146][0].apply(exports,arguments)
-},{"../object/pairs":646,"./isStrictComparable":617,"dup":146}],605:[function(require,module,exports){
+},{"../object/pairs":651,"./isStrictComparable":622,"dup":146}],610:[function(require,module,exports){
 arguments[4][147][0].apply(exports,arguments)
-},{"../lang/isNative":635,"dup":147}],606:[function(require,module,exports){
+},{"../lang/isNative":640,"dup":147}],611:[function(require,module,exports){
 arguments[4][148][0].apply(exports,arguments)
-},{"dup":148}],607:[function(require,module,exports){
+},{"dup":148}],612:[function(require,module,exports){
 /** Used for native method references. */
 var objectProto = Object.prototype;
 
@@ -73848,7 +77205,7 @@ function initCloneArray(array) {
 
 module.exports = initCloneArray;
 
-},{}],608:[function(require,module,exports){
+},{}],613:[function(require,module,exports){
 var bufferClone = require('./bufferClone');
 
 /** `Object#toString` result references. */
@@ -73913,7 +77270,7 @@ function initCloneByTag(object, tag, isDeep) {
 
 module.exports = initCloneByTag;
 
-},{"./bufferClone":578}],609:[function(require,module,exports){
+},{"./bufferClone":583}],614:[function(require,module,exports){
 /**
  * Initializes an object clone.
  *
@@ -73931,15 +77288,15 @@ function initCloneObject(object) {
 
 module.exports = initCloneObject;
 
-},{}],610:[function(require,module,exports){
+},{}],615:[function(require,module,exports){
 arguments[4][149][0].apply(exports,arguments)
-},{"./getLength":603,"./isLength":615,"dup":149}],611:[function(require,module,exports){
+},{"./getLength":608,"./isLength":620,"dup":149}],616:[function(require,module,exports){
 arguments[4][150][0].apply(exports,arguments)
-},{"dup":150}],612:[function(require,module,exports){
+},{"dup":150}],617:[function(require,module,exports){
 arguments[4][151][0].apply(exports,arguments)
-},{"../lang/isObject":637,"./isArrayLike":610,"./isIndex":611,"dup":151}],613:[function(require,module,exports){
+},{"../lang/isObject":642,"./isArrayLike":615,"./isIndex":616,"dup":151}],618:[function(require,module,exports){
 arguments[4][152][0].apply(exports,arguments)
-},{"../lang/isArray":633,"./toObject":628,"dup":152}],614:[function(require,module,exports){
+},{"../lang/isArray":638,"./toObject":633,"dup":152}],619:[function(require,module,exports){
 var LazyWrapper = require('./LazyWrapper'),
     getData = require('./getData'),
     getFuncName = require('./getFuncName'),
@@ -73968,13 +77325,13 @@ function isLaziable(func) {
 
 module.exports = isLaziable;
 
-},{"../chain/lodash":513,"./LazyWrapper":529,"./getData":601,"./getFuncName":602}],615:[function(require,module,exports){
+},{"../chain/lodash":518,"./LazyWrapper":534,"./getData":606,"./getFuncName":607}],620:[function(require,module,exports){
 arguments[4][153][0].apply(exports,arguments)
-},{"dup":153}],616:[function(require,module,exports){
+},{"dup":153}],621:[function(require,module,exports){
 arguments[4][154][0].apply(exports,arguments)
-},{"dup":154}],617:[function(require,module,exports){
+},{"dup":154}],622:[function(require,module,exports){
 arguments[4][155][0].apply(exports,arguments)
-},{"../lang/isObject":637,"dup":155}],618:[function(require,module,exports){
+},{"../lang/isObject":642,"dup":155}],623:[function(require,module,exports){
 var arrayCopy = require('./arrayCopy'),
     composeArgs = require('./composeArgs'),
     composeArgsRight = require('./composeArgsRight'),
@@ -74065,7 +77422,7 @@ function mergeData(data, source) {
 
 module.exports = mergeData;
 
-},{"./arrayCopy":532,"./composeArgs":582,"./composeArgsRight":583,"./replaceHolders":624}],619:[function(require,module,exports){
+},{"./arrayCopy":537,"./composeArgs":587,"./composeArgsRight":588,"./replaceHolders":629}],624:[function(require,module,exports){
 (function (global){
 var getNative = require('./getNative');
 
@@ -74078,17 +77435,17 @@ var metaMap = WeakMap && new WeakMap;
 module.exports = metaMap;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./getNative":605}],620:[function(require,module,exports){
+},{"./getNative":610}],625:[function(require,module,exports){
 arguments[4][156][0].apply(exports,arguments)
-},{"./toObject":628,"dup":156}],621:[function(require,module,exports){
+},{"./toObject":633,"dup":156}],626:[function(require,module,exports){
 arguments[4][157][0].apply(exports,arguments)
-},{"./baseForIn":554,"dup":157}],622:[function(require,module,exports){
+},{"./baseForIn":559,"dup":157}],627:[function(require,module,exports){
 /** Used to lookup unminified function names. */
 var realNames = {};
 
 module.exports = realNames;
 
-},{}],623:[function(require,module,exports){
+},{}],628:[function(require,module,exports){
 var arrayCopy = require('./arrayCopy'),
     isIndex = require('./isIndex');
 
@@ -74119,7 +77476,7 @@ function reorder(array, indexes) {
 
 module.exports = reorder;
 
-},{"./arrayCopy":532,"./isIndex":611}],624:[function(require,module,exports){
+},{"./arrayCopy":537,"./isIndex":616}],629:[function(require,module,exports){
 /** Used as the internal argument placeholder. */
 var PLACEHOLDER = '__lodash_placeholder__';
 
@@ -74149,7 +77506,7 @@ function replaceHolders(array, placeholder) {
 
 module.exports = replaceHolders;
 
-},{}],625:[function(require,module,exports){
+},{}],630:[function(require,module,exports){
 var baseSetData = require('./baseSetData'),
     now = require('../date/now');
 
@@ -74192,9 +77549,9 @@ var setData = (function() {
 
 module.exports = setData;
 
-},{"../date/now":525,"./baseSetData":570}],626:[function(require,module,exports){
+},{"../date/now":530,"./baseSetData":575}],631:[function(require,module,exports){
 arguments[4][158][0].apply(exports,arguments)
-},{"../lang/isArguments":632,"../lang/isArray":633,"../object/keysIn":644,"./isIndex":611,"./isLength":615,"dup":158}],627:[function(require,module,exports){
+},{"../lang/isArguments":637,"../lang/isArray":638,"../object/keysIn":649,"./isIndex":616,"./isLength":620,"dup":158}],632:[function(require,module,exports){
 /**
  * An implementation of `_.uniq` optimized for sorted arrays without support
  * for callback shorthands and `this` binding.
@@ -74225,11 +77582,11 @@ function sortedUniq(array, iteratee) {
 
 module.exports = sortedUniq;
 
-},{}],628:[function(require,module,exports){
+},{}],633:[function(require,module,exports){
 arguments[4][159][0].apply(exports,arguments)
-},{"../lang/isObject":637,"dup":159}],629:[function(require,module,exports){
+},{"../lang/isObject":642,"dup":159}],634:[function(require,module,exports){
 arguments[4][160][0].apply(exports,arguments)
-},{"../lang/isArray":633,"./baseToString":574,"dup":160}],630:[function(require,module,exports){
+},{"../lang/isArray":638,"./baseToString":579,"dup":160}],635:[function(require,module,exports){
 var LazyWrapper = require('./LazyWrapper'),
     LodashWrapper = require('./LodashWrapper'),
     arrayCopy = require('./arrayCopy');
@@ -74249,7 +77606,7 @@ function wrapperClone(wrapper) {
 
 module.exports = wrapperClone;
 
-},{"./LazyWrapper":529,"./LodashWrapper":530,"./arrayCopy":532}],631:[function(require,module,exports){
+},{"./LazyWrapper":534,"./LodashWrapper":535,"./arrayCopy":537}],636:[function(require,module,exports){
 var baseClone = require('../internal/baseClone'),
     bindCallback = require('../internal/bindCallback'),
     isIterateeCall = require('../internal/isIterateeCall');
@@ -74321,19 +77678,19 @@ function clone(value, isDeep, customizer, thisArg) {
 
 module.exports = clone;
 
-},{"../internal/baseClone":543,"../internal/bindCallback":577,"../internal/isIterateeCall":612}],632:[function(require,module,exports){
+},{"../internal/baseClone":548,"../internal/bindCallback":582,"../internal/isIterateeCall":617}],637:[function(require,module,exports){
 arguments[4][161][0].apply(exports,arguments)
-},{"../internal/isArrayLike":610,"../internal/isObjectLike":616,"dup":161}],633:[function(require,module,exports){
+},{"../internal/isArrayLike":615,"../internal/isObjectLike":621,"dup":161}],638:[function(require,module,exports){
 arguments[4][162][0].apply(exports,arguments)
-},{"../internal/getNative":605,"../internal/isLength":615,"../internal/isObjectLike":616,"dup":162}],634:[function(require,module,exports){
+},{"../internal/getNative":610,"../internal/isLength":620,"../internal/isObjectLike":621,"dup":162}],639:[function(require,module,exports){
 arguments[4][163][0].apply(exports,arguments)
-},{"./isObject":637,"dup":163}],635:[function(require,module,exports){
+},{"./isObject":642,"dup":163}],640:[function(require,module,exports){
 arguments[4][164][0].apply(exports,arguments)
-},{"../internal/isObjectLike":616,"./isFunction":634,"dup":164}],636:[function(require,module,exports){
+},{"../internal/isObjectLike":621,"./isFunction":639,"dup":164}],641:[function(require,module,exports){
 arguments[4][165][0].apply(exports,arguments)
-},{"../internal/isObjectLike":616,"dup":165}],637:[function(require,module,exports){
+},{"../internal/isObjectLike":621,"dup":165}],642:[function(require,module,exports){
 arguments[4][166][0].apply(exports,arguments)
-},{"dup":166}],638:[function(require,module,exports){
+},{"dup":166}],643:[function(require,module,exports){
 var baseForIn = require('../internal/baseForIn'),
     isArguments = require('./isArguments'),
     isObjectLike = require('../internal/isObjectLike');
@@ -74406,11 +77763,11 @@ function isPlainObject(value) {
 
 module.exports = isPlainObject;
 
-},{"../internal/baseForIn":554,"../internal/isObjectLike":616,"./isArguments":632}],639:[function(require,module,exports){
+},{"../internal/baseForIn":559,"../internal/isObjectLike":621,"./isArguments":637}],644:[function(require,module,exports){
 arguments[4][167][0].apply(exports,arguments)
-},{"../internal/isObjectLike":616,"dup":167}],640:[function(require,module,exports){
+},{"../internal/isObjectLike":621,"dup":167}],645:[function(require,module,exports){
 arguments[4][168][0].apply(exports,arguments)
-},{"../internal/isLength":615,"../internal/isObjectLike":616,"dup":168}],641:[function(require,module,exports){
+},{"../internal/isLength":620,"../internal/isObjectLike":621,"dup":168}],646:[function(require,module,exports){
 var baseCopy = require('../internal/baseCopy'),
     keysIn = require('../object/keysIn');
 
@@ -74443,13 +77800,13 @@ function toPlainObject(value) {
 
 module.exports = toPlainObject;
 
-},{"../internal/baseCopy":545,"../object/keysIn":644}],642:[function(require,module,exports){
+},{"../internal/baseCopy":550,"../object/keysIn":649}],647:[function(require,module,exports){
 arguments[4][169][0].apply(exports,arguments)
-},{"../internal/assignWith":540,"../internal/baseAssign":541,"../internal/createAssigner":585,"dup":169}],643:[function(require,module,exports){
+},{"../internal/assignWith":545,"../internal/baseAssign":546,"../internal/createAssigner":590,"dup":169}],648:[function(require,module,exports){
 arguments[4][170][0].apply(exports,arguments)
-},{"../internal/getNative":605,"../internal/isArrayLike":610,"../internal/shimKeys":626,"../lang/isObject":637,"dup":170}],644:[function(require,module,exports){
+},{"../internal/getNative":610,"../internal/isArrayLike":615,"../internal/shimKeys":631,"../lang/isObject":642,"dup":170}],649:[function(require,module,exports){
 arguments[4][171][0].apply(exports,arguments)
-},{"../internal/isIndex":611,"../internal/isLength":615,"../lang/isArguments":632,"../lang/isArray":633,"../lang/isObject":637,"dup":171}],645:[function(require,module,exports){
+},{"../internal/isIndex":616,"../internal/isLength":620,"../lang/isArguments":637,"../lang/isArray":638,"../lang/isObject":642,"dup":171}],650:[function(require,module,exports){
 var baseMerge = require('../internal/baseMerge'),
     createAssigner = require('../internal/createAssigner');
 
@@ -74505,15 +77862,15 @@ var merge = createAssigner(baseMerge);
 
 module.exports = merge;
 
-},{"../internal/baseMerge":565,"../internal/createAssigner":585}],646:[function(require,module,exports){
+},{"../internal/baseMerge":570,"../internal/createAssigner":590}],651:[function(require,module,exports){
 arguments[4][173][0].apply(exports,arguments)
-},{"../internal/toObject":628,"./keys":643,"dup":173}],647:[function(require,module,exports){
+},{"../internal/toObject":633,"./keys":648,"dup":173}],652:[function(require,module,exports){
 arguments[4][174][0].apply(exports,arguments)
-},{"../function/restParam":528,"../internal/baseFlatten":552,"../internal/bindCallback":577,"../internal/pickByArray":620,"../internal/pickByCallback":621,"dup":174}],648:[function(require,module,exports){
+},{"../function/restParam":533,"../internal/baseFlatten":557,"../internal/bindCallback":582,"../internal/pickByArray":625,"../internal/pickByCallback":626,"dup":174}],653:[function(require,module,exports){
 arguments[4][175][0].apply(exports,arguments)
-},{"../internal/baseValues":576,"./keys":643,"dup":175}],649:[function(require,module,exports){
+},{"../internal/baseValues":581,"./keys":648,"dup":175}],654:[function(require,module,exports){
 arguments[4][176][0].apply(exports,arguments)
-},{"dup":176}],650:[function(require,module,exports){
+},{"dup":176}],655:[function(require,module,exports){
 /**
  * A no-operation function that returns `undefined` regardless of the
  * arguments it receives.
@@ -74534,9 +77891,9 @@ function noop() {
 
 module.exports = noop;
 
-},{}],651:[function(require,module,exports){
+},{}],656:[function(require,module,exports){
 arguments[4][177][0].apply(exports,arguments)
-},{"../internal/baseProperty":567,"../internal/basePropertyDeep":568,"../internal/isKey":613,"dup":177}],652:[function(require,module,exports){
+},{"../internal/baseProperty":572,"../internal/basePropertyDeep":573,"../internal/isKey":618,"dup":177}],657:[function(require,module,exports){
 /**
  * Set attribute `name` to `val`, or get attr `name`.
  *
@@ -74562,9 +77919,9 @@ module.exports = function(el, name, val) {
 
   return el;
 };
-},{}],653:[function(require,module,exports){
+},{}],658:[function(require,module,exports){
 module.exports = require('component-classes');
-},{"component-classes":662}],654:[function(require,module,exports){
+},{"component-classes":667}],659:[function(require,module,exports){
 module.exports = function(el) {
 
   var c;
@@ -74576,21 +77933,21 @@ module.exports = function(el) {
 
   return el;
 };
-},{}],655:[function(require,module,exports){
+},{}],660:[function(require,module,exports){
 module.exports = require('component-closest');
-},{"component-closest":664}],656:[function(require,module,exports){
+},{"component-closest":669}],661:[function(require,module,exports){
 arguments[4][178][0].apply(exports,arguments)
-},{"component-delegate":665,"dup":178}],657:[function(require,module,exports){
+},{"component-delegate":670,"dup":178}],662:[function(require,module,exports){
 arguments[4][179][0].apply(exports,arguments)
-},{"domify":669,"dup":179}],658:[function(require,module,exports){
+},{"domify":674,"dup":179}],663:[function(require,module,exports){
 arguments[4][180][0].apply(exports,arguments)
-},{"component-event":666,"dup":180}],659:[function(require,module,exports){
+},{"component-event":671,"dup":180}],664:[function(require,module,exports){
 module.exports = require('component-matches-selector');
-},{"component-matches-selector":667}],660:[function(require,module,exports){
+},{"component-matches-selector":672}],665:[function(require,module,exports){
 arguments[4][181][0].apply(exports,arguments)
-},{"component-query":668,"dup":181}],661:[function(require,module,exports){
+},{"component-query":673,"dup":181}],666:[function(require,module,exports){
 arguments[4][182][0].apply(exports,arguments)
-},{"dup":182}],662:[function(require,module,exports){
+},{"dup":182}],667:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -74783,7 +78140,7 @@ ClassList.prototype.contains = function(name){
     : !! ~index(this.array(), name);
 };
 
-},{"component-indexof":663,"indexof":663}],663:[function(require,module,exports){
+},{"component-indexof":668,"indexof":668}],668:[function(require,module,exports){
 module.exports = function(arr, obj){
   if (arr.indexOf) return arr.indexOf(obj);
   for (var i = 0; i < arr.length; ++i) {
@@ -74791,43 +78148,43 @@ module.exports = function(arr, obj){
   }
   return -1;
 };
-},{}],664:[function(require,module,exports){
+},{}],669:[function(require,module,exports){
 arguments[4][183][0].apply(exports,arguments)
-},{"dup":183,"matches-selector":667}],665:[function(require,module,exports){
+},{"dup":183,"matches-selector":672}],670:[function(require,module,exports){
 arguments[4][184][0].apply(exports,arguments)
-},{"closest":664,"component-closest":664,"component-event":666,"dup":184,"event":666}],666:[function(require,module,exports){
+},{"closest":669,"component-closest":669,"component-event":671,"dup":184,"event":671}],671:[function(require,module,exports){
 arguments[4][185][0].apply(exports,arguments)
-},{"dup":185}],667:[function(require,module,exports){
+},{"dup":185}],672:[function(require,module,exports){
 arguments[4][186][0].apply(exports,arguments)
-},{"component-query":668,"dup":186,"query":668}],668:[function(require,module,exports){
+},{"component-query":673,"dup":186,"query":673}],673:[function(require,module,exports){
 arguments[4][187][0].apply(exports,arguments)
-},{"dup":187}],669:[function(require,module,exports){
+},{"dup":187}],674:[function(require,module,exports){
 arguments[4][188][0].apply(exports,arguments)
-},{"dup":188}],670:[function(require,module,exports){
+},{"dup":188}],675:[function(require,module,exports){
 arguments[4][189][0].apply(exports,arguments)
-},{"./lib/collection":671,"./lib/refs":672,"dup":189}],671:[function(require,module,exports){
+},{"./lib/collection":676,"./lib/refs":677,"dup":189}],676:[function(require,module,exports){
 arguments[4][190][0].apply(exports,arguments)
-},{"dup":190}],672:[function(require,module,exports){
+},{"dup":190}],677:[function(require,module,exports){
 arguments[4][191][0].apply(exports,arguments)
-},{"./collection":671,"dup":191}],673:[function(require,module,exports){
+},{"./collection":676,"dup":191}],678:[function(require,module,exports){
 arguments[4][192][0].apply(exports,arguments)
-},{"./appendTo":674,"dup":192}],674:[function(require,module,exports){
+},{"./appendTo":679,"dup":192}],679:[function(require,module,exports){
 arguments[4][193][0].apply(exports,arguments)
-},{"./util/ensureImported":683,"dup":193}],675:[function(require,module,exports){
+},{"./util/ensureImported":688,"dup":193}],680:[function(require,module,exports){
 arguments[4][194][0].apply(exports,arguments)
-},{"dup":194}],676:[function(require,module,exports){
+},{"dup":194}],681:[function(require,module,exports){
 arguments[4][195][0].apply(exports,arguments)
-},{"dup":195}],677:[function(require,module,exports){
+},{"dup":195}],682:[function(require,module,exports){
 arguments[4][196][0].apply(exports,arguments)
-},{"./remove":681,"dup":196}],678:[function(require,module,exports){
+},{"./remove":686,"dup":196}],683:[function(require,module,exports){
 module.exports = clone;
 
 function clone(element) {
   return element.cloneNode(true);
 }
-},{}],679:[function(require,module,exports){
+},{}],684:[function(require,module,exports){
 arguments[4][197][0].apply(exports,arguments)
-},{"./attr":675,"./util/ns":684,"./util/parse":685,"dup":197}],680:[function(require,module,exports){
+},{"./attr":680,"./util/ns":689,"./util/parse":690,"dup":197}],685:[function(require,module,exports){
 /**
  * Geometry helpers
  */
@@ -74896,9 +78253,9 @@ function createTransform(matrix) {
     return node.createSVGTransform();
   }
 }
-},{"./create":679}],681:[function(require,module,exports){
+},{"./create":684}],686:[function(require,module,exports){
 arguments[4][199][0].apply(exports,arguments)
-},{"dup":199}],682:[function(require,module,exports){
+},{"dup":199}],687:[function(require,module,exports){
 /**
  * transform accessor utility
  */
@@ -74938,13 +78295,13 @@ function transform(node, transforms) {
     }
   }
 }
-},{}],683:[function(require,module,exports){
+},{}],688:[function(require,module,exports){
 arguments[4][200][0].apply(exports,arguments)
-},{"dup":200}],684:[function(require,module,exports){
+},{"dup":200}],689:[function(require,module,exports){
 arguments[4][201][0].apply(exports,arguments)
-},{"dup":201}],685:[function(require,module,exports){
+},{"dup":201}],690:[function(require,module,exports){
 arguments[4][202][0].apply(exports,arguments)
-},{"./ns":684,"dup":202}],686:[function(require,module,exports){
+},{"./ns":689,"dup":202}],691:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -75185,7 +78542,7 @@ Modeler.prototype._modules = [].concat(
   Modeler.prototype._interactionModules,
   Modeler.prototype._modelingModules);
 
-},{"./Viewer":688,"./features/context-pad":695,"./features/definition-id/modeler":698,"./features/editor-actions":703,"./features/keyboard":705,"./features/label-editing":709,"./features/modeling":721,"./features/palette":723,"./table/Modeler":737,"diagram-js/lib/features/bendpoints":391,"diagram-js/lib/features/move":444,"diagram-js/lib/features/overlays":448,"diagram-js/lib/navigation/movecanvas":477,"diagram-js/lib/navigation/touch":478,"diagram-js/lib/navigation/zoomscroll":481,"ids":851,"inherits":853,"lodash/object/assign":976}],687:[function(require,module,exports){
+},{"./Viewer":693,"./features/context-pad":700,"./features/definition-id/modeler":703,"./features/editor-actions":708,"./features/keyboard":710,"./features/label-editing":714,"./features/modeling":726,"./features/palette":728,"./table/Modeler":742,"diagram-js/lib/features/bendpoints":396,"diagram-js/lib/features/move":449,"diagram-js/lib/features/overlays":453,"diagram-js/lib/navigation/movecanvas":482,"diagram-js/lib/navigation/touch":483,"diagram-js/lib/navigation/zoomscroll":486,"ids":856,"inherits":858,"lodash/object/assign":981}],692:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -75215,7 +78572,7 @@ NavigatedViewer.prototype._modules = [].concat(
   NavigatedViewer.prototype._modules,
   NavigatedViewer.prototype._navigationModules);
 
-},{"./Viewer":688,"diagram-js/lib/navigation/movecanvas":477,"diagram-js/lib/navigation/zoomscroll":481,"inherits":853}],688:[function(require,module,exports){
+},{"./Viewer":693,"diagram-js/lib/navigation/movecanvas":482,"diagram-js/lib/navigation/zoomscroll":486,"inherits":858}],693:[function(require,module,exports){
 /**
  * The code in the <project-logo></project-logo> area
  * must not be changed.
@@ -75800,7 +79157,7 @@ function addProjectLogo(container) {
 
 /* </project-logo> */
 
-},{"./core":689,"./features/definition-id/viewer":699,"./features/drill-down":701,"./features/rules":730,"./import/Importer":735,"./table/Viewer":738,"./util/ModelUtil":825,"./util/PoweredByUtil":826,"diagram-js":371,"diagram-js/lib/features/overlays":448,"diagram-js/lib/features/selection":463,"diagram-js/lib/i18n/translate":470,"dmn-moddle":830,"inherits":853,"lodash/collection/filter":861,"lodash/lang/isNumber":972,"lodash/lang/isString":974,"lodash/object/assign":976,"lodash/object/omit":979,"min-dom/lib/domify":989,"min-dom/lib/event":990,"min-dom/lib/query":992,"min-dom/lib/remove":993,"tiny-svg/lib/innerSVG":1077}],689:[function(require,module,exports){
+},{"./core":694,"./features/definition-id/viewer":704,"./features/drill-down":706,"./features/rules":735,"./import/Importer":740,"./table/Viewer":743,"./util/ModelUtil":830,"./util/PoweredByUtil":831,"diagram-js":376,"diagram-js/lib/features/overlays":453,"diagram-js/lib/features/selection":468,"diagram-js/lib/i18n/translate":475,"dmn-moddle":835,"inherits":858,"lodash/collection/filter":866,"lodash/lang/isNumber":977,"lodash/lang/isString":979,"lodash/object/assign":981,"lodash/object/omit":984,"min-dom/lib/domify":994,"min-dom/lib/event":995,"min-dom/lib/query":997,"min-dom/lib/remove":998,"tiny-svg/lib/innerSVG":1082}],694:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -75810,7 +79167,7 @@ module.exports = {
   ]
 };
 
-},{"../draw":693,"../import":736}],690:[function(require,module,exports){
+},{"../draw":698,"../import":741}],695:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -75843,7 +79200,7 @@ DecisionLabelUpdater.prototype.updateDecisionLabels = function(context) {
 
 };
 
-},{"lodash/collection/forEach":863}],691:[function(require,module,exports){
+},{"lodash/collection/forEach":868}],696:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits'),
@@ -76286,7 +79643,7 @@ function getSemantic(element) {
   return element.businessObject;
 }
 
-},{"../util/ModelUtil":825,"diagram-js/lib/draw/BaseRenderer":382,"diagram-js/lib/util/RenderUtil":499,"diagram-js/lib/util/Text":501,"inherits":853,"lodash/lang/isArray":969,"lodash/lang/isObject":973,"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/query":992,"tiny-svg/lib/append":1072,"tiny-svg/lib/attr":1074,"tiny-svg/lib/create":1076}],692:[function(require,module,exports){
+},{"../util/ModelUtil":830,"diagram-js/lib/draw/BaseRenderer":387,"diagram-js/lib/util/RenderUtil":504,"diagram-js/lib/util/Text":506,"inherits":858,"lodash/lang/isArray":974,"lodash/lang/isObject":978,"lodash/object/assign":981,"min-dom/lib/classes":992,"min-dom/lib/query":997,"tiny-svg/lib/append":1077,"tiny-svg/lib/attr":1079,"tiny-svg/lib/create":1081}],697:[function(require,module,exports){
 'use strict';
 
 /**
@@ -76490,7 +79847,7 @@ function format(str, obj) {
   });
 }
 
-},{}],693:[function(require,module,exports){
+},{}],698:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -76500,7 +79857,7 @@ module.exports = {
   decisionLabelUpdater: [ 'type', require('./DecisionLabelUpdater') ]
 };
 
-},{"./DecisionLabelUpdater":690,"./DrdRenderer":691,"./PathMap":692}],694:[function(require,module,exports){
+},{"./DecisionLabelUpdater":695,"./DrdRenderer":696,"./PathMap":697}],699:[function(require,module,exports){
 'use strict';
 
 
@@ -76743,7 +80100,7 @@ ContextPadProvider.prototype.getContextPadEntries = function(element) {
   return actions;
 };
 
-},{"../../util/ModelUtil":825,"diagram-js/lib/util/Mouse":495,"lodash/lang/isArray":969,"lodash/object/assign":976}],695:[function(require,module,exports){
+},{"../../util/ModelUtil":830,"diagram-js/lib/util/Mouse":500,"lodash/lang/isArray":974,"lodash/object/assign":981}],700:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -76759,7 +80116,7 @@ module.exports = {
   contextPadProvider: [ 'type', require('./ContextPadProvider') ]
 };
 
-},{"../popup-menu":725,"./ContextPadProvider":694,"diagram-js/lib/features/connect":397,"diagram-js/lib/features/context-pad":399,"diagram-js/lib/features/create":403,"diagram-js/lib/features/selection":463,"diagram-js/lib/i18n/translate":470}],696:[function(require,module,exports){
+},{"../popup-menu":730,"./ContextPadProvider":699,"diagram-js/lib/features/connect":402,"diagram-js/lib/features/context-pad":404,"diagram-js/lib/features/create":408,"diagram-js/lib/features/selection":468,"diagram-js/lib/i18n/translate":475}],701:[function(require,module,exports){
 'use strict';
 
 var domQuery = require('min-dom/lib/query');
@@ -76808,7 +80165,7 @@ DefinitionIdEdit.prototype._setup = function(node, type) {
 
 };
 
-},{"min-dom/lib/query":992}],697:[function(require,module,exports){
+},{"min-dom/lib/query":997}],702:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -76871,21 +80228,21 @@ DefinitionIdView.HTML_MARKUP =
     '<div class="dmn-definitions-id" title="Definition ID"></div>' +
   '</div>';
 
-},{"min-dom/lib/delegate":988,"min-dom/lib/domify":989,"min-dom/lib/query":992}],698:[function(require,module,exports){
+},{"min-dom/lib/delegate":993,"min-dom/lib/domify":994,"min-dom/lib/query":997}],703:[function(require,module,exports){
 module.exports = {
   __depends__: [ ],
   __init__: [ 'definitionIdEdit' ],
   definitionIdEdit: [ 'type', require('./DefinitionIdEdit') ]
 };
 
-},{"./DefinitionIdEdit":696}],699:[function(require,module,exports){
+},{"./DefinitionIdEdit":701}],704:[function(require,module,exports){
 module.exports = {
   __depends__: [ ],
   __init__: [ 'definitionIdView' ],
   definitionIdView: [ 'type', require('./DefinitionIdView') ]
 };
 
-},{"./DefinitionIdView":697}],700:[function(require,module,exports){
+},{"./DefinitionIdView":702}],705:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -76949,7 +80306,7 @@ DrillDown.prototype.bindEventListener = function(decision, overlay, id) {
   });
 };
 
-},{"min-dom/lib/delegate":988,"min-dom/lib/domify":989}],701:[function(require,module,exports){
+},{"min-dom/lib/delegate":993,"min-dom/lib/domify":994}],706:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -76960,7 +80317,7 @@ module.exports = {
   drillDown: [ 'type', require('./DrillDown') ]
 };
 
-},{"./DrillDown":700,"diagram-js/lib/features/context-pad":399}],702:[function(require,module,exports){
+},{"./DrillDown":705,"diagram-js/lib/features/context-pad":404}],707:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -77014,7 +80371,7 @@ DrdEditorActions.$inject = [
 
 module.exports = DrdEditorActions;
 
-},{"diagram-js/lib/features/editor-actions/EditorActions":407,"inherits":853}],703:[function(require,module,exports){
+},{"diagram-js/lib/features/editor-actions/EditorActions":412,"inherits":858}],708:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -77025,7 +80382,7 @@ module.exports = {
   editorActions: [ 'type', require('./DrdEditorActions') ]
 };
 
-},{"./DrdEditorActions":702,"diagram-js/lib/features/editor-actions":408,"diagram-js/lib/features/lasso-tool":414}],704:[function(require,module,exports){
+},{"./DrdEditorActions":707,"diagram-js/lib/features/editor-actions":413,"diagram-js/lib/features/lasso-tool":419}],709:[function(require,module,exports){
 'use strict';
 
 /**
@@ -77072,7 +80429,7 @@ DrdKeyBindings.$inject = [
 
 module.exports = DrdKeyBindings;
 
-},{}],705:[function(require,module,exports){
+},{}],710:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -77083,7 +80440,7 @@ module.exports = {
   drdKeyBindings: [ 'type', require('./DrdKeyBindings') ]
 };
 
-},{"./DrdKeyBindings":704,"diagram-js/lib/features/keyboard":412}],706:[function(require,module,exports){
+},{"./DrdKeyBindings":709,"diagram-js/lib/features/keyboard":417}],711:[function(require,module,exports){
 'use strict';
 
 var UpdateLabelHandler = require('./cmd/UpdateLabelHandler');
@@ -77215,7 +80572,7 @@ LabelEditingProvider.prototype.update = function(element, newLabel) {
   });
 };
 
-},{"../../util/ModelUtil":825,"./LabelUtil":707,"./cmd/UpdateLabelHandler":708}],707:[function(require,module,exports){
+},{"../../util/ModelUtil":830,"./LabelUtil":712,"./cmd/UpdateLabelHandler":713}],712:[function(require,module,exports){
 'use strict';
 
 var is = require('../../util/ModelUtil').is;
@@ -77260,7 +80617,7 @@ module.exports.setLabel = function(element, text, isExternal) {
   return element;
 };
 
-},{"../../util/ModelUtil":825}],708:[function(require,module,exports){
+},{"../../util/ModelUtil":830}],713:[function(require,module,exports){
 'use strict';
 
 var LabelUtil = require('../LabelUtil');
@@ -77308,7 +80665,7 @@ function UpdateLabelHandler() {
 
 module.exports = UpdateLabelHandler;
 
-},{"../LabelUtil":707}],709:[function(require,module,exports){
+},{"../LabelUtil":712}],714:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('diagram-js/lib/command'),
@@ -77319,7 +80676,7 @@ module.exports = {
   labelEditingProvider: [ 'type', require('./LabelEditingProvider') ]
 };
 
-},{"./LabelEditingProvider":706,"diagram-js-direct-editing":827,"diagram-js/lib/command":375,"diagram-js/lib/features/change-support":393}],710:[function(require,module,exports){
+},{"./LabelEditingProvider":711,"diagram-js-direct-editing":832,"diagram-js/lib/command":380,"diagram-js/lib/features/change-support":398}],715:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -77385,7 +80742,7 @@ DrdFactory.prototype.createDiWaypoint = function(waypoint) {
 
 module.exports = DrdFactory;
 
-},{"lodash/collection/forEach":863}],711:[function(require,module,exports){
+},{"lodash/collection/forEach":868}],716:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -77433,7 +80790,7 @@ function getConnectionDocking(point, shape) {
   return point ? (point.original || point) : getMid(shape);
 }
 
-},{"diagram-js/lib/layout/BaseLayouter":472,"diagram-js/lib/layout/LayoutUtil":474,"inherits":853}],712:[function(require,module,exports){
+},{"diagram-js/lib/layout/BaseLayouter":477,"diagram-js/lib/layout/LayoutUtil":479,"inherits":858}],717:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -77829,7 +81186,7 @@ DrdUpdater.prototype.updateConnectionWaypoints = function(context) {
   });
 };
 
-},{"../../util/ModelUtil":825,"diagram-js/lib/command/CommandInterceptor":373,"diagram-js/lib/util/Collections":484,"inherits":853,"lodash/collection/forEach":863,"lodash/collection/map":865,"lodash/object/assign":976,"lodash/object/pick":981}],713:[function(require,module,exports){
+},{"../../util/ModelUtil":830,"diagram-js/lib/command/CommandInterceptor":378,"diagram-js/lib/util/Collections":489,"inherits":858,"lodash/collection/forEach":868,"lodash/collection/map":870,"lodash/object/assign":981,"lodash/object/pick":986}],718:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -77914,7 +81271,7 @@ ElementFactory.prototype._getDefaultSize = function(semantic) {
   return { width: 100, height: 80 };
 };
 
-},{"../../util/ModelUtil":825,"diagram-js/lib/core/ElementFactory":377,"inherits":853,"lodash/object/assign":976}],714:[function(require,module,exports){
+},{"../../util/ModelUtil":830,"diagram-js/lib/core/ElementFactory":382,"inherits":858,"lodash/object/assign":981}],719:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -77991,7 +81348,7 @@ Modeling.prototype.connect = function(source, target, attrs, hints) {
   return this.createConnection(source, target, attrs, rootElement, hints);
 };
 
-},{"./cmd/IdClaimHandler.js":719,"./cmd/UpdatePropertiesHandler.js":720,"diagram-js/lib/features/modeling/Modeling":415,"inherits":853}],715:[function(require,module,exports){
+},{"./cmd/IdClaimHandler.js":724,"./cmd/UpdatePropertiesHandler.js":725,"diagram-js/lib/features/modeling/Modeling":420,"inherits":858}],720:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -78074,7 +81431,7 @@ inherits(CreateConnectionBehavior, CommandInterceptor);
 
 module.exports = CreateConnectionBehavior;
 
-},{"../../../util/ModelUtil":825,"diagram-js/lib/command/CommandInterceptor":373,"diagram-js/lib/layout/LayoutUtil":474,"inherits":853}],716:[function(require,module,exports){
+},{"../../../util/ModelUtil":830,"diagram-js/lib/command/CommandInterceptor":378,"diagram-js/lib/layout/LayoutUtil":479,"inherits":858}],721:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -78141,7 +81498,7 @@ ReplaceConnectionBehavior.$inject = [ 'eventBus', 'modeling', 'drdRules' ];
 
 module.exports = ReplaceConnectionBehavior;
 
-},{"diagram-js/lib/command/CommandInterceptor":373,"inherits":853,"lodash/collection/filter":861}],717:[function(require,module,exports){
+},{"diagram-js/lib/command/CommandInterceptor":378,"inherits":858,"lodash/collection/filter":866}],722:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -78201,7 +81558,7 @@ ReplaceElementBehaviour.$inject = [ 'eventBus', 'modeling' ];
 
 module.exports = ReplaceElementBehaviour;
 
-},{"diagram-js/lib/command/CommandInterceptor":373,"inherits":853,"lodash/collection/filter":861,"lodash/collection/forEach":863}],718:[function(require,module,exports){
+},{"diagram-js/lib/command/CommandInterceptor":378,"inherits":858,"lodash/collection/filter":866,"lodash/collection/forEach":868}],723:[function(require,module,exports){
 module.exports = {
   __init__: [
     'createConnectionBehavior',
@@ -78213,7 +81570,7 @@ module.exports = {
   replaceElementBehavior: [ 'type', require('./ReplaceElementBehavior') ]
 };
 
-},{"./CreateConnectionBehavior":715,"./ReplaceConnectionBehavior":716,"./ReplaceElementBehavior":717}],719:[function(require,module,exports){
+},{"./CreateConnectionBehavior":720,"./ReplaceConnectionBehavior":721,"./ReplaceElementBehavior":722}],724:[function(require,module,exports){
 'use strict';
 
 
@@ -78255,7 +81612,7 @@ IdClaimHandler.prototype.revert = function(context) {
   }
 };
 
-},{}],720:[function(require,module,exports){
+},{}],725:[function(require,module,exports){
 'use strict';
 
 var reduce = require('lodash/object/transform'),
@@ -78386,7 +81743,7 @@ function setProperties(businessObject, properties) {
   });
 }
 
-},{"lodash/collection/forEach":863,"lodash/object/keys":977,"lodash/object/transform":982}],721:[function(require,module,exports){
+},{"lodash/collection/forEach":868,"lodash/object/keys":982,"lodash/object/transform":987}],726:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -78408,7 +81765,7 @@ module.exports = {
   connectionDocking: [ 'type', require('diagram-js/lib/layout/CroppingConnectionDocking') ]
 };
 
-},{"../definition-id/viewer":699,"../drill-down":701,"../rules":730,"./DrdFactory":710,"./DrdLayouter":711,"./DrdUpdater":712,"./ElementFactory":713,"./Modeling":714,"./behavior":718,"diagram-js/lib/command":375,"diagram-js/lib/features/change-support":393,"diagram-js/lib/features/selection":463,"diagram-js/lib/layout/CroppingConnectionDocking":473}],722:[function(require,module,exports){
+},{"../definition-id/viewer":704,"../drill-down":706,"../rules":735,"./DrdFactory":715,"./DrdLayouter":716,"./DrdUpdater":717,"./ElementFactory":718,"./Modeling":719,"./behavior":723,"diagram-js/lib/command":380,"diagram-js/lib/features/change-support":398,"diagram-js/lib/features/selection":468,"diagram-js/lib/layout/CroppingConnectionDocking":478}],727:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign');
@@ -78497,7 +81854,7 @@ PaletteProvider.prototype.getPaletteEntries = function(element) {
   return actions;
 };
 
-},{"lodash/object/assign":976}],723:[function(require,module,exports){
+},{"lodash/object/assign":981}],728:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('diagram-js/lib/i18n/translate'),
@@ -78509,7 +81866,7 @@ module.exports = {
   paletteProvider: [ 'type', require('./PaletteProvider') ]
 };
 
-},{"./PaletteProvider":722,"diagram-js/lib/features/create":403,"diagram-js/lib/features/lasso-tool":414,"diagram-js/lib/features/palette":450,"diagram-js/lib/i18n/translate":470}],724:[function(require,module,exports){
+},{"./PaletteProvider":727,"diagram-js/lib/features/create":408,"diagram-js/lib/features/lasso-tool":419,"diagram-js/lib/features/palette":455,"diagram-js/lib/i18n/translate":475}],729:[function(require,module,exports){
 'use strict';
 
 var is = require('../../util/ModelUtil').is;
@@ -78648,7 +82005,7 @@ ReplaceMenuProvider.prototype.getHeaderEntries = function(element) {
 
 module.exports = ReplaceMenuProvider;
 
-},{"../../util/ModelUtil":825,"../replace/ReplaceOptions":727,"lodash/collection/filter":861,"lodash/collection/forEach":863}],725:[function(require,module,exports){
+},{"../../util/ModelUtil":830,"../replace/ReplaceOptions":732,"lodash/collection/filter":866,"lodash/collection/forEach":868}],730:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('diagram-js/lib/i18n/translate'),
@@ -78659,7 +82016,7 @@ module.exports = {
   replaceMenuProvider: [ 'type', require('./ReplaceMenuProvider') ]
 };
 
-},{"../replace":728,"./ReplaceMenuProvider":724,"diagram-js/lib/features/popup-menu":452,"diagram-js/lib/i18n/translate":470}],726:[function(require,module,exports){
+},{"../replace":733,"./ReplaceMenuProvider":729,"diagram-js/lib/features/popup-menu":457,"diagram-js/lib/i18n/translate":475}],731:[function(require,module,exports){
 'use strict';
 
 /**
@@ -78722,7 +82079,7 @@ DrdReplace.$inject = [ 'drdFactory', 'replace', 'selection', 'modeling' ];
 
 module.exports = DrdReplace;
 
-},{}],727:[function(require,module,exports){
+},{}],732:[function(require,module,exports){
 'use strict';
 
 module.exports.DECISION = [
@@ -78758,7 +82115,7 @@ module.exports.DECISION = [
   }
 ];
 
-},{}],728:[function(require,module,exports){
+},{}],733:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('diagram-js/lib/features/replace'),
@@ -78767,7 +82124,7 @@ module.exports = {
   drdReplace: [ 'type', require('./DrdReplace') ]
 };
 
-},{"./DrdReplace":726,"diagram-js/lib/features/replace":456,"diagram-js/lib/features/selection":463}],729:[function(require,module,exports){
+},{"./DrdReplace":731,"diagram-js/lib/features/replace":461,"diagram-js/lib/features/selection":468}],734:[function(require,module,exports){
 'use strict';
 
 var ModelUtil = require('../../util/ModelUtil'),
@@ -78905,7 +82262,7 @@ function canDrillDown(element) {
   return false;
 }
 
-},{"../../util/ModelUtil":825,"diagram-js/lib/features/rules/RuleProvider":457,"inherits":853}],730:[function(require,module,exports){
+},{"../../util/ModelUtil":830,"diagram-js/lib/features/rules/RuleProvider":462,"inherits":858}],735:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -78916,7 +82273,7 @@ module.exports = {
   drdRules: [ 'type', require('./DrdRules') ]
 };
 
-},{"./DrdRules":729,"diagram-js/lib/features/rules":459}],731:[function(require,module,exports){
+},{"./DrdRules":734,"diagram-js/lib/features/rules":464}],736:[function(require,module,exports){
 'use strict';
 
 var FILTER_REGEX = /^\s*(?:'([^']+)')\s*(?:\|\s*(\w+)\s*)?$/g;
@@ -78960,7 +82317,7 @@ function ParseTemplateFactory(translate) {
 ParseTemplateFactory.$inject = [ 'translate' ];
 
 module.exports = ParseTemplateFactory;
-},{}],732:[function(require,module,exports){
+},{}],737:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -78970,7 +82327,7 @@ module.exports = {
   parseTemplate: [ 'factory', require('./ParseTemplateFactory') ]
 };
 
-},{"./ParseTemplateFactory":731,"diagram-js/lib/i18n/translate":470}],733:[function(require,module,exports){
+},{"./ParseTemplateFactory":736,"diagram-js/lib/i18n/translate":475}],738:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -79087,7 +82444,7 @@ DrdImporter.prototype._getShape = function(id) {
   return this._elementRegistry.get(id);
 };
 
-},{"../util/ModelUtil":825,"lodash/collection/map":865,"lodash/object/assign":976}],734:[function(require,module,exports){
+},{"../util/ModelUtil":830,"lodash/collection/map":870,"lodash/object/assign":981}],739:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -79230,7 +82587,7 @@ function DRDTreeWalker(handler, options) {
 
 module.exports = DRDTreeWalker;
 
-},{"../util/ModelUtil":825,"lodash/collection/find":862,"lodash/collection/forEach":863}],735:[function(require,module,exports){
+},{"../util/ModelUtil":830,"lodash/collection/find":867,"lodash/collection/forEach":868}],740:[function(require,module,exports){
 'use strict';
 
 var DrdTreeWalker = require('./DrdTreeWalker');
@@ -79294,14 +82651,14 @@ function importDRD(canvas, definitions, done) {
 
 module.exports.importDRD = importDRD;
 
-},{"./DrdTreeWalker":734}],736:[function(require,module,exports){
+},{"./DrdTreeWalker":739}],741:[function(require,module,exports){
 'use strict';
 
 module.exports = {
   drdImporter: [ 'type', require('./DrdImporter') ]
 };
 
-},{"./DrdImporter":733}],737:[function(require,module,exports){
+},{"./DrdImporter":738}],742:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -79497,7 +82854,7 @@ Modeler.prototype._modules = [].concat(
   Modeler.prototype._modules,
   Modeler.prototype._modelingModules);
 
-},{"./Viewer":738,"./features/column-drag":747,"./features/context-menu":749,"./features/date-edit/modeler":752,"./features/descriptions/editing":759,"./features/editor-actions":762,"./features/expression-language":764,"./features/modeling":796,"./features/number-edit":798,"./features/simple-editing":803,"./features/string-edit/modeler":808,"ids":851,"inherits":853,"lodash/object/assign":976,"table-js/lib/features/editing":1026,"table-js/lib/features/keyboard":1032,"table-js/lib/features/row-drag":1050}],738:[function(require,module,exports){
+},{"./Viewer":743,"./features/column-drag":752,"./features/context-menu":754,"./features/date-edit/modeler":757,"./features/descriptions/editing":764,"./features/editor-actions":767,"./features/expression-language":769,"./features/modeling":801,"./features/number-edit":803,"./features/simple-editing":808,"./features/string-edit/modeler":813,"ids":856,"inherits":858,"lodash/object/assign":981,"table-js/lib/features/editing":1031,"table-js/lib/features/keyboard":1037,"table-js/lib/features/row-drag":1055}],743:[function(require,module,exports){
 /**
  * The code in the <project-logo></project-logo> area
  * must not be changed.
@@ -79956,7 +83313,7 @@ function addProjectLogo(container) {
 
 /* </project-logo> */
 
-},{"../util/ModelUtil":825,"./../util/PoweredByUtil":826,"./core":739,"./features/annotations":744,"./features/date-edit/viewer":756,"./features/descriptions":760,"./features/hit-policy":770,"./features/io-label":774,"./features/literal-expression":777,"./features/mappings-row":781,"./features/simple-mode":805,"./features/string-edit/viewer":812,"./features/table-name":814,"./features/type-row":818,"./import/Importer":819,"diagram-js/lib/i18n/translate":470,"dmn-moddle":830,"inherits":853,"lodash/collection/filter":861,"lodash/lang/isString":974,"lodash/object/assign":976,"lodash/object/omit":979,"min-dom/lib/domify":989,"min-dom/lib/event":990,"min-dom/lib/query":992,"min-dom/lib/remove":993,"table-js":1003,"table-js/lib/features/combo-box":1018,"table-js/lib/features/complex-cell":1020,"table-js/lib/features/controls":1022,"table-js/lib/features/interaction-events":1030,"table-js/lib/features/line-numbers":1034}],739:[function(require,module,exports){
+},{"../util/ModelUtil":830,"./../util/PoweredByUtil":831,"./core":744,"./features/annotations":749,"./features/date-edit/viewer":761,"./features/descriptions":765,"./features/hit-policy":775,"./features/io-label":779,"./features/literal-expression":782,"./features/mappings-row":786,"./features/simple-mode":810,"./features/string-edit/viewer":817,"./features/table-name":819,"./features/type-row":823,"./import/Importer":824,"diagram-js/lib/i18n/translate":475,"dmn-moddle":835,"inherits":858,"lodash/collection/filter":866,"lodash/lang/isString":979,"lodash/object/assign":981,"lodash/object/omit":984,"min-dom/lib/domify":994,"min-dom/lib/event":995,"min-dom/lib/query":997,"min-dom/lib/remove":998,"table-js":1008,"table-js/lib/features/combo-box":1023,"table-js/lib/features/complex-cell":1025,"table-js/lib/features/controls":1027,"table-js/lib/features/interaction-events":1035,"table-js/lib/features/line-numbers":1039}],744:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('../import'),
@@ -79964,7 +83321,7 @@ module.exports = {
   ]
 };
 
-},{"../draw":741,"../import":823}],740:[function(require,module,exports){
+},{"../draw":746,"../import":828}],745:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -80056,13 +83413,13 @@ DmnRenderer.$inject = [ 'eventBus', 'elementRegistry', 'sheet', 'config' ];
 
 module.exports = DmnRenderer;
 
-},{"min-dom/lib/classes":987}],741:[function(require,module,exports){
+},{"min-dom/lib/classes":992}],746:[function(require,module,exports){
 module.exports = {
   __init__: [ 'tableRenderer' ],
   tableRenderer: [ 'type', require('./TableRenderer') ]
 };
 
-},{"./TableRenderer":740}],742:[function(require,module,exports){
+},{"./TableRenderer":745}],747:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -80129,7 +83486,7 @@ Annotations.prototype.getColumn = function() {
   return this.column;
 };
 
-},{"min-dom/lib/domify":989}],743:[function(require,module,exports){
+},{"min-dom/lib/domify":994}],748:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -80156,7 +83513,7 @@ AnnotationsRenderer.$inject = [
 
 module.exports = AnnotationsRenderer;
 
-},{"min-dom/lib/classes":987}],744:[function(require,module,exports){
+},{"min-dom/lib/classes":992}],749:[function(require,module,exports){
 module.exports = {
   __init__: [ 'annotations', 'annotationsRenderer'],
   __depends__: [
@@ -80166,7 +83523,7 @@ module.exports = {
   annotationsRenderer: [ 'type', require('./AnnotationsRenderer') ]
 };
 
-},{"./Annotations":742,"./AnnotationsRenderer":743,"diagram-js/lib/i18n/translate":470}],745:[function(require,module,exports){
+},{"./Annotations":747,"./AnnotationsRenderer":748,"diagram-js/lib/i18n/translate":475}],750:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -80420,7 +83777,7 @@ ColumnDrag.prototype.isDragging = function() {
   return !!this.draggedElement;
 };
 
-},{"lodash/collection/forEach":863,"min-dom/lib/classes":987,"min-dom/lib/domify":989}],746:[function(require,module,exports){
+},{"lodash/collection/forEach":868,"min-dom/lib/classes":992,"min-dom/lib/domify":994}],751:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -80455,14 +83812,14 @@ DragRenderer.$inject = [
 
 module.exports = DragRenderer;
 
-},{"min-dom/lib/classes":987,"min-dom/lib/domify":989}],747:[function(require,module,exports){
+},{"min-dom/lib/classes":992,"min-dom/lib/domify":994}],752:[function(require,module,exports){
 module.exports = {
   __init__: [ 'columnDrag', 'columnDragRenderer' ],
   columnDrag: [ 'type', require('./ColumnDrag') ],
   columnDragRenderer: [ 'type', require('./DragRenderer') ]
 };
 
-},{"./ColumnDrag":745,"./DragRenderer":746}],748:[function(require,module,exports){
+},{"./ColumnDrag":750,"./DragRenderer":751}],753:[function(require,module,exports){
 'use strict';
 
 var getEntriesType = require('../../util/SelectionUtil').getEntriesType;
@@ -80712,7 +84069,7 @@ ContextMenu.prototype.ruleClearAction = function() {
   this.close();
 };
 
-},{"../../util/SelectionUtil":824}],749:[function(require,module,exports){
+},{"../../util/SelectionUtil":829}],754:[function(require,module,exports){
 module.exports = {
   __init__: [ 'contextMenu' ],
   __depends__: [
@@ -80721,7 +84078,7 @@ module.exports = {
   contextMenu: [ 'type', require('./ContextMenu') ]
 };
 
-},{"./ContextMenu":748,"table-js/lib/features/popup-menu":1047}],750:[function(require,module,exports){
+},{"./ContextMenu":753,"table-js/lib/features/popup-menu":1052}],755:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign');
@@ -80996,7 +84353,7 @@ DateEdit.$inject = [
 
 module.exports = DateEdit;
 
-},{"./template-input.html":753,"./template-output.html":754,"./utils":755,"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/domify":989}],751:[function(require,module,exports){
+},{"./template-input.html":758,"./template-output.html":759,"./utils":760,"lodash/object/assign":981,"min-dom/lib/classes":992,"min-dom/lib/domify":994}],756:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -81086,7 +84443,7 @@ DateView.$inject = ['eventBus', 'simpleMode'];
 
 module.exports = DateView;
 
-},{"./utils":755,"min-dom/lib/domify":989}],752:[function(require,module,exports){
+},{"./utils":760,"min-dom/lib/domify":994}],757:[function(require,module,exports){
 module.exports = {
   __init__: [ 'dateEdit' ],
   __depends__: [],
@@ -81094,13 +84451,13 @@ module.exports = {
 };
 
 
-},{"./DateEdit":750}],753:[function(require,module,exports){
+},{"./DateEdit":755}],758:[function(require,module,exports){
 module.exports = "<div>\r\n  <h4>{{ 'Edit Date Condition' | translate }}</h4>\r\n  <select class=\"dateEdit-type-dropdown\">\r\n    <option value=\"exact\">{{ 'Exactly' | translate }}</option>\r\n    <option value=\"before\">{{ 'Before' | translate }}</option>\r\n    <option value=\"after\">{{ 'After' | translate }}</option>\r\n    <option value=\"between\">{{ 'Between' | translate }}</option>\r\n  </select>\r\n  <div class=\"date-1\">\r\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>{{ 'Today' | translate }}</button>\r\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\r\n  </div>\r\n  <div class=\"date-2\" style=\"display: none;\">\r\n    <div>and</div>\r\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>{{ 'Today' | translate }}</button>\r\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\r\n  </div>\r\n</div>\r\n";
 
-},{}],754:[function(require,module,exports){
+},{}],759:[function(require,module,exports){
 module.exports = "<div>\r\n  <h4>{{ 'Edit Date Result' | translate }}</h4>\r\n  <div class=\"date-1\">\r\n    <input type=\"text\" placeholder=\"yyyy-mm-dd'T'hh:mm:ss\" spellcheck=\"false\"><button>{{ 'Today' | translate }}</button>\r\n    <div class=\"helptext\">yyyy-mm-dd'T'hh:mm:ss</div>\r\n  </div>\r\n</div>\r\n";
 
-},{}],755:[function(require,module,exports){
+},{}],760:[function(require,module,exports){
 'use strict';
 
 var hasDateType = function(column) {
@@ -81171,7 +84528,7 @@ module.exports = {
   }
 };
 
-},{}],756:[function(require,module,exports){
+},{}],761:[function(require,module,exports){
 module.exports = {
   __init__: [ 'dateView' ],
   __depends__: [],
@@ -81179,7 +84536,7 @@ module.exports = {
 };
 
 
-},{"./DateView":751}],757:[function(require,module,exports){
+},{"./DateView":756}],762:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -81285,7 +84642,7 @@ Descriptions.prototype.openPopover = function(context) {
   node.textContent = context.content.description;
 };
 
-},{"diagram-js/lib/util/Mouse":495,"min-dom/lib/domify":989}],758:[function(require,module,exports){
+},{"diagram-js/lib/util/Mouse":500,"min-dom/lib/domify":994}],763:[function(require,module,exports){
 'use strict';
 
 var debounce = require('lodash/function/debounce');
@@ -81355,20 +84712,20 @@ DescriptionsEditing.prototype.addComment = function(context) {
   descriptions.openPopover(context);
 };
 
-},{"lodash/function/debounce":870}],759:[function(require,module,exports){
+},{"lodash/function/debounce":875}],764:[function(require,module,exports){
 module.exports = {
   __init__: [ 'descriptionsEditing' ],
   descriptionsEditing: [ 'type', require('./DescriptionsEditing') ]
 };
 
 
-},{"./DescriptionsEditing":758}],760:[function(require,module,exports){
+},{"./DescriptionsEditing":763}],765:[function(require,module,exports){
 module.exports = {
   __init__: [ 'descriptions' ],
   descriptions: [ 'type', require('./Descriptions') ]
 };
 
-},{"./Descriptions":757}],761:[function(require,module,exports){
+},{"./Descriptions":762}],766:[function(require,module,exports){
 'use strict';
 
 var ids = new (require('diagram-js/lib/util/IdGenerator'))('table');
@@ -81559,7 +84916,7 @@ DmnEditorActions.$inject = [ 'modeling', 'elementRegistry', 'selection', 'editor
 
 module.exports = DmnEditorActions;
 
-},{"diagram-js/lib/util/IdGenerator":491}],762:[function(require,module,exports){
+},{"diagram-js/lib/util/IdGenerator":496}],767:[function(require,module,exports){
 module.exports = {
   __init__: [ 'dmnEditorActions' ],
   __depends__: [
@@ -81568,7 +84925,7 @@ module.exports = {
   dmnEditorActions: [ 'type', require('./DmnEditorActions') ]
 };
 
-},{"./DmnEditorActions":761,"diagram-js/lib/i18n/translate":470}],763:[function(require,module,exports){
+},{"./DmnEditorActions":766,"diagram-js/lib/i18n/translate":475}],768:[function(require,module,exports){
 'use strict';
 
 var ComboBox = require('table-js/lib/features/combo-box');
@@ -81651,7 +85008,7 @@ ExpressionLanguage.$inject = [ 'eventBus', 'modeling', 'contextMenu', 'elementRe
 
 module.exports = ExpressionLanguage;
 
-},{"lodash/function/debounce":870,"table-js/lib/features/combo-box":1018}],764:[function(require,module,exports){
+},{"lodash/function/debounce":875,"table-js/lib/features/combo-box":1023}],769:[function(require,module,exports){
 module.exports = {
   __init__: [ 'expressionLanguage' ],
   __depends__: [],
@@ -81659,7 +85016,7 @@ module.exports = {
 };
 
 
-},{"./ExpressionLanguage":763}],765:[function(require,module,exports){
+},{"./ExpressionLanguage":768}],770:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -81722,7 +85079,7 @@ ElementFactory.prototype.create = function(elementType, attrs) {
 
 };
 
-},{"inherits":853,"table-js/lib/core/ElementFactory":1005}],766:[function(require,module,exports){
+},{"inherits":858,"table-js/lib/core/ElementFactory":1010}],771:[function(require,module,exports){
 'use strict';
 
 function TableFactory(moddle) {
@@ -81850,13 +85207,13 @@ TableFactory.prototype.createOutputValues = function(output) {
 
 module.exports = TableFactory;
 
-},{}],767:[function(require,module,exports){
+},{}],772:[function(require,module,exports){
 module.exports = {
   tableFactory: [ 'type', require('./TableFactory') ],
   elementFactory: [ 'type', require('./ElementFactory') ]
 };
 
-},{"./ElementFactory":765,"./TableFactory":766}],768:[function(require,module,exports){
+},{"./ElementFactory":770,"./TableFactory":771}],773:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -82007,7 +85364,7 @@ HitPolicy.prototype.getAggregation = function() {
 
 module.exports = HitPolicy;
 
-},{"min-dom/lib/classes":987,"min-dom/lib/domify":989,"table-js/lib/features/combo-box":1018}],769:[function(require,module,exports){
+},{"min-dom/lib/classes":992,"min-dom/lib/domify":994,"table-js/lib/features/combo-box":1023}],774:[function(require,module,exports){
 'use strict';
 
 function convertOperators(operator) {
@@ -82042,7 +85399,7 @@ HitPolicyRenderer.$inject = [
 
 module.exports = HitPolicyRenderer;
 
-},{}],770:[function(require,module,exports){
+},{}],775:[function(require,module,exports){
 module.exports = {
   __init__: [ 'hitPolicy', 'hitPolicyRenderer' ],
   __depends__: [
@@ -82054,7 +85411,7 @@ module.exports = {
   hitPolicyRenderer: [ 'type', require('./HitPolicyRenderer') ]
 };
 
-},{"../io-label":774,"./HitPolicy":768,"./HitPolicyRenderer":769,"diagram-js/lib/i18n/translate":470,"table-js/lib/features/utility-column":1055}],771:[function(require,module,exports){
+},{"../io-label":779,"./HitPolicy":773,"./HitPolicyRenderer":774,"diagram-js/lib/i18n/translate":475,"table-js/lib/features/utility-column":1060}],776:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -82205,7 +85562,7 @@ IoLabel.prototype.getRow = function() {
   return this.row;
 };
 
-},{"diagram-js/lib/util/IdGenerator":491,"lodash/collection/forEach":863,"min-dom/lib/domify":989}],772:[function(require,module,exports){
+},{"diagram-js/lib/util/IdGenerator":496,"lodash/collection/forEach":868,"min-dom/lib/domify":994}],777:[function(require,module,exports){
 'use strict';
 
 function IoLabelRenderer(
@@ -82229,7 +85586,7 @@ IoLabelRenderer.$inject = [
 
 module.exports = IoLabelRenderer;
 
-},{}],773:[function(require,module,exports){
+},{}],778:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -82261,7 +85618,7 @@ IoLabelRules.prototype.init = function() {
 
 };
 
-},{"diagram-js/lib/features/rules/RuleProvider":457,"inherits":853}],774:[function(require,module,exports){
+},{"diagram-js/lib/features/rules/RuleProvider":462,"inherits":858}],779:[function(require,module,exports){
 module.exports = {
   __init__: [ 'ioLabel', 'ioLabelRules', 'ioLabelRenderer' ],
   __depends__: [
@@ -82272,10 +85629,10 @@ module.exports = {
   ioLabelRenderer: [ 'type', require('./IoLabelRenderer') ]
 };
 
-},{"./IoLabel":771,"./IoLabelRenderer":772,"./IoLabelRules":773,"diagram-js/lib/i18n/translate":470}],775:[function(require,module,exports){
+},{"./IoLabel":776,"./IoLabelRenderer":777,"./IoLabelRules":778,"diagram-js/lib/i18n/translate":475}],780:[function(require,module,exports){
 module.exports = "<div class=\"literal-expression-editor\">\r\n  <textarea placeholder=\"return obj.propertyName;\"></textarea>\r\n\r\n  <div>\r\n    <div class=\"literal-expression-field\">\r\n      <div class=\"dmn-combobox\">\r\n        <label>Variable Name:</label>\r\n        <input class=\"variable-name\" placeholder=\"varName\">\r\n      </div>\r\n    </div>\r\n    <div class=\"literal-expression-field variable-type\">\r\n    </div>\r\n  </div>\r\n  <div>\r\n    <div class=\"literal-expression-field expression-language\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 
-},{}],776:[function(require,module,exports){
+},{}],781:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -82382,16 +85739,16 @@ LiteralExpressionEditor.prototype.show = function(decision) {
 
 };
 
-},{"./EditorTemplate.html":775,"min-dom/lib/domify":989,"table-js/lib/features/combo-box":1018}],777:[function(require,module,exports){
+},{"./EditorTemplate.html":780,"min-dom/lib/domify":994,"table-js/lib/features/combo-box":1023}],782:[function(require,module,exports){
 module.exports = {
   __init__: [ 'literalExpressionEditor' ],
   literalExpressionEditor: [ 'type', require('./LiteralExpressionEditor') ]
 };
 
-},{"./LiteralExpressionEditor":776}],778:[function(require,module,exports){
+},{"./LiteralExpressionEditor":781}],783:[function(require,module,exports){
 module.exports = "<div>\r\n  <div class=\"links\">\r\n    <div class=\"toggle-type\">\r\n      <label>{{ 'Use:' | translate }}</label>\r\n      <a class=\"expression\">{{ 'Expression' | translate }}</a>\r\n      /\r\n      <a class=\"script\">{{ 'Script' | translate }}</a>\r\n    </div>\r\n    <a class=\"dmn-icon-clear\"></a>\r\n  </div>\r\n  <div class=\"expression region\">\r\n    <div class=\"input-expression\">\r\n       <label>{{ 'Expression:' | translate }}</label>\r\n      <input placeholder=\"propertyName\">\r\n    </div>\r\n    <div class=\"input-expression\">\r\n      <label>{{ 'Input Variable Name:' | translate }}</label>\r\n      <input placeholder=\"cellInput\">\r\n    </div>\r\n  </div>\r\n  <div class=\"script region\">\r\n    <textarea placeholder=\"return obj.propertyName;\"></textarea>\r\n    <div class=\"input-expression\">\r\n      <label>{{ 'Input Variable Name:' | translate }}</label>\r\n      <input placeholder=\"cellInput\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 
-},{}],779:[function(require,module,exports){
+},{}],784:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -82720,7 +86077,7 @@ MappingsRow.prototype.getRow = function() {
   return this.row;
 };
 
-},{"./ExpressionTemplate.html":778,"lodash/collection/forEach":863,"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/domify":989,"table-js/lib/features/combo-box":1018}],780:[function(require,module,exports){
+},{"./ExpressionTemplate.html":783,"lodash/collection/forEach":868,"lodash/object/assign":981,"min-dom/lib/classes":992,"min-dom/lib/domify":994,"table-js/lib/features/combo-box":1023}],785:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -82760,7 +86117,7 @@ MappingsRowRenderer.$inject = [
 
 module.exports = MappingsRowRenderer;
 
-},{"min-dom/lib/classes":987}],781:[function(require,module,exports){
+},{"min-dom/lib/classes":992}],786:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('diagram-js/lib/i18n/translate'),
@@ -82772,7 +86129,7 @@ module.exports = {
   mappingsRowRenderer: [ 'type', require('./MappingsRowRenderer') ]
 };
 
-},{"../../../features/templates":732,"./MappingsRow":779,"./MappingsRowRenderer":780,"diagram-js/lib/i18n/translate":470,"table-js/lib/features/complex-cell":1020}],782:[function(require,module,exports){
+},{"../../../features/templates":737,"./MappingsRow":784,"./MappingsRowRenderer":785,"diagram-js/lib/i18n/translate":475,"table-js/lib/features/complex-cell":1025}],787:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -83052,7 +86409,7 @@ Modeling.prototype.editDescription = function(businessObject, description) {
   this._commandStack.execute('description.edit', context);
 };
 
-},{"./cmd/AddAllowedValueHandler":784,"./cmd/ClearRowHandler":785,"./cmd/CopyRowHandler":786,"./cmd/EditCellExpressionLanguageHandler":787,"./cmd/EditCellHandler":788,"./cmd/EditDescriptionHandler":789,"./cmd/EditHitPolicyHandler":790,"./cmd/EditIdHandler":791,"./cmd/EditInputMappingHandler":792,"./cmd/EditLiteralExpressionHandler":793,"./cmd/EditTypeHandler":794,"./cmd/RemoveAllowedValueHandler":795,"inherits":853,"table-js/lib/features/modeling/Modeling":1035}],783:[function(require,module,exports){
+},{"./cmd/AddAllowedValueHandler":789,"./cmd/ClearRowHandler":790,"./cmd/CopyRowHandler":791,"./cmd/EditCellExpressionLanguageHandler":792,"./cmd/EditCellHandler":793,"./cmd/EditDescriptionHandler":794,"./cmd/EditHitPolicyHandler":795,"./cmd/EditIdHandler":796,"./cmd/EditInputMappingHandler":797,"./cmd/EditLiteralExpressionHandler":798,"./cmd/EditTypeHandler":799,"./cmd/RemoveAllowedValueHandler":800,"inherits":858,"table-js/lib/features/modeling/Modeling":1040}],788:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits'),
@@ -83351,7 +86708,7 @@ module.exports = TableUpdater;
 
 TableUpdater.$inject = [ 'eventBus', 'moddle', 'elementRegistry', 'tableFactory', 'tableName', 'graphicsFactory' ];
 
-},{"diagram-js/lib/command/CommandInterceptor":373,"inherits":853,"lodash/collection/forEachRight":864}],784:[function(require,module,exports){
+},{"diagram-js/lib/command/CommandInterceptor":378,"inherits":858,"lodash/collection/forEachRight":869}],789:[function(require,module,exports){
 'use strict';
 
 /**
@@ -83430,7 +86787,7 @@ AddAllowedValueHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],785:[function(require,module,exports){
+},{}],790:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -83503,7 +86860,7 @@ ClearRowHandler.prototype.revert = function(context) {
   });
 };
 
-},{"lodash/collection/forEach":863}],786:[function(require,module,exports){
+},{"lodash/collection/forEach":868}],791:[function(require,module,exports){
 'use strict';
 
 var getBusinessObject = require('../../../../util/ModelUtil').getBusinessObject;
@@ -83553,7 +86910,7 @@ CopyRowHandler.prototype.execute = function(context) {};
 
 CopyRowHandler.prototype.revert = function(context) {};
 
-},{"../../../../util/ModelUtil":825}],787:[function(require,module,exports){
+},{"../../../../util/ModelUtil":830}],792:[function(require,module,exports){
 'use strict';
 
 /**
@@ -83595,7 +86952,7 @@ EditCellExpressionLanguageHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],788:[function(require,module,exports){
+},{}],793:[function(require,module,exports){
 'use strict';
 
 var calculateSelectionUpdate = require('selection-update');
@@ -83768,7 +87125,7 @@ EditCellHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{"selection-update":1002}],789:[function(require,module,exports){
+},{"selection-update":1007}],794:[function(require,module,exports){
 'use strict';
 
 /**
@@ -83810,7 +87167,7 @@ EditDescriptionHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],790:[function(require,module,exports){
+},{}],795:[function(require,module,exports){
 'use strict';
 
 /**
@@ -83869,7 +87226,7 @@ EditHitPolicyHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],791:[function(require,module,exports){
+},{}],796:[function(require,module,exports){
 'use strict';
 
 /**
@@ -83910,7 +87267,7 @@ EditIdHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],792:[function(require,module,exports){
+},{}],797:[function(require,module,exports){
 'use strict';
 
 /**
@@ -83994,7 +87351,7 @@ EditInputMappingHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],793:[function(require,module,exports){
+},{}],798:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -84071,7 +87428,7 @@ EditLiteralExpressionHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{"lodash/collection/forEach":863}],794:[function(require,module,exports){
+},{"lodash/collection/forEach":868}],799:[function(require,module,exports){
 'use strict';
 
 /**
@@ -84152,7 +87509,7 @@ EditTypeHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],795:[function(require,module,exports){
+},{}],800:[function(require,module,exports){
 'use strict';
 
 /**
@@ -84218,7 +87575,7 @@ RemoveAllowedValueHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],796:[function(require,module,exports){
+},{}],801:[function(require,module,exports){
 module.exports = {
   __init__: [ 'modeling', 'tableUpdater' ],
   __depends__: [
@@ -84230,7 +87587,7 @@ module.exports = {
   tableUpdater: [ 'type', require('./TableUpdater') ]
 };
 
-},{"../factory":767,"./Modeling":782,"./TableUpdater":783,"table-js/lib/features/add-row":1014,"table-js/lib/features/modeling":1045}],797:[function(require,module,exports){
+},{"../factory":772,"./Modeling":787,"./TableUpdater":788,"table-js/lib/features/add-row":1019,"table-js/lib/features/modeling":1050}],802:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -84703,7 +88060,7 @@ NumberEdit.prototype.teardownComplexCells = function() {
   });
 };
 
-},{"./template-input.html":799,"./template-output.html":800,"./utils":801,"lodash/collection/forEach":863,"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/domify":989,"min-dom/lib/query":992}],798:[function(require,module,exports){
+},{"./template-input.html":804,"./template-output.html":805,"./utils":806,"lodash/collection/forEach":868,"lodash/object/assign":981,"min-dom/lib/classes":992,"min-dom/lib/domify":994,"min-dom/lib/query":997}],803:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -84714,13 +88071,13 @@ module.exports = {
   numberEdit: [ 'type', require('./NumberEdit') ]
 };
 
-},{"../../../features/templates":732,"./NumberEdit":797}],799:[function(require,module,exports){
+},{"../../../features/templates":737,"./NumberEdit":802}],804:[function(require,module,exports){
 module.exports = "<div>\r\n  <h4>{{ 'Edit Number Condition' | translate }}</h4>\r\n  <div class=\"links\">\r\n    <div class=\"toggle-type\">\r\n      <a class=\"comparison\">{{ 'Comparison' | translate }}</a>\r\n      /\r\n      <a class=\"range\">{{ 'Range' | translate }}</a>\r\n    </div>\r\n  </div>\r\n  <div class=\"comparison region\">\r\n    <select class=\"comparison-dropdown\">\r\n      <option value=\"equals\">= {{ '(Equals)' | translate }}</option>\r\n      <option value=\"less\">&lt; {{ '(Less than)' | translate }}</option>\r\n      <option value=\"less-equal\">&lt;= {{ '(Less than or equal)' | translate }}</option>\r\n      <option value=\"greater\">&gt; {{ '(Greater than)' | translate }}</option>\r\n      <option value=\"greater-equal\">&gt;= {{ '(Greater than or equal)' | translate }}</option>\r\n    </select>\r\n    <input type=\"number\" class=\"comparison-number\" placeholder=\"number\" />\r\n  </div>\r\n  <div class=\"range region\">\r\n    <label>{{ 'Include' | translate }}</label>\r\n    <div class=\"include-inputs\">\r\n      <input type=\"number\" placeholder=\"start\" />\r\n      <input type=\"checkbox\" placeholder=\"include-start\" />\r\n    </div>\r\n    <div class=\"include-inputs\">\r\n      <input type=\"number\" placeholder=\"end\" />\r\n      <input type=\"checkbox\" placeholder=\"include-end\" />\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 
-},{}],800:[function(require,module,exports){
+},{}],805:[function(require,module,exports){
 module.exports = "<div>\r\n  <h4>{{ 'Edit Number Result' | translate }}</h4>\r\n  <div class=\"comparison region\">\r\n    <input type=\"number\" class=\"comparison-number\" placeholder=\"number\" style=\"width: 100%\" />\r\n  </div>\r\n</div>\r\n";
 
-},{}],801:[function(require,module,exports){
+},{}],806:[function(require,module,exports){
 var types = [
   'integer',
   'long',
@@ -84756,7 +88113,7 @@ function isNumberCell(el) {
 
 module.exports.isNumberCell = isNumberCell;
 
-},{}],802:[function(require,module,exports){
+},{}],807:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -84801,13 +88158,13 @@ SimpleEditing.$inject = [ 'eventBus', 'modeling', 'simpleMode', 'elementRegistry
 
 module.exports = SimpleEditing;
 
-},{"diagram-js/lib/command/CommandInterceptor":373,"inherits":853,"min-dom/lib/classes":987}],803:[function(require,module,exports){
+},{"diagram-js/lib/command/CommandInterceptor":378,"inherits":858,"min-dom/lib/classes":992}],808:[function(require,module,exports){
 module.exports = {
   __init__: [ 'simpleEditing' ],
   simpleEditing: [ 'type', require('./SimpleEditing') ]
 };
 
-},{"./SimpleEditing":802}],804:[function(require,module,exports){
+},{"./SimpleEditing":807}],809:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes'),
@@ -85071,7 +88428,7 @@ SimpleMode.prototype.isString = function(textContent) {
   return firstCondition && !secondCondition;
 };
 
-},{"min-dom/lib/classes":987,"min-dom/lib/domify":989}],805:[function(require,module,exports){
+},{"min-dom/lib/classes":992,"min-dom/lib/domify":994}],810:[function(require,module,exports){
 module.exports = {
   __init__: [ 'simpleMode' ],
   __depends__: [
@@ -85080,7 +88437,7 @@ module.exports = {
   simpleMode: [ 'type', require('./SimpleMode') ]
 };
 
-},{"./SimpleMode":804,"diagram-js/lib/i18n/translate":470}],806:[function(require,module,exports){
+},{"./SimpleMode":809,"diagram-js/lib/i18n/translate":475}],811:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign');
@@ -85433,7 +88790,7 @@ StringEdit.$inject = [
 
 module.exports = StringEdit;
 
-},{"./template-input.html":809,"./template-output.html":810,"./utils":811,"diagram-js/lib/util/Mouse":495,"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/domify":989}],807:[function(require,module,exports){
+},{"./template-input.html":814,"./template-output.html":815,"./utils":816,"diagram-js/lib/util/Mouse":500,"lodash/object/assign":981,"min-dom/lib/classes":992,"min-dom/lib/domify":994}],812:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -85519,7 +88876,7 @@ StringView.$inject = ['eventBus', 'simpleMode'];
 
 module.exports = StringView;
 
-},{"./utils":811,"min-dom/lib/domify":989}],808:[function(require,module,exports){
+},{"./utils":816,"min-dom/lib/domify":994}],813:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -85527,13 +88884,13 @@ module.exports = {
   stringEdit: [ 'type', require('./StringEdit') ]
 };
 
-},{"./StringEdit":806}],809:[function(require,module,exports){
+},{"./StringEdit":811}],814:[function(require,module,exports){
 module.exports = "<div>\r\n  <h4>{{ 'Edit String Expression' | translate }}</h4>\r\n  <select class=\"string-type-dropdown\">\r\n    <option value=\"disjunction\">{{ 'Match one of' | translate }}</option>\r\n    <option value=\"negation\">{{ 'Match anything except' | translate }}</option>\r\n  </select>\r\n  <div class=\"free-input\">\r\n    <ul>\r\n    </ul>\r\n    <input type=\"text\" placeholder=\"{{ 'new Value' | translate }}\" class=\"free-input-value-field\" />\r\n    <div class=\"helptext\">{{ 'Enter value without quotes' | translate }}</div>\r\n  </div>\r\n  <div class=\"input-values\">\r\n    <ul>\r\n    </ul>\r\n  </div>\r\n</div>\r\n";
 
-},{}],810:[function(require,module,exports){
+},{}],815:[function(require,module,exports){
 module.exports = "<div>\r\n  <h4>{{ 'Edit String Result' | translate }}</h4>\r\n  <div class=\"free-input\">\r\n    <textarea type=\"text\" placeholder=\"{{ 'new Value' | translate }}\" class=\"free-input-value-field\"></textarea>\r\n    <div class=\"helptext\">{{ 'Enter value without quotes' | translate }}</div>\r\n  </div>\r\n  <div class=\"input-values\">\r\n    <ul>\r\n    </ul>\r\n  </div>\r\n</div>\r\n";
 
-},{}],811:[function(require,module,exports){
+},{}],816:[function(require,module,exports){
 'use strict';
 
 var hasStringType = function(column) {
@@ -85625,7 +88982,7 @@ module.exports = {
   }
 };
 
-},{}],812:[function(require,module,exports){
+},{}],817:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -85633,7 +88990,7 @@ module.exports = {
   stringView: [ 'type', require('./StringView') ]
 };
 
-},{"./StringView":807}],813:[function(require,module,exports){
+},{"./StringView":812}],818:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -85705,13 +89062,13 @@ TableName.prototype.getId = function() {
   return this.semantic.id;
 };
 
-},{"inherits":853,"min-dom/lib/domify":989,"table-js/lib/features/table-name/TableName":1051}],814:[function(require,module,exports){
+},{"inherits":858,"min-dom/lib/domify":994,"table-js/lib/features/table-name/TableName":1056}],819:[function(require,module,exports){
 module.exports = {
   __init__: [ 'tableName' ],
   tableName: [ 'type', require('./TableName') ]
 };
 
-},{"./TableName":813}],815:[function(require,module,exports){
+},{"./TableName":818}],820:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign');
@@ -85979,7 +89336,7 @@ TypeRow.prototype.getRow = function() {
   return this.row;
 };
 
-},{"./TypeTemplate.html":817,"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/domify":989,"table-js/lib/features/combo-box":1018}],816:[function(require,module,exports){
+},{"./TypeTemplate.html":822,"lodash/object/assign":981,"min-dom/lib/classes":992,"min-dom/lib/domify":994,"table-js/lib/features/combo-box":1023}],821:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -86016,10 +89373,10 @@ TypeRowRenderer.$inject = [
 
 module.exports = TypeRowRenderer;
 
-},{"min-dom/lib/classes":987}],817:[function(require,module,exports){
+},{"min-dom/lib/classes":992}],822:[function(require,module,exports){
 module.exports = "<div>\r\n  <div class=\"allowed-values\">\r\n    <label>{{ 'Input Values:' | translate }}</label>\r\n    <ul></ul>\r\n    <input type=\"text\" placeholder=\"value1, value2, otherValue\">\r\n  </div>\r\n</div>\r\n";
 
-},{}],818:[function(require,module,exports){
+},{}],823:[function(require,module,exports){
 module.exports = {
   __init__: [ 'typeRow', 'typeRowRenderer' ],
   __depends__: [
@@ -86031,7 +89388,7 @@ module.exports = {
   typeRowRenderer: [ 'type', require('./TypeRowRenderer') ]
 };
 
-},{"../../../features/templates":732,"./TypeRow":815,"./TypeRowRenderer":816,"diagram-js/lib/i18n/translate":470,"table-js/lib/features/complex-cell":1020}],819:[function(require,module,exports){
+},{"../../../features/templates":737,"./TypeRow":820,"./TypeRowRenderer":821,"diagram-js/lib/i18n/translate":475,"table-js/lib/features/complex-cell":1025}],824:[function(require,module,exports){
 'use strict';
 
 var TableTreeWalker = require('./TableTreeWalker');
@@ -86107,7 +89464,7 @@ function importDmnTable(sheet, definitions, decision, done) {
 
 module.exports.importDmnTable = importDmnTable;
 
-},{"./TableTreeWalker":821}],820:[function(require,module,exports){
+},{"./TableTreeWalker":826}],825:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -86320,7 +89677,7 @@ TableImporter.prototype.add = function(semantic, parentElement, definitions) {
   return element;
 };
 
-},{"./Util":822,"lodash/array/union":855,"lodash/collection/filter":861,"lodash/object/assign":976}],821:[function(require,module,exports){
+},{"./Util":827,"lodash/array/union":860,"lodash/collection/filter":866,"lodash/object/assign":981}],826:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -86455,7 +89812,7 @@ function TableTreeWalker(handler, options) {
 
 module.exports = TableTreeWalker;
 
-},{"./Util":822,"lodash/collection/forEach":863}],822:[function(require,module,exports){
+},{"./Util":827,"lodash/collection/forEach":868}],827:[function(require,module,exports){
 'use strict';
 
 module.exports.elementToString = function(e) {
@@ -86465,7 +89822,7 @@ module.exports.elementToString = function(e) {
 
   return '<' + e.$type + (e.id ? ' id="' + e.id : '') + '" />';
 };
-},{}],823:[function(require,module,exports){
+},{}],828:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('../features/factory'),
@@ -86474,7 +89831,7 @@ module.exports = {
   tableImporter: [ 'type', require('./TableImporter') ]
 };
 
-},{"../features/factory":767,"./TableImporter":820,"diagram-js/lib/i18n/translate":470}],824:[function(require,module,exports){
+},{"../features/factory":772,"./TableImporter":825,"diagram-js/lib/i18n/translate":475}],829:[function(require,module,exports){
 'use strict';
 
 
@@ -86517,7 +89874,7 @@ function getEntriesType(context) {
 
 module.exports.getEntriesType = getEntriesType;
 
-},{}],825:[function(require,module,exports){
+},{}],830:[function(require,module,exports){
 'use strict';
 
 var any = require('lodash/collection/any');
@@ -86580,7 +89937,7 @@ function isAny(element, types) {
 
 module.exports.isAny = isAny;
 
-},{"lodash/collection/any":859}],826:[function(require,module,exports){
+},{"lodash/collection/any":864}],831:[function(require,module,exports){
 /**
  * This file must not be changed or exchanged.
  *
@@ -86665,13 +90022,13 @@ function open() {
 
 module.exports.open = open;
 
-},{"min-dom/lib/delegate":988,"min-dom/lib/domify":989}],827:[function(require,module,exports){
+},{"min-dom/lib/delegate":993,"min-dom/lib/domify":994}],832:[function(require,module,exports){
 module.exports = {
   __depends__: [ require('diagram-js/lib/features/interaction-events') ],
   __init__: [ 'directEditing' ],
   directEditing: [ 'type', require('./lib/DirectEditing') ]
 };
-},{"./lib/DirectEditing":828,"diagram-js/lib/features/interaction-events":410}],828:[function(require,module,exports){
+},{"./lib/DirectEditing":833,"diagram-js/lib/features/interaction-events":415}],833:[function(require,module,exports){
 'use strict';
 
 var bind = require('lodash/function/bind'),
@@ -86833,7 +90190,7 @@ DirectEditing.prototype.activate = function(element) {
 
 
 module.exports = DirectEditing;
-},{"./TextBox":829,"lodash/collection/find":862,"lodash/function/bind":869}],829:[function(require,module,exports){
+},{"./TextBox":834,"lodash/collection/find":867,"lodash/function/bind":874}],834:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -86984,9 +90341,9 @@ TextBox.prototype.setCursor = function() {
   }
 };
 
-},{"lodash/object/assign":976,"min-dom/lib/event":990,"min-dom/lib/remove":993}],830:[function(require,module,exports){
+},{"lodash/object/assign":981,"min-dom/lib/event":995,"min-dom/lib/remove":998}],835:[function(require,module,exports){
 arguments[4][61][0].apply(exports,arguments)
-},{"./lib/simple":832,"dup":61}],831:[function(require,module,exports){
+},{"./lib/simple":837,"dup":61}],836:[function(require,module,exports){
 'use strict';
 
 var isString = require('lodash/lang/isString'),
@@ -87067,7 +90424,7 @@ DmnModdle.prototype.toXML = function(element, options, done) {
   }
 };
 
-},{"lodash/lang/isFunction":970,"lodash/lang/isString":974,"lodash/object/assign":976,"moddle":838,"moddle-xml/lib/reader":834,"moddle-xml/lib/writer":835}],832:[function(require,module,exports){
+},{"lodash/lang/isFunction":975,"lodash/lang/isString":979,"lodash/object/assign":981,"moddle":843,"moddle-xml/lib/reader":839,"moddle-xml/lib/writer":840}],837:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign');
@@ -87085,9 +90442,9 @@ module.exports = function(additionalPackages, options) {
   return new DmnModdle(assign({}, packages, additionalPackages), options);
 };
 
-},{"../resources/dmn/bpmn-io/biodi.json":847,"../resources/dmn/bpmn-io/dc.json":848,"../resources/dmn/camunda/camunda.json":849,"../resources/dmn/json/dmn.json":850,"./dmn-moddle":831,"lodash/object/assign":976}],833:[function(require,module,exports){
+},{"../resources/dmn/bpmn-io/biodi.json":852,"../resources/dmn/bpmn-io/dc.json":853,"../resources/dmn/camunda/camunda.json":854,"../resources/dmn/json/dmn.json":855,"./dmn-moddle":836,"lodash/object/assign":981}],838:[function(require,module,exports){
 arguments[4][64][0].apply(exports,arguments)
-},{"dup":64}],834:[function(require,module,exports){
+},{"dup":64}],839:[function(require,module,exports){
 'use strict';
 
 var reduce = require('lodash/collection/reduce'),
@@ -87817,21 +91174,21 @@ XMLReader.prototype.handler = function(name) {
 
 module.exports = XMLReader;
 module.exports.ElementHandler = ElementHandler;
-},{"./common":833,"lodash/collection/find":862,"lodash/collection/forEach":863,"lodash/collection/reduce":866,"lodash/function/defer":871,"lodash/object/assign":976,"moddle":838,"moddle/lib/ns":843,"moddle/lib/types":846,"sax":836,"tiny-stack":837}],835:[function(require,module,exports){
+},{"./common":838,"lodash/collection/find":867,"lodash/collection/forEach":868,"lodash/collection/reduce":871,"lodash/function/defer":876,"lodash/object/assign":981,"moddle":843,"moddle/lib/ns":848,"moddle/lib/types":851,"sax":841,"tiny-stack":842}],840:[function(require,module,exports){
 arguments[4][66][0].apply(exports,arguments)
-},{"./common":833,"dup":66,"lodash/collection/filter":861,"lodash/collection/forEach":863,"lodash/collection/map":865,"lodash/lang/isString":974,"lodash/object/assign":976,"moddle/lib/ns":843,"moddle/lib/types":846}],836:[function(require,module,exports){
+},{"./common":838,"dup":66,"lodash/collection/filter":866,"lodash/collection/forEach":868,"lodash/collection/map":870,"lodash/lang/isString":979,"lodash/object/assign":981,"moddle/lib/ns":848,"moddle/lib/types":851}],841:[function(require,module,exports){
 arguments[4][67][0].apply(exports,arguments)
-},{"buffer":1084,"dup":67,"stream":1111,"string_decoder":1112}],837:[function(require,module,exports){
+},{"buffer":1089,"dup":67,"stream":1116,"string_decoder":1117}],842:[function(require,module,exports){
 arguments[4][68][0].apply(exports,arguments)
-},{"dup":68}],838:[function(require,module,exports){
+},{"dup":68}],843:[function(require,module,exports){
 arguments[4][69][0].apply(exports,arguments)
-},{"./lib/moddle":842,"dup":69}],839:[function(require,module,exports){
+},{"./lib/moddle":847,"dup":69}],844:[function(require,module,exports){
 arguments[4][70][0].apply(exports,arguments)
-},{"dup":70}],840:[function(require,module,exports){
+},{"dup":70}],845:[function(require,module,exports){
 arguments[4][71][0].apply(exports,arguments)
-},{"./ns":843,"dup":71,"lodash/collection/forEach":863,"lodash/object/assign":976,"lodash/object/pick":981}],841:[function(require,module,exports){
+},{"./ns":848,"dup":71,"lodash/collection/forEach":868,"lodash/object/assign":981,"lodash/object/pick":986}],846:[function(require,module,exports){
 arguments[4][72][0].apply(exports,arguments)
-},{"./base":839,"dup":72,"lodash/collection/forEach":863}],842:[function(require,module,exports){
+},{"./base":844,"dup":72,"lodash/collection/forEach":868}],847:[function(require,module,exports){
 'use strict';
 
 var isString = require('lodash/lang/isString'),
@@ -88056,11 +91413,11 @@ Moddle.prototype.getTypeDescriptor = function(type) {
   return this.registry.typeMap[type];
 };
 
-},{"./factory":841,"./ns":843,"./properties":844,"./registry":845,"lodash/collection/find":862,"lodash/collection/forEach":863,"lodash/lang/isObject":973,"lodash/lang/isString":974}],843:[function(require,module,exports){
+},{"./factory":846,"./ns":848,"./properties":849,"./registry":850,"lodash/collection/find":867,"lodash/collection/forEach":868,"lodash/lang/isObject":978,"lodash/lang/isString":979}],848:[function(require,module,exports){
 arguments[4][74][0].apply(exports,arguments)
-},{"dup":74}],844:[function(require,module,exports){
+},{"dup":74}],849:[function(require,module,exports){
 arguments[4][75][0].apply(exports,arguments)
-},{"dup":75}],845:[function(require,module,exports){
+},{"dup":75}],850:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -88247,9 +91604,9 @@ Registry.prototype.definePackage = function(target, pkg) {
   this.properties.define(target, '$pkg', { value: pkg });
 };
 
-},{"./descriptor-builder":840,"./ns":843,"./types":846,"lodash/collection/forEach":863,"lodash/object/assign":976}],846:[function(require,module,exports){
+},{"./descriptor-builder":845,"./ns":848,"./types":851,"lodash/collection/forEach":868,"lodash/object/assign":981}],851:[function(require,module,exports){
 arguments[4][77][0].apply(exports,arguments)
-},{"dup":77}],847:[function(require,module,exports){
+},{"dup":77}],852:[function(require,module,exports){
 module.exports={
   "name": "bpmn.io DI for DMN",
   "uri": "http://bpmn.io/schema/dmn/biodi/1.0",
@@ -88291,7 +91648,7 @@ module.exports={
   ]
 }
 
-},{}],848:[function(require,module,exports){
+},{}],853:[function(require,module,exports){
 module.exports={
   "name": "DC",
   "uri": "http://www.omg.org/spec/DD/20100524/DC",
@@ -88392,7 +91749,7 @@ module.exports={
   "associations": []
 }
 
-},{}],849:[function(require,module,exports){
+},{}],854:[function(require,module,exports){
 module.exports={
   "name": "Camunda",
   "uri": "http://camunda.org/schema/1.0/dmn",
@@ -88417,7 +91774,7 @@ module.exports={
   ]
 }
 
-},{}],850:[function(require,module,exports){
+},{}],855:[function(require,module,exports){
 module.exports={
   "name": "DMN",
   "uri": "http://www.omg.org/spec/DMN/20151101/dmn.xsd",
@@ -88744,7 +92101,7 @@ module.exports={
   ]
 }
 
-},{}],851:[function(require,module,exports){
+},{}],856:[function(require,module,exports){
 'use strict';
 
 var hat = require('hat');
@@ -88843,7 +92200,7 @@ Ids.prototype.clear = function() {
     this.unclaim(id);
   }
 };
-},{"hat":852}],852:[function(require,module,exports){
+},{"hat":857}],857:[function(require,module,exports){
 var hat = module.exports = function (bits, base) {
     if (!base) base = 16;
     if (bits === undefined) bits = 128;
@@ -88907,11 +92264,11 @@ hat.rack = function (bits, base, expandBy) {
     return fn;
 };
 
-},{}],853:[function(require,module,exports){
+},{}],858:[function(require,module,exports){
 arguments[4][82][0].apply(exports,arguments)
-},{"dup":82}],854:[function(require,module,exports){
+},{"dup":82}],859:[function(require,module,exports){
 arguments[4][83][0].apply(exports,arguments)
-},{"dup":83}],855:[function(require,module,exports){
+},{"dup":83}],860:[function(require,module,exports){
 var baseFlatten = require('../internal/baseFlatten'),
     baseUniq = require('../internal/baseUniq'),
     restParam = require('../function/restParam');
@@ -88937,23 +92294,23 @@ var union = restParam(function(arrays) {
 
 module.exports = union;
 
-},{"../function/restParam":872,"../internal/baseFlatten":898,"../internal/baseUniq":920}],856:[function(require,module,exports){
-arguments[4][511][0].apply(exports,arguments)
-},{"../internal/baseCallback":887,"../internal/baseUniq":920,"../internal/isIterateeCall":949,"../internal/sortedUniq":964,"dup":511}],857:[function(require,module,exports){
-arguments[4][512][0].apply(exports,arguments)
-},{"./uniq":856,"dup":512}],858:[function(require,module,exports){
-arguments[4][513][0].apply(exports,arguments)
-},{"../internal/LazyWrapper":873,"../internal/LodashWrapper":874,"../internal/baseLodash":909,"../internal/isObjectLike":953,"../internal/wrapperClone":967,"../lang/isArray":969,"dup":513}],859:[function(require,module,exports){
-arguments[4][256][0].apply(exports,arguments)
-},{"./some":867,"dup":256}],860:[function(require,module,exports){
+},{"../function/restParam":877,"../internal/baseFlatten":903,"../internal/baseUniq":925}],861:[function(require,module,exports){
+arguments[4][516][0].apply(exports,arguments)
+},{"../internal/baseCallback":892,"../internal/baseUniq":925,"../internal/isIterateeCall":954,"../internal/sortedUniq":969,"dup":516}],862:[function(require,module,exports){
+arguments[4][517][0].apply(exports,arguments)
+},{"./uniq":861,"dup":517}],863:[function(require,module,exports){
+arguments[4][518][0].apply(exports,arguments)
+},{"../internal/LazyWrapper":878,"../internal/LodashWrapper":879,"../internal/baseLodash":914,"../internal/isObjectLike":958,"../internal/wrapperClone":972,"../lang/isArray":974,"dup":518}],864:[function(require,module,exports){
+arguments[4][261][0].apply(exports,arguments)
+},{"./some":872,"dup":261}],865:[function(require,module,exports){
 arguments[4][84][0].apply(exports,arguments)
-},{"../internal/arrayEvery":879,"../internal/baseCallback":887,"../internal/baseEvery":894,"../internal/isIterateeCall":949,"../lang/isArray":969,"dup":84}],861:[function(require,module,exports){
+},{"../internal/arrayEvery":884,"../internal/baseCallback":892,"../internal/baseEvery":899,"../internal/isIterateeCall":954,"../lang/isArray":974,"dup":84}],866:[function(require,module,exports){
 arguments[4][85][0].apply(exports,arguments)
-},{"../internal/arrayFilter":880,"../internal/baseCallback":887,"../internal/baseFilter":895,"../lang/isArray":969,"dup":85}],862:[function(require,module,exports){
+},{"../internal/arrayFilter":885,"../internal/baseCallback":892,"../internal/baseFilter":900,"../lang/isArray":974,"dup":85}],867:[function(require,module,exports){
 arguments[4][86][0].apply(exports,arguments)
-},{"../internal/baseEach":892,"../internal/createFind":932,"dup":86}],863:[function(require,module,exports){
+},{"../internal/baseEach":897,"../internal/createFind":937,"dup":86}],868:[function(require,module,exports){
 arguments[4][87][0].apply(exports,arguments)
-},{"../internal/arrayEach":877,"../internal/baseEach":892,"../internal/createForEach":933,"dup":87}],864:[function(require,module,exports){
+},{"../internal/arrayEach":882,"../internal/baseEach":897,"../internal/createForEach":938,"dup":87}],869:[function(require,module,exports){
 var arrayEachRight = require('../internal/arrayEachRight'),
     baseEachRight = require('../internal/baseEachRight'),
     createForEach = require('../internal/createForEach');
@@ -88981,33 +92338,33 @@ var forEachRight = createForEach(arrayEachRight, baseEachRight);
 
 module.exports = forEachRight;
 
-},{"../internal/arrayEachRight":878,"../internal/baseEachRight":893,"../internal/createForEach":933}],865:[function(require,module,exports){
+},{"../internal/arrayEachRight":883,"../internal/baseEachRight":898,"../internal/createForEach":938}],870:[function(require,module,exports){
 arguments[4][89][0].apply(exports,arguments)
-},{"../internal/arrayMap":881,"../internal/baseCallback":887,"../internal/baseMap":910,"../lang/isArray":969,"dup":89}],866:[function(require,module,exports){
+},{"../internal/arrayMap":886,"../internal/baseCallback":892,"../internal/baseMap":915,"../lang/isArray":974,"dup":89}],871:[function(require,module,exports){
 arguments[4][90][0].apply(exports,arguments)
-},{"../internal/arrayReduce":883,"../internal/baseEach":892,"../internal/createReduce":936,"dup":90}],867:[function(require,module,exports){
+},{"../internal/arrayReduce":888,"../internal/baseEach":897,"../internal/createReduce":941,"dup":90}],872:[function(require,module,exports){
 arguments[4][91][0].apply(exports,arguments)
-},{"../internal/arraySome":884,"../internal/baseCallback":887,"../internal/baseSome":918,"../internal/isIterateeCall":949,"../lang/isArray":969,"dup":91}],868:[function(require,module,exports){
-arguments[4][525][0].apply(exports,arguments)
-},{"../internal/getNative":945,"dup":525}],869:[function(require,module,exports){
-arguments[4][526][0].apply(exports,arguments)
-},{"../internal/createWrapper":937,"../internal/replaceHolders":961,"./restParam":872,"dup":526}],870:[function(require,module,exports){
-arguments[4][527][0].apply(exports,arguments)
-},{"../date/now":868,"../lang/isObject":973,"dup":527}],871:[function(require,module,exports){
-arguments[4][92][0].apply(exports,arguments)
-},{"../internal/baseDelay":890,"./restParam":872,"dup":92}],872:[function(require,module,exports){
-arguments[4][93][0].apply(exports,arguments)
-},{"dup":93}],873:[function(require,module,exports){
-arguments[4][529][0].apply(exports,arguments)
-},{"./baseCreate":889,"./baseLodash":909,"dup":529}],874:[function(require,module,exports){
+},{"../internal/arraySome":889,"../internal/baseCallback":892,"../internal/baseSome":923,"../internal/isIterateeCall":954,"../lang/isArray":974,"dup":91}],873:[function(require,module,exports){
 arguments[4][530][0].apply(exports,arguments)
-},{"./baseCreate":889,"./baseLodash":909,"dup":530}],875:[function(require,module,exports){
-arguments[4][94][0].apply(exports,arguments)
-},{"./cachePush":923,"./getNative":945,"dup":94}],876:[function(require,module,exports){
+},{"../internal/getNative":950,"dup":530}],874:[function(require,module,exports){
+arguments[4][531][0].apply(exports,arguments)
+},{"../internal/createWrapper":942,"../internal/replaceHolders":966,"./restParam":877,"dup":531}],875:[function(require,module,exports){
 arguments[4][532][0].apply(exports,arguments)
-},{"dup":532}],877:[function(require,module,exports){
+},{"../date/now":873,"../lang/isObject":978,"dup":532}],876:[function(require,module,exports){
+arguments[4][92][0].apply(exports,arguments)
+},{"../internal/baseDelay":895,"./restParam":877,"dup":92}],877:[function(require,module,exports){
+arguments[4][93][0].apply(exports,arguments)
+},{"dup":93}],878:[function(require,module,exports){
+arguments[4][534][0].apply(exports,arguments)
+},{"./baseCreate":894,"./baseLodash":914,"dup":534}],879:[function(require,module,exports){
+arguments[4][535][0].apply(exports,arguments)
+},{"./baseCreate":894,"./baseLodash":914,"dup":535}],880:[function(require,module,exports){
+arguments[4][94][0].apply(exports,arguments)
+},{"./cachePush":928,"./getNative":950,"dup":94}],881:[function(require,module,exports){
+arguments[4][537][0].apply(exports,arguments)
+},{"dup":537}],882:[function(require,module,exports){
 arguments[4][95][0].apply(exports,arguments)
-},{"dup":95}],878:[function(require,module,exports){
+},{"dup":95}],883:[function(require,module,exports){
 /**
  * A specialized version of `_.forEachRight` for arrays without support for
  * callback shorthands and `this` binding.
@@ -89030,35 +92387,35 @@ function arrayEachRight(array, iteratee) {
 
 module.exports = arrayEachRight;
 
-},{}],879:[function(require,module,exports){
+},{}],884:[function(require,module,exports){
 arguments[4][96][0].apply(exports,arguments)
-},{"dup":96}],880:[function(require,module,exports){
+},{"dup":96}],885:[function(require,module,exports){
 arguments[4][97][0].apply(exports,arguments)
-},{"dup":97}],881:[function(require,module,exports){
+},{"dup":97}],886:[function(require,module,exports){
 arguments[4][98][0].apply(exports,arguments)
-},{"dup":98}],882:[function(require,module,exports){
+},{"dup":98}],887:[function(require,module,exports){
 arguments[4][99][0].apply(exports,arguments)
-},{"dup":99}],883:[function(require,module,exports){
+},{"dup":99}],888:[function(require,module,exports){
 arguments[4][100][0].apply(exports,arguments)
-},{"dup":100}],884:[function(require,module,exports){
+},{"dup":100}],889:[function(require,module,exports){
 arguments[4][101][0].apply(exports,arguments)
-},{"dup":101}],885:[function(require,module,exports){
+},{"dup":101}],890:[function(require,module,exports){
 arguments[4][102][0].apply(exports,arguments)
-},{"../object/keys":977,"dup":102}],886:[function(require,module,exports){
+},{"../object/keys":982,"dup":102}],891:[function(require,module,exports){
 arguments[4][103][0].apply(exports,arguments)
-},{"../object/keys":977,"./baseCopy":888,"dup":103}],887:[function(require,module,exports){
+},{"../object/keys":982,"./baseCopy":893,"dup":103}],892:[function(require,module,exports){
 arguments[4][104][0].apply(exports,arguments)
-},{"../utility/identity":983,"../utility/property":985,"./baseMatches":911,"./baseMatchesProperty":912,"./bindCallback":921,"dup":104}],888:[function(require,module,exports){
+},{"../utility/identity":988,"../utility/property":990,"./baseMatches":916,"./baseMatchesProperty":917,"./bindCallback":926,"dup":104}],893:[function(require,module,exports){
 arguments[4][105][0].apply(exports,arguments)
-},{"dup":105}],889:[function(require,module,exports){
-arguments[4][546][0].apply(exports,arguments)
-},{"../lang/isObject":973,"dup":546}],890:[function(require,module,exports){
+},{"dup":105}],894:[function(require,module,exports){
+arguments[4][551][0].apply(exports,arguments)
+},{"../lang/isObject":978,"dup":551}],895:[function(require,module,exports){
 arguments[4][106][0].apply(exports,arguments)
-},{"dup":106}],891:[function(require,module,exports){
+},{"dup":106}],896:[function(require,module,exports){
 arguments[4][107][0].apply(exports,arguments)
-},{"./baseIndexOf":905,"./cacheIndexOf":922,"./createCache":930,"dup":107}],892:[function(require,module,exports){
+},{"./baseIndexOf":910,"./cacheIndexOf":927,"./createCache":935,"dup":107}],897:[function(require,module,exports){
 arguments[4][108][0].apply(exports,arguments)
-},{"./baseForOwn":901,"./createBaseEach":927,"dup":108}],893:[function(require,module,exports){
+},{"./baseForOwn":906,"./createBaseEach":932,"dup":108}],898:[function(require,module,exports){
 var baseForOwnRight = require('./baseForOwnRight'),
     createBaseEach = require('./createBaseEach');
 
@@ -89075,23 +92432,23 @@ var baseEachRight = createBaseEach(baseForOwnRight, true);
 
 module.exports = baseEachRight;
 
-},{"./baseForOwnRight":902,"./createBaseEach":927}],894:[function(require,module,exports){
+},{"./baseForOwnRight":907,"./createBaseEach":932}],899:[function(require,module,exports){
 arguments[4][109][0].apply(exports,arguments)
-},{"./baseEach":892,"dup":109}],895:[function(require,module,exports){
+},{"./baseEach":897,"dup":109}],900:[function(require,module,exports){
 arguments[4][110][0].apply(exports,arguments)
-},{"./baseEach":892,"dup":110}],896:[function(require,module,exports){
+},{"./baseEach":897,"dup":110}],901:[function(require,module,exports){
 arguments[4][111][0].apply(exports,arguments)
-},{"dup":111}],897:[function(require,module,exports){
+},{"dup":111}],902:[function(require,module,exports){
 arguments[4][112][0].apply(exports,arguments)
-},{"dup":112}],898:[function(require,module,exports){
+},{"dup":112}],903:[function(require,module,exports){
 arguments[4][113][0].apply(exports,arguments)
-},{"../lang/isArguments":968,"../lang/isArray":969,"./arrayPush":882,"./isArrayLike":947,"./isObjectLike":953,"dup":113}],899:[function(require,module,exports){
+},{"../lang/isArguments":973,"../lang/isArray":974,"./arrayPush":887,"./isArrayLike":952,"./isObjectLike":958,"dup":113}],904:[function(require,module,exports){
 arguments[4][114][0].apply(exports,arguments)
-},{"./createBaseFor":928,"dup":114}],900:[function(require,module,exports){
+},{"./createBaseFor":933,"dup":114}],905:[function(require,module,exports){
 arguments[4][115][0].apply(exports,arguments)
-},{"../object/keysIn":978,"./baseFor":899,"dup":115}],901:[function(require,module,exports){
+},{"../object/keysIn":983,"./baseFor":904,"dup":115}],906:[function(require,module,exports){
 arguments[4][116][0].apply(exports,arguments)
-},{"../object/keys":977,"./baseFor":899,"dup":116}],902:[function(require,module,exports){
+},{"../object/keys":982,"./baseFor":904,"dup":116}],907:[function(require,module,exports){
 var baseForRight = require('./baseForRight'),
     keys = require('../object/keys');
 
@@ -89110,7 +92467,7 @@ function baseForOwnRight(object, iteratee) {
 
 module.exports = baseForOwnRight;
 
-},{"../object/keys":977,"./baseForRight":903}],903:[function(require,module,exports){
+},{"../object/keys":982,"./baseForRight":908}],908:[function(require,module,exports){
 var createBaseFor = require('./createBaseFor');
 
 /**
@@ -89127,163 +92484,163 @@ var baseForRight = createBaseFor(true);
 
 module.exports = baseForRight;
 
-},{"./createBaseFor":928}],904:[function(require,module,exports){
+},{"./createBaseFor":933}],909:[function(require,module,exports){
 arguments[4][117][0].apply(exports,arguments)
-},{"./toObject":965,"dup":117}],905:[function(require,module,exports){
+},{"./toObject":970,"dup":117}],910:[function(require,module,exports){
 arguments[4][118][0].apply(exports,arguments)
-},{"./indexOfNaN":946,"dup":118}],906:[function(require,module,exports){
+},{"./indexOfNaN":951,"dup":118}],911:[function(require,module,exports){
 arguments[4][119][0].apply(exports,arguments)
-},{"../lang/isObject":973,"./baseIsEqualDeep":907,"./isObjectLike":953,"dup":119}],907:[function(require,module,exports){
+},{"../lang/isObject":978,"./baseIsEqualDeep":912,"./isObjectLike":958,"dup":119}],912:[function(require,module,exports){
 arguments[4][120][0].apply(exports,arguments)
-},{"../lang/isArray":969,"../lang/isTypedArray":975,"./equalArrays":938,"./equalByTag":939,"./equalObjects":940,"dup":120}],908:[function(require,module,exports){
+},{"../lang/isArray":974,"../lang/isTypedArray":980,"./equalArrays":943,"./equalByTag":944,"./equalObjects":945,"dup":120}],913:[function(require,module,exports){
 arguments[4][121][0].apply(exports,arguments)
-},{"./baseIsEqual":906,"./toObject":965,"dup":121}],909:[function(require,module,exports){
-arguments[4][561][0].apply(exports,arguments)
-},{"dup":561}],910:[function(require,module,exports){
+},{"./baseIsEqual":911,"./toObject":970,"dup":121}],914:[function(require,module,exports){
+arguments[4][566][0].apply(exports,arguments)
+},{"dup":566}],915:[function(require,module,exports){
 arguments[4][122][0].apply(exports,arguments)
-},{"./baseEach":892,"./isArrayLike":947,"dup":122}],911:[function(require,module,exports){
+},{"./baseEach":897,"./isArrayLike":952,"dup":122}],916:[function(require,module,exports){
 arguments[4][123][0].apply(exports,arguments)
-},{"./baseIsMatch":908,"./getMatchData":944,"./toObject":965,"dup":123}],912:[function(require,module,exports){
+},{"./baseIsMatch":913,"./getMatchData":949,"./toObject":970,"dup":123}],917:[function(require,module,exports){
 arguments[4][124][0].apply(exports,arguments)
-},{"../array/last":854,"../lang/isArray":969,"./baseGet":904,"./baseIsEqual":906,"./baseSlice":917,"./isKey":950,"./isStrictComparable":954,"./toObject":965,"./toPath":966,"dup":124}],913:[function(require,module,exports){
+},{"../array/last":859,"../lang/isArray":974,"./baseGet":909,"./baseIsEqual":911,"./baseSlice":922,"./isKey":955,"./isStrictComparable":959,"./toObject":970,"./toPath":971,"dup":124}],918:[function(require,module,exports){
 arguments[4][125][0].apply(exports,arguments)
-},{"dup":125}],914:[function(require,module,exports){
+},{"dup":125}],919:[function(require,module,exports){
 arguments[4][126][0].apply(exports,arguments)
-},{"./baseGet":904,"./toPath":966,"dup":126}],915:[function(require,module,exports){
+},{"./baseGet":909,"./toPath":971,"dup":126}],920:[function(require,module,exports){
 arguments[4][127][0].apply(exports,arguments)
-},{"dup":127}],916:[function(require,module,exports){
-arguments[4][570][0].apply(exports,arguments)
-},{"../utility/identity":983,"./metaMap":956,"dup":570}],917:[function(require,module,exports){
-arguments[4][128][0].apply(exports,arguments)
-},{"dup":128}],918:[function(require,module,exports){
-arguments[4][129][0].apply(exports,arguments)
-},{"./baseEach":892,"dup":129}],919:[function(require,module,exports){
-arguments[4][130][0].apply(exports,arguments)
-},{"dup":130}],920:[function(require,module,exports){
+},{"dup":127}],921:[function(require,module,exports){
 arguments[4][575][0].apply(exports,arguments)
-},{"./baseIndexOf":905,"./cacheIndexOf":922,"./createCache":930,"dup":575}],921:[function(require,module,exports){
+},{"../utility/identity":988,"./metaMap":961,"dup":575}],922:[function(require,module,exports){
+arguments[4][128][0].apply(exports,arguments)
+},{"dup":128}],923:[function(require,module,exports){
+arguments[4][129][0].apply(exports,arguments)
+},{"./baseEach":897,"dup":129}],924:[function(require,module,exports){
+arguments[4][130][0].apply(exports,arguments)
+},{"dup":130}],925:[function(require,module,exports){
+arguments[4][580][0].apply(exports,arguments)
+},{"./baseIndexOf":910,"./cacheIndexOf":927,"./createCache":935,"dup":580}],926:[function(require,module,exports){
 arguments[4][132][0].apply(exports,arguments)
-},{"../utility/identity":983,"dup":132}],922:[function(require,module,exports){
+},{"../utility/identity":988,"dup":132}],927:[function(require,module,exports){
 arguments[4][133][0].apply(exports,arguments)
-},{"../lang/isObject":973,"dup":133}],923:[function(require,module,exports){
+},{"../lang/isObject":978,"dup":133}],928:[function(require,module,exports){
 arguments[4][134][0].apply(exports,arguments)
-},{"../lang/isObject":973,"dup":134}],924:[function(require,module,exports){
-arguments[4][582][0].apply(exports,arguments)
-},{"dup":582}],925:[function(require,module,exports){
-arguments[4][583][0].apply(exports,arguments)
-},{"dup":583}],926:[function(require,module,exports){
-arguments[4][135][0].apply(exports,arguments)
-},{"../function/restParam":872,"./bindCallback":921,"./isIterateeCall":949,"dup":135}],927:[function(require,module,exports){
-arguments[4][136][0].apply(exports,arguments)
-},{"./getLength":943,"./isLength":952,"./toObject":965,"dup":136}],928:[function(require,module,exports){
-arguments[4][137][0].apply(exports,arguments)
-},{"./toObject":965,"dup":137}],929:[function(require,module,exports){
+},{"../lang/isObject":978,"dup":134}],929:[function(require,module,exports){
+arguments[4][587][0].apply(exports,arguments)
+},{"dup":587}],930:[function(require,module,exports){
 arguments[4][588][0].apply(exports,arguments)
-},{"./createCtorWrapper":931,"dup":588}],930:[function(require,module,exports){
+},{"dup":588}],931:[function(require,module,exports){
+arguments[4][135][0].apply(exports,arguments)
+},{"../function/restParam":877,"./bindCallback":926,"./isIterateeCall":954,"dup":135}],932:[function(require,module,exports){
+arguments[4][136][0].apply(exports,arguments)
+},{"./getLength":948,"./isLength":957,"./toObject":970,"dup":136}],933:[function(require,module,exports){
+arguments[4][137][0].apply(exports,arguments)
+},{"./toObject":970,"dup":137}],934:[function(require,module,exports){
+arguments[4][593][0].apply(exports,arguments)
+},{"./createCtorWrapper":936,"dup":593}],935:[function(require,module,exports){
 arguments[4][138][0].apply(exports,arguments)
-},{"./SetCache":875,"./getNative":945,"dup":138}],931:[function(require,module,exports){
-arguments[4][590][0].apply(exports,arguments)
-},{"../lang/isObject":973,"./baseCreate":889,"dup":590}],932:[function(require,module,exports){
-arguments[4][139][0].apply(exports,arguments)
-},{"../lang/isArray":969,"./baseCallback":887,"./baseFind":896,"./baseFindIndex":897,"dup":139}],933:[function(require,module,exports){
-arguments[4][140][0].apply(exports,arguments)
-},{"../lang/isArray":969,"./bindCallback":921,"dup":140}],934:[function(require,module,exports){
-arguments[4][594][0].apply(exports,arguments)
-},{"./arrayCopy":876,"./composeArgs":924,"./composeArgsRight":925,"./createCtorWrapper":931,"./isLaziable":951,"./reorder":960,"./replaceHolders":961,"./setData":962,"dup":594}],935:[function(require,module,exports){
+},{"./SetCache":880,"./getNative":950,"dup":138}],936:[function(require,module,exports){
 arguments[4][595][0].apply(exports,arguments)
-},{"./createCtorWrapper":931,"dup":595}],936:[function(require,module,exports){
+},{"../lang/isObject":978,"./baseCreate":894,"dup":595}],937:[function(require,module,exports){
+arguments[4][139][0].apply(exports,arguments)
+},{"../lang/isArray":974,"./baseCallback":892,"./baseFind":901,"./baseFindIndex":902,"dup":139}],938:[function(require,module,exports){
+arguments[4][140][0].apply(exports,arguments)
+},{"../lang/isArray":974,"./bindCallback":926,"dup":140}],939:[function(require,module,exports){
+arguments[4][599][0].apply(exports,arguments)
+},{"./arrayCopy":881,"./composeArgs":929,"./composeArgsRight":930,"./createCtorWrapper":936,"./isLaziable":956,"./reorder":965,"./replaceHolders":966,"./setData":967,"dup":599}],940:[function(require,module,exports){
+arguments[4][600][0].apply(exports,arguments)
+},{"./createCtorWrapper":936,"dup":600}],941:[function(require,module,exports){
 arguments[4][141][0].apply(exports,arguments)
-},{"../lang/isArray":969,"./baseCallback":887,"./baseReduce":915,"dup":141}],937:[function(require,module,exports){
-arguments[4][597][0].apply(exports,arguments)
-},{"./baseSetData":916,"./createBindWrapper":929,"./createHybridWrapper":934,"./createPartialWrapper":935,"./getData":941,"./mergeData":955,"./setData":962,"dup":597}],938:[function(require,module,exports){
-arguments[4][142][0].apply(exports,arguments)
-},{"./arraySome":884,"dup":142}],939:[function(require,module,exports){
-arguments[4][143][0].apply(exports,arguments)
-},{"dup":143}],940:[function(require,module,exports){
-arguments[4][144][0].apply(exports,arguments)
-},{"../object/keys":977,"dup":144}],941:[function(require,module,exports){
-arguments[4][601][0].apply(exports,arguments)
-},{"../utility/noop":984,"./metaMap":956,"dup":601}],942:[function(require,module,exports){
+},{"../lang/isArray":974,"./baseCallback":892,"./baseReduce":920,"dup":141}],942:[function(require,module,exports){
 arguments[4][602][0].apply(exports,arguments)
-},{"./realNames":959,"dup":602}],943:[function(require,module,exports){
+},{"./baseSetData":921,"./createBindWrapper":934,"./createHybridWrapper":939,"./createPartialWrapper":940,"./getData":946,"./mergeData":960,"./setData":967,"dup":602}],943:[function(require,module,exports){
+arguments[4][142][0].apply(exports,arguments)
+},{"./arraySome":889,"dup":142}],944:[function(require,module,exports){
+arguments[4][143][0].apply(exports,arguments)
+},{"dup":143}],945:[function(require,module,exports){
+arguments[4][144][0].apply(exports,arguments)
+},{"../object/keys":982,"dup":144}],946:[function(require,module,exports){
+arguments[4][606][0].apply(exports,arguments)
+},{"../utility/noop":989,"./metaMap":961,"dup":606}],947:[function(require,module,exports){
+arguments[4][607][0].apply(exports,arguments)
+},{"./realNames":964,"dup":607}],948:[function(require,module,exports){
 arguments[4][145][0].apply(exports,arguments)
-},{"./baseProperty":913,"dup":145}],944:[function(require,module,exports){
+},{"./baseProperty":918,"dup":145}],949:[function(require,module,exports){
 arguments[4][146][0].apply(exports,arguments)
-},{"../object/pairs":980,"./isStrictComparable":954,"dup":146}],945:[function(require,module,exports){
+},{"../object/pairs":985,"./isStrictComparable":959,"dup":146}],950:[function(require,module,exports){
 arguments[4][147][0].apply(exports,arguments)
-},{"../lang/isNative":971,"dup":147}],946:[function(require,module,exports){
+},{"../lang/isNative":976,"dup":147}],951:[function(require,module,exports){
 arguments[4][148][0].apply(exports,arguments)
-},{"dup":148}],947:[function(require,module,exports){
+},{"dup":148}],952:[function(require,module,exports){
 arguments[4][149][0].apply(exports,arguments)
-},{"./getLength":943,"./isLength":952,"dup":149}],948:[function(require,module,exports){
+},{"./getLength":948,"./isLength":957,"dup":149}],953:[function(require,module,exports){
 arguments[4][150][0].apply(exports,arguments)
-},{"dup":150}],949:[function(require,module,exports){
+},{"dup":150}],954:[function(require,module,exports){
 arguments[4][151][0].apply(exports,arguments)
-},{"../lang/isObject":973,"./isArrayLike":947,"./isIndex":948,"dup":151}],950:[function(require,module,exports){
+},{"../lang/isObject":978,"./isArrayLike":952,"./isIndex":953,"dup":151}],955:[function(require,module,exports){
 arguments[4][152][0].apply(exports,arguments)
-},{"../lang/isArray":969,"./toObject":965,"dup":152}],951:[function(require,module,exports){
-arguments[4][614][0].apply(exports,arguments)
-},{"../chain/lodash":858,"./LazyWrapper":873,"./getData":941,"./getFuncName":942,"dup":614}],952:[function(require,module,exports){
-arguments[4][153][0].apply(exports,arguments)
-},{"dup":153}],953:[function(require,module,exports){
-arguments[4][154][0].apply(exports,arguments)
-},{"dup":154}],954:[function(require,module,exports){
-arguments[4][155][0].apply(exports,arguments)
-},{"../lang/isObject":973,"dup":155}],955:[function(require,module,exports){
-arguments[4][618][0].apply(exports,arguments)
-},{"./arrayCopy":876,"./composeArgs":924,"./composeArgsRight":925,"./replaceHolders":961,"dup":618}],956:[function(require,module,exports){
+},{"../lang/isArray":974,"./toObject":970,"dup":152}],956:[function(require,module,exports){
 arguments[4][619][0].apply(exports,arguments)
-},{"./getNative":945,"dup":619}],957:[function(require,module,exports){
-arguments[4][156][0].apply(exports,arguments)
-},{"./toObject":965,"dup":156}],958:[function(require,module,exports){
-arguments[4][157][0].apply(exports,arguments)
-},{"./baseForIn":900,"dup":157}],959:[function(require,module,exports){
-arguments[4][622][0].apply(exports,arguments)
-},{"dup":622}],960:[function(require,module,exports){
+},{"../chain/lodash":863,"./LazyWrapper":878,"./getData":946,"./getFuncName":947,"dup":619}],957:[function(require,module,exports){
+arguments[4][153][0].apply(exports,arguments)
+},{"dup":153}],958:[function(require,module,exports){
+arguments[4][154][0].apply(exports,arguments)
+},{"dup":154}],959:[function(require,module,exports){
+arguments[4][155][0].apply(exports,arguments)
+},{"../lang/isObject":978,"dup":155}],960:[function(require,module,exports){
 arguments[4][623][0].apply(exports,arguments)
-},{"./arrayCopy":876,"./isIndex":948,"dup":623}],961:[function(require,module,exports){
+},{"./arrayCopy":881,"./composeArgs":929,"./composeArgsRight":930,"./replaceHolders":966,"dup":623}],961:[function(require,module,exports){
 arguments[4][624][0].apply(exports,arguments)
-},{"dup":624}],962:[function(require,module,exports){
-arguments[4][625][0].apply(exports,arguments)
-},{"../date/now":868,"./baseSetData":916,"dup":625}],963:[function(require,module,exports){
-arguments[4][158][0].apply(exports,arguments)
-},{"../lang/isArguments":968,"../lang/isArray":969,"../object/keysIn":978,"./isIndex":948,"./isLength":952,"dup":158}],964:[function(require,module,exports){
+},{"./getNative":950,"dup":624}],962:[function(require,module,exports){
+arguments[4][156][0].apply(exports,arguments)
+},{"./toObject":970,"dup":156}],963:[function(require,module,exports){
+arguments[4][157][0].apply(exports,arguments)
+},{"./baseForIn":905,"dup":157}],964:[function(require,module,exports){
 arguments[4][627][0].apply(exports,arguments)
 },{"dup":627}],965:[function(require,module,exports){
-arguments[4][159][0].apply(exports,arguments)
-},{"../lang/isObject":973,"dup":159}],966:[function(require,module,exports){
-arguments[4][160][0].apply(exports,arguments)
-},{"../lang/isArray":969,"./baseToString":919,"dup":160}],967:[function(require,module,exports){
+arguments[4][628][0].apply(exports,arguments)
+},{"./arrayCopy":881,"./isIndex":953,"dup":628}],966:[function(require,module,exports){
+arguments[4][629][0].apply(exports,arguments)
+},{"dup":629}],967:[function(require,module,exports){
 arguments[4][630][0].apply(exports,arguments)
-},{"./LazyWrapper":873,"./LodashWrapper":874,"./arrayCopy":876,"dup":630}],968:[function(require,module,exports){
+},{"../date/now":873,"./baseSetData":921,"dup":630}],968:[function(require,module,exports){
+arguments[4][158][0].apply(exports,arguments)
+},{"../lang/isArguments":973,"../lang/isArray":974,"../object/keysIn":983,"./isIndex":953,"./isLength":957,"dup":158}],969:[function(require,module,exports){
+arguments[4][632][0].apply(exports,arguments)
+},{"dup":632}],970:[function(require,module,exports){
+arguments[4][159][0].apply(exports,arguments)
+},{"../lang/isObject":978,"dup":159}],971:[function(require,module,exports){
+arguments[4][160][0].apply(exports,arguments)
+},{"../lang/isArray":974,"./baseToString":924,"dup":160}],972:[function(require,module,exports){
+arguments[4][635][0].apply(exports,arguments)
+},{"./LazyWrapper":878,"./LodashWrapper":879,"./arrayCopy":881,"dup":635}],973:[function(require,module,exports){
 arguments[4][161][0].apply(exports,arguments)
-},{"../internal/isArrayLike":947,"../internal/isObjectLike":953,"dup":161}],969:[function(require,module,exports){
+},{"../internal/isArrayLike":952,"../internal/isObjectLike":958,"dup":161}],974:[function(require,module,exports){
 arguments[4][162][0].apply(exports,arguments)
-},{"../internal/getNative":945,"../internal/isLength":952,"../internal/isObjectLike":953,"dup":162}],970:[function(require,module,exports){
+},{"../internal/getNative":950,"../internal/isLength":957,"../internal/isObjectLike":958,"dup":162}],975:[function(require,module,exports){
 arguments[4][163][0].apply(exports,arguments)
-},{"./isObject":973,"dup":163}],971:[function(require,module,exports){
+},{"./isObject":978,"dup":163}],976:[function(require,module,exports){
 arguments[4][164][0].apply(exports,arguments)
-},{"../internal/isObjectLike":953,"./isFunction":970,"dup":164}],972:[function(require,module,exports){
+},{"../internal/isObjectLike":958,"./isFunction":975,"dup":164}],977:[function(require,module,exports){
 arguments[4][165][0].apply(exports,arguments)
-},{"../internal/isObjectLike":953,"dup":165}],973:[function(require,module,exports){
+},{"../internal/isObjectLike":958,"dup":165}],978:[function(require,module,exports){
 arguments[4][166][0].apply(exports,arguments)
-},{"dup":166}],974:[function(require,module,exports){
+},{"dup":166}],979:[function(require,module,exports){
 arguments[4][167][0].apply(exports,arguments)
-},{"../internal/isObjectLike":953,"dup":167}],975:[function(require,module,exports){
+},{"../internal/isObjectLike":958,"dup":167}],980:[function(require,module,exports){
 arguments[4][168][0].apply(exports,arguments)
-},{"../internal/isLength":952,"../internal/isObjectLike":953,"dup":168}],976:[function(require,module,exports){
+},{"../internal/isLength":957,"../internal/isObjectLike":958,"dup":168}],981:[function(require,module,exports){
 arguments[4][169][0].apply(exports,arguments)
-},{"../internal/assignWith":885,"../internal/baseAssign":886,"../internal/createAssigner":926,"dup":169}],977:[function(require,module,exports){
+},{"../internal/assignWith":890,"../internal/baseAssign":891,"../internal/createAssigner":931,"dup":169}],982:[function(require,module,exports){
 arguments[4][170][0].apply(exports,arguments)
-},{"../internal/getNative":945,"../internal/isArrayLike":947,"../internal/shimKeys":963,"../lang/isObject":973,"dup":170}],978:[function(require,module,exports){
+},{"../internal/getNative":950,"../internal/isArrayLike":952,"../internal/shimKeys":968,"../lang/isObject":978,"dup":170}],983:[function(require,module,exports){
 arguments[4][171][0].apply(exports,arguments)
-},{"../internal/isIndex":948,"../internal/isLength":952,"../lang/isArguments":968,"../lang/isArray":969,"../lang/isObject":973,"dup":171}],979:[function(require,module,exports){
+},{"../internal/isIndex":953,"../internal/isLength":957,"../lang/isArguments":973,"../lang/isArray":974,"../lang/isObject":978,"dup":171}],984:[function(require,module,exports){
 arguments[4][172][0].apply(exports,arguments)
-},{"../function/restParam":872,"../internal/arrayMap":881,"../internal/baseDifference":891,"../internal/baseFlatten":898,"../internal/bindCallback":921,"../internal/pickByArray":957,"../internal/pickByCallback":958,"./keysIn":978,"dup":172}],980:[function(require,module,exports){
+},{"../function/restParam":877,"../internal/arrayMap":886,"../internal/baseDifference":896,"../internal/baseFlatten":903,"../internal/bindCallback":926,"../internal/pickByArray":962,"../internal/pickByCallback":963,"./keysIn":983,"dup":172}],985:[function(require,module,exports){
 arguments[4][173][0].apply(exports,arguments)
-},{"../internal/toObject":965,"./keys":977,"dup":173}],981:[function(require,module,exports){
+},{"../internal/toObject":970,"./keys":982,"dup":173}],986:[function(require,module,exports){
 arguments[4][174][0].apply(exports,arguments)
-},{"../function/restParam":872,"../internal/baseFlatten":898,"../internal/bindCallback":921,"../internal/pickByArray":957,"../internal/pickByCallback":958,"dup":174}],982:[function(require,module,exports){
+},{"../function/restParam":877,"../internal/baseFlatten":903,"../internal/bindCallback":926,"../internal/pickByArray":962,"../internal/pickByCallback":963,"dup":174}],987:[function(require,module,exports){
 var arrayEach = require('../internal/arrayEach'),
     baseCallback = require('../internal/baseCallback'),
     baseCreate = require('../internal/baseCreate'),
@@ -89346,45 +92703,45 @@ function transform(object, iteratee, accumulator, thisArg) {
 
 module.exports = transform;
 
-},{"../internal/arrayEach":877,"../internal/baseCallback":887,"../internal/baseCreate":889,"../internal/baseForOwn":901,"../lang/isArray":969,"../lang/isFunction":970,"../lang/isObject":973,"../lang/isTypedArray":975}],983:[function(require,module,exports){
+},{"../internal/arrayEach":882,"../internal/baseCallback":892,"../internal/baseCreate":894,"../internal/baseForOwn":906,"../lang/isArray":974,"../lang/isFunction":975,"../lang/isObject":978,"../lang/isTypedArray":980}],988:[function(require,module,exports){
 arguments[4][176][0].apply(exports,arguments)
-},{"dup":176}],984:[function(require,module,exports){
-arguments[4][650][0].apply(exports,arguments)
-},{"dup":650}],985:[function(require,module,exports){
+},{"dup":176}],989:[function(require,module,exports){
+arguments[4][655][0].apply(exports,arguments)
+},{"dup":655}],990:[function(require,module,exports){
 arguments[4][177][0].apply(exports,arguments)
-},{"../internal/baseProperty":913,"../internal/basePropertyDeep":914,"../internal/isKey":950,"dup":177}],986:[function(require,module,exports){
-arguments[4][652][0].apply(exports,arguments)
-},{"dup":652}],987:[function(require,module,exports){
-arguments[4][653][0].apply(exports,arguments)
-},{"component-classes":994,"dup":653}],988:[function(require,module,exports){
+},{"../internal/baseProperty":918,"../internal/basePropertyDeep":919,"../internal/isKey":955,"dup":177}],991:[function(require,module,exports){
+arguments[4][657][0].apply(exports,arguments)
+},{"dup":657}],992:[function(require,module,exports){
+arguments[4][658][0].apply(exports,arguments)
+},{"component-classes":999,"dup":658}],993:[function(require,module,exports){
 arguments[4][178][0].apply(exports,arguments)
-},{"component-delegate":997,"dup":178}],989:[function(require,module,exports){
+},{"component-delegate":1002,"dup":178}],994:[function(require,module,exports){
 arguments[4][179][0].apply(exports,arguments)
-},{"domify":1001,"dup":179}],990:[function(require,module,exports){
+},{"domify":1006,"dup":179}],995:[function(require,module,exports){
 arguments[4][180][0].apply(exports,arguments)
-},{"component-event":998,"dup":180}],991:[function(require,module,exports){
-arguments[4][659][0].apply(exports,arguments)
-},{"component-matches-selector":999,"dup":659}],992:[function(require,module,exports){
+},{"component-event":1003,"dup":180}],996:[function(require,module,exports){
+arguments[4][664][0].apply(exports,arguments)
+},{"component-matches-selector":1004,"dup":664}],997:[function(require,module,exports){
 arguments[4][181][0].apply(exports,arguments)
-},{"component-query":1000,"dup":181}],993:[function(require,module,exports){
+},{"component-query":1005,"dup":181}],998:[function(require,module,exports){
 arguments[4][182][0].apply(exports,arguments)
-},{"dup":182}],994:[function(require,module,exports){
-arguments[4][662][0].apply(exports,arguments)
-},{"component-indexof":995,"dup":662,"indexof":995}],995:[function(require,module,exports){
-arguments[4][663][0].apply(exports,arguments)
-},{"dup":663}],996:[function(require,module,exports){
+},{"dup":182}],999:[function(require,module,exports){
+arguments[4][667][0].apply(exports,arguments)
+},{"component-indexof":1000,"dup":667,"indexof":1000}],1000:[function(require,module,exports){
+arguments[4][668][0].apply(exports,arguments)
+},{"dup":668}],1001:[function(require,module,exports){
 arguments[4][183][0].apply(exports,arguments)
-},{"dup":183,"matches-selector":999}],997:[function(require,module,exports){
+},{"dup":183,"matches-selector":1004}],1002:[function(require,module,exports){
 arguments[4][184][0].apply(exports,arguments)
-},{"closest":996,"component-closest":996,"component-event":998,"dup":184,"event":998}],998:[function(require,module,exports){
+},{"closest":1001,"component-closest":1001,"component-event":1003,"dup":184,"event":1003}],1003:[function(require,module,exports){
 arguments[4][185][0].apply(exports,arguments)
-},{"dup":185}],999:[function(require,module,exports){
+},{"dup":185}],1004:[function(require,module,exports){
 arguments[4][186][0].apply(exports,arguments)
-},{"component-query":1000,"dup":186,"query":1000}],1000:[function(require,module,exports){
+},{"component-query":1005,"dup":186,"query":1005}],1005:[function(require,module,exports){
 arguments[4][187][0].apply(exports,arguments)
-},{"dup":187}],1001:[function(require,module,exports){
+},{"dup":187}],1006:[function(require,module,exports){
 arguments[4][188][0].apply(exports,arguments)
-},{"dup":188}],1002:[function(require,module,exports){
+},{"dup":188}],1007:[function(require,module,exports){
 'use strict';
 
 /**
@@ -89536,10 +92893,10 @@ function splitStr(str, position) {
     after: str.substring(position)
   };
 }
-},{}],1003:[function(require,module,exports){
+},{}],1008:[function(require,module,exports){
 module.exports = require('./lib/Table');
 
-},{"./lib/Table":1004}],1004:[function(require,module,exports){
+},{"./lib/Table":1009}],1009:[function(require,module,exports){
 'use strict';
 
 var di = require('didi');
@@ -89719,7 +93076,7 @@ Table.prototype.clear = function() {
   this.get('eventBus').fire('diagram.clear');
 };
 
-},{"./core":1009,"didi":1069}],1005:[function(require,module,exports){
+},{"./core":1014,"didi":1074}],1010:[function(require,module,exports){
 'use strict';
 
 var Model = require('../model');
@@ -89767,7 +93124,7 @@ ElementFactory.prototype.create = function(type, attrs) {
   return Model.create(type, attrs);
 };
 
-},{"../model":1056}],1006:[function(require,module,exports){
+},{"../model":1061}],1011:[function(require,module,exports){
 'use strict';
 
 var ELEMENT_ID = 'data-element-id';
@@ -89968,7 +93325,7 @@ ElementRegistry.prototype._validateId = function(id) {
   }
 };
 
-},{}],1007:[function(require,module,exports){
+},{}],1012:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -90111,7 +93468,7 @@ GraphicsFactory.prototype.remove = function(element) {
   gfx.parentNode && gfx.parentNode.removeChild(gfx);
 };
 
-},{"lodash/collection/forEach":863}],1008:[function(require,module,exports){
+},{"lodash/collection/forEach":868}],1013:[function(require,module,exports){
 'use strict';
 
 var isNumber = require('lodash/lang/isNumber'),
@@ -90889,7 +94246,7 @@ Sheet.prototype.resized = function() {
   eventBus.fire('sheet.resized');
 };
 
-},{"lodash/collection/every":860,"lodash/collection/forEach":863,"lodash/lang/isNumber":972,"lodash/object/assign":976}],1009:[function(require,module,exports){
+},{"lodash/collection/every":865,"lodash/collection/forEach":868,"lodash/lang/isNumber":977,"lodash/object/assign":981}],1014:[function(require,module,exports){
 module.exports = {
   __depends__: [ require('../draw') ],
   __init__: [ 'sheet' ],
@@ -90900,7 +94257,7 @@ module.exports = {
   eventBus: [ 'type', require('diagram-js/lib/core/EventBus') ]
 };
 
-},{"../draw":1011,"./ElementFactory":1005,"./ElementRegistry":1006,"./GraphicsFactory":1007,"./Sheet":1008,"diagram-js/lib/core/EventBus":1060}],1010:[function(require,module,exports){
+},{"../draw":1016,"./ElementFactory":1010,"./ElementRegistry":1011,"./GraphicsFactory":1012,"./Sheet":1013,"diagram-js/lib/core/EventBus":1065}],1015:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -91004,12 +94361,12 @@ Renderer.prototype.drawCell = function drawCell(gfx, data) {
   return gfx;
 };
 
-},{"lodash/collection/forEach":863}],1011:[function(require,module,exports){
+},{"lodash/collection/forEach":868}],1016:[function(require,module,exports){
 module.exports = {
   renderer: [ 'type', require('./Renderer') ]
 };
 
-},{"./Renderer":1010}],1012:[function(require,module,exports){
+},{"./Renderer":1015}],1017:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -91058,7 +94415,7 @@ AddRow.prototype.getRow = function() {
   return this.row;
 };
 
-},{"diagram-js/lib/util/IdGenerator":1065,"min-dom/lib/domify":989}],1013:[function(require,module,exports){
+},{"diagram-js/lib/util/IdGenerator":1070,"min-dom/lib/domify":994}],1018:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -91089,7 +94446,7 @@ AddRowRenderer.$inject = [
 
 module.exports = AddRowRenderer;
 
-},{"min-dom/lib/classes":987}],1014:[function(require,module,exports){
+},{"min-dom/lib/classes":992}],1019:[function(require,module,exports){
 module.exports = {
   __init__: [ 'addRow', 'addRowRenderer'],
   __depends__: [
@@ -91100,7 +94457,7 @@ module.exports = {
   addRowRenderer: [ 'type', require('./AddRowRenderer') ]
 };
 
-},{"../modeling":1045,"../utility-column":1055,"./AddRow":1012,"./AddRowRenderer":1013}],1015:[function(require,module,exports){
+},{"../modeling":1050,"../utility-column":1060,"./AddRow":1017,"./AddRowRenderer":1018}],1020:[function(require,module,exports){
 'use strict';
 
 /**
@@ -91165,16 +94522,16 @@ ChangeSupport.$inject = [ 'eventBus', 'elementRegistry', 'graphicsFactory' ];
 
 module.exports = ChangeSupport;
 
-},{}],1016:[function(require,module,exports){
+},{}],1021:[function(require,module,exports){
 module.exports = {
   __init__: [ 'changeSupport'],
   changeSupport: [ 'type', require('./ChangeSupport') ]
 };
 
-},{"./ChangeSupport":1015}],1017:[function(require,module,exports){
+},{"./ChangeSupport":1020}],1022:[function(require,module,exports){
 module.exports = "<div>\n  <label></label>\n  <input tabindex=\"0\" />\n  <span class=\"cb-caret\"></span>\n</div>\n";
 
-},{}],1018:[function(require,module,exports){
+},{}],1023:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify'),
@@ -91476,7 +94833,7 @@ ComboBox.prototype.enable = function() {
 
 module.exports = ComboBox;
 
-},{"./ComboBoxTemplate.html":1017,"lodash/collection/forEach":863,"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/domify":989}],1019:[function(require,module,exports){
+},{"./ComboBoxTemplate.html":1022,"lodash/collection/forEach":868,"lodash/object/assign":981,"min-dom/lib/classes":992,"min-dom/lib/domify":994}],1024:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -91686,7 +95043,7 @@ ComplexCell.$inject = [ 'eventBus', 'elementRegistry', 'sheet' ];
 
 module.exports = ComplexCell;
 
-},{"lodash/object/assign":976,"min-dom/lib/classes":987,"min-dom/lib/remove":993}],1020:[function(require,module,exports){
+},{"lodash/object/assign":981,"min-dom/lib/classes":992,"min-dom/lib/remove":998}],1025:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -91694,7 +95051,7 @@ module.exports = {
   complexCell: [ 'type', require('./ComplexCell') ]
 };
 
-},{"./ComplexCell":1019}],1021:[function(require,module,exports){
+},{"./ComplexCell":1024}],1026:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -91759,7 +95116,7 @@ Controls.$inject = [ 'eventBus' ];
 
 module.exports = Controls;
 
-},{"min-dom/lib/classes":987}],1022:[function(require,module,exports){
+},{"min-dom/lib/classes":992}],1027:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -91767,7 +95124,7 @@ module.exports = {
   controls: [ 'type', require('./Controls') ]
 };
 
-},{"./Controls":1021}],1023:[function(require,module,exports){
+},{"./Controls":1026}],1028:[function(require,module,exports){
 'use strict';
 
 var debounce = require('lodash/function/debounce');
@@ -91967,7 +95324,7 @@ EditBehavior.$inject = [
 
 module.exports = EditBehavior;
 
-},{"lodash/function/debounce":870}],1024:[function(require,module,exports){
+},{"lodash/function/debounce":875}],1029:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -92029,7 +95386,7 @@ EditRenderer.$inject = [
 
 module.exports = EditRenderer;
 
-},{"min-dom/lib/classes":987}],1025:[function(require,module,exports){
+},{"min-dom/lib/classes":992}],1030:[function(require,module,exports){
 'use strict';
 
 /**
@@ -92162,7 +95519,7 @@ Selection.prototype.selectBelow = function() {
   }
 };
 
-},{}],1026:[function(require,module,exports){
+},{}],1031:[function(require,module,exports){
 module.exports = {
   __init__: [ 'editBehavior', 'editRenderer' ],
   __depends__: [
@@ -92176,7 +95533,7 @@ module.exports = {
   editRenderer: [ 'type', require('./EditRenderer') ]
 };
 
-},{"../interaction-events":1030,"../keyboard":1032,"../modeling":1045,"./EditBehavior":1023,"./EditRenderer":1024,"./Selection":1025,"diagram-js/lib/features/rules":1063}],1027:[function(require,module,exports){
+},{"../interaction-events":1035,"../keyboard":1037,"../modeling":1050,"./EditBehavior":1028,"./EditRenderer":1029,"./Selection":1030,"diagram-js/lib/features/rules":1068}],1032:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -92310,13 +95667,13 @@ function error(action, message) {
   return new Error(action + ' ' + message);
 }
 
-},{"lodash/collection/forEach":863}],1028:[function(require,module,exports){
+},{"lodash/collection/forEach":868}],1033:[function(require,module,exports){
 module.exports = {
   __init__: [ 'editorActions' ],
   editorActions: [ 'type', require('./EditorActions') ]
 };
 
-},{"./EditorActions":1027}],1029:[function(require,module,exports){
+},{"./EditorActions":1032}],1034:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -92563,13 +95920,13 @@ module.exports = InteractionEvents;
  * @property {Event} originalEvent
  */
 
-},{"diagram-js/lib/util/Mouse":1066,"lodash/collection/forEach":863,"min-dom/lib/delegate":988}],1030:[function(require,module,exports){
+},{"diagram-js/lib/util/Mouse":1071,"lodash/collection/forEach":868,"min-dom/lib/delegate":993}],1035:[function(require,module,exports){
 module.exports = {
   __init__: [ 'interactionEvents' ],
   interactionEvents: [ 'type', require('./InteractionEvents') ]
 };
 
-},{"./InteractionEvents":1029}],1031:[function(require,module,exports){
+},{"./InteractionEvents":1034}],1036:[function(require,module,exports){
 'use strict';
 
 var domEvent = require('min-dom/lib/event'),
@@ -92781,7 +96138,7 @@ function isShift(modifiers) {
   return modifiers.shiftKey;
 }
 
-},{"min-dom/lib/event":990,"min-dom/lib/matches":991}],1032:[function(require,module,exports){
+},{"min-dom/lib/event":995,"min-dom/lib/matches":996}],1037:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('../editor-actions')
@@ -92790,7 +96147,7 @@ module.exports = {
   keyboard: [ 'type', require('./Keyboard') ]
 };
 
-},{"../editor-actions":1028,"./Keyboard":1031}],1033:[function(require,module,exports){
+},{"../editor-actions":1033,"./Keyboard":1036}],1038:[function(require,module,exports){
 'use strict';
 
 var debounce = require('lodash/function/debounce');
@@ -92853,7 +96210,7 @@ LineNumbers.prototype.updateLineNumbers = function() {
   }
 };
 
-},{"lodash/function/debounce":870}],1034:[function(require,module,exports){
+},{"lodash/function/debounce":875}],1039:[function(require,module,exports){
 module.exports = {
   __init__: [ 'lineNumbers' ],
   __depends__: [
@@ -92862,7 +96219,7 @@ module.exports = {
   lineNumbers: [ 'type', require('./LineNumbers') ]
 };
 
-},{"../utility-column":1055,"./LineNumbers":1033}],1035:[function(require,module,exports){
+},{"../utility-column":1060,"./LineNumbers":1038}],1040:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -93035,7 +96392,7 @@ Modeling.prototype.editName = function(newName) {
   return context;
 };
 
-},{"./cmd/ClearRowHandler":1036,"./cmd/CreateColumnHandler":1037,"./cmd/CreateRowHandler":1038,"./cmd/DeleteColumnHandler":1039,"./cmd/DeleteRowHandler":1040,"./cmd/EditCellHandler":1041,"./cmd/EditNameHandler":1042,"./cmd/MoveColumnHandler":1043,"./cmd/MoveRowHandler":1044,"lodash/collection/forEach":863}],1036:[function(require,module,exports){
+},{"./cmd/ClearRowHandler":1041,"./cmd/CreateColumnHandler":1042,"./cmd/CreateRowHandler":1043,"./cmd/DeleteColumnHandler":1044,"./cmd/DeleteRowHandler":1045,"./cmd/EditCellHandler":1046,"./cmd/EditNameHandler":1047,"./cmd/MoveColumnHandler":1048,"./cmd/MoveRowHandler":1049,"lodash/collection/forEach":868}],1041:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -93102,7 +96459,7 @@ DeleteRowHandler.prototype.revert = function(context) {
   });
 };
 
-},{"lodash/collection/forEach":863}],1037:[function(require,module,exports){
+},{"lodash/collection/forEach":868}],1042:[function(require,module,exports){
 'use strict';
 
 /**
@@ -93152,7 +96509,7 @@ CreateColumnHandler.prototype.revert = function(context) {
   this._sheet.removeColumn(context.column);
 };
 
-},{}],1038:[function(require,module,exports){
+},{}],1043:[function(require,module,exports){
 'use strict';
 
 /**
@@ -93202,7 +96559,7 @@ CreateRowHandler.prototype.revert = function(context) {
   this._sheet.removeRow(context.row);
 };
 
-},{}],1039:[function(require,module,exports){
+},{}],1044:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -93264,7 +96621,7 @@ DeleteColumnHandler.prototype.revert = function(context) {
   });
 };
 
-},{"lodash/collection/forEach":863}],1040:[function(require,module,exports){
+},{"lodash/collection/forEach":868}],1045:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach');
@@ -93326,7 +96683,7 @@ DeleteRowHandler.prototype.revert = function(context) {
   });
 };
 
-},{"lodash/collection/forEach":863}],1041:[function(require,module,exports){
+},{"lodash/collection/forEach":868}],1046:[function(require,module,exports){
 'use strict';
 
 /**
@@ -93367,7 +96724,7 @@ EditCellHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],1042:[function(require,module,exports){
+},{}],1047:[function(require,module,exports){
 'use strict';
 
 /**
@@ -93408,7 +96765,7 @@ EditNameHandler.prototype.revert = function(context) {
   return context;
 };
 
-},{}],1043:[function(require,module,exports){
+},{}],1048:[function(require,module,exports){
 'use strict';
 
 /**
@@ -93457,7 +96814,7 @@ MoveColumnHandler.prototype.revert = function(context) {
   }
 };
 
-},{}],1044:[function(require,module,exports){
+},{}],1049:[function(require,module,exports){
 'use strict';
 
 /**
@@ -93506,7 +96863,7 @@ MoveRowHandler.prototype.revert = function(context) {
   }
 };
 
-},{}],1045:[function(require,module,exports){
+},{}],1050:[function(require,module,exports){
 module.exports = {
   __depends__: [
     require('diagram-js/lib/command'),
@@ -93518,7 +96875,7 @@ module.exports = {
   modeling: [ 'type', require('./Modeling') ]
 };
 
-},{"../change-support":1016,"../utility-column":1055,"./Modeling":1035,"diagram-js/lib/command":1059,"diagram-js/lib/features/rules":1063}],1046:[function(require,module,exports){
+},{"../change-support":1021,"../utility-column":1060,"./Modeling":1040,"diagram-js/lib/command":1064,"diagram-js/lib/features/rules":1068}],1051:[function(require,module,exports){
 'use strict';
 
 var forEach = require('lodash/collection/forEach'),
@@ -93928,9 +97285,9 @@ PopupMenu.prototype._createEntry = function(entry, container) {
 
 module.exports = PopupMenu;
 
-},{"lodash/collection/forEach":863,"lodash/object/assign":976,"min-dom/lib/attr":986,"min-dom/lib/classes":987,"min-dom/lib/delegate":988,"min-dom/lib/domify":989,"min-dom/lib/remove":993}],1047:[function(require,module,exports){
-arguments[4][452][0].apply(exports,arguments)
-},{"./PopupMenu":1046,"dup":452}],1048:[function(require,module,exports){
+},{"lodash/collection/forEach":868,"lodash/object/assign":981,"min-dom/lib/attr":991,"min-dom/lib/classes":992,"min-dom/lib/delegate":993,"min-dom/lib/domify":994,"min-dom/lib/remove":998}],1052:[function(require,module,exports){
+arguments[4][457][0].apply(exports,arguments)
+},{"./PopupMenu":1051,"dup":457}],1053:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -93953,7 +97310,7 @@ DragRenderer.$inject = [
 
 module.exports = DragRenderer;
 
-},{"min-dom/lib/classes":987}],1049:[function(require,module,exports){
+},{"min-dom/lib/classes":992}],1054:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -94130,7 +97487,7 @@ RowDrag.prototype.isDragging = function() {
   return !!this.draggedElement;
 };
 
-},{"min-dom/lib/classes":987,"min-dom/lib/domify":989}],1050:[function(require,module,exports){
+},{"min-dom/lib/classes":992,"min-dom/lib/domify":994}],1055:[function(require,module,exports){
 module.exports = {
   __init__: [ 'rowDrag', 'dragRenderer' ],
   __depends__: [
@@ -94140,7 +97497,7 @@ module.exports = {
   dragRenderer: [ 'type', require('./DragRenderer') ]
 };
 
-},{"../utility-column":1055,"./DragRenderer":1048,"./RowDrag":1049}],1051:[function(require,module,exports){
+},{"../utility-column":1060,"./DragRenderer":1053,"./RowDrag":1054}],1056:[function(require,module,exports){
 'use strict';
 
 var domify = require('min-dom/lib/domify');
@@ -94186,7 +97543,7 @@ TableName.prototype.getNode = function() {
   return this.node.querySelector('h3');
 };
 
-},{"min-dom/lib/domify":989}],1052:[function(require,module,exports){
+},{"min-dom/lib/domify":994}],1057:[function(require,module,exports){
 'use strict';
 
 /**
@@ -94233,7 +97590,7 @@ UtilityColumn.prototype.getColumn = function() {
   return this.column;
 };
 
-},{}],1053:[function(require,module,exports){
+},{}],1058:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
@@ -94257,7 +97614,7 @@ UtilityColumnRenderer.$inject = [
 
 module.exports = UtilityColumnRenderer;
 
-},{"min-dom/lib/classes":987}],1054:[function(require,module,exports){
+},{"min-dom/lib/classes":992}],1059:[function(require,module,exports){
 'use strict';
 
 var inherits = require('inherits');
@@ -94289,7 +97646,7 @@ UtilityColumnRules.prototype.init = function() {
 
 };
 
-},{"diagram-js/lib/features/rules/RuleProvider":1061,"inherits":853}],1055:[function(require,module,exports){
+},{"diagram-js/lib/features/rules/RuleProvider":1066,"inherits":858}],1060:[function(require,module,exports){
 module.exports = {
   __init__: [ 'utilityColumn', 'utilityColumnRules', 'utilityColumnRenderer' ],
   __depends__: [
@@ -94301,7 +97658,7 @@ module.exports = {
   utilityColumnRenderer: [ 'type', require('./UtilityColumnRenderer') ]
 };
 
-},{"./UtilityColumn":1052,"./UtilityColumnRenderer":1053,"./UtilityColumnRules":1054,"diagram-js/lib/command":1059,"diagram-js/lib/features/rules":1063}],1056:[function(require,module,exports){
+},{"./UtilityColumn":1057,"./UtilityColumnRenderer":1058,"./UtilityColumnRules":1059,"diagram-js/lib/command":1064,"diagram-js/lib/features/rules":1068}],1061:[function(require,module,exports){
 'use strict';
 
 var assign = require('lodash/object/assign'),
@@ -94368,9 +97725,9 @@ module.exports.Table = Table;
 module.exports.Row = Row;
 module.exports.Column = Column;
 
-},{"inherits":853,"lodash/object/assign":976}],1057:[function(require,module,exports){
-arguments[4][373][0].apply(exports,arguments)
-},{"dup":373,"lodash/collection/forEach":863,"lodash/lang/isArray":969,"lodash/lang/isFunction":970,"lodash/lang/isNumber":972}],1058:[function(require,module,exports){
+},{"inherits":858,"lodash/object/assign":981}],1062:[function(require,module,exports){
+arguments[4][378][0].apply(exports,arguments)
+},{"dup":378,"lodash/collection/forEach":868,"lodash/lang/isArray":974,"lodash/lang/isFunction":975,"lodash/lang/isNumber":977}],1063:[function(require,module,exports){
 'use strict';
 
 var unique = require('lodash/array/unique'),
@@ -94870,57 +98227,57 @@ CommandStack.prototype._setHandler = function(command, handler) {
   this._handlerMap[command] = handler;
 };
 
-},{"../core/EventBus":1060,"lodash/array/unique":857,"lodash/lang/isArray":969,"lodash/object/assign":976}],1059:[function(require,module,exports){
-arguments[4][375][0].apply(exports,arguments)
-},{"./CommandStack":1058,"dup":375}],1060:[function(require,module,exports){
-arguments[4][379][0].apply(exports,arguments)
-},{"dup":379,"lodash/function/bind":869,"lodash/lang/isArray":969,"lodash/lang/isFunction":970,"lodash/lang/isNumber":972,"lodash/object/assign":976}],1061:[function(require,module,exports){
-arguments[4][457][0].apply(exports,arguments)
-},{"../../command/CommandInterceptor":1057,"dup":457,"inherits":853}],1062:[function(require,module,exports){
-arguments[4][458][0].apply(exports,arguments)
-},{"dup":458}],1063:[function(require,module,exports){
-arguments[4][459][0].apply(exports,arguments)
-},{"./Rules":1062,"dup":459}],1064:[function(require,module,exports){
-arguments[4][488][0].apply(exports,arguments)
-},{"dup":488}],1065:[function(require,module,exports){
-arguments[4][491][0].apply(exports,arguments)
-},{"dup":491}],1066:[function(require,module,exports){
-arguments[4][495][0].apply(exports,arguments)
-},{"./Event":1064,"./Platform":1067,"dup":495}],1067:[function(require,module,exports){
+},{"../core/EventBus":1065,"lodash/array/unique":862,"lodash/lang/isArray":974,"lodash/object/assign":981}],1064:[function(require,module,exports){
+arguments[4][380][0].apply(exports,arguments)
+},{"./CommandStack":1063,"dup":380}],1065:[function(require,module,exports){
+arguments[4][384][0].apply(exports,arguments)
+},{"dup":384,"lodash/function/bind":874,"lodash/lang/isArray":974,"lodash/lang/isFunction":975,"lodash/lang/isNumber":977,"lodash/object/assign":981}],1066:[function(require,module,exports){
+arguments[4][462][0].apply(exports,arguments)
+},{"../../command/CommandInterceptor":1062,"dup":462,"inherits":858}],1067:[function(require,module,exports){
+arguments[4][463][0].apply(exports,arguments)
+},{"dup":463}],1068:[function(require,module,exports){
+arguments[4][464][0].apply(exports,arguments)
+},{"./Rules":1067,"dup":464}],1069:[function(require,module,exports){
+arguments[4][493][0].apply(exports,arguments)
+},{"dup":493}],1070:[function(require,module,exports){
 arguments[4][496][0].apply(exports,arguments)
-},{"dup":496}],1068:[function(require,module,exports){
-arguments[4][502][0].apply(exports,arguments)
-},{"dup":502}],1069:[function(require,module,exports){
-arguments[4][503][0].apply(exports,arguments)
-},{"./annotation":1068,"./injector":1070,"./module":1071,"dup":503}],1070:[function(require,module,exports){
-arguments[4][504][0].apply(exports,arguments)
-},{"./annotation":1068,"./module":1071,"dup":504}],1071:[function(require,module,exports){
-arguments[4][505][0].apply(exports,arguments)
-},{"dup":505}],1072:[function(require,module,exports){
+},{"dup":496}],1071:[function(require,module,exports){
+arguments[4][500][0].apply(exports,arguments)
+},{"./Event":1069,"./Platform":1072,"dup":500}],1072:[function(require,module,exports){
+arguments[4][501][0].apply(exports,arguments)
+},{"dup":501}],1073:[function(require,module,exports){
+arguments[4][507][0].apply(exports,arguments)
+},{"dup":507}],1074:[function(require,module,exports){
+arguments[4][508][0].apply(exports,arguments)
+},{"./annotation":1073,"./injector":1075,"./module":1076,"dup":508}],1075:[function(require,module,exports){
+arguments[4][509][0].apply(exports,arguments)
+},{"./annotation":1073,"./module":1076,"dup":509}],1076:[function(require,module,exports){
+arguments[4][510][0].apply(exports,arguments)
+},{"dup":510}],1077:[function(require,module,exports){
 arguments[4][192][0].apply(exports,arguments)
-},{"./appendTo":1073,"dup":192}],1073:[function(require,module,exports){
+},{"./appendTo":1078,"dup":192}],1078:[function(require,module,exports){
 arguments[4][193][0].apply(exports,arguments)
-},{"./util/ensureImported":1079,"dup":193}],1074:[function(require,module,exports){
+},{"./util/ensureImported":1084,"dup":193}],1079:[function(require,module,exports){
 arguments[4][194][0].apply(exports,arguments)
-},{"dup":194}],1075:[function(require,module,exports){
+},{"dup":194}],1080:[function(require,module,exports){
 arguments[4][196][0].apply(exports,arguments)
-},{"./remove":1078,"dup":196}],1076:[function(require,module,exports){
+},{"./remove":1083,"dup":196}],1081:[function(require,module,exports){
 arguments[4][197][0].apply(exports,arguments)
-},{"./attr":1074,"./util/ns":1080,"./util/parse":1081,"dup":197}],1077:[function(require,module,exports){
+},{"./attr":1079,"./util/ns":1085,"./util/parse":1086,"dup":197}],1082:[function(require,module,exports){
 arguments[4][198][0].apply(exports,arguments)
-},{"./appendTo":1073,"./clear":1075,"./util/parse":1081,"./util/serialize":1082,"dup":198}],1078:[function(require,module,exports){
+},{"./appendTo":1078,"./clear":1080,"./util/parse":1086,"./util/serialize":1087,"dup":198}],1083:[function(require,module,exports){
 arguments[4][199][0].apply(exports,arguments)
-},{"dup":199}],1079:[function(require,module,exports){
+},{"dup":199}],1084:[function(require,module,exports){
 arguments[4][200][0].apply(exports,arguments)
-},{"dup":200}],1080:[function(require,module,exports){
+},{"dup":200}],1085:[function(require,module,exports){
 arguments[4][201][0].apply(exports,arguments)
-},{"dup":201}],1081:[function(require,module,exports){
+},{"dup":201}],1086:[function(require,module,exports){
 arguments[4][202][0].apply(exports,arguments)
-},{"./ns":1080,"dup":202}],1082:[function(require,module,exports){
+},{"./ns":1085,"dup":202}],1087:[function(require,module,exports){
 arguments[4][203][0].apply(exports,arguments)
-},{"dup":203}],1083:[function(require,module,exports){
+},{"dup":203}],1088:[function(require,module,exports){
 
-},{}],1084:[function(require,module,exports){
+},{}],1089:[function(require,module,exports){
 (function (global){
 /*!
  * The buffer module from node.js, for the browser.
@@ -96472,7 +99829,7 @@ function blitBuffer (src, dst, offset, length) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"base64-js":1085,"ieee754":1086,"isarray":1087}],1085:[function(require,module,exports){
+},{"base64-js":1090,"ieee754":1091,"isarray":1092}],1090:[function(require,module,exports){
 var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 ;(function (exports) {
@@ -96598,7 +99955,7 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 	exports.fromByteArray = uint8ToBase64
 }(typeof exports === 'undefined' ? (this.base64js = {}) : exports))
 
-},{}],1086:[function(require,module,exports){
+},{}],1091:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -96684,14 +100041,14 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],1087:[function(require,module,exports){
+},{}],1092:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],1088:[function(require,module,exports){
+},{}],1093:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -96994,9 +100351,9 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],1089:[function(require,module,exports){
+},{}],1094:[function(require,module,exports){
 arguments[4][82][0].apply(exports,arguments)
-},{"dup":82}],1090:[function(require,module,exports){
+},{"dup":82}],1095:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -97019,7 +100376,7 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],1091:[function(require,module,exports){
+},{}],1096:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -97205,10 +100562,10 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],1092:[function(require,module,exports){
+},{}],1097:[function(require,module,exports){
 module.exports = require('./lib/_stream_duplex.js');
 
-},{"./lib/_stream_duplex.js":1093}],1093:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":1098}],1098:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -97333,7 +100690,7 @@ function forEach(xs, f) {
     f(xs[i], i);
   }
 }
-},{"./_stream_readable":1095,"./_stream_writable":1097,"core-util-is":1101,"inherits":1089,"process-nextick-args":1103}],1094:[function(require,module,exports){
+},{"./_stream_readable":1100,"./_stream_writable":1102,"core-util-is":1106,"inherits":1094,"process-nextick-args":1108}],1099:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -97381,7 +100738,7 @@ function PassThrough(options) {
 PassThrough.prototype._transform = function (chunk, encoding, cb) {
   cb(null, chunk);
 };
-},{"./_stream_transform":1096,"core-util-is":1101,"inherits":1089}],1095:[function(require,module,exports){
+},{"./_stream_transform":1101,"core-util-is":1106,"inherits":1094}],1100:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -98391,7 +101748,7 @@ function indexOf(xs, x) {
   return -1;
 }
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./_stream_duplex":1093,"./internal/streams/BufferList":1098,"./internal/streams/destroy":1099,"./internal/streams/stream":1100,"_process":1091,"core-util-is":1101,"events":1088,"inherits":1089,"isarray":1102,"process-nextick-args":1103,"safe-buffer":1104,"string_decoder/":1105,"util":1083}],1096:[function(require,module,exports){
+},{"./_stream_duplex":1098,"./internal/streams/BufferList":1103,"./internal/streams/destroy":1104,"./internal/streams/stream":1105,"_process":1096,"core-util-is":1106,"events":1093,"inherits":1094,"isarray":1107,"process-nextick-args":1108,"safe-buffer":1109,"string_decoder/":1110,"util":1088}],1101:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -98606,7 +101963,7 @@ function done(stream, er, data) {
 
   return stream.push(null);
 }
-},{"./_stream_duplex":1093,"core-util-is":1101,"inherits":1089}],1097:[function(require,module,exports){
+},{"./_stream_duplex":1098,"core-util-is":1106,"inherits":1094}],1102:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -99273,7 +102630,7 @@ Writable.prototype._destroy = function (err, cb) {
   cb(err);
 };
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./_stream_duplex":1093,"./internal/streams/destroy":1099,"./internal/streams/stream":1100,"_process":1091,"core-util-is":1101,"inherits":1089,"process-nextick-args":1103,"safe-buffer":1104,"util-deprecate":1106}],1098:[function(require,module,exports){
+},{"./_stream_duplex":1098,"./internal/streams/destroy":1104,"./internal/streams/stream":1105,"_process":1096,"core-util-is":1106,"inherits":1094,"process-nextick-args":1108,"safe-buffer":1109,"util-deprecate":1111}],1103:[function(require,module,exports){
 'use strict';
 
 /*<replacement>*/
@@ -99348,7 +102705,7 @@ module.exports = function () {
 
   return BufferList;
 }();
-},{"safe-buffer":1104}],1099:[function(require,module,exports){
+},{"safe-buffer":1109}],1104:[function(require,module,exports){
 'use strict';
 
 /*<replacement>*/
@@ -99421,10 +102778,10 @@ module.exports = {
   destroy: destroy,
   undestroy: undestroy
 };
-},{"process-nextick-args":1103}],1100:[function(require,module,exports){
+},{"process-nextick-args":1108}],1105:[function(require,module,exports){
 module.exports = require('events').EventEmitter;
 
-},{"events":1088}],1101:[function(require,module,exports){
+},{"events":1093}],1106:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -99535,9 +102892,9 @@ function objectToString(o) {
 }
 
 }).call(this,{"isBuffer":require("../../../../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../../../../insert-module-globals/node_modules/is-buffer/index.js":1090}],1102:[function(require,module,exports){
-arguments[4][1087][0].apply(exports,arguments)
-},{"dup":1087}],1103:[function(require,module,exports){
+},{"../../../../insert-module-globals/node_modules/is-buffer/index.js":1095}],1107:[function(require,module,exports){
+arguments[4][1092][0].apply(exports,arguments)
+},{"dup":1092}],1108:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -99584,7 +102941,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 }
 
 }).call(this,require('_process'))
-},{"_process":1091}],1104:[function(require,module,exports){
+},{"_process":1096}],1109:[function(require,module,exports){
 /* eslint-disable node/no-deprecated-api */
 var buffer = require('buffer')
 var Buffer = buffer.Buffer
@@ -99648,7 +103005,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
   return buffer.SlowBuffer(size)
 }
 
-},{"buffer":1084}],1105:[function(require,module,exports){
+},{"buffer":1089}],1110:[function(require,module,exports){
 'use strict';
 
 var Buffer = require('safe-buffer').Buffer;
@@ -99921,7 +103278,7 @@ function simpleWrite(buf) {
 function simpleEnd(buf) {
   return buf && buf.length ? this.write(buf) : '';
 }
-},{"safe-buffer":1104}],1106:[function(require,module,exports){
+},{"safe-buffer":1109}],1111:[function(require,module,exports){
 (function (global){
 
 /**
@@ -99992,10 +103349,10 @@ function config (name) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],1107:[function(require,module,exports){
+},{}],1112:[function(require,module,exports){
 module.exports = require('./readable').PassThrough
 
-},{"./readable":1108}],1108:[function(require,module,exports){
+},{"./readable":1113}],1113:[function(require,module,exports){
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Stream = exports;
 exports.Readable = exports;
@@ -100004,13 +103361,13 @@ exports.Duplex = require('./lib/_stream_duplex.js');
 exports.Transform = require('./lib/_stream_transform.js');
 exports.PassThrough = require('./lib/_stream_passthrough.js');
 
-},{"./lib/_stream_duplex.js":1093,"./lib/_stream_passthrough.js":1094,"./lib/_stream_readable.js":1095,"./lib/_stream_transform.js":1096,"./lib/_stream_writable.js":1097}],1109:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":1098,"./lib/_stream_passthrough.js":1099,"./lib/_stream_readable.js":1100,"./lib/_stream_transform.js":1101,"./lib/_stream_writable.js":1102}],1114:[function(require,module,exports){
 module.exports = require('./readable').Transform
 
-},{"./readable":1108}],1110:[function(require,module,exports){
+},{"./readable":1113}],1115:[function(require,module,exports){
 module.exports = require('./lib/_stream_writable.js');
 
-},{"./lib/_stream_writable.js":1097}],1111:[function(require,module,exports){
+},{"./lib/_stream_writable.js":1102}],1116:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -100139,7 +103496,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":1088,"inherits":1089,"readable-stream/duplex.js":1092,"readable-stream/passthrough.js":1107,"readable-stream/readable.js":1108,"readable-stream/transform.js":1109,"readable-stream/writable.js":1110}],1112:[function(require,module,exports){
+},{"events":1093,"inherits":1094,"readable-stream/duplex.js":1097,"readable-stream/passthrough.js":1112,"readable-stream/readable.js":1113,"readable-stream/transform.js":1114,"readable-stream/writable.js":1115}],1117:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -100362,7 +103719,7 @@ function base64DetectIncompleteChar(buffer) {
   this.charLength = this.charReceived ? 3 : 0;
 }
 
-},{"buffer":1084}],1113:[function(require,module,exports){
+},{"buffer":1089}],1118:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.1
  * http://jquery.com/
@@ -109554,7 +112911,7 @@ return jQuery;
 
 }));
 
-},{}],1114:[function(require,module,exports){
+},{}],1119:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -116343,3054 +119700,7 @@ return jQuery;
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],1115:[function(require,module,exports){
-(function (global){
-//! moment.js
-//! version : 2.9.0
-//! authors : Tim Wood, Iskren Chernev, Moment.js contributors
-//! license : MIT
-//! momentjs.com
-
-(function (undefined) {
-    /************************************
-        Constants
-    ************************************/
-
-    var moment,
-        VERSION = '2.9.0',
-        // the global-scope this is NOT the global object in Node.js
-        globalScope = (typeof global !== 'undefined' && (typeof window === 'undefined' || window === global.window)) ? global : this,
-        oldGlobalMoment,
-        round = Math.round,
-        hasOwnProperty = Object.prototype.hasOwnProperty,
-        i,
-
-        YEAR = 0,
-        MONTH = 1,
-        DATE = 2,
-        HOUR = 3,
-        MINUTE = 4,
-        SECOND = 5,
-        MILLISECOND = 6,
-
-        // internal storage for locale config files
-        locales = {},
-
-        // extra moment internal properties (plugins register props here)
-        momentProperties = [],
-
-        // check for nodeJS
-        hasModule = (typeof module !== 'undefined' && module && module.exports),
-
-        // ASP.NET json date format regex
-        aspNetJsonRegex = /^\/?Date\((\-?\d+)/i,
-        aspNetTimeSpanJsonRegex = /(\-)?(?:(\d*)\.)?(\d+)\:(\d+)(?:\:(\d+)\.?(\d{3})?)?/,
-
-        // from http://docs.closure-library.googlecode.com/git/closure_goog_date_date.js.source.html
-        // somewhat more in line with 4.4.3.2 2004 spec, but allows decimal anywhere
-        isoDurationRegex = /^(-)?P(?:(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?|([0-9,.]*)W)$/,
-
-        // format tokens
-        formattingTokens = /(\[[^\[]*\])|(\\)?(Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Q|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|mm?|ss?|S{1,4}|x|X|zz?|ZZ?|.)/g,
-        localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g,
-
-        // parsing token regexes
-        parseTokenOneOrTwoDigits = /\d\d?/, // 0 - 99
-        parseTokenOneToThreeDigits = /\d{1,3}/, // 0 - 999
-        parseTokenOneToFourDigits = /\d{1,4}/, // 0 - 9999
-        parseTokenOneToSixDigits = /[+\-]?\d{1,6}/, // -999,999 - 999,999
-        parseTokenDigits = /\d+/, // nonzero number of digits
-        parseTokenWord = /[0-9]*['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+|[\u0600-\u06FF\/]+(\s*?[\u0600-\u06FF]+){1,2}/i, // any word (or two) characters or numbers including two/three word month in arabic.
-        parseTokenTimezone = /Z|[\+\-]\d\d:?\d\d/gi, // +00:00 -00:00 +0000 -0000 or Z
-        parseTokenT = /T/i, // T (ISO separator)
-        parseTokenOffsetMs = /[\+\-]?\d+/, // 1234567890123
-        parseTokenTimestampMs = /[\+\-]?\d+(\.\d{1,3})?/, // 123456789 123456789.123
-
-        //strict parsing regexes
-        parseTokenOneDigit = /\d/, // 0 - 9
-        parseTokenTwoDigits = /\d\d/, // 00 - 99
-        parseTokenThreeDigits = /\d{3}/, // 000 - 999
-        parseTokenFourDigits = /\d{4}/, // 0000 - 9999
-        parseTokenSixDigits = /[+-]?\d{6}/, // -999,999 - 999,999
-        parseTokenSignedNumber = /[+-]?\d+/, // -inf - inf
-
-        // iso 8601 regex
-        // 0000-00-00 0000-W00 or 0000-W00-0 + T + 00 or 00:00 or 00:00:00 or 00:00:00.000 + +00:00 or +0000 or +00)
-        isoRegex = /^\s*(?:[+-]\d{6}|\d{4})-(?:(\d\d-\d\d)|(W\d\d$)|(W\d\d-\d)|(\d\d\d))((T| )(\d\d(:\d\d(:\d\d(\.\d+)?)?)?)?([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
-
-        isoFormat = 'YYYY-MM-DDTHH:mm:ssZ',
-
-        isoDates = [
-            ['YYYYYY-MM-DD', /[+-]\d{6}-\d{2}-\d{2}/],
-            ['YYYY-MM-DD', /\d{4}-\d{2}-\d{2}/],
-            ['GGGG-[W]WW-E', /\d{4}-W\d{2}-\d/],
-            ['GGGG-[W]WW', /\d{4}-W\d{2}/],
-            ['YYYY-DDD', /\d{4}-\d{3}/]
-        ],
-
-        // iso time formats and regexes
-        isoTimes = [
-            ['HH:mm:ss.SSSS', /(T| )\d\d:\d\d:\d\d\.\d+/],
-            ['HH:mm:ss', /(T| )\d\d:\d\d:\d\d/],
-            ['HH:mm', /(T| )\d\d:\d\d/],
-            ['HH', /(T| )\d\d/]
-        ],
-
-        // timezone chunker '+10:00' > ['10', '00'] or '-1530' > ['-', '15', '30']
-        parseTimezoneChunker = /([\+\-]|\d\d)/gi,
-
-        // getter and setter names
-        proxyGettersAndSetters = 'Date|Hours|Minutes|Seconds|Milliseconds'.split('|'),
-        unitMillisecondFactors = {
-            'Milliseconds' : 1,
-            'Seconds' : 1e3,
-            'Minutes' : 6e4,
-            'Hours' : 36e5,
-            'Days' : 864e5,
-            'Months' : 2592e6,
-            'Years' : 31536e6
-        },
-
-        unitAliases = {
-            ms : 'millisecond',
-            s : 'second',
-            m : 'minute',
-            h : 'hour',
-            d : 'day',
-            D : 'date',
-            w : 'week',
-            W : 'isoWeek',
-            M : 'month',
-            Q : 'quarter',
-            y : 'year',
-            DDD : 'dayOfYear',
-            e : 'weekday',
-            E : 'isoWeekday',
-            gg: 'weekYear',
-            GG: 'isoWeekYear'
-        },
-
-        camelFunctions = {
-            dayofyear : 'dayOfYear',
-            isoweekday : 'isoWeekday',
-            isoweek : 'isoWeek',
-            weekyear : 'weekYear',
-            isoweekyear : 'isoWeekYear'
-        },
-
-        // format function strings
-        formatFunctions = {},
-
-        // default relative time thresholds
-        relativeTimeThresholds = {
-            s: 45,  // seconds to minute
-            m: 45,  // minutes to hour
-            h: 22,  // hours to day
-            d: 26,  // days to month
-            M: 11   // months to year
-        },
-
-        // tokens to ordinalize and pad
-        ordinalizeTokens = 'DDD w W M D d'.split(' '),
-        paddedTokens = 'M D H h m s w W'.split(' '),
-
-        formatTokenFunctions = {
-            M    : function () {
-                return this.month() + 1;
-            },
-            MMM  : function (format) {
-                return this.localeData().monthsShort(this, format);
-            },
-            MMMM : function (format) {
-                return this.localeData().months(this, format);
-            },
-            D    : function () {
-                return this.date();
-            },
-            DDD  : function () {
-                return this.dayOfYear();
-            },
-            d    : function () {
-                return this.day();
-            },
-            dd   : function (format) {
-                return this.localeData().weekdaysMin(this, format);
-            },
-            ddd  : function (format) {
-                return this.localeData().weekdaysShort(this, format);
-            },
-            dddd : function (format) {
-                return this.localeData().weekdays(this, format);
-            },
-            w    : function () {
-                return this.week();
-            },
-            W    : function () {
-                return this.isoWeek();
-            },
-            YY   : function () {
-                return leftZeroFill(this.year() % 100, 2);
-            },
-            YYYY : function () {
-                return leftZeroFill(this.year(), 4);
-            },
-            YYYYY : function () {
-                return leftZeroFill(this.year(), 5);
-            },
-            YYYYYY : function () {
-                var y = this.year(), sign = y >= 0 ? '+' : '-';
-                return sign + leftZeroFill(Math.abs(y), 6);
-            },
-            gg   : function () {
-                return leftZeroFill(this.weekYear() % 100, 2);
-            },
-            gggg : function () {
-                return leftZeroFill(this.weekYear(), 4);
-            },
-            ggggg : function () {
-                return leftZeroFill(this.weekYear(), 5);
-            },
-            GG   : function () {
-                return leftZeroFill(this.isoWeekYear() % 100, 2);
-            },
-            GGGG : function () {
-                return leftZeroFill(this.isoWeekYear(), 4);
-            },
-            GGGGG : function () {
-                return leftZeroFill(this.isoWeekYear(), 5);
-            },
-            e : function () {
-                return this.weekday();
-            },
-            E : function () {
-                return this.isoWeekday();
-            },
-            a    : function () {
-                return this.localeData().meridiem(this.hours(), this.minutes(), true);
-            },
-            A    : function () {
-                return this.localeData().meridiem(this.hours(), this.minutes(), false);
-            },
-            H    : function () {
-                return this.hours();
-            },
-            h    : function () {
-                return this.hours() % 12 || 12;
-            },
-            m    : function () {
-                return this.minutes();
-            },
-            s    : function () {
-                return this.seconds();
-            },
-            S    : function () {
-                return toInt(this.milliseconds() / 100);
-            },
-            SS   : function () {
-                return leftZeroFill(toInt(this.milliseconds() / 10), 2);
-            },
-            SSS  : function () {
-                return leftZeroFill(this.milliseconds(), 3);
-            },
-            SSSS : function () {
-                return leftZeroFill(this.milliseconds(), 3);
-            },
-            Z    : function () {
-                var a = this.utcOffset(),
-                    b = '+';
-                if (a < 0) {
-                    a = -a;
-                    b = '-';
-                }
-                return b + leftZeroFill(toInt(a / 60), 2) + ':' + leftZeroFill(toInt(a) % 60, 2);
-            },
-            ZZ   : function () {
-                var a = this.utcOffset(),
-                    b = '+';
-                if (a < 0) {
-                    a = -a;
-                    b = '-';
-                }
-                return b + leftZeroFill(toInt(a / 60), 2) + leftZeroFill(toInt(a) % 60, 2);
-            },
-            z : function () {
-                return this.zoneAbbr();
-            },
-            zz : function () {
-                return this.zoneName();
-            },
-            x    : function () {
-                return this.valueOf();
-            },
-            X    : function () {
-                return this.unix();
-            },
-            Q : function () {
-                return this.quarter();
-            }
-        },
-
-        deprecations = {},
-
-        lists = ['months', 'monthsShort', 'weekdays', 'weekdaysShort', 'weekdaysMin'],
-
-        updateInProgress = false;
-
-    // Pick the first defined of two or three arguments. dfl comes from
-    // default.
-    function dfl(a, b, c) {
-        switch (arguments.length) {
-            case 2: return a != null ? a : b;
-            case 3: return a != null ? a : b != null ? b : c;
-            default: throw new Error('Implement me');
-        }
-    }
-
-    function hasOwnProp(a, b) {
-        return hasOwnProperty.call(a, b);
-    }
-
-    function defaultParsingFlags() {
-        // We need to deep clone this object, and es5 standard is not very
-        // helpful.
-        return {
-            empty : false,
-            unusedTokens : [],
-            unusedInput : [],
-            overflow : -2,
-            charsLeftOver : 0,
-            nullInput : false,
-            invalidMonth : null,
-            invalidFormat : false,
-            userInvalidated : false,
-            iso: false
-        };
-    }
-
-    function printMsg(msg) {
-        if (moment.suppressDeprecationWarnings === false &&
-                typeof console !== 'undefined' && console.warn) {
-            console.warn('Deprecation warning: ' + msg);
-        }
-    }
-
-    function deprecate(msg, fn) {
-        var firstTime = true;
-        return extend(function () {
-            if (firstTime) {
-                printMsg(msg);
-                firstTime = false;
-            }
-            return fn.apply(this, arguments);
-        }, fn);
-    }
-
-    function deprecateSimple(name, msg) {
-        if (!deprecations[name]) {
-            printMsg(msg);
-            deprecations[name] = true;
-        }
-    }
-
-    function padToken(func, count) {
-        return function (a) {
-            return leftZeroFill(func.call(this, a), count);
-        };
-    }
-    function ordinalizeToken(func, period) {
-        return function (a) {
-            return this.localeData().ordinal(func.call(this, a), period);
-        };
-    }
-
-    function monthDiff(a, b) {
-        // difference in months
-        var wholeMonthDiff = ((b.year() - a.year()) * 12) + (b.month() - a.month()),
-            // b is in (anchor - 1 month, anchor + 1 month)
-            anchor = a.clone().add(wholeMonthDiff, 'months'),
-            anchor2, adjust;
-
-        if (b - anchor < 0) {
-            anchor2 = a.clone().add(wholeMonthDiff - 1, 'months');
-            // linear across the month
-            adjust = (b - anchor) / (anchor - anchor2);
-        } else {
-            anchor2 = a.clone().add(wholeMonthDiff + 1, 'months');
-            // linear across the month
-            adjust = (b - anchor) / (anchor2 - anchor);
-        }
-
-        return -(wholeMonthDiff + adjust);
-    }
-
-    while (ordinalizeTokens.length) {
-        i = ordinalizeTokens.pop();
-        formatTokenFunctions[i + 'o'] = ordinalizeToken(formatTokenFunctions[i], i);
-    }
-    while (paddedTokens.length) {
-        i = paddedTokens.pop();
-        formatTokenFunctions[i + i] = padToken(formatTokenFunctions[i], 2);
-    }
-    formatTokenFunctions.DDDD = padToken(formatTokenFunctions.DDD, 3);
-
-
-    function meridiemFixWrap(locale, hour, meridiem) {
-        var isPm;
-
-        if (meridiem == null) {
-            // nothing to do
-            return hour;
-        }
-        if (locale.meridiemHour != null) {
-            return locale.meridiemHour(hour, meridiem);
-        } else if (locale.isPM != null) {
-            // Fallback
-            isPm = locale.isPM(meridiem);
-            if (isPm && hour < 12) {
-                hour += 12;
-            }
-            if (!isPm && hour === 12) {
-                hour = 0;
-            }
-            return hour;
-        } else {
-            // thie is not supposed to happen
-            return hour;
-        }
-    }
-
-    /************************************
-        Constructors
-    ************************************/
-
-    function Locale() {
-    }
-
-    // Moment prototype object
-    function Moment(config, skipOverflow) {
-        if (skipOverflow !== false) {
-            checkOverflow(config);
-        }
-        copyConfig(this, config);
-        this._d = new Date(+config._d);
-        // Prevent infinite loop in case updateOffset creates new moment
-        // objects.
-        if (updateInProgress === false) {
-            updateInProgress = true;
-            moment.updateOffset(this);
-            updateInProgress = false;
-        }
-    }
-
-    // Duration Constructor
-    function Duration(duration) {
-        var normalizedInput = normalizeObjectUnits(duration),
-            years = normalizedInput.year || 0,
-            quarters = normalizedInput.quarter || 0,
-            months = normalizedInput.month || 0,
-            weeks = normalizedInput.week || 0,
-            days = normalizedInput.day || 0,
-            hours = normalizedInput.hour || 0,
-            minutes = normalizedInput.minute || 0,
-            seconds = normalizedInput.second || 0,
-            milliseconds = normalizedInput.millisecond || 0;
-
-        // representation for dateAddRemove
-        this._milliseconds = +milliseconds +
-            seconds * 1e3 + // 1000
-            minutes * 6e4 + // 1000 * 60
-            hours * 36e5; // 1000 * 60 * 60
-        // Because of dateAddRemove treats 24 hours as different from a
-        // day when working around DST, we need to store them separately
-        this._days = +days +
-            weeks * 7;
-        // It is impossible translate months into days without knowing
-        // which months you are are talking about, so we have to store
-        // it separately.
-        this._months = +months +
-            quarters * 3 +
-            years * 12;
-
-        this._data = {};
-
-        this._locale = moment.localeData();
-
-        this._bubble();
-    }
-
-    /************************************
-        Helpers
-    ************************************/
-
-
-    function extend(a, b) {
-        for (var i in b) {
-            if (hasOwnProp(b, i)) {
-                a[i] = b[i];
-            }
-        }
-
-        if (hasOwnProp(b, 'toString')) {
-            a.toString = b.toString;
-        }
-
-        if (hasOwnProp(b, 'valueOf')) {
-            a.valueOf = b.valueOf;
-        }
-
-        return a;
-    }
-
-    function copyConfig(to, from) {
-        var i, prop, val;
-
-        if (typeof from._isAMomentObject !== 'undefined') {
-            to._isAMomentObject = from._isAMomentObject;
-        }
-        if (typeof from._i !== 'undefined') {
-            to._i = from._i;
-        }
-        if (typeof from._f !== 'undefined') {
-            to._f = from._f;
-        }
-        if (typeof from._l !== 'undefined') {
-            to._l = from._l;
-        }
-        if (typeof from._strict !== 'undefined') {
-            to._strict = from._strict;
-        }
-        if (typeof from._tzm !== 'undefined') {
-            to._tzm = from._tzm;
-        }
-        if (typeof from._isUTC !== 'undefined') {
-            to._isUTC = from._isUTC;
-        }
-        if (typeof from._offset !== 'undefined') {
-            to._offset = from._offset;
-        }
-        if (typeof from._pf !== 'undefined') {
-            to._pf = from._pf;
-        }
-        if (typeof from._locale !== 'undefined') {
-            to._locale = from._locale;
-        }
-
-        if (momentProperties.length > 0) {
-            for (i in momentProperties) {
-                prop = momentProperties[i];
-                val = from[prop];
-                if (typeof val !== 'undefined') {
-                    to[prop] = val;
-                }
-            }
-        }
-
-        return to;
-    }
-
-    function absRound(number) {
-        if (number < 0) {
-            return Math.ceil(number);
-        } else {
-            return Math.floor(number);
-        }
-    }
-
-    // left zero fill a number
-    // see http://jsperf.com/left-zero-filling for performance comparison
-    function leftZeroFill(number, targetLength, forceSign) {
-        var output = '' + Math.abs(number),
-            sign = number >= 0;
-
-        while (output.length < targetLength) {
-            output = '0' + output;
-        }
-        return (sign ? (forceSign ? '+' : '') : '-') + output;
-    }
-
-    function positiveMomentsDifference(base, other) {
-        var res = {milliseconds: 0, months: 0};
-
-        res.months = other.month() - base.month() +
-            (other.year() - base.year()) * 12;
-        if (base.clone().add(res.months, 'M').isAfter(other)) {
-            --res.months;
-        }
-
-        res.milliseconds = +other - +(base.clone().add(res.months, 'M'));
-
-        return res;
-    }
-
-    function momentsDifference(base, other) {
-        var res;
-        other = makeAs(other, base);
-        if (base.isBefore(other)) {
-            res = positiveMomentsDifference(base, other);
-        } else {
-            res = positiveMomentsDifference(other, base);
-            res.milliseconds = -res.milliseconds;
-            res.months = -res.months;
-        }
-
-        return res;
-    }
-
-    // TODO: remove 'name' arg after deprecation is removed
-    function createAdder(direction, name) {
-        return function (val, period) {
-            var dur, tmp;
-            //invert the arguments, but complain about it
-            if (period !== null && !isNaN(+period)) {
-                deprecateSimple(name, 'moment().' + name  + '(period, number) is deprecated. Please use moment().' + name + '(number, period).');
-                tmp = val; val = period; period = tmp;
-            }
-
-            val = typeof val === 'string' ? +val : val;
-            dur = moment.duration(val, period);
-            addOrSubtractDurationFromMoment(this, dur, direction);
-            return this;
-        };
-    }
-
-    function addOrSubtractDurationFromMoment(mom, duration, isAdding, updateOffset) {
-        var milliseconds = duration._milliseconds,
-            days = duration._days,
-            months = duration._months;
-        updateOffset = updateOffset == null ? true : updateOffset;
-
-        if (milliseconds) {
-            mom._d.setTime(+mom._d + milliseconds * isAdding);
-        }
-        if (days) {
-            rawSetter(mom, 'Date', rawGetter(mom, 'Date') + days * isAdding);
-        }
-        if (months) {
-            rawMonthSetter(mom, rawGetter(mom, 'Month') + months * isAdding);
-        }
-        if (updateOffset) {
-            moment.updateOffset(mom, days || months);
-        }
-    }
-
-    // check if is an array
-    function isArray(input) {
-        return Object.prototype.toString.call(input) === '[object Array]';
-    }
-
-    function isDate(input) {
-        return Object.prototype.toString.call(input) === '[object Date]' ||
-            input instanceof Date;
-    }
-
-    // compare two arrays, return the number of differences
-    function compareArrays(array1, array2, dontConvert) {
-        var len = Math.min(array1.length, array2.length),
-            lengthDiff = Math.abs(array1.length - array2.length),
-            diffs = 0,
-            i;
-        for (i = 0; i < len; i++) {
-            if ((dontConvert && array1[i] !== array2[i]) ||
-                (!dontConvert && toInt(array1[i]) !== toInt(array2[i]))) {
-                diffs++;
-            }
-        }
-        return diffs + lengthDiff;
-    }
-
-    function normalizeUnits(units) {
-        if (units) {
-            var lowered = units.toLowerCase().replace(/(.)s$/, '$1');
-            units = unitAliases[units] || camelFunctions[lowered] || lowered;
-        }
-        return units;
-    }
-
-    function normalizeObjectUnits(inputObject) {
-        var normalizedInput = {},
-            normalizedProp,
-            prop;
-
-        for (prop in inputObject) {
-            if (hasOwnProp(inputObject, prop)) {
-                normalizedProp = normalizeUnits(prop);
-                if (normalizedProp) {
-                    normalizedInput[normalizedProp] = inputObject[prop];
-                }
-            }
-        }
-
-        return normalizedInput;
-    }
-
-    function makeList(field) {
-        var count, setter;
-
-        if (field.indexOf('week') === 0) {
-            count = 7;
-            setter = 'day';
-        }
-        else if (field.indexOf('month') === 0) {
-            count = 12;
-            setter = 'month';
-        }
-        else {
-            return;
-        }
-
-        moment[field] = function (format, index) {
-            var i, getter,
-                method = moment._locale[field],
-                results = [];
-
-            if (typeof format === 'number') {
-                index = format;
-                format = undefined;
-            }
-
-            getter = function (i) {
-                var m = moment().utc().set(setter, i);
-                return method.call(moment._locale, m, format || '');
-            };
-
-            if (index != null) {
-                return getter(index);
-            }
-            else {
-                for (i = 0; i < count; i++) {
-                    results.push(getter(i));
-                }
-                return results;
-            }
-        };
-    }
-
-    function toInt(argumentForCoercion) {
-        var coercedNumber = +argumentForCoercion,
-            value = 0;
-
-        if (coercedNumber !== 0 && isFinite(coercedNumber)) {
-            if (coercedNumber >= 0) {
-                value = Math.floor(coercedNumber);
-            } else {
-                value = Math.ceil(coercedNumber);
-            }
-        }
-
-        return value;
-    }
-
-    function daysInMonth(year, month) {
-        return new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
-    }
-
-    function weeksInYear(year, dow, doy) {
-        return weekOfYear(moment([year, 11, 31 + dow - doy]), dow, doy).week;
-    }
-
-    function daysInYear(year) {
-        return isLeapYear(year) ? 366 : 365;
-    }
-
-    function isLeapYear(year) {
-        return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-    }
-
-    function checkOverflow(m) {
-        var overflow;
-        if (m._a && m._pf.overflow === -2) {
-            overflow =
-                m._a[MONTH] < 0 || m._a[MONTH] > 11 ? MONTH :
-                m._a[DATE] < 1 || m._a[DATE] > daysInMonth(m._a[YEAR], m._a[MONTH]) ? DATE :
-                m._a[HOUR] < 0 || m._a[HOUR] > 24 ||
-                    (m._a[HOUR] === 24 && (m._a[MINUTE] !== 0 ||
-                                           m._a[SECOND] !== 0 ||
-                                           m._a[MILLISECOND] !== 0)) ? HOUR :
-                m._a[MINUTE] < 0 || m._a[MINUTE] > 59 ? MINUTE :
-                m._a[SECOND] < 0 || m._a[SECOND] > 59 ? SECOND :
-                m._a[MILLISECOND] < 0 || m._a[MILLISECOND] > 999 ? MILLISECOND :
-                -1;
-
-            if (m._pf._overflowDayOfYear && (overflow < YEAR || overflow > DATE)) {
-                overflow = DATE;
-            }
-
-            m._pf.overflow = overflow;
-        }
-    }
-
-    function isValid(m) {
-        if (m._isValid == null) {
-            m._isValid = !isNaN(m._d.getTime()) &&
-                m._pf.overflow < 0 &&
-                !m._pf.empty &&
-                !m._pf.invalidMonth &&
-                !m._pf.nullInput &&
-                !m._pf.invalidFormat &&
-                !m._pf.userInvalidated;
-
-            if (m._strict) {
-                m._isValid = m._isValid &&
-                    m._pf.charsLeftOver === 0 &&
-                    m._pf.unusedTokens.length === 0 &&
-                    m._pf.bigHour === undefined;
-            }
-        }
-        return m._isValid;
-    }
-
-    function normalizeLocale(key) {
-        return key ? key.toLowerCase().replace('_', '-') : key;
-    }
-
-    // pick the locale from the array
-    // try ['en-au', 'en-gb'] as 'en-au', 'en-gb', 'en', as in move through the list trying each
-    // substring from most specific to least, but move to the next array item if it's a more specific variant than the current root
-    function chooseLocale(names) {
-        var i = 0, j, next, locale, split;
-
-        while (i < names.length) {
-            split = normalizeLocale(names[i]).split('-');
-            j = split.length;
-            next = normalizeLocale(names[i + 1]);
-            next = next ? next.split('-') : null;
-            while (j > 0) {
-                locale = loadLocale(split.slice(0, j).join('-'));
-                if (locale) {
-                    return locale;
-                }
-                if (next && next.length >= j && compareArrays(split, next, true) >= j - 1) {
-                    //the next array item is better than a shallower substring of this one
-                    break;
-                }
-                j--;
-            }
-            i++;
-        }
-        return null;
-    }
-
-    function loadLocale(name) {
-        var oldLocale = null;
-        if (!locales[name] && hasModule) {
-            try {
-                oldLocale = moment.locale();
-                require('./locale/' + name);
-                // because defineLocale currently also sets the global locale, we want to undo that for lazy loaded locales
-                moment.locale(oldLocale);
-            } catch (e) { }
-        }
-        return locales[name];
-    }
-
-    // Return a moment from input, that is local/utc/utcOffset equivalent to
-    // model.
-    function makeAs(input, model) {
-        var res, diff;
-        if (model._isUTC) {
-            res = model.clone();
-            diff = (moment.isMoment(input) || isDate(input) ?
-                    +input : +moment(input)) - (+res);
-            // Use low-level api, because this fn is low-level api.
-            res._d.setTime(+res._d + diff);
-            moment.updateOffset(res, false);
-            return res;
-        } else {
-            return moment(input).local();
-        }
-    }
-
-    /************************************
-        Locale
-    ************************************/
-
-
-    extend(Locale.prototype, {
-
-        set : function (config) {
-            var prop, i;
-            for (i in config) {
-                prop = config[i];
-                if (typeof prop === 'function') {
-                    this[i] = prop;
-                } else {
-                    this['_' + i] = prop;
-                }
-            }
-            // Lenient ordinal parsing accepts just a number in addition to
-            // number + (possibly) stuff coming from _ordinalParseLenient.
-            this._ordinalParseLenient = new RegExp(this._ordinalParse.source + '|' + /\d{1,2}/.source);
-        },
-
-        _months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
-        months : function (m) {
-            return this._months[m.month()];
-        },
-
-        _monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
-        monthsShort : function (m) {
-            return this._monthsShort[m.month()];
-        },
-
-        monthsParse : function (monthName, format, strict) {
-            var i, mom, regex;
-
-            if (!this._monthsParse) {
-                this._monthsParse = [];
-                this._longMonthsParse = [];
-                this._shortMonthsParse = [];
-            }
-
-            for (i = 0; i < 12; i++) {
-                // make the regex if we don't have it already
-                mom = moment.utc([2000, i]);
-                if (strict && !this._longMonthsParse[i]) {
-                    this._longMonthsParse[i] = new RegExp('^' + this.months(mom, '').replace('.', '') + '$', 'i');
-                    this._shortMonthsParse[i] = new RegExp('^' + this.monthsShort(mom, '').replace('.', '') + '$', 'i');
-                }
-                if (!strict && !this._monthsParse[i]) {
-                    regex = '^' + this.months(mom, '') + '|^' + this.monthsShort(mom, '');
-                    this._monthsParse[i] = new RegExp(regex.replace('.', ''), 'i');
-                }
-                // test the regex
-                if (strict && format === 'MMMM' && this._longMonthsParse[i].test(monthName)) {
-                    return i;
-                } else if (strict && format === 'MMM' && this._shortMonthsParse[i].test(monthName)) {
-                    return i;
-                } else if (!strict && this._monthsParse[i].test(monthName)) {
-                    return i;
-                }
-            }
-        },
-
-        _weekdays : 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_'),
-        weekdays : function (m) {
-            return this._weekdays[m.day()];
-        },
-
-        _weekdaysShort : 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_'),
-        weekdaysShort : function (m) {
-            return this._weekdaysShort[m.day()];
-        },
-
-        _weekdaysMin : 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_'),
-        weekdaysMin : function (m) {
-            return this._weekdaysMin[m.day()];
-        },
-
-        weekdaysParse : function (weekdayName) {
-            var i, mom, regex;
-
-            if (!this._weekdaysParse) {
-                this._weekdaysParse = [];
-            }
-
-            for (i = 0; i < 7; i++) {
-                // make the regex if we don't have it already
-                if (!this._weekdaysParse[i]) {
-                    mom = moment([2000, 1]).day(i);
-                    regex = '^' + this.weekdays(mom, '') + '|^' + this.weekdaysShort(mom, '') + '|^' + this.weekdaysMin(mom, '');
-                    this._weekdaysParse[i] = new RegExp(regex.replace('.', ''), 'i');
-                }
-                // test the regex
-                if (this._weekdaysParse[i].test(weekdayName)) {
-                    return i;
-                }
-            }
-        },
-
-        _longDateFormat : {
-            LTS : 'h:mm:ss A',
-            LT : 'h:mm A',
-            L : 'MM/DD/YYYY',
-            LL : 'MMMM D, YYYY',
-            LLL : 'MMMM D, YYYY LT',
-            LLLL : 'dddd, MMMM D, YYYY LT'
-        },
-        longDateFormat : function (key) {
-            var output = this._longDateFormat[key];
-            if (!output && this._longDateFormat[key.toUpperCase()]) {
-                output = this._longDateFormat[key.toUpperCase()].replace(/MMMM|MM|DD|dddd/g, function (val) {
-                    return val.slice(1);
-                });
-                this._longDateFormat[key] = output;
-            }
-            return output;
-        },
-
-        isPM : function (input) {
-            // IE8 Quirks Mode & IE7 Standards Mode do not allow accessing strings like arrays
-            // Using charAt should be more compatible.
-            return ((input + '').toLowerCase().charAt(0) === 'p');
-        },
-
-        _meridiemParse : /[ap]\.?m?\.?/i,
-        meridiem : function (hours, minutes, isLower) {
-            if (hours > 11) {
-                return isLower ? 'pm' : 'PM';
-            } else {
-                return isLower ? 'am' : 'AM';
-            }
-        },
-
-
-        _calendar : {
-            sameDay : '[Today at] LT',
-            nextDay : '[Tomorrow at] LT',
-            nextWeek : 'dddd [at] LT',
-            lastDay : '[Yesterday at] LT',
-            lastWeek : '[Last] dddd [at] LT',
-            sameElse : 'L'
-        },
-        calendar : function (key, mom, now) {
-            var output = this._calendar[key];
-            return typeof output === 'function' ? output.apply(mom, [now]) : output;
-        },
-
-        _relativeTime : {
-            future : 'in %s',
-            past : '%s ago',
-            s : 'a few seconds',
-            m : 'a minute',
-            mm : '%d minutes',
-            h : 'an hour',
-            hh : '%d hours',
-            d : 'a day',
-            dd : '%d days',
-            M : 'a month',
-            MM : '%d months',
-            y : 'a year',
-            yy : '%d years'
-        },
-
-        relativeTime : function (number, withoutSuffix, string, isFuture) {
-            var output = this._relativeTime[string];
-            return (typeof output === 'function') ?
-                output(number, withoutSuffix, string, isFuture) :
-                output.replace(/%d/i, number);
-        },
-
-        pastFuture : function (diff, output) {
-            var format = this._relativeTime[diff > 0 ? 'future' : 'past'];
-            return typeof format === 'function' ? format(output) : format.replace(/%s/i, output);
-        },
-
-        ordinal : function (number) {
-            return this._ordinal.replace('%d', number);
-        },
-        _ordinal : '%d',
-        _ordinalParse : /\d{1,2}/,
-
-        preparse : function (string) {
-            return string;
-        },
-
-        postformat : function (string) {
-            return string;
-        },
-
-        week : function (mom) {
-            return weekOfYear(mom, this._week.dow, this._week.doy).week;
-        },
-
-        _week : {
-            dow : 0, // Sunday is the first day of the week.
-            doy : 6  // The week that contains Jan 1st is the first week of the year.
-        },
-
-        firstDayOfWeek : function () {
-            return this._week.dow;
-        },
-
-        firstDayOfYear : function () {
-            return this._week.doy;
-        },
-
-        _invalidDate: 'Invalid date',
-        invalidDate: function () {
-            return this._invalidDate;
-        }
-    });
-
-    /************************************
-        Formatting
-    ************************************/
-
-
-    function removeFormattingTokens(input) {
-        if (input.match(/\[[\s\S]/)) {
-            return input.replace(/^\[|\]$/g, '');
-        }
-        return input.replace(/\\/g, '');
-    }
-
-    function makeFormatFunction(format) {
-        var array = format.match(formattingTokens), i, length;
-
-        for (i = 0, length = array.length; i < length; i++) {
-            if (formatTokenFunctions[array[i]]) {
-                array[i] = formatTokenFunctions[array[i]];
-            } else {
-                array[i] = removeFormattingTokens(array[i]);
-            }
-        }
-
-        return function (mom) {
-            var output = '';
-            for (i = 0; i < length; i++) {
-                output += array[i] instanceof Function ? array[i].call(mom, format) : array[i];
-            }
-            return output;
-        };
-    }
-
-    // format date using native date object
-    function formatMoment(m, format) {
-        if (!m.isValid()) {
-            return m.localeData().invalidDate();
-        }
-
-        format = expandFormat(format, m.localeData());
-
-        if (!formatFunctions[format]) {
-            formatFunctions[format] = makeFormatFunction(format);
-        }
-
-        return formatFunctions[format](m);
-    }
-
-    function expandFormat(format, locale) {
-        var i = 5;
-
-        function replaceLongDateFormatTokens(input) {
-            return locale.longDateFormat(input) || input;
-        }
-
-        localFormattingTokens.lastIndex = 0;
-        while (i >= 0 && localFormattingTokens.test(format)) {
-            format = format.replace(localFormattingTokens, replaceLongDateFormatTokens);
-            localFormattingTokens.lastIndex = 0;
-            i -= 1;
-        }
-
-        return format;
-    }
-
-
-    /************************************
-        Parsing
-    ************************************/
-
-
-    // get the regex to find the next token
-    function getParseRegexForToken(token, config) {
-        var a, strict = config._strict;
-        switch (token) {
-        case 'Q':
-            return parseTokenOneDigit;
-        case 'DDDD':
-            return parseTokenThreeDigits;
-        case 'YYYY':
-        case 'GGGG':
-        case 'gggg':
-            return strict ? parseTokenFourDigits : parseTokenOneToFourDigits;
-        case 'Y':
-        case 'G':
-        case 'g':
-            return parseTokenSignedNumber;
-        case 'YYYYYY':
-        case 'YYYYY':
-        case 'GGGGG':
-        case 'ggggg':
-            return strict ? parseTokenSixDigits : parseTokenOneToSixDigits;
-        case 'S':
-            if (strict) {
-                return parseTokenOneDigit;
-            }
-            /* falls through */
-        case 'SS':
-            if (strict) {
-                return parseTokenTwoDigits;
-            }
-            /* falls through */
-        case 'SSS':
-            if (strict) {
-                return parseTokenThreeDigits;
-            }
-            /* falls through */
-        case 'DDD':
-            return parseTokenOneToThreeDigits;
-        case 'MMM':
-        case 'MMMM':
-        case 'dd':
-        case 'ddd':
-        case 'dddd':
-            return parseTokenWord;
-        case 'a':
-        case 'A':
-            return config._locale._meridiemParse;
-        case 'x':
-            return parseTokenOffsetMs;
-        case 'X':
-            return parseTokenTimestampMs;
-        case 'Z':
-        case 'ZZ':
-            return parseTokenTimezone;
-        case 'T':
-            return parseTokenT;
-        case 'SSSS':
-            return parseTokenDigits;
-        case 'MM':
-        case 'DD':
-        case 'YY':
-        case 'GG':
-        case 'gg':
-        case 'HH':
-        case 'hh':
-        case 'mm':
-        case 'ss':
-        case 'ww':
-        case 'WW':
-            return strict ? parseTokenTwoDigits : parseTokenOneOrTwoDigits;
-        case 'M':
-        case 'D':
-        case 'd':
-        case 'H':
-        case 'h':
-        case 'm':
-        case 's':
-        case 'w':
-        case 'W':
-        case 'e':
-        case 'E':
-            return parseTokenOneOrTwoDigits;
-        case 'Do':
-            return strict ? config._locale._ordinalParse : config._locale._ordinalParseLenient;
-        default :
-            a = new RegExp(regexpEscape(unescapeFormat(token.replace('\\', '')), 'i'));
-            return a;
-        }
-    }
-
-    function utcOffsetFromString(string) {
-        string = string || '';
-        var possibleTzMatches = (string.match(parseTokenTimezone) || []),
-            tzChunk = possibleTzMatches[possibleTzMatches.length - 1] || [],
-            parts = (tzChunk + '').match(parseTimezoneChunker) || ['-', 0, 0],
-            minutes = +(parts[1] * 60) + toInt(parts[2]);
-
-        return parts[0] === '+' ? minutes : -minutes;
-    }
-
-    // function to convert string input to date
-    function addTimeToArrayFromToken(token, input, config) {
-        var a, datePartArray = config._a;
-
-        switch (token) {
-        // QUARTER
-        case 'Q':
-            if (input != null) {
-                datePartArray[MONTH] = (toInt(input) - 1) * 3;
-            }
-            break;
-        // MONTH
-        case 'M' : // fall through to MM
-        case 'MM' :
-            if (input != null) {
-                datePartArray[MONTH] = toInt(input) - 1;
-            }
-            break;
-        case 'MMM' : // fall through to MMMM
-        case 'MMMM' :
-            a = config._locale.monthsParse(input, token, config._strict);
-            // if we didn't find a month name, mark the date as invalid.
-            if (a != null) {
-                datePartArray[MONTH] = a;
-            } else {
-                config._pf.invalidMonth = input;
-            }
-            break;
-        // DAY OF MONTH
-        case 'D' : // fall through to DD
-        case 'DD' :
-            if (input != null) {
-                datePartArray[DATE] = toInt(input);
-            }
-            break;
-        case 'Do' :
-            if (input != null) {
-                datePartArray[DATE] = toInt(parseInt(
-                            input.match(/\d{1,2}/)[0], 10));
-            }
-            break;
-        // DAY OF YEAR
-        case 'DDD' : // fall through to DDDD
-        case 'DDDD' :
-            if (input != null) {
-                config._dayOfYear = toInt(input);
-            }
-
-            break;
-        // YEAR
-        case 'YY' :
-            datePartArray[YEAR] = moment.parseTwoDigitYear(input);
-            break;
-        case 'YYYY' :
-        case 'YYYYY' :
-        case 'YYYYYY' :
-            datePartArray[YEAR] = toInt(input);
-            break;
-        // AM / PM
-        case 'a' : // fall through to A
-        case 'A' :
-            config._meridiem = input;
-            // config._isPm = config._locale.isPM(input);
-            break;
-        // HOUR
-        case 'h' : // fall through to hh
-        case 'hh' :
-            config._pf.bigHour = true;
-            /* falls through */
-        case 'H' : // fall through to HH
-        case 'HH' :
-            datePartArray[HOUR] = toInt(input);
-            break;
-        // MINUTE
-        case 'm' : // fall through to mm
-        case 'mm' :
-            datePartArray[MINUTE] = toInt(input);
-            break;
-        // SECOND
-        case 's' : // fall through to ss
-        case 'ss' :
-            datePartArray[SECOND] = toInt(input);
-            break;
-        // MILLISECOND
-        case 'S' :
-        case 'SS' :
-        case 'SSS' :
-        case 'SSSS' :
-            datePartArray[MILLISECOND] = toInt(('0.' + input) * 1000);
-            break;
-        // UNIX OFFSET (MILLISECONDS)
-        case 'x':
-            config._d = new Date(toInt(input));
-            break;
-        // UNIX TIMESTAMP WITH MS
-        case 'X':
-            config._d = new Date(parseFloat(input) * 1000);
-            break;
-        // TIMEZONE
-        case 'Z' : // fall through to ZZ
-        case 'ZZ' :
-            config._useUTC = true;
-            config._tzm = utcOffsetFromString(input);
-            break;
-        // WEEKDAY - human
-        case 'dd':
-        case 'ddd':
-        case 'dddd':
-            a = config._locale.weekdaysParse(input);
-            // if we didn't get a weekday name, mark the date as invalid
-            if (a != null) {
-                config._w = config._w || {};
-                config._w['d'] = a;
-            } else {
-                config._pf.invalidWeekday = input;
-            }
-            break;
-        // WEEK, WEEK DAY - numeric
-        case 'w':
-        case 'ww':
-        case 'W':
-        case 'WW':
-        case 'd':
-        case 'e':
-        case 'E':
-            token = token.substr(0, 1);
-            /* falls through */
-        case 'gggg':
-        case 'GGGG':
-        case 'GGGGG':
-            token = token.substr(0, 2);
-            if (input) {
-                config._w = config._w || {};
-                config._w[token] = toInt(input);
-            }
-            break;
-        case 'gg':
-        case 'GG':
-            config._w = config._w || {};
-            config._w[token] = moment.parseTwoDigitYear(input);
-        }
-    }
-
-    function dayOfYearFromWeekInfo(config) {
-        var w, weekYear, week, weekday, dow, doy, temp;
-
-        w = config._w;
-        if (w.GG != null || w.W != null || w.E != null) {
-            dow = 1;
-            doy = 4;
-
-            // TODO: We need to take the current isoWeekYear, but that depends on
-            // how we interpret now (local, utc, fixed offset). So create
-            // a now version of current config (take local/utc/offset flags, and
-            // create now).
-            weekYear = dfl(w.GG, config._a[YEAR], weekOfYear(moment(), 1, 4).year);
-            week = dfl(w.W, 1);
-            weekday = dfl(w.E, 1);
-        } else {
-            dow = config._locale._week.dow;
-            doy = config._locale._week.doy;
-
-            weekYear = dfl(w.gg, config._a[YEAR], weekOfYear(moment(), dow, doy).year);
-            week = dfl(w.w, 1);
-
-            if (w.d != null) {
-                // weekday -- low day numbers are considered next week
-                weekday = w.d;
-                if (weekday < dow) {
-                    ++week;
-                }
-            } else if (w.e != null) {
-                // local weekday -- counting starts from begining of week
-                weekday = w.e + dow;
-            } else {
-                // default to begining of week
-                weekday = dow;
-            }
-        }
-        temp = dayOfYearFromWeeks(weekYear, week, weekday, doy, dow);
-
-        config._a[YEAR] = temp.year;
-        config._dayOfYear = temp.dayOfYear;
-    }
-
-    // convert an array to a date.
-    // the array should mirror the parameters below
-    // note: all values past the year are optional and will default to the lowest possible value.
-    // [year, month, day , hour, minute, second, millisecond]
-    function dateFromConfig(config) {
-        var i, date, input = [], currentDate, yearToUse;
-
-        if (config._d) {
-            return;
-        }
-
-        currentDate = currentDateArray(config);
-
-        //compute day of the year from weeks and weekdays
-        if (config._w && config._a[DATE] == null && config._a[MONTH] == null) {
-            dayOfYearFromWeekInfo(config);
-        }
-
-        //if the day of the year is set, figure out what it is
-        if (config._dayOfYear) {
-            yearToUse = dfl(config._a[YEAR], currentDate[YEAR]);
-
-            if (config._dayOfYear > daysInYear(yearToUse)) {
-                config._pf._overflowDayOfYear = true;
-            }
-
-            date = makeUTCDate(yearToUse, 0, config._dayOfYear);
-            config._a[MONTH] = date.getUTCMonth();
-            config._a[DATE] = date.getUTCDate();
-        }
-
-        // Default to current date.
-        // * if no year, month, day of month are given, default to today
-        // * if day of month is given, default month and year
-        // * if month is given, default only year
-        // * if year is given, don't default anything
-        for (i = 0; i < 3 && config._a[i] == null; ++i) {
-            config._a[i] = input[i] = currentDate[i];
-        }
-
-        // Zero out whatever was not defaulted, including time
-        for (; i < 7; i++) {
-            config._a[i] = input[i] = (config._a[i] == null) ? (i === 2 ? 1 : 0) : config._a[i];
-        }
-
-        // Check for 24:00:00.000
-        if (config._a[HOUR] === 24 &&
-                config._a[MINUTE] === 0 &&
-                config._a[SECOND] === 0 &&
-                config._a[MILLISECOND] === 0) {
-            config._nextDay = true;
-            config._a[HOUR] = 0;
-        }
-
-        config._d = (config._useUTC ? makeUTCDate : makeDate).apply(null, input);
-        // Apply timezone offset from input. The actual utcOffset can be changed
-        // with parseZone.
-        if (config._tzm != null) {
-            config._d.setUTCMinutes(config._d.getUTCMinutes() - config._tzm);
-        }
-
-        if (config._nextDay) {
-            config._a[HOUR] = 24;
-        }
-    }
-
-    function dateFromObject(config) {
-        var normalizedInput;
-
-        if (config._d) {
-            return;
-        }
-
-        normalizedInput = normalizeObjectUnits(config._i);
-        config._a = [
-            normalizedInput.year,
-            normalizedInput.month,
-            normalizedInput.day || normalizedInput.date,
-            normalizedInput.hour,
-            normalizedInput.minute,
-            normalizedInput.second,
-            normalizedInput.millisecond
-        ];
-
-        dateFromConfig(config);
-    }
-
-    function currentDateArray(config) {
-        var now = new Date();
-        if (config._useUTC) {
-            return [
-                now.getUTCFullYear(),
-                now.getUTCMonth(),
-                now.getUTCDate()
-            ];
-        } else {
-            return [now.getFullYear(), now.getMonth(), now.getDate()];
-        }
-    }
-
-    // date from string and format string
-    function makeDateFromStringAndFormat(config) {
-        if (config._f === moment.ISO_8601) {
-            parseISO(config);
-            return;
-        }
-
-        config._a = [];
-        config._pf.empty = true;
-
-        // This array is used to make a Date, either with `new Date` or `Date.UTC`
-        var string = '' + config._i,
-            i, parsedInput, tokens, token, skipped,
-            stringLength = string.length,
-            totalParsedInputLength = 0;
-
-        tokens = expandFormat(config._f, config._locale).match(formattingTokens) || [];
-
-        for (i = 0; i < tokens.length; i++) {
-            token = tokens[i];
-            parsedInput = (string.match(getParseRegexForToken(token, config)) || [])[0];
-            if (parsedInput) {
-                skipped = string.substr(0, string.indexOf(parsedInput));
-                if (skipped.length > 0) {
-                    config._pf.unusedInput.push(skipped);
-                }
-                string = string.slice(string.indexOf(parsedInput) + parsedInput.length);
-                totalParsedInputLength += parsedInput.length;
-            }
-            // don't parse if it's not a known token
-            if (formatTokenFunctions[token]) {
-                if (parsedInput) {
-                    config._pf.empty = false;
-                }
-                else {
-                    config._pf.unusedTokens.push(token);
-                }
-                addTimeToArrayFromToken(token, parsedInput, config);
-            }
-            else if (config._strict && !parsedInput) {
-                config._pf.unusedTokens.push(token);
-            }
-        }
-
-        // add remaining unparsed input length to the string
-        config._pf.charsLeftOver = stringLength - totalParsedInputLength;
-        if (string.length > 0) {
-            config._pf.unusedInput.push(string);
-        }
-
-        // clear _12h flag if hour is <= 12
-        if (config._pf.bigHour === true && config._a[HOUR] <= 12) {
-            config._pf.bigHour = undefined;
-        }
-        // handle meridiem
-        config._a[HOUR] = meridiemFixWrap(config._locale, config._a[HOUR],
-                config._meridiem);
-        dateFromConfig(config);
-        checkOverflow(config);
-    }
-
-    function unescapeFormat(s) {
-        return s.replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g, function (matched, p1, p2, p3, p4) {
-            return p1 || p2 || p3 || p4;
-        });
-    }
-
-    // Code from http://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript
-    function regexpEscape(s) {
-        return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-    }
-
-    // date from string and array of format strings
-    function makeDateFromStringAndArray(config) {
-        var tempConfig,
-            bestMoment,
-
-            scoreToBeat,
-            i,
-            currentScore;
-
-        if (config._f.length === 0) {
-            config._pf.invalidFormat = true;
-            config._d = new Date(NaN);
-            return;
-        }
-
-        for (i = 0; i < config._f.length; i++) {
-            currentScore = 0;
-            tempConfig = copyConfig({}, config);
-            if (config._useUTC != null) {
-                tempConfig._useUTC = config._useUTC;
-            }
-            tempConfig._pf = defaultParsingFlags();
-            tempConfig._f = config._f[i];
-            makeDateFromStringAndFormat(tempConfig);
-
-            if (!isValid(tempConfig)) {
-                continue;
-            }
-
-            // if there is any input that was not parsed add a penalty for that format
-            currentScore += tempConfig._pf.charsLeftOver;
-
-            //or tokens
-            currentScore += tempConfig._pf.unusedTokens.length * 10;
-
-            tempConfig._pf.score = currentScore;
-
-            if (scoreToBeat == null || currentScore < scoreToBeat) {
-                scoreToBeat = currentScore;
-                bestMoment = tempConfig;
-            }
-        }
-
-        extend(config, bestMoment || tempConfig);
-    }
-
-    // date from iso format
-    function parseISO(config) {
-        var i, l,
-            string = config._i,
-            match = isoRegex.exec(string);
-
-        if (match) {
-            config._pf.iso = true;
-            for (i = 0, l = isoDates.length; i < l; i++) {
-                if (isoDates[i][1].exec(string)) {
-                    // match[5] should be 'T' or undefined
-                    config._f = isoDates[i][0] + (match[6] || ' ');
-                    break;
-                }
-            }
-            for (i = 0, l = isoTimes.length; i < l; i++) {
-                if (isoTimes[i][1].exec(string)) {
-                    config._f += isoTimes[i][0];
-                    break;
-                }
-            }
-            if (string.match(parseTokenTimezone)) {
-                config._f += 'Z';
-            }
-            makeDateFromStringAndFormat(config);
-        } else {
-            config._isValid = false;
-        }
-    }
-
-    // date from iso format or fallback
-    function makeDateFromString(config) {
-        parseISO(config);
-        if (config._isValid === false) {
-            delete config._isValid;
-            moment.createFromInputFallback(config);
-        }
-    }
-
-    function map(arr, fn) {
-        var res = [], i;
-        for (i = 0; i < arr.length; ++i) {
-            res.push(fn(arr[i], i));
-        }
-        return res;
-    }
-
-    function makeDateFromInput(config) {
-        var input = config._i, matched;
-        if (input === undefined) {
-            config._d = new Date();
-        } else if (isDate(input)) {
-            config._d = new Date(+input);
-        } else if ((matched = aspNetJsonRegex.exec(input)) !== null) {
-            config._d = new Date(+matched[1]);
-        } else if (typeof input === 'string') {
-            makeDateFromString(config);
-        } else if (isArray(input)) {
-            config._a = map(input.slice(0), function (obj) {
-                return parseInt(obj, 10);
-            });
-            dateFromConfig(config);
-        } else if (typeof(input) === 'object') {
-            dateFromObject(config);
-        } else if (typeof(input) === 'number') {
-            // from milliseconds
-            config._d = new Date(input);
-        } else {
-            moment.createFromInputFallback(config);
-        }
-    }
-
-    function makeDate(y, m, d, h, M, s, ms) {
-        //can't just apply() to create a date:
-        //http://stackoverflow.com/questions/181348/instantiating-a-javascript-object-by-calling-prototype-constructor-apply
-        var date = new Date(y, m, d, h, M, s, ms);
-
-        //the date constructor doesn't accept years < 1970
-        if (y < 1970) {
-            date.setFullYear(y);
-        }
-        return date;
-    }
-
-    function makeUTCDate(y) {
-        var date = new Date(Date.UTC.apply(null, arguments));
-        if (y < 1970) {
-            date.setUTCFullYear(y);
-        }
-        return date;
-    }
-
-    function parseWeekday(input, locale) {
-        if (typeof input === 'string') {
-            if (!isNaN(input)) {
-                input = parseInt(input, 10);
-            }
-            else {
-                input = locale.weekdaysParse(input);
-                if (typeof input !== 'number') {
-                    return null;
-                }
-            }
-        }
-        return input;
-    }
-
-    /************************************
-        Relative Time
-    ************************************/
-
-
-    // helper function for moment.fn.from, moment.fn.fromNow, and moment.duration.fn.humanize
-    function substituteTimeAgo(string, number, withoutSuffix, isFuture, locale) {
-        return locale.relativeTime(number || 1, !!withoutSuffix, string, isFuture);
-    }
-
-    function relativeTime(posNegDuration, withoutSuffix, locale) {
-        var duration = moment.duration(posNegDuration).abs(),
-            seconds = round(duration.as('s')),
-            minutes = round(duration.as('m')),
-            hours = round(duration.as('h')),
-            days = round(duration.as('d')),
-            months = round(duration.as('M')),
-            years = round(duration.as('y')),
-
-            args = seconds < relativeTimeThresholds.s && ['s', seconds] ||
-                minutes === 1 && ['m'] ||
-                minutes < relativeTimeThresholds.m && ['mm', minutes] ||
-                hours === 1 && ['h'] ||
-                hours < relativeTimeThresholds.h && ['hh', hours] ||
-                days === 1 && ['d'] ||
-                days < relativeTimeThresholds.d && ['dd', days] ||
-                months === 1 && ['M'] ||
-                months < relativeTimeThresholds.M && ['MM', months] ||
-                years === 1 && ['y'] || ['yy', years];
-
-        args[2] = withoutSuffix;
-        args[3] = +posNegDuration > 0;
-        args[4] = locale;
-        return substituteTimeAgo.apply({}, args);
-    }
-
-
-    /************************************
-        Week of Year
-    ************************************/
-
-
-    // firstDayOfWeek       0 = sun, 6 = sat
-    //                      the day of the week that starts the week
-    //                      (usually sunday or monday)
-    // firstDayOfWeekOfYear 0 = sun, 6 = sat
-    //                      the first week is the week that contains the first
-    //                      of this day of the week
-    //                      (eg. ISO weeks use thursday (4))
-    function weekOfYear(mom, firstDayOfWeek, firstDayOfWeekOfYear) {
-        var end = firstDayOfWeekOfYear - firstDayOfWeek,
-            daysToDayOfWeek = firstDayOfWeekOfYear - mom.day(),
-            adjustedMoment;
-
-
-        if (daysToDayOfWeek > end) {
-            daysToDayOfWeek -= 7;
-        }
-
-        if (daysToDayOfWeek < end - 7) {
-            daysToDayOfWeek += 7;
-        }
-
-        adjustedMoment = moment(mom).add(daysToDayOfWeek, 'd');
-        return {
-            week: Math.ceil(adjustedMoment.dayOfYear() / 7),
-            year: adjustedMoment.year()
-        };
-    }
-
-    //http://en.wikipedia.org/wiki/ISO_week_date#Calculating_a_date_given_the_year.2C_week_number_and_weekday
-    function dayOfYearFromWeeks(year, week, weekday, firstDayOfWeekOfYear, firstDayOfWeek) {
-        var d = makeUTCDate(year, 0, 1).getUTCDay(), daysToAdd, dayOfYear;
-
-        d = d === 0 ? 7 : d;
-        weekday = weekday != null ? weekday : firstDayOfWeek;
-        daysToAdd = firstDayOfWeek - d + (d > firstDayOfWeekOfYear ? 7 : 0) - (d < firstDayOfWeek ? 7 : 0);
-        dayOfYear = 7 * (week - 1) + (weekday - firstDayOfWeek) + daysToAdd + 1;
-
-        return {
-            year: dayOfYear > 0 ? year : year - 1,
-            dayOfYear: dayOfYear > 0 ?  dayOfYear : daysInYear(year - 1) + dayOfYear
-        };
-    }
-
-    /************************************
-        Top Level Functions
-    ************************************/
-
-    function makeMoment(config) {
-        var input = config._i,
-            format = config._f,
-            res;
-
-        config._locale = config._locale || moment.localeData(config._l);
-
-        if (input === null || (format === undefined && input === '')) {
-            return moment.invalid({nullInput: true});
-        }
-
-        if (typeof input === 'string') {
-            config._i = input = config._locale.preparse(input);
-        }
-
-        if (moment.isMoment(input)) {
-            return new Moment(input, true);
-        } else if (format) {
-            if (isArray(format)) {
-                makeDateFromStringAndArray(config);
-            } else {
-                makeDateFromStringAndFormat(config);
-            }
-        } else {
-            makeDateFromInput(config);
-        }
-
-        res = new Moment(config);
-        if (res._nextDay) {
-            // Adding is smart enough around DST
-            res.add(1, 'd');
-            res._nextDay = undefined;
-        }
-
-        return res;
-    }
-
-    moment = function (input, format, locale, strict) {
-        var c;
-
-        if (typeof(locale) === 'boolean') {
-            strict = locale;
-            locale = undefined;
-        }
-        // object construction must be done this way.
-        // https://github.com/moment/moment/issues/1423
-        c = {};
-        c._isAMomentObject = true;
-        c._i = input;
-        c._f = format;
-        c._l = locale;
-        c._strict = strict;
-        c._isUTC = false;
-        c._pf = defaultParsingFlags();
-
-        return makeMoment(c);
-    };
-
-    moment.suppressDeprecationWarnings = false;
-
-    moment.createFromInputFallback = deprecate(
-        'moment construction falls back to js Date. This is ' +
-        'discouraged and will be removed in upcoming major ' +
-        'release. Please refer to ' +
-        'https://github.com/moment/moment/issues/1407 for more info.',
-        function (config) {
-            config._d = new Date(config._i + (config._useUTC ? ' UTC' : ''));
-        }
-    );
-
-    // Pick a moment m from moments so that m[fn](other) is true for all
-    // other. This relies on the function fn to be transitive.
-    //
-    // moments should either be an array of moment objects or an array, whose
-    // first element is an array of moment objects.
-    function pickBy(fn, moments) {
-        var res, i;
-        if (moments.length === 1 && isArray(moments[0])) {
-            moments = moments[0];
-        }
-        if (!moments.length) {
-            return moment();
-        }
-        res = moments[0];
-        for (i = 1; i < moments.length; ++i) {
-            if (moments[i][fn](res)) {
-                res = moments[i];
-            }
-        }
-        return res;
-    }
-
-    moment.min = function () {
-        var args = [].slice.call(arguments, 0);
-
-        return pickBy('isBefore', args);
-    };
-
-    moment.max = function () {
-        var args = [].slice.call(arguments, 0);
-
-        return pickBy('isAfter', args);
-    };
-
-    // creating with utc
-    moment.utc = function (input, format, locale, strict) {
-        var c;
-
-        if (typeof(locale) === 'boolean') {
-            strict = locale;
-            locale = undefined;
-        }
-        // object construction must be done this way.
-        // https://github.com/moment/moment/issues/1423
-        c = {};
-        c._isAMomentObject = true;
-        c._useUTC = true;
-        c._isUTC = true;
-        c._l = locale;
-        c._i = input;
-        c._f = format;
-        c._strict = strict;
-        c._pf = defaultParsingFlags();
-
-        return makeMoment(c).utc();
-    };
-
-    // creating with unix timestamp (in seconds)
-    moment.unix = function (input) {
-        return moment(input * 1000);
-    };
-
-    // duration
-    moment.duration = function (input, key) {
-        var duration = input,
-            // matching against regexp is expensive, do it on demand
-            match = null,
-            sign,
-            ret,
-            parseIso,
-            diffRes;
-
-        if (moment.isDuration(input)) {
-            duration = {
-                ms: input._milliseconds,
-                d: input._days,
-                M: input._months
-            };
-        } else if (typeof input === 'number') {
-            duration = {};
-            if (key) {
-                duration[key] = input;
-            } else {
-                duration.milliseconds = input;
-            }
-        } else if (!!(match = aspNetTimeSpanJsonRegex.exec(input))) {
-            sign = (match[1] === '-') ? -1 : 1;
-            duration = {
-                y: 0,
-                d: toInt(match[DATE]) * sign,
-                h: toInt(match[HOUR]) * sign,
-                m: toInt(match[MINUTE]) * sign,
-                s: toInt(match[SECOND]) * sign,
-                ms: toInt(match[MILLISECOND]) * sign
-            };
-        } else if (!!(match = isoDurationRegex.exec(input))) {
-            sign = (match[1] === '-') ? -1 : 1;
-            parseIso = function (inp) {
-                // We'd normally use ~~inp for this, but unfortunately it also
-                // converts floats to ints.
-                // inp may be undefined, so careful calling replace on it.
-                var res = inp && parseFloat(inp.replace(',', '.'));
-                // apply sign while we're at it
-                return (isNaN(res) ? 0 : res) * sign;
-            };
-            duration = {
-                y: parseIso(match[2]),
-                M: parseIso(match[3]),
-                d: parseIso(match[4]),
-                h: parseIso(match[5]),
-                m: parseIso(match[6]),
-                s: parseIso(match[7]),
-                w: parseIso(match[8])
-            };
-        } else if (duration == null) {// checks for null or undefined
-            duration = {};
-        } else if (typeof duration === 'object' &&
-                ('from' in duration || 'to' in duration)) {
-            diffRes = momentsDifference(moment(duration.from), moment(duration.to));
-
-            duration = {};
-            duration.ms = diffRes.milliseconds;
-            duration.M = diffRes.months;
-        }
-
-        ret = new Duration(duration);
-
-        if (moment.isDuration(input) && hasOwnProp(input, '_locale')) {
-            ret._locale = input._locale;
-        }
-
-        return ret;
-    };
-
-    // version number
-    moment.version = VERSION;
-
-    // default format
-    moment.defaultFormat = isoFormat;
-
-    // constant that refers to the ISO standard
-    moment.ISO_8601 = function () {};
-
-    // Plugins that add properties should also add the key here (null value),
-    // so we can properly clone ourselves.
-    moment.momentProperties = momentProperties;
-
-    // This function will be called whenever a moment is mutated.
-    // It is intended to keep the offset in sync with the timezone.
-    moment.updateOffset = function () {};
-
-    // This function allows you to set a threshold for relative time strings
-    moment.relativeTimeThreshold = function (threshold, limit) {
-        if (relativeTimeThresholds[threshold] === undefined) {
-            return false;
-        }
-        if (limit === undefined) {
-            return relativeTimeThresholds[threshold];
-        }
-        relativeTimeThresholds[threshold] = limit;
-        return true;
-    };
-
-    moment.lang = deprecate(
-        'moment.lang is deprecated. Use moment.locale instead.',
-        function (key, value) {
-            return moment.locale(key, value);
-        }
-    );
-
-    // This function will load locale and then set the global locale.  If
-    // no arguments are passed in, it will simply return the current global
-    // locale key.
-    moment.locale = function (key, values) {
-        var data;
-        if (key) {
-            if (typeof(values) !== 'undefined') {
-                data = moment.defineLocale(key, values);
-            }
-            else {
-                data = moment.localeData(key);
-            }
-
-            if (data) {
-                moment.duration._locale = moment._locale = data;
-            }
-        }
-
-        return moment._locale._abbr;
-    };
-
-    moment.defineLocale = function (name, values) {
-        if (values !== null) {
-            values.abbr = name;
-            if (!locales[name]) {
-                locales[name] = new Locale();
-            }
-            locales[name].set(values);
-
-            // backwards compat for now: also set the locale
-            moment.locale(name);
-
-            return locales[name];
-        } else {
-            // useful for testing
-            delete locales[name];
-            return null;
-        }
-    };
-
-    moment.langData = deprecate(
-        'moment.langData is deprecated. Use moment.localeData instead.',
-        function (key) {
-            return moment.localeData(key);
-        }
-    );
-
-    // returns locale data
-    moment.localeData = function (key) {
-        var locale;
-
-        if (key && key._locale && key._locale._abbr) {
-            key = key._locale._abbr;
-        }
-
-        if (!key) {
-            return moment._locale;
-        }
-
-        if (!isArray(key)) {
-            //short-circuit everything else
-            locale = loadLocale(key);
-            if (locale) {
-                return locale;
-            }
-            key = [key];
-        }
-
-        return chooseLocale(key);
-    };
-
-    // compare moment object
-    moment.isMoment = function (obj) {
-        return obj instanceof Moment ||
-            (obj != null && hasOwnProp(obj, '_isAMomentObject'));
-    };
-
-    // for typechecking Duration objects
-    moment.isDuration = function (obj) {
-        return obj instanceof Duration;
-    };
-
-    for (i = lists.length - 1; i >= 0; --i) {
-        makeList(lists[i]);
-    }
-
-    moment.normalizeUnits = function (units) {
-        return normalizeUnits(units);
-    };
-
-    moment.invalid = function (flags) {
-        var m = moment.utc(NaN);
-        if (flags != null) {
-            extend(m._pf, flags);
-        }
-        else {
-            m._pf.userInvalidated = true;
-        }
-
-        return m;
-    };
-
-    moment.parseZone = function () {
-        return moment.apply(null, arguments).parseZone();
-    };
-
-    moment.parseTwoDigitYear = function (input) {
-        return toInt(input) + (toInt(input) > 68 ? 1900 : 2000);
-    };
-
-    moment.isDate = isDate;
-
-    /************************************
-        Moment Prototype
-    ************************************/
-
-
-    extend(moment.fn = Moment.prototype, {
-
-        clone : function () {
-            return moment(this);
-        },
-
-        valueOf : function () {
-            return +this._d - ((this._offset || 0) * 60000);
-        },
-
-        unix : function () {
-            return Math.floor(+this / 1000);
-        },
-
-        toString : function () {
-            return this.clone().locale('en').format('ddd MMM DD YYYY HH:mm:ss [GMT]ZZ');
-        },
-
-        toDate : function () {
-            return this._offset ? new Date(+this) : this._d;
-        },
-
-        toISOString : function () {
-            var m = moment(this).utc();
-            if (0 < m.year() && m.year() <= 9999) {
-                if ('function' === typeof Date.prototype.toISOString) {
-                    // native implementation is ~50x faster, use it when we can
-                    return this.toDate().toISOString();
-                } else {
-                    return formatMoment(m, 'YYYY-MM-DD[T]HH:mm:ss.SSS[Z]');
-                }
-            } else {
-                return formatMoment(m, 'YYYYYY-MM-DD[T]HH:mm:ss.SSS[Z]');
-            }
-        },
-
-        toArray : function () {
-            var m = this;
-            return [
-                m.year(),
-                m.month(),
-                m.date(),
-                m.hours(),
-                m.minutes(),
-                m.seconds(),
-                m.milliseconds()
-            ];
-        },
-
-        isValid : function () {
-            return isValid(this);
-        },
-
-        isDSTShifted : function () {
-            if (this._a) {
-                return this.isValid() && compareArrays(this._a, (this._isUTC ? moment.utc(this._a) : moment(this._a)).toArray()) > 0;
-            }
-
-            return false;
-        },
-
-        parsingFlags : function () {
-            return extend({}, this._pf);
-        },
-
-        invalidAt: function () {
-            return this._pf.overflow;
-        },
-
-        utc : function (keepLocalTime) {
-            return this.utcOffset(0, keepLocalTime);
-        },
-
-        local : function (keepLocalTime) {
-            if (this._isUTC) {
-                this.utcOffset(0, keepLocalTime);
-                this._isUTC = false;
-
-                if (keepLocalTime) {
-                    this.subtract(this._dateUtcOffset(), 'm');
-                }
-            }
-            return this;
-        },
-
-        format : function (inputString) {
-            var output = formatMoment(this, inputString || moment.defaultFormat);
-            return this.localeData().postformat(output);
-        },
-
-        add : createAdder(1, 'add'),
-
-        subtract : createAdder(-1, 'subtract'),
-
-        diff : function (input, units, asFloat) {
-            var that = makeAs(input, this),
-                zoneDiff = (that.utcOffset() - this.utcOffset()) * 6e4,
-                anchor, diff, output, daysAdjust;
-
-            units = normalizeUnits(units);
-
-            if (units === 'year' || units === 'month' || units === 'quarter') {
-                output = monthDiff(this, that);
-                if (units === 'quarter') {
-                    output = output / 3;
-                } else if (units === 'year') {
-                    output = output / 12;
-                }
-            } else {
-                diff = this - that;
-                output = units === 'second' ? diff / 1e3 : // 1000
-                    units === 'minute' ? diff / 6e4 : // 1000 * 60
-                    units === 'hour' ? diff / 36e5 : // 1000 * 60 * 60
-                    units === 'day' ? (diff - zoneDiff) / 864e5 : // 1000 * 60 * 60 * 24, negate dst
-                    units === 'week' ? (diff - zoneDiff) / 6048e5 : // 1000 * 60 * 60 * 24 * 7, negate dst
-                    diff;
-            }
-            return asFloat ? output : absRound(output);
-        },
-
-        from : function (time, withoutSuffix) {
-            return moment.duration({to: this, from: time}).locale(this.locale()).humanize(!withoutSuffix);
-        },
-
-        fromNow : function (withoutSuffix) {
-            return this.from(moment(), withoutSuffix);
-        },
-
-        calendar : function (time) {
-            // We want to compare the start of today, vs this.
-            // Getting start-of-today depends on whether we're locat/utc/offset
-            // or not.
-            var now = time || moment(),
-                sod = makeAs(now, this).startOf('day'),
-                diff = this.diff(sod, 'days', true),
-                format = diff < -6 ? 'sameElse' :
-                    diff < -1 ? 'lastWeek' :
-                    diff < 0 ? 'lastDay' :
-                    diff < 1 ? 'sameDay' :
-                    diff < 2 ? 'nextDay' :
-                    diff < 7 ? 'nextWeek' : 'sameElse';
-            return this.format(this.localeData().calendar(format, this, moment(now)));
-        },
-
-        isLeapYear : function () {
-            return isLeapYear(this.year());
-        },
-
-        isDST : function () {
-            return (this.utcOffset() > this.clone().month(0).utcOffset() ||
-                this.utcOffset() > this.clone().month(5).utcOffset());
-        },
-
-        day : function (input) {
-            var day = this._isUTC ? this._d.getUTCDay() : this._d.getDay();
-            if (input != null) {
-                input = parseWeekday(input, this.localeData());
-                return this.add(input - day, 'd');
-            } else {
-                return day;
-            }
-        },
-
-        month : makeAccessor('Month', true),
-
-        startOf : function (units) {
-            units = normalizeUnits(units);
-            // the following switch intentionally omits break keywords
-            // to utilize falling through the cases.
-            switch (units) {
-            case 'year':
-                this.month(0);
-                /* falls through */
-            case 'quarter':
-            case 'month':
-                this.date(1);
-                /* falls through */
-            case 'week':
-            case 'isoWeek':
-            case 'day':
-                this.hours(0);
-                /* falls through */
-            case 'hour':
-                this.minutes(0);
-                /* falls through */
-            case 'minute':
-                this.seconds(0);
-                /* falls through */
-            case 'second':
-                this.milliseconds(0);
-                /* falls through */
-            }
-
-            // weeks are a special case
-            if (units === 'week') {
-                this.weekday(0);
-            } else if (units === 'isoWeek') {
-                this.isoWeekday(1);
-            }
-
-            // quarters are also special
-            if (units === 'quarter') {
-                this.month(Math.floor(this.month() / 3) * 3);
-            }
-
-            return this;
-        },
-
-        endOf: function (units) {
-            units = normalizeUnits(units);
-            if (units === undefined || units === 'millisecond') {
-                return this;
-            }
-            return this.startOf(units).add(1, (units === 'isoWeek' ? 'week' : units)).subtract(1, 'ms');
-        },
-
-        isAfter: function (input, units) {
-            var inputMs;
-            units = normalizeUnits(typeof units !== 'undefined' ? units : 'millisecond');
-            if (units === 'millisecond') {
-                input = moment.isMoment(input) ? input : moment(input);
-                return +this > +input;
-            } else {
-                inputMs = moment.isMoment(input) ? +input : +moment(input);
-                return inputMs < +this.clone().startOf(units);
-            }
-        },
-
-        isBefore: function (input, units) {
-            var inputMs;
-            units = normalizeUnits(typeof units !== 'undefined' ? units : 'millisecond');
-            if (units === 'millisecond') {
-                input = moment.isMoment(input) ? input : moment(input);
-                return +this < +input;
-            } else {
-                inputMs = moment.isMoment(input) ? +input : +moment(input);
-                return +this.clone().endOf(units) < inputMs;
-            }
-        },
-
-        isBetween: function (from, to, units) {
-            return this.isAfter(from, units) && this.isBefore(to, units);
-        },
-
-        isSame: function (input, units) {
-            var inputMs;
-            units = normalizeUnits(units || 'millisecond');
-            if (units === 'millisecond') {
-                input = moment.isMoment(input) ? input : moment(input);
-                return +this === +input;
-            } else {
-                inputMs = +moment(input);
-                return +(this.clone().startOf(units)) <= inputMs && inputMs <= +(this.clone().endOf(units));
-            }
-        },
-
-        min: deprecate(
-                 'moment().min is deprecated, use moment.min instead. https://github.com/moment/moment/issues/1548',
-                 function (other) {
-                     other = moment.apply(null, arguments);
-                     return other < this ? this : other;
-                 }
-         ),
-
-        max: deprecate(
-                'moment().max is deprecated, use moment.max instead. https://github.com/moment/moment/issues/1548',
-                function (other) {
-                    other = moment.apply(null, arguments);
-                    return other > this ? this : other;
-                }
-        ),
-
-        zone : deprecate(
-                'moment().zone is deprecated, use moment().utcOffset instead. ' +
-                'https://github.com/moment/moment/issues/1779',
-                function (input, keepLocalTime) {
-                    if (input != null) {
-                        if (typeof input !== 'string') {
-                            input = -input;
-                        }
-
-                        this.utcOffset(input, keepLocalTime);
-
-                        return this;
-                    } else {
-                        return -this.utcOffset();
-                    }
-                }
-        ),
-
-        // keepLocalTime = true means only change the timezone, without
-        // affecting the local hour. So 5:31:26 +0300 --[utcOffset(2, true)]-->
-        // 5:31:26 +0200 It is possible that 5:31:26 doesn't exist with offset
-        // +0200, so we adjust the time as needed, to be valid.
-        //
-        // Keeping the time actually adds/subtracts (one hour)
-        // from the actual represented time. That is why we call updateOffset
-        // a second time. In case it wants us to change the offset again
-        // _changeInProgress == true case, then we have to adjust, because
-        // there is no such time in the given timezone.
-        utcOffset : function (input, keepLocalTime) {
-            var offset = this._offset || 0,
-                localAdjust;
-            if (input != null) {
-                if (typeof input === 'string') {
-                    input = utcOffsetFromString(input);
-                }
-                if (Math.abs(input) < 16) {
-                    input = input * 60;
-                }
-                if (!this._isUTC && keepLocalTime) {
-                    localAdjust = this._dateUtcOffset();
-                }
-                this._offset = input;
-                this._isUTC = true;
-                if (localAdjust != null) {
-                    this.add(localAdjust, 'm');
-                }
-                if (offset !== input) {
-                    if (!keepLocalTime || this._changeInProgress) {
-                        addOrSubtractDurationFromMoment(this,
-                                moment.duration(input - offset, 'm'), 1, false);
-                    } else if (!this._changeInProgress) {
-                        this._changeInProgress = true;
-                        moment.updateOffset(this, true);
-                        this._changeInProgress = null;
-                    }
-                }
-
-                return this;
-            } else {
-                return this._isUTC ? offset : this._dateUtcOffset();
-            }
-        },
-
-        isLocal : function () {
-            return !this._isUTC;
-        },
-
-        isUtcOffset : function () {
-            return this._isUTC;
-        },
-
-        isUtc : function () {
-            return this._isUTC && this._offset === 0;
-        },
-
-        zoneAbbr : function () {
-            return this._isUTC ? 'UTC' : '';
-        },
-
-        zoneName : function () {
-            return this._isUTC ? 'Coordinated Universal Time' : '';
-        },
-
-        parseZone : function () {
-            if (this._tzm) {
-                this.utcOffset(this._tzm);
-            } else if (typeof this._i === 'string') {
-                this.utcOffset(utcOffsetFromString(this._i));
-            }
-            return this;
-        },
-
-        hasAlignedHourOffset : function (input) {
-            if (!input) {
-                input = 0;
-            }
-            else {
-                input = moment(input).utcOffset();
-            }
-
-            return (this.utcOffset() - input) % 60 === 0;
-        },
-
-        daysInMonth : function () {
-            return daysInMonth(this.year(), this.month());
-        },
-
-        dayOfYear : function (input) {
-            var dayOfYear = round((moment(this).startOf('day') - moment(this).startOf('year')) / 864e5) + 1;
-            return input == null ? dayOfYear : this.add((input - dayOfYear), 'd');
-        },
-
-        quarter : function (input) {
-            return input == null ? Math.ceil((this.month() + 1) / 3) : this.month((input - 1) * 3 + this.month() % 3);
-        },
-
-        weekYear : function (input) {
-            var year = weekOfYear(this, this.localeData()._week.dow, this.localeData()._week.doy).year;
-            return input == null ? year : this.add((input - year), 'y');
-        },
-
-        isoWeekYear : function (input) {
-            var year = weekOfYear(this, 1, 4).year;
-            return input == null ? year : this.add((input - year), 'y');
-        },
-
-        week : function (input) {
-            var week = this.localeData().week(this);
-            return input == null ? week : this.add((input - week) * 7, 'd');
-        },
-
-        isoWeek : function (input) {
-            var week = weekOfYear(this, 1, 4).week;
-            return input == null ? week : this.add((input - week) * 7, 'd');
-        },
-
-        weekday : function (input) {
-            var weekday = (this.day() + 7 - this.localeData()._week.dow) % 7;
-            return input == null ? weekday : this.add(input - weekday, 'd');
-        },
-
-        isoWeekday : function (input) {
-            // behaves the same as moment#day except
-            // as a getter, returns 7 instead of 0 (1-7 range instead of 0-6)
-            // as a setter, sunday should belong to the previous week.
-            return input == null ? this.day() || 7 : this.day(this.day() % 7 ? input : input - 7);
-        },
-
-        isoWeeksInYear : function () {
-            return weeksInYear(this.year(), 1, 4);
-        },
-
-        weeksInYear : function () {
-            var weekInfo = this.localeData()._week;
-            return weeksInYear(this.year(), weekInfo.dow, weekInfo.doy);
-        },
-
-        get : function (units) {
-            units = normalizeUnits(units);
-            return this[units]();
-        },
-
-        set : function (units, value) {
-            var unit;
-            if (typeof units === 'object') {
-                for (unit in units) {
-                    this.set(unit, units[unit]);
-                }
-            }
-            else {
-                units = normalizeUnits(units);
-                if (typeof this[units] === 'function') {
-                    this[units](value);
-                }
-            }
-            return this;
-        },
-
-        // If passed a locale key, it will set the locale for this
-        // instance.  Otherwise, it will return the locale configuration
-        // variables for this instance.
-        locale : function (key) {
-            var newLocaleData;
-
-            if (key === undefined) {
-                return this._locale._abbr;
-            } else {
-                newLocaleData = moment.localeData(key);
-                if (newLocaleData != null) {
-                    this._locale = newLocaleData;
-                }
-                return this;
-            }
-        },
-
-        lang : deprecate(
-            'moment().lang() is deprecated. Instead, use moment().localeData() to get the language configuration. Use moment().locale() to change languages.',
-            function (key) {
-                if (key === undefined) {
-                    return this.localeData();
-                } else {
-                    return this.locale(key);
-                }
-            }
-        ),
-
-        localeData : function () {
-            return this._locale;
-        },
-
-        _dateUtcOffset : function () {
-            // On Firefox.24 Date#getTimezoneOffset returns a floating point.
-            // https://github.com/moment/moment/pull/1871
-            return -Math.round(this._d.getTimezoneOffset() / 15) * 15;
-        }
-
-    });
-
-    function rawMonthSetter(mom, value) {
-        var dayOfMonth;
-
-        // TODO: Move this out of here!
-        if (typeof value === 'string') {
-            value = mom.localeData().monthsParse(value);
-            // TODO: Another silent failure?
-            if (typeof value !== 'number') {
-                return mom;
-            }
-        }
-
-        dayOfMonth = Math.min(mom.date(),
-                daysInMonth(mom.year(), value));
-        mom._d['set' + (mom._isUTC ? 'UTC' : '') + 'Month'](value, dayOfMonth);
-        return mom;
-    }
-
-    function rawGetter(mom, unit) {
-        return mom._d['get' + (mom._isUTC ? 'UTC' : '') + unit]();
-    }
-
-    function rawSetter(mom, unit, value) {
-        if (unit === 'Month') {
-            return rawMonthSetter(mom, value);
-        } else {
-            return mom._d['set' + (mom._isUTC ? 'UTC' : '') + unit](value);
-        }
-    }
-
-    function makeAccessor(unit, keepTime) {
-        return function (value) {
-            if (value != null) {
-                rawSetter(this, unit, value);
-                moment.updateOffset(this, keepTime);
-                return this;
-            } else {
-                return rawGetter(this, unit);
-            }
-        };
-    }
-
-    moment.fn.millisecond = moment.fn.milliseconds = makeAccessor('Milliseconds', false);
-    moment.fn.second = moment.fn.seconds = makeAccessor('Seconds', false);
-    moment.fn.minute = moment.fn.minutes = makeAccessor('Minutes', false);
-    // Setting the hour should keep the time, because the user explicitly
-    // specified which hour he wants. So trying to maintain the same hour (in
-    // a new timezone) makes sense. Adding/subtracting hours does not follow
-    // this rule.
-    moment.fn.hour = moment.fn.hours = makeAccessor('Hours', true);
-    // moment.fn.month is defined separately
-    moment.fn.date = makeAccessor('Date', true);
-    moment.fn.dates = deprecate('dates accessor is deprecated. Use date instead.', makeAccessor('Date', true));
-    moment.fn.year = makeAccessor('FullYear', true);
-    moment.fn.years = deprecate('years accessor is deprecated. Use year instead.', makeAccessor('FullYear', true));
-
-    // add plural methods
-    moment.fn.days = moment.fn.day;
-    moment.fn.months = moment.fn.month;
-    moment.fn.weeks = moment.fn.week;
-    moment.fn.isoWeeks = moment.fn.isoWeek;
-    moment.fn.quarters = moment.fn.quarter;
-
-    // add aliased format methods
-    moment.fn.toJSON = moment.fn.toISOString;
-
-    // alias isUtc for dev-friendliness
-    moment.fn.isUTC = moment.fn.isUtc;
-
-    /************************************
-        Duration Prototype
-    ************************************/
-
-
-    function daysToYears (days) {
-        // 400 years have 146097 days (taking into account leap year rules)
-        return days * 400 / 146097;
-    }
-
-    function yearsToDays (years) {
-        // years * 365 + absRound(years / 4) -
-        //     absRound(years / 100) + absRound(years / 400);
-        return years * 146097 / 400;
-    }
-
-    extend(moment.duration.fn = Duration.prototype, {
-
-        _bubble : function () {
-            var milliseconds = this._milliseconds,
-                days = this._days,
-                months = this._months,
-                data = this._data,
-                seconds, minutes, hours, years = 0;
-
-            // The following code bubbles up values, see the tests for
-            // examples of what that means.
-            data.milliseconds = milliseconds % 1000;
-
-            seconds = absRound(milliseconds / 1000);
-            data.seconds = seconds % 60;
-
-            minutes = absRound(seconds / 60);
-            data.minutes = minutes % 60;
-
-            hours = absRound(minutes / 60);
-            data.hours = hours % 24;
-
-            days += absRound(hours / 24);
-
-            // Accurately convert days to years, assume start from year 0.
-            years = absRound(daysToYears(days));
-            days -= absRound(yearsToDays(years));
-
-            // 30 days to a month
-            // TODO (iskren): Use anchor date (like 1st Jan) to compute this.
-            months += absRound(days / 30);
-            days %= 30;
-
-            // 12 months -> 1 year
-            years += absRound(months / 12);
-            months %= 12;
-
-            data.days = days;
-            data.months = months;
-            data.years = years;
-        },
-
-        abs : function () {
-            this._milliseconds = Math.abs(this._milliseconds);
-            this._days = Math.abs(this._days);
-            this._months = Math.abs(this._months);
-
-            this._data.milliseconds = Math.abs(this._data.milliseconds);
-            this._data.seconds = Math.abs(this._data.seconds);
-            this._data.minutes = Math.abs(this._data.minutes);
-            this._data.hours = Math.abs(this._data.hours);
-            this._data.months = Math.abs(this._data.months);
-            this._data.years = Math.abs(this._data.years);
-
-            return this;
-        },
-
-        weeks : function () {
-            return absRound(this.days() / 7);
-        },
-
-        valueOf : function () {
-            return this._milliseconds +
-              this._days * 864e5 +
-              (this._months % 12) * 2592e6 +
-              toInt(this._months / 12) * 31536e6;
-        },
-
-        humanize : function (withSuffix) {
-            var output = relativeTime(this, !withSuffix, this.localeData());
-
-            if (withSuffix) {
-                output = this.localeData().pastFuture(+this, output);
-            }
-
-            return this.localeData().postformat(output);
-        },
-
-        add : function (input, val) {
-            // supports only 2.0-style add(1, 's') or add(moment)
-            var dur = moment.duration(input, val);
-
-            this._milliseconds += dur._milliseconds;
-            this._days += dur._days;
-            this._months += dur._months;
-
-            this._bubble();
-
-            return this;
-        },
-
-        subtract : function (input, val) {
-            var dur = moment.duration(input, val);
-
-            this._milliseconds -= dur._milliseconds;
-            this._days -= dur._days;
-            this._months -= dur._months;
-
-            this._bubble();
-
-            return this;
-        },
-
-        get : function (units) {
-            units = normalizeUnits(units);
-            return this[units.toLowerCase() + 's']();
-        },
-
-        as : function (units) {
-            var days, months;
-            units = normalizeUnits(units);
-
-            if (units === 'month' || units === 'year') {
-                days = this._days + this._milliseconds / 864e5;
-                months = this._months + daysToYears(days) * 12;
-                return units === 'month' ? months : months / 12;
-            } else {
-                // handle milliseconds separately because of floating point math errors (issue #1867)
-                days = this._days + Math.round(yearsToDays(this._months / 12));
-                switch (units) {
-                    case 'week': return days / 7 + this._milliseconds / 6048e5;
-                    case 'day': return days + this._milliseconds / 864e5;
-                    case 'hour': return days * 24 + this._milliseconds / 36e5;
-                    case 'minute': return days * 24 * 60 + this._milliseconds / 6e4;
-                    case 'second': return days * 24 * 60 * 60 + this._milliseconds / 1000;
-                    // Math.floor prevents floating point math errors here
-                    case 'millisecond': return Math.floor(days * 24 * 60 * 60 * 1000) + this._milliseconds;
-                    default: throw new Error('Unknown unit ' + units);
-                }
-            }
-        },
-
-        lang : moment.fn.lang,
-        locale : moment.fn.locale,
-
-        toIsoString : deprecate(
-            'toIsoString() is deprecated. Please use toISOString() instead ' +
-            '(notice the capitals)',
-            function () {
-                return this.toISOString();
-            }
-        ),
-
-        toISOString : function () {
-            // inspired by https://github.com/dordille/moment-isoduration/blob/master/moment.isoduration.js
-            var years = Math.abs(this.years()),
-                months = Math.abs(this.months()),
-                days = Math.abs(this.days()),
-                hours = Math.abs(this.hours()),
-                minutes = Math.abs(this.minutes()),
-                seconds = Math.abs(this.seconds() + this.milliseconds() / 1000);
-
-            if (!this.asSeconds()) {
-                // this is the same as C#'s (Noda) and python (isodate)...
-                // but not other JS (goog.date)
-                return 'P0D';
-            }
-
-            return (this.asSeconds() < 0 ? '-' : '') +
-                'P' +
-                (years ? years + 'Y' : '') +
-                (months ? months + 'M' : '') +
-                (days ? days + 'D' : '') +
-                ((hours || minutes || seconds) ? 'T' : '') +
-                (hours ? hours + 'H' : '') +
-                (minutes ? minutes + 'M' : '') +
-                (seconds ? seconds + 'S' : '');
-        },
-
-        localeData : function () {
-            return this._locale;
-        },
-
-        toJSON : function () {
-            return this.toISOString();
-        }
-    });
-
-    moment.duration.fn.toString = moment.duration.fn.toISOString;
-
-    function makeDurationGetter(name) {
-        moment.duration.fn[name] = function () {
-            return this._data[name];
-        };
-    }
-
-    for (i in unitMillisecondFactors) {
-        if (hasOwnProp(unitMillisecondFactors, i)) {
-            makeDurationGetter(i.toLowerCase());
-        }
-    }
-
-    moment.duration.fn.asMilliseconds = function () {
-        return this.as('ms');
-    };
-    moment.duration.fn.asSeconds = function () {
-        return this.as('s');
-    };
-    moment.duration.fn.asMinutes = function () {
-        return this.as('m');
-    };
-    moment.duration.fn.asHours = function () {
-        return this.as('h');
-    };
-    moment.duration.fn.asDays = function () {
-        return this.as('d');
-    };
-    moment.duration.fn.asWeeks = function () {
-        return this.as('weeks');
-    };
-    moment.duration.fn.asMonths = function () {
-        return this.as('M');
-    };
-    moment.duration.fn.asYears = function () {
-        return this.as('y');
-    };
-
-    /************************************
-        Default Locale
-    ************************************/
-
-
-    // Set default locale, other locale will inherit from English.
-    moment.locale('en', {
-        ordinalParse: /\d{1,2}(th|st|nd|rd)/,
-        ordinal : function (number) {
-            var b = number % 10,
-                output = (toInt(number % 100 / 10) === 1) ? 'th' :
-                (b === 1) ? 'st' :
-                (b === 2) ? 'nd' :
-                (b === 3) ? 'rd' : 'th';
-            return number + output;
-        }
-    });
-
-    /* EMBED_LOCALES */
-
-    /************************************
-        Exposing Moment
-    ************************************/
-
-    function makeGlobal(shouldDeprecate) {
-        /*global ender:false */
-        if (typeof ender !== 'undefined') {
-            return;
-        }
-        oldGlobalMoment = globalScope.moment;
-        if (shouldDeprecate) {
-            globalScope.moment = deprecate(
-                    'Accessing Moment through the global scope is ' +
-                    'deprecated, and will be removed in an upcoming ' +
-                    'release.',
-                    moment);
-        } else {
-            globalScope.moment = moment;
-        }
-    }
-
-    // CommonJS module is defined
-    if (hasModule) {
-        module.exports = moment;
-    } else if (typeof define === 'function' && define.amd) {
-        define(function (require, exports, module) {
-            if (module.config && module.config() && module.config().noGlobal === true) {
-                // release the global variable
-                globalScope.moment = oldGlobalMoment;
-            }
-
-            return moment;
-        });
-        makeGlobal(true);
-    } else {
-        makeGlobal();
-    }
-}).call(this);
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],1116:[function(require,module,exports){
+},{}],1120:[function(require,module,exports){
 /*
  * angular-ui-bootstrap
  * http://angular-ui.github.io/bootstrap/
