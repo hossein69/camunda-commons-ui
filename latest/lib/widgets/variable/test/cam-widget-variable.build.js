@@ -168,7 +168,7 @@ varUtils.validate = function($scope) {
 
 module.exports = varUtils;
 
-},{"camunda-bpm-sdk-js/lib/forms/type-util":5,"camunda-bpm-sdk-js/vendor/angular":11}],2:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/lib/forms/type-util":7,"camunda-bpm-sdk-js/vendor/angular":8}],2:[function(require,module,exports){
 'use strict';
 
 var typeUtils = require('camunda-bpm-sdk-js/lib/forms/type-util');
@@ -203,7 +203,7 @@ module.exports = [function() {
   };
 }];
 
-},{"camunda-bpm-sdk-js/lib/forms/type-util":5}],3:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/lib/forms/type-util":7}],3:[function(require,module,exports){
 'use strict';
 
 
@@ -358,7 +358,7 @@ module.exports = [
     };
   }];
 
-},{"./cam-variable-utils":1,"camunda-bpm-sdk-js/vendor/angular":11}],4:[function(require,module,exports){
+},{"./cam-variable-utils":1,"camunda-bpm-sdk-js/vendor/angular":8}],4:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular'),
@@ -451,114 +451,7 @@ angular.element(document).ready(function() {
   angular.bootstrap(document.body, [testModule.name]);
 });
 
-},{"../../../../vendor/ui-bootstrap-tpls-0.11.2-camunda":12,"../cam-variable-validator":2,"../cam-widget-variable":3,"camunda-bpm-sdk-js/vendor/angular":11}],5:[function(require,module,exports){
-'use strict';
-
-var INTEGER_PATTERN = /^-?[\d]+$/;
-
-var FLOAT_PATTERN = /^(0|(-?(((0|[1-9]\d*)\.\d+)|([1-9]\d*))))([eE][-+]?[0-9]+)?$/;
-
-var BOOLEAN_PATTERN = /^(true|false)$/;
-
-var DATE_PATTERN = /^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(|\.[0-9]{0,4})$/;
-
-var xmlParser = require('fast-xml-parser');
-
-var isValidXML = function(value) {
-  return value ? xmlParser.validate(value) : false;
-};
-
-var isValidJSON = function(value) {
-  try {
-    JSON.parse(value);
-    return true;
-  } catch (e) {
-    return false;
-  }
-};
-
-var isType = function(value, type) {
-  switch(type) {
-  case 'Integer':
-  case 'Long':
-  case 'Short':
-    return INTEGER_PATTERN.test(value);
-  case 'Float':
-  case 'Double':
-    return FLOAT_PATTERN.test(value);
-  case 'Boolean':
-    return BOOLEAN_PATTERN.test(value);
-  case 'Date':
-    return DATE_PATTERN.test(dateToString(value));
-  case 'Xml':
-    return isValidXML(value);
-  case 'Json':
-    return isValidJSON(value);
-  }
-};
-
-var convertToType = function(value, type) {
-
-  if(typeof value === 'string') {
-    value = value.trim();
-  }
-
-  if(type === 'String' || type === 'Bytes' || type === 'File') {
-    return value;
-  } else if (isType(value, type)) {
-    switch(type) {
-    case 'Integer':
-    case 'Long':
-    case 'Short':
-      return parseInt(value, 10);
-    case 'Float':
-    case 'Double':
-      return parseFloat(value);
-    case 'Boolean':
-      return 'true' === value;
-    case 'Date':
-      return dateToString(value);
-    }
-  } else {
-    throw new Error('Value \''+value+'\' is not of type '+type);
-  }
-};
-
-/**
- * This reformates the date into a ISO8601 conform string which will mirror the selected date in local format.
- * TODO: Remove this when it is fixed by angularjs
- *
- * @see https://app.camunda.com/jira/browse/CAM-4746
- *
- */
-var pad = function(number) {
-  return ( number < 10 ) ?  '0' + number : number;
-};
-
-var dateToString = function(date) {
-  if( typeof date === 'object' && typeof date.getFullYear === 'function' ) {
-    var year    = date.getFullYear(),
-        month   = pad( date.getMonth() + 1 ),
-        day     = pad( date.getDate() ),
-        hour    = pad( date.getHours() ),
-        min = pad( date.getMinutes() ),
-        sec = pad( date.getSeconds() );
-
-    return year + '-' + month + '-' + day + 'T' + hour + ':' + min + ':' + sec;
-
-  } else {
-    return date;
-
-  }
-};
-
-module.exports = {
-  convertToType : convertToType,
-  isType : isType,
-  dateToString : dateToString
-};
-
-},{"fast-xml-parser":8}],6:[function(require,module,exports){
+},{"../../../../vendor/ui-bootstrap-tpls-0.11.2-camunda":12,"../cam-variable-validator":2,"../cam-widget-variable":3,"camunda-bpm-sdk-js/vendor/angular":8}],5:[function(require,module,exports){
 /**
  * @license AngularJS v1.2.29
  * (c) 2010-2014 Google, Inc. http://angularjs.org
@@ -22728,11 +22621,123 @@ var styleDirective = valueFn({
 })(window, document);
 
 !window.angular.$$csp() && window.angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>');
-},{}],7:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":6}],8:[function(require,module,exports){
+},{"./angular":5}],7:[function(require,module,exports){
+'use strict';
+
+var INTEGER_PATTERN = /^-?[\d]+$/;
+
+var FLOAT_PATTERN = /^(0|(-?(((0|[1-9]\d*)\.\d+)|([1-9]\d*))))([eE][-+]?[0-9]+)?$/;
+
+var BOOLEAN_PATTERN = /^(true|false)$/;
+
+var DATE_PATTERN = /^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(|\.[0-9]{0,4})$/;
+
+var xmlParser = require('fast-xml-parser');
+
+var isValidXML = function(value) {
+  return value ? xmlParser.validate(value) : false;
+};
+
+var isValidJSON = function(value) {
+  try {
+    JSON.parse(value);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
+var isType = function(value, type) {
+  switch(type) {
+  case 'Integer':
+  case 'Long':
+  case 'Short':
+    return INTEGER_PATTERN.test(value);
+  case 'Float':
+  case 'Double':
+    return FLOAT_PATTERN.test(value);
+  case 'Boolean':
+    return BOOLEAN_PATTERN.test(value);
+  case 'Date':
+    return DATE_PATTERN.test(dateToString(value));
+  case 'Xml':
+    return isValidXML(value);
+  case 'Json':
+    return isValidJSON(value);
+  }
+};
+
+var convertToType = function(value, type) {
+
+  if(typeof value === 'string') {
+    value = value.trim();
+  }
+
+  if(type === 'String' || type === 'Bytes' || type === 'File') {
+    return value;
+  } else if (isType(value, type)) {
+    switch(type) {
+    case 'Integer':
+    case 'Long':
+    case 'Short':
+      return parseInt(value, 10);
+    case 'Float':
+    case 'Double':
+      return parseFloat(value);
+    case 'Boolean':
+      return 'true' === value;
+    case 'Date':
+      return dateToString(value);
+    }
+  } else {
+    throw new Error('Value \''+value+'\' is not of type '+type);
+  }
+};
+
+/**
+ * This reformates the date into a ISO8601 conform string which will mirror the selected date in local format.
+ * TODO: Remove this when it is fixed by angularjs
+ *
+ * @see https://app.camunda.com/jira/browse/CAM-4746
+ *
+ */
+var pad = function(number) {
+  return ( number < 10 ) ?  '0' + number : number;
+};
+
+var dateToString = function(date) {
+  if( typeof date === 'object' && typeof date.getFullYear === 'function' ) {
+    var year    = date.getFullYear(),
+        month   = pad( date.getMonth() + 1 ),
+        day     = pad( date.getDate() ),
+        hour    = pad( date.getHours() ),
+        min = pad( date.getMinutes() ),
+        sec = pad( date.getSeconds() );
+
+    return year + '-' + month + '-' + day + 'T' + hour + ':' + min + ':' + sec;
+
+  } else {
+    return date;
+
+  }
+};
+
+module.exports = {
+  convertToType : convertToType,
+  isType : isType,
+  dateToString : dateToString
+};
+
+},{"fast-xml-parser":9}],8:[function(require,module,exports){
+'use strict';
+
+module.exports = require('angular');
+
+},{"angular":6}],9:[function(require,module,exports){
 var getAllMatches = require("./util").getAllMatches;
 
 var xmlNode = function(tagname,parent,val){
@@ -22918,7 +22923,7 @@ exports.getTraversalObj = getTraversalObj;
 exports.convertToJson = convertToJson;
 exports.validate = require("./validator").validate;
 
-},{"./util":9,"./validator":10}],9:[function(require,module,exports){
+},{"./util":10,"./validator":11}],10:[function(require,module,exports){
 var getAllMatches = function(string, regex) {
   var matches = [];
   var match = regex.exec(string);
@@ -22947,7 +22952,7 @@ var doesNotMatch = function(string,regex){
 exports.doesMatch = doesMatch
 exports.doesNotMatch = doesNotMatch
 exports.getAllMatches = getAllMatches;
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 var util = require("./util");
 
 
@@ -23036,12 +23041,7 @@ function checkForMatchingTag(tags,i){
 }
 
 
-},{"./util":9}],11:[function(require,module,exports){
-'use strict';
-
-module.exports = require('angular');
-
-},{"angular":7}],12:[function(require,module,exports){
+},{"./util":10}],12:[function(require,module,exports){
 /*
  * angular-ui-bootstrap
  * http://angular-ui.github.io/bootstrap/
