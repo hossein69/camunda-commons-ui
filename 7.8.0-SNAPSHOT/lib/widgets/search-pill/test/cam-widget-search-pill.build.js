@@ -93413,32 +93413,44 @@ module.exports = GraphicsFactory;
 
 GraphicsFactory.prototype.create = function(type, element, parent) {
   var newElement;
+
   switch (type) {
+
   case 'row':
     newElement = document.createElement('tr');
     break;
+
   case 'cell':
-      // cells consist of a td element with a nested span which contains the content
+    
+    // cells consist of a td element with a nested span which contains the content
     newElement = document.createElement(element.row.useTH ? 'th' : 'td');
+
     var contentContainer = document.createElement('span');
+    
     newElement.appendChild(contentContainer);
     break;
   }
+
   if (newElement && type === 'row') {
+
     if (element.next) {
       parent.insertBefore(newElement, this._elementRegistry.getGraphics(element.next));
     } else {
       parent.appendChild(newElement);
     }
+
   } else if (type === 'cell') {
+
     var neighboringCell = this._elementRegistry.filter(function(el) {
       return el.row === element.row && el.column === element.column.next;
     })[0];
+
     if (neighboringCell) {
       parent.insertBefore(newElement, this._elementRegistry.getGraphics(neighboringCell));
     } else {
       parent.appendChild(newElement);
     }
+
   }
   return newElement || document.createElement('div');
 };
@@ -93451,12 +93463,14 @@ GraphicsFactory.prototype.moveRow = function(source, target, above) {
     gfxTarget = this._elementRegistry.getGraphics(target);
     gfxTarget.parentNode.insertBefore(gfxSource, gfxTarget);
   } else {
+
     if (source.next) {
       gfxTarget = this._elementRegistry.getGraphics(source.next);
       gfxTarget.parentNode.insertBefore(gfxSource, gfxTarget);
     } else {
       gfxSource.parentNode.appendChild(gfxSource);
     }
+
   }
 };
 
@@ -93494,14 +93508,16 @@ GraphicsFactory.prototype.redraw = function() {
 
 GraphicsFactory.prototype.update = function(type, element, gfx) {
 
-  // Do not update root element
+  // do not update root element
   if (!element.parent) {
     return;
   }
 
   var self = this;
+
   // redraw
   if (type === 'row') {
+
     this._renderer.drawRow(gfx, element);
 
     // also redraw all cells in this row
@@ -93510,8 +93526,9 @@ GraphicsFactory.prototype.update = function(type, element, gfx) {
     }), function(cell) {
       self.update('cell', cell, self._elementRegistry.getGraphics(cell));
     });
-  } else
-  if (type === 'column') {
+
+  } else if (type === 'column') {
+
     this._renderer.drawColumn(gfx, element);
 
     // also redraw all cells in this column
@@ -93520,8 +93537,8 @@ GraphicsFactory.prototype.update = function(type, element, gfx) {
     }), function(cell) {
       self.update('cell', cell, self._elementRegistry.getGraphics(cell));
     });
-  } else
-  if (type === 'cell') {
+
+  } else if (type === 'cell') {
     this._renderer.drawCell(gfx, element);
   } else {
     throw new Error('unknown type: ' + type);
@@ -93772,31 +93789,46 @@ Sheet.prototype.setLastRow = function(element, type) {
 };
 
 Sheet.prototype.setSibling = function(first, second) {
-  if (first) first.next = second;
-  if (second) second.previous = first;
+  if (first) {
+    first.next = second;
+  }
+
+  if (second) {
+    second.previous = first;
+  }
 };
 
 Sheet.prototype.addSiblings = function(type, element) {
   var tmp, subType;
+
   if (type === 'row') {
     subType = element.isHead ? 'head' : element.isFoot ? 'foot' : 'body';
   }
+
   if (!element.previous && !element.next) {
     if (type === 'column') {
+
       // add column to end of table per default
       element.next = null;
+
       this.setSibling(this.getLastColumn(), element);
+
       this.setLastColumn(element);
     } else if (type === 'row') {
+
       // add row to end of table per default
       element.next = null;
+
       this.setSibling(this.getLastRow(subType), element);
+
       this.setLastRow(element, subType);
     }
   } else if (element.previous && !element.next) {
     tmp = element.previous.next;
+
     this.setSibling(element.previous, element);
     this.setSibling(element, tmp);
+
     if (!tmp) {
       if (type === 'row') {
         this.setLastRow(element, subType);
@@ -93806,6 +93838,7 @@ Sheet.prototype.addSiblings = function(type, element) {
     }
   } else if (!element.previous && element.next) {
     tmp = element.next.previous;
+
     this.setSibling(tmp, element);
     this.setSibling(element, element.next);
   } else if (element.previous && element.next) {
@@ -93820,25 +93853,29 @@ Sheet.prototype.addSiblings = function(type, element) {
 
 Sheet.prototype.removeSiblings = function(type, element) {
   var subType;
+
   if (type === 'row') {
     subType = element.isHead ? 'head' : element.isFoot ? 'foot' : 'body';
   }
+
   if (type === 'column') {
     if (this.getLastColumn() === element) {
       this.setLastColumn(element.previous);
     }
-  } else
-  if (type === 'row') {
+  } else if (type === 'row') {
     if (this.getLastRow(subType) === element) {
       this.setLastRow(element.previous, subType);
     }
   }
+
   if (element.previous) {
     element.previous.next = element.next;
   }
+
   if (element.next) {
     element.next.previous = element.previous;
   }
+
   delete element.previous;
   delete element.next;
 };
@@ -93890,12 +93927,15 @@ Sheet.prototype.moveRow = function(source, target, above) {
   if (source.previous) {
     source.previous.next = source.next;
   }
+
   if (source.next) {
     source.next.previous = source.previous;
   }
+
   // re-wire the prev/next relations for the target
   if (above) {
     if (target.previous) {
+
       // (previous --> source --> target)
       target.previous.next = source;
       source.previous = target.previous;
@@ -93903,6 +93943,7 @@ Sheet.prototype.moveRow = function(source, target, above) {
       source.next = target;
       target.previous = source;
     } else {
+
       // (null --> source --> target)
       source.previous = null;
 
@@ -93911,6 +93952,7 @@ Sheet.prototype.moveRow = function(source, target, above) {
     }
   } else {
     if (target.next) {
+
       // (target --> source --> next)
       target.next.previous = source;
       source.next = target.next;
@@ -93918,11 +93960,13 @@ Sheet.prototype.moveRow = function(source, target, above) {
       source.previous = target;
       target.next = source;
     } else {
+
       // (target --> source --> null)
       source.next = null;
 
       source.previous = target;
       target.next = source;
+
       this.setLastRow(source, 'body');
     }
   }
@@ -93964,12 +94008,16 @@ Sheet.prototype.moveColumn = function(source, target, left) {
   if (source.previous) {
     source.previous.next = source.next;
   }
+
   if (source.next) {
     source.next.previous = source.previous;
   }
+
   // re-wire the prev/next relations for the target
   if (left) {
+
     if (target.previous) {
+
       // (previous --> source --> target)
       target.previous.next = source;
       source.previous = target.previous;
@@ -93977,14 +94025,18 @@ Sheet.prototype.moveColumn = function(source, target, left) {
       source.next = target;
       target.previous = source;
     } else {
+
       // (null --> source --> target)
       source.previous = null;
 
       source.next = target;
       target.previous = source;
     }
+
   } else {
+
     if (target.next) {
+
       // (target --> source --> next)
       target.next.previous = source;
       source.next = target.next;
@@ -93992,6 +94044,7 @@ Sheet.prototype.moveColumn = function(source, target, left) {
       source.previous = target;
       target.next = source;
     } else {
+
       // (target --> source --> null)
       source.next = null;
 
@@ -94000,6 +94053,7 @@ Sheet.prototype.moveColumn = function(source, target, left) {
 
       this.setLastColumn(source);
     }
+
   }
 
   graphicsFactory.moveColumn(source, target, left);
@@ -94033,8 +94087,7 @@ Sheet.prototype._ensureValid = function(type, element) {
   });
 
   if (!valid) {
-    throw new Error(
-      'must supply { ' + requiredAttrs.join(', ') + ' } with ' + type);
+    throw new Error('must supply { ' + requiredAttrs.join(', ') + ' } with ' + type);
   }
 };
 
@@ -94068,7 +94121,6 @@ Sheet.prototype._addElement = function(type, element, parent) {
   eventBus.fire(type + '.add', element);
 
   // create graphics
-
   element.parent = parent || this._rootNode;
 
   var gfx = graphicsFactory.create(type, element, element.parent);
@@ -94166,9 +94218,11 @@ Sheet.prototype.setCellContent = function(config) {
 
   elementRegistry.get('cell_' + config.column + '_' + config.row).content = config.content;
 
-  graphicsFactory.update('cell',
+  graphicsFactory.update(
+    'cell',
     elementRegistry.get('cell_' + config.column + '_' + config.row),
-    elementRegistry.getGraphics('cell_' + config.column + '_' + config.row));
+    elementRegistry.getGraphics('cell_' + config.column + '_' + config.row)
+  );
 };
 
 Sheet.prototype.getCellContent = function(config) {
@@ -94190,6 +94244,7 @@ Sheet.prototype._removeElement = function(element, type) {
   element = elementRegistry.get(element.id || element);
 
   if (!element) {
+
     // element was removed already
     return;
   }
@@ -94218,6 +94273,7 @@ Sheet.prototype.removeRow = function(element) {
   eventBus.fire('cells.remove', el);
 
   var self = this;
+
   forEach(this._elementRegistry.filter(function(el) {
     return el.row === element;
   }), function(el) {
@@ -94240,6 +94296,7 @@ Sheet.prototype.removeColumn = function(element) {
   eventBus.fire('cells.remove', el);
 
   var self = this;
+  
   forEach(this._elementRegistry.filter(function(el) {
     return el.column === element;
   }), function(el) {
@@ -94327,25 +94384,27 @@ module.exports = {
 },{"../draw":1016,"./ElementFactory":1010,"./ElementRegistry":1011,"./GraphicsFactory":1012,"./Sheet":1013,"diagram-js/lib/core/EventBus":1065}],1015:[function(require,module,exports){
 'use strict';
 
-var forEach = require('lodash/collection/forEach'),
-    colDistance = function colDistance(from, to) {
-      var i = 0,
-          current = from.column;
-      while (current && current !== to.column) {
-        current = current.next;
-        i++;
-      }
-      return !current ? -1 : i;
-    },
-    rowDistance = function rowDistance(from, to) {
-      var i = 0,
-          current = from.row;
-      while (current && current !== to.row) {
-        current = current.next;
-        i++;
-      }
-      return !current ? -1 : i;
-    };
+var forEach = require('lodash/collection/forEach');
+
+function colDistance(from, to) {
+  var i = 0,
+      current = from.column;
+  while (current && current !== to.column) {
+    current = current.next;
+    i++;
+  }
+  return !current ? -1 : i;
+}
+
+function rowDistance(from, to) {
+  var i = 0,
+      current = from.row;
+  while (current && current !== to.row) {
+    current = current.next;
+    i++;
+  }
+  return !current ? -1 : i;
+}
 
 /**
  * The default renderer used for rows, columns and cells.
@@ -94365,6 +94424,7 @@ Renderer.prototype.drawRow = function drawRow(gfx, data) {
     gfx: gfx,
     data: data
   });
+
   return gfx;
 };
 
@@ -94373,6 +94433,7 @@ Renderer.prototype.drawColumn = function drawColumn(gfx, data) {
     gfx: gfx,
     data: data
   });
+
   return gfx;
 };
 
@@ -94393,6 +94454,7 @@ Renderer.prototype.drawCell = function drawCell(gfx, data) {
 
   forEach(cells, function(cell) {
     var d = colDistance(cell, data);
+
     if (cell.colspan && d > 0 && d < cell.colspan) {
       gfx.setAttribute('style', 'display: none;');
     }
@@ -94405,6 +94467,7 @@ Renderer.prototype.drawCell = function drawCell(gfx, data) {
 
   forEach(cells, function(cell) {
     var d = rowDistance(cell, data);
+    
     if (cell.rowspan && d > 0 && d < cell.rowspan) {
       gfx.setAttribute('style', 'display: none;');
     }
@@ -94596,7 +94659,7 @@ module.exports = {
 };
 
 },{"./ChangeSupport":1020}],1022:[function(require,module,exports){
-module.exports = "<div>\n  <label></label>\n  <input tabindex=\"0\" />\n  <span class=\"cb-caret\"></span>\n</div>\n";
+module.exports = "<div>\r\n  <label></label>\r\n  <input tabindex=\"0\" />\r\n  <span class=\"cb-caret\"></span>\r\n</div>\r\n";
 
 },{}],1023:[function(require,module,exports){
 'use strict';
@@ -94685,8 +94748,13 @@ function ComboBox(config) {
   //   a. clicks on an option in the dropdown
   //   b. focuses an option in the dropdown via keyboard
   var update = function(evt) {
-    self.setValue(evt.target.textContent);
+    var value = evt.target.textContent;
+
+    if (options.indexOf(value) !== -1) {
+      self.setValue(evt.target.textContent);
+    }
   };
+
   this._dropdown.addEventListener('click', function(evt) {
     update(evt);
 
@@ -94696,6 +94764,7 @@ function ComboBox(config) {
     // still close the dropdown
     self._closeDropdown();
   });
+  
   this._dropdown.addEventListener('focus', update, true);
 
   // keyboard behavior for dropdown and input field
@@ -97353,8 +97422,14 @@ PopupMenu.prototype._createEntry = function(entry, container) {
 module.exports = PopupMenu;
 
 },{"lodash/collection/forEach":868,"lodash/object/assign":981,"min-dom/lib/attr":991,"min-dom/lib/classes":992,"min-dom/lib/delegate":993,"min-dom/lib/domify":994,"min-dom/lib/remove":998}],1052:[function(require,module,exports){
-arguments[4][457][0].apply(exports,arguments)
-},{"./PopupMenu":1051,"dup":457}],1053:[function(require,module,exports){
+'use strict';
+
+module.exports = {
+  __init__: [ 'popupMenu' ],
+  popupMenu: [ 'type', require('./PopupMenu') ]
+};
+
+},{"./PopupMenu":1051}],1053:[function(require,module,exports){
 'use strict';
 
 var domClasses = require('min-dom/lib/classes');
