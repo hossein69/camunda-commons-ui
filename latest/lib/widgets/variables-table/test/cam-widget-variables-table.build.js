@@ -34,6 +34,8 @@ function LineChart(options) {
 
   this.lineWidth = options.lineWidth || 1;
 
+  this.isLogScale =  options.isLogScale || false;
+
   this.valueLabelsCount = options.valueLabelsCount || 8;
 
   this.timespan = options.timespan || 'day';
@@ -433,13 +435,22 @@ proto.setData = function(data, newTimespan, newInterval) {
   var max = this.max();
   var rounded = roundUp(max, this.valueLabelsCount);
   var timeLabelFormats = this.timeLabelFormats;
-
+  var labelValue;
+  
+  // if it's a log scale, the number of value labels is recalculated
+  if(this.isLogScale) {
+    this.valueLabelsCount = (this.maxLog() + 1);
+  }
 
   this.valueLabels = [];
   for (var l = this.valueLabelsCount; l >= 0; l--) {
-    this.valueLabels.push(abbreviateNumber((l * rounded) / this.valueLabelsCount) || 0);
-  }
+    // set label value based on scale type
+    labelValue = this.isLogScale ?
+      l && Math.pow(10, l-1) :
+      abbreviateNumber((l * rounded) / this.valueLabelsCount) || 0;
 
+    this.valueLabels.push(labelValue);
+  }
 
   this.timeLabels = [];
   if (data.length && data[0] && data[0].length && data[0][0].timestamp) {
@@ -853,6 +864,13 @@ proto.hoveredSelectionHandle = function(evt) {
   return returned;
 };
 
+/**
+ * returns the smallest power of 10 that is greater than max
+ */
+proto.maxLog = function() {
+  var max = this.max() || 1;
+  return Math.ceil(Math.log10(max));
+};
 
 
 
@@ -876,7 +894,11 @@ proto.drawRulers = function() {
   var vertLabel = this.verticalLabels();
 
   var step;
-  var c;
+  var index;
+  var valueLabel;
+  var maxLog;
+  var transformedVal;
+  var yPosition;
 
   ctx.strokeStyle = this.rulersColor;
   ctx.fillStyle = this.rulersColor;
@@ -936,16 +958,24 @@ proto.drawRulers = function() {
 
 
   step = innerH / (valueLabels.length - 1);
+  maxLog = this.maxLog();
   ctx.textAlign = 'right';
   ctx.textBaseline = 'middle';
-  for (c = 0; c < valueLabels.length; c++) {
-    var ty = Math.round(padding + (step * c)) - 0.5;
-    ctx.fillText(abbreviateNumber(valueLabels[c]) || 0, verticalScaleX - (tickSize + textPadding), ty);
+  for (index = 0; index < valueLabels.length; index++) {
+    valueLabel = valueLabels[index];
+    if(this.isLogScale) {
+      transformedVal = valueLabel && (innerH / (maxLog+1)) * (Math.log10(valueLabel) + 1);
+      yPosition = (innerH - transformedVal + padding);
+    } else {
+      yPosition = Math.round(padding + (step * index)) - 0.5;
+    }
 
-    if (c < valueLabels.length - 1) {
+    ctx.fillText(abbreviateNumber(valueLabel) || 0, verticalScaleX - (tickSize + textPadding), yPosition);
+    
+    if (index < valueLabels.length - 1) {
       ctx.beginPath();
-      ctx.moveTo(verticalScaleX - tickSize, ty);
-      ctx.lineTo(verticalScaleX, ty);
+      ctx.moveTo(verticalScaleX - tickSize, yPosition);
+      ctx.lineTo(verticalScaleX, yPosition);
       ctx.stroke();
     }
   }
@@ -976,12 +1006,17 @@ proto.draw = function() {
   var labelDiff = labelTo - labelFrom;
   var interval = this.interval;
   var t = (height - horizontalScaleY) + 0.5;
+  var isLogScale = this.isLogScale;
 
   var max = this.max();
+  var maxLog = this.maxLog();
   var rounded = roundUp(max, this.valueLabelsCount);
   function pxFromTop(val) {
     if (!val) return t;
-    return (innerH - ((innerH / rounded) * val)) + padding;
+    var transformedVal = val && (innerH / (maxLog+1) * (Math.log10(val)+1));
+    return isLogScale ?
+      innerH - transformedVal + padding:
+      (innerH - ((innerH / rounded) * val)) + padding;
   }
   function pxFromLeft(mom) {
     return verticalScaleX + ((mom - labelFrom) / labelDiff) * innerW;
@@ -2564,7 +2599,8 @@ module.exports = ['$window', function($window) {
       unselectedColor: '=?',
       valueLabelsCount: '=?',
       values: '=',
-      disableSelection: '='
+      disableSelection: '=',
+      isLogScale: '='
     },
 
     link: function($scope, $element) {
@@ -2608,7 +2644,8 @@ module.exports = ['$window', function($window) {
         timestampFormat: $scope.timestampFormat,
         unselectedColor: $scope.unselectedColor,
         valueLabelsCount: $scope.valueLabelsCount,
-        disableSelection: $scope.disableSelection
+        disableSelection: $scope.disableSelection,
+        isLogScale: $scope.isLogScale
       });
 
       $scope.$watch('values', function() {
@@ -78368,8 +78405,6 @@ arguments[4][197][0].apply(exports,arguments)
  * Geometry helpers
  */
 
-module.exports = { createPoint: createPoint, createMatrix: createMatrix, createTransform: createTransform };
-
 
 var create = require('./create');
 
@@ -78432,6 +78467,11 @@ function createTransform(matrix) {
     return node.createSVGTransform();
   }
 }
+
+
+module.exports.createTransform = createTransform;
+module.exports.createMatrix = createMatrix;
+module.exports.createPoint = createPoint;
 },{"./create":684}],686:[function(require,module,exports){
 arguments[4][199][0].apply(exports,arguments)
 },{"dup":199}],687:[function(require,module,exports){
@@ -91243,7 +91283,7 @@ XMLReader.prototype.fromXML = function(xml, options, done) {
 
     var i, r;
 
-    for (i = 0; !!(r = references[i]); i++) {
+    for (i = 0; (r = references[i]); i++) {
       var element = r.element;
       var reference = elementsById[r.id];
       var property = getModdleDescriptor(element).propertiesByName[r.property];
@@ -91354,8 +91394,702 @@ XMLReader.prototype.handler = function(name) {
 module.exports = XMLReader;
 module.exports.ElementHandler = ElementHandler;
 },{"./common":838,"lodash/collection/find":867,"lodash/collection/forEach":868,"lodash/collection/reduce":871,"lodash/function/defer":876,"lodash/object/assign":981,"moddle":843,"moddle/lib/ns":848,"moddle/lib/types":851,"sax":841,"tiny-stack":842}],840:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"./common":838,"dup":66,"lodash/collection/filter":866,"lodash/collection/forEach":868,"lodash/collection/map":870,"lodash/lang/isString":979,"lodash/object/assign":981,"moddle/lib/ns":848,"moddle/lib/types":851}],841:[function(require,module,exports){
+'use strict';
+
+var map = require('lodash/collection/map'),
+    forEach = require('lodash/collection/forEach'),
+    isString = require('lodash/lang/isString'),
+    filter = require('lodash/collection/filter'),
+    assign = require('lodash/object/assign');
+
+var Types = require('moddle/lib/types'),
+    parseNameNs = require('moddle/lib/ns').parseName,
+    common = require('./common'),
+    nameToAlias = common.nameToAlias,
+    serializeAsType = common.serializeAsType,
+    serializeAsProperty = common.serializeAsProperty;
+
+var XML_PREAMBLE = '<?xml version="1.0" encoding="UTF-8"?>\n',
+    ESCAPE_CHARS = /(<|>|'|"|&|\n\r|\n)/g,
+    DEFAULT_NS_MAP = common.DEFAULT_NS_MAP,
+    XSI_TYPE = common.XSI_TYPE;
+
+
+function inherits(ctor, superCtor) {
+  ctor.super_ = superCtor;
+  ctor.prototype = Object.create(superCtor.prototype, {
+    constructor: {
+      value: ctor,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+}
+
+function nsName(ns) {
+  if (isString(ns)) {
+    return ns;
+  } else {
+    return (ns.prefix ? ns.prefix + ':' : '') + ns.localName;
+  }
+}
+
+function getNsAttrs(namespaces) {
+
+  function isUsed(ns) {
+    return namespaces.used[ns.uri];
+  }
+
+  function toAttr(ns) {
+    var name = 'xmlns' + (ns.prefix ? ':' + ns.prefix : '');
+    return { name: name, value: ns.uri };
+  }
+
+  var allNs = [].concat(namespaces.wellknown, namespaces.custom);
+
+  return map(filter(allNs, isUsed), toAttr);
+}
+
+function getElementNs(ns, descriptor) {
+  if (descriptor.isGeneric) {
+    return descriptor.name;
+  } else {
+    return assign({ localName: nameToAlias(descriptor.ns.localName, descriptor.$pkg) }, ns);
+  }
+}
+
+function getPropertyNs(ns, descriptor) {
+  return assign({ localName: descriptor.ns.localName }, ns);
+}
+
+function getSerializableProperties(element) {
+  var descriptor = element.$descriptor;
+
+  return filter(descriptor.properties, function(p) {
+    var name = p.name;
+
+    if (p.isVirtual) {
+      return false;
+    }
+
+    // do not serialize defaults
+    if (!element.hasOwnProperty(name)) {
+      return false;
+    }
+
+    var value = element[name];
+
+    // do not serialize default equals
+    if (value === p.default) {
+      return false;
+    }
+
+    // do not serialize null properties
+    if (value === null) {
+      return false;
+    }
+
+    return p.isMany ? value.length : true;
+  });
+}
+
+var ESCAPE_MAP = {
+  '\n': '10',
+  '\n\r': '10',
+  '"': '34',
+  '\'': '39',
+  '<': '60',
+  '>': '62',
+  '&': '38'
+};
+
+/**
+ * Escape a string attribute to not contain any bad values (line breaks, '"', ...)
+ *
+ * @param {String} str the string to escape
+ * @return {String} the escaped string
+ */
+function escapeAttr(str) {
+
+  // ensure we are handling strings here
+  str = isString(str) ? str : '' + str;
+
+  return str.replace(ESCAPE_CHARS, function(str) {
+    return '&#' + ESCAPE_MAP[str] + ';';
+  });
+}
+
+function filterAttributes(props) {
+  return filter(props, function(p) { return p.isAttr; });
+}
+
+function filterContained(props) {
+  return filter(props, function(p) { return !p.isAttr; });
+}
+
+
+function ReferenceSerializer(parent, ns) {
+  this.ns = ns;
+}
+
+ReferenceSerializer.prototype.build = function(element) {
+  this.element = element;
+  return this;
+};
+
+ReferenceSerializer.prototype.serializeTo = function(writer) {
+  writer
+    .appendIndent()
+    .append('<' + nsName(this.ns) + '>' + this.element.id + '</' + nsName(this.ns) + '>')
+    .appendNewLine();
+};
+
+function BodySerializer() {}
+
+BodySerializer.prototype.serializeValue = BodySerializer.prototype.serializeTo = function(writer) {
+  var escape = this.escape;
+
+  if (escape) {
+    writer.append('<![CDATA[');
+  }
+
+  writer.append(this.value);
+
+  if (escape) {
+    writer.append(']]>');
+  }
+};
+
+BodySerializer.prototype.build = function(prop, value) {
+  this.value = value;
+
+  if (prop.type === 'String' && value.search(ESCAPE_CHARS) !== -1) {
+    this.escape = true;
+  }
+
+  return this;
+};
+
+function ValueSerializer(ns) {
+  this.ns = ns;
+}
+
+inherits(ValueSerializer, BodySerializer);
+
+ValueSerializer.prototype.serializeTo = function(writer) {
+
+  writer
+    .appendIndent()
+    .append('<' + nsName(this.ns) + '>');
+
+  this.serializeValue(writer);
+
+  writer
+    .append('</' + nsName(this.ns) + '>')
+    .appendNewLine();
+};
+
+function ElementSerializer(parent, ns) {
+  this.body = [];
+  this.attrs = [];
+
+  this.parent = parent;
+  this.ns = ns;
+}
+
+ElementSerializer.prototype.build = function(element) {
+  this.element = element;
+
+  var otherAttrs = this.parseNsAttributes(element);
+
+  if (!this.ns) {
+    this.ns = this.nsTagName(element.$descriptor);
+  }
+
+  if (element.$descriptor.isGeneric) {
+    this.parseGeneric(element);
+  } else {
+    var properties = getSerializableProperties(element);
+
+    this.parseAttributes(filterAttributes(properties));
+    this.parseContainments(filterContained(properties));
+
+    this.parseGenericAttributes(element, otherAttrs);
+  }
+
+  return this;
+};
+
+ElementSerializer.prototype.nsTagName = function(descriptor) {
+  var effectiveNs = this.logNamespaceUsed(descriptor.ns);
+  return getElementNs(effectiveNs, descriptor);
+};
+
+ElementSerializer.prototype.nsPropertyTagName = function(descriptor) {
+  var effectiveNs = this.logNamespaceUsed(descriptor.ns);
+  return getPropertyNs(effectiveNs, descriptor);
+};
+
+ElementSerializer.prototype.isLocalNs = function(ns) {
+  return ns.uri === this.ns.uri;
+};
+
+/**
+ * Get the actual ns attribute name for the given element.
+ *
+ * @param {Object} element
+ * @param {Boolean} [inherited=false]
+ *
+ * @return {Object} nsName
+ */
+ElementSerializer.prototype.nsAttributeName = function(element) {
+
+  var ns;
+
+  if (isString(element)) {
+    ns = parseNameNs(element);
+  } else {
+    ns = element.ns;
+  }
+
+  // return just local name for inherited attributes
+  if (element.inherited) {
+    return { localName: ns.localName };
+  }
+
+  // parse + log effective ns
+  var effectiveNs = this.logNamespaceUsed(ns);
+
+  // strip prefix if same namespace like parent
+  if (this.isLocalNs(effectiveNs)) {
+    return { localName: ns.localName };
+  } else {
+    return assign({ localName: ns.localName }, effectiveNs);
+  }
+};
+
+ElementSerializer.prototype.parseGeneric = function(element) {
+
+  var self = this,
+      body = this.body,
+      attrs = this.attrs;
+
+  forEach(element, function(val, key) {
+
+    if (key === '$body') {
+      body.push(new BodySerializer().build({ type: 'String' }, val));
+    } else
+    if (key === '$children') {
+      forEach(val, function(child) {
+        body.push(new ElementSerializer(self).build(child));
+      });
+    } else
+    if (key.indexOf('$') !== 0) {
+      attrs.push({ name: key, value: escapeAttr(val) });
+    }
+  });
+};
+
+/**
+ * Parse namespaces and return a list of left over generic attributes
+ *
+ * @param  {Object} element
+ * @return {Array<Object>}
+ */
+ElementSerializer.prototype.parseNsAttributes = function(element) {
+  var self = this;
+
+  var genericAttrs = element.$attrs;
+
+  var model = element.$model;
+
+  var attributes = [];
+
+  // parse namespace attributes first
+  // and log them. push non namespace attributes to a list
+  // and process them later
+  forEach(genericAttrs, function(value, name) {
+    var nameNs = parseNameNs(name);
+
+    var ns;
+
+    // parse xmlns:foo="http://foo.bar"
+    if (nameNs.prefix === 'xmlns') {
+      ns = { prefix: nameNs.localName, uri: value };
+    }
+
+    // parse xmlns="http://foo.bar"
+    if (!nameNs.prefix && nameNs.localName === 'xmlns') {
+      ns = { uri: value };
+    }
+
+    if (ns) {
+      if (model.getPackage(value)) {
+        // register well known namespace
+        self.logNamespace(ns, true);
+      } else {
+        // log custom namespace directly as used
+        self.logNamespaceUsed(ns);
+      }
+    } else {
+      attributes.push({ name: name, value: value });
+    }
+  });
+
+  return attributes;
+};
+
+ElementSerializer.prototype.parseGenericAttributes = function(element, attributes) {
+
+  var self = this;
+
+  forEach(attributes, function(attr) {
+
+    // do not serialize xsi:type attribute
+    // it is set manually based on the actual implementation type
+    if (attr.name === XSI_TYPE) {
+      return;
+    }
+
+    try {
+      self.addAttribute(self.nsAttributeName(attr.name), attr.value);
+    } catch (e) {
+      console.warn(
+        'missing namespace information for ',
+        attr.name, '=', attr.value, 'on', element,
+        e);
+    }
+  });
+};
+
+ElementSerializer.prototype.parseContainments = function(properties) {
+
+  var self = this,
+      body = this.body,
+      element = this.element;
+
+  forEach(properties, function(p) {
+    var value = element.get(p.name),
+        isReference = p.isReference,
+        isMany = p.isMany;
+
+    var ns = self.nsPropertyTagName(p);
+
+    if (!isMany) {
+      value = [ value ];
+    }
+
+    if (p.isBody) {
+      body.push(new BodySerializer().build(p, value[0]));
+    } else
+    if (Types.isSimple(p.type)) {
+      forEach(value, function(v) {
+        body.push(new ValueSerializer(ns).build(p, v));
+      });
+    } else
+    if (isReference) {
+      forEach(value, function(v) {
+        body.push(new ReferenceSerializer(self, ns).build(v));
+      });
+    } else {
+      // allow serialization via type
+      // rather than element name
+      var asType = serializeAsType(p),
+          asProperty = serializeAsProperty(p);
+
+      forEach(value, function(v) {
+        var serializer;
+
+        if (asType) {
+          serializer = new TypeSerializer(self, ns);
+        } else
+        if (asProperty) {
+          serializer = new ElementSerializer(self, ns);
+        } else {
+          serializer = new ElementSerializer(self);
+        }
+
+        body.push(serializer.build(v));
+      });
+    }
+  });
+};
+
+ElementSerializer.prototype.getNamespaces = function() {
+
+  var namespaces = this.namespaces,
+      parent = this.parent;
+
+  if (!namespaces) {
+    namespaces = this.namespaces = parent ? parent.getNamespaces() : {
+      prefixMap: {},
+      uriMap: {},
+      used: {},
+      wellknown: [],
+      custom: []
+    };
+  }
+
+  return namespaces;
+};
+
+ElementSerializer.prototype.logNamespace = function(ns, wellknown) {
+  var namespaces = this.getNamespaces();
+
+  var nsUri = ns.uri;
+
+  var existing = namespaces.uriMap[nsUri];
+
+  if (!existing) {
+    namespaces.uriMap[nsUri] = ns;
+
+    if (wellknown) {
+      namespaces.wellknown.push(ns);
+    } else {
+      namespaces.custom.push(ns);
+    }
+  }
+
+  namespaces.prefixMap[ns.prefix] = nsUri;
+
+  return ns;
+};
+
+ElementSerializer.prototype.logNamespaceUsed = function(ns) {
+  var element = this.element,
+      model = element.$model,
+      namespaces = this.getNamespaces();
+
+  // ns may be
+  //
+  //   * prefix only
+  //   * prefix:uri
+
+  var prefix = ns.prefix;
+
+  var wellknownUri = DEFAULT_NS_MAP[prefix] || model && (model.getPackage(prefix) || {}).uri;
+
+  var uri = ns.uri || namespaces.prefixMap[prefix] || wellknownUri;
+
+  if (!uri) {
+    throw new Error('no namespace uri given for prefix <' + ns.prefix + '>');
+  }
+
+  ns = namespaces.uriMap[uri];
+
+  if (!ns) {
+    ns = this.logNamespace({ prefix: prefix, uri: uri }, wellknownUri);
+  }
+
+  if (!namespaces.used[ns.uri]) {
+    namespaces.used[ns.uri] = ns;
+  }
+
+  return ns;
+};
+
+ElementSerializer.prototype.parseAttributes = function(properties) {
+  var self = this,
+      element = this.element;
+
+  forEach(properties, function(p) {
+
+    var value = element.get(p.name);
+
+    if (p.isReference) {
+
+      if (!p.isMany) {
+        value = value.id;
+      }
+      else {
+        var values = [];
+        forEach(value, function(v) {
+          values.push(v.id);
+        });
+        // IDREFS is a whitespace-separated list of references.
+        value = values.join(' ');
+      }
+
+    }
+
+    self.addAttribute(self.nsAttributeName(p), value);
+  });
+};
+
+ElementSerializer.prototype.addAttribute = function(name, value) {
+  var attrs = this.attrs;
+
+  if (isString(value)) {
+    value = escapeAttr(value);
+  }
+
+  attrs.push({ name: name, value: value });
+};
+
+ElementSerializer.prototype.serializeAttributes = function(writer) {
+  var attrs = this.attrs,
+      root = !this.parent;
+
+  if (root) {
+    attrs = getNsAttrs(this.namespaces).concat(attrs);
+  }
+
+  forEach(attrs, function(a) {
+    writer
+      .append(' ')
+      .append(nsName(a.name)).append('="').append(a.value).append('"');
+  });
+};
+
+ElementSerializer.prototype.serializeTo = function(writer) {
+  var firstBody = this.body[0],
+      indent = firstBody && firstBody.constructor !== BodySerializer;
+
+  writer
+    .appendIndent()
+    .append('<' + nsName(this.ns));
+
+  this.serializeAttributes(writer);
+
+  writer.append(firstBody ? '>' : ' />');
+
+  if (firstBody) {
+
+    if (indent) {
+      writer
+        .appendNewLine()
+        .indent();
+    }
+
+    forEach(this.body, function(b) {
+      b.serializeTo(writer);
+    });
+
+    if (indent) {
+      writer
+        .unindent()
+        .appendIndent();
+    }
+
+    writer.append('</' + nsName(this.ns) + '>');
+  }
+
+  writer.appendNewLine();
+};
+
+/**
+ * A serializer for types that handles serialization of data types
+ */
+function TypeSerializer(parent, ns) {
+  ElementSerializer.call(this, parent, ns);
+}
+
+inherits(TypeSerializer, ElementSerializer);
+
+TypeSerializer.prototype.build = function(element) {
+  var descriptor = element.$descriptor;
+
+  this.element = element;
+
+  this.typeNs = this.nsTagName(descriptor);
+
+  // add xsi:type attribute to represent the elements
+  // actual type
+
+  var typeNs = this.typeNs,
+      pkg = element.$model.getPackage(typeNs.uri),
+      typePrefix = (pkg.xml && pkg.xml.typePrefix) || '';
+
+  this.addAttribute(this.nsAttributeName(XSI_TYPE),
+    (typeNs.prefix ? typeNs.prefix + ':' : '') +
+    typePrefix + descriptor.ns.localName);
+
+  // do the usual stuff
+  return ElementSerializer.prototype.build.call(this, element);
+};
+
+TypeSerializer.prototype.isLocalNs = function(ns) {
+  return ns.uri === this.typeNs.uri;
+};
+
+function SavingWriter() {
+  this.value = '';
+
+  this.write = function(str) {
+    this.value += str;
+  };
+}
+
+function FormatingWriter(out, format) {
+
+  var indent = [''];
+
+  this.append = function(str) {
+    out.write(str);
+
+    return this;
+  };
+
+  this.appendNewLine = function() {
+    if (format) {
+      out.write('\n');
+    }
+
+    return this;
+  };
+
+  this.appendIndent = function() {
+    if (format) {
+      out.write(indent.join('  '));
+    }
+
+    return this;
+  };
+
+  this.indent = function() {
+    indent.push('');
+    return this;
+  };
+
+  this.unindent = function() {
+    indent.pop();
+    return this;
+  };
+}
+
+/**
+ * A writer for meta-model backed document trees
+ *
+ * @param {Object} options output options to pass into the writer
+ */
+function XMLWriter(options) {
+
+  options = assign({ format: false, preamble: true }, options || {});
+
+  function toXML(tree, writer) {
+    var internalWriter = writer || new SavingWriter();
+    var formatingWriter = new FormatingWriter(internalWriter, options.format);
+
+    if (options.preamble) {
+      formatingWriter.append(XML_PREAMBLE);
+    }
+
+    new ElementSerializer().build(tree).serializeTo(formatingWriter);
+
+    if (!writer) {
+      return internalWriter.value;
+    }
+  }
+
+  return {
+    toXML: toXML
+  };
+}
+
+module.exports = XMLWriter;
+
+},{"./common":838,"lodash/collection/filter":866,"lodash/collection/forEach":868,"lodash/collection/map":870,"lodash/lang/isString":979,"lodash/object/assign":981,"moddle/lib/ns":848,"moddle/lib/types":851}],841:[function(require,module,exports){
 arguments[4][67][0].apply(exports,arguments)
 },{"buffer":1089,"dup":67,"stream":1116,"string_decoder":1117}],842:[function(require,module,exports){
 arguments[4][68][0].apply(exports,arguments)
