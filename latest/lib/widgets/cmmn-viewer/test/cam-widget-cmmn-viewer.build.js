@@ -2462,8 +2462,11 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
           disableNavigation: $scope.disableNavigation
         });
 
-        // attach diagram immediately to avoid having the bpmn logo
-        if(!viewer.cached) {
+        if(viewer.cached) {
+          // load cached listeners
+          viewer.get('eventBus')._listeners = viewer.defaultListeners;
+        } else {
+          // attach diagram immediately to avoid having the bpmn logo
           attachDiagram();
         }
 
@@ -2523,7 +2526,6 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
             attachDiagram();
             canvas = viewer.get('canvas');
             definitions = viewer.definitions;
-            setupEventListeners();
             $scope.loaded = true;
             return $scope.onLoad();
 
@@ -2581,9 +2583,6 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
 
         function setupEventListeners() {
           var eventBus = viewer.get('eventBus');
-          if(viewer.defaultListeners) {
-            eventBus._listeners = viewer.defaultListeners;
-          }
           eventBus.on('element.click', function(e) {
             // e.element = the model element
             // e.gfx = the graphical element
