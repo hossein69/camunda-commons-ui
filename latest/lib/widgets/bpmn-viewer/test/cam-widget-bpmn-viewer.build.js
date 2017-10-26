@@ -2464,9 +2464,10 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
 
         if(viewer.cached) {
           // load cached listeners
-          viewer.get('eventBus')._listeners = viewer.defaultListeners;
+          viewer.get('eventBus')._listeners = angular.copy(viewer.defaultListeners);
+          viewer.get('overlays')._eventBus._listeners = angular.copy(viewer.defaultOverlayListeners);
         } else {
-          // attach diagram immediately to avoid having the bpmn logo
+          // attach diagram immediately to avoid having the bpmn logo for viewers that are not cached
           attachDiagram();
         }
 
@@ -2520,13 +2521,19 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
           }
         });
 
+        function handleViewerLoad() {
+          canvas = viewer.get('canvas');
+          definitions = viewer.definitions;
+          setupEventListeners();
+          zoom();
+          $scope.loaded = true;
+        }
+
         function renderDiagram() {
           // if there is a cached viewer, no need to import data
           if(viewer.cached) {
             attachDiagram();
-            canvas = viewer.get('canvas');
-            definitions = viewer.definitions;
-            $scope.loaded = true;
+            handleViewerLoad();
             return $scope.onLoad();
 
           } else if (diagramData) {
@@ -2547,12 +2554,12 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
                 }
 
                 $scope.warn = warn;
-                viewer.defaultListeners = viewer.get('eventBus')._listeners;
-                canvas = viewer.get('canvas');
-                definitions = viewer.definitions;
-                zoom();
-                setupEventListeners();
-                $scope.loaded = true;
+
+                // cache viewer listeners in viewer object itself
+                viewer.defaultListeners = angular.copy(viewer.get('eventBus')._listeners);
+                viewer.defaultOverlayListeners = angular.copy(viewer.get('overlays')._eventBus._listeners);
+
+                handleViewerLoad();
                 return $scope.onLoad();
               });
             });
@@ -2626,6 +2633,20 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
           }, 500));
         }
 
+        var CUSTOM_LISTENERS = [
+          'element.click',
+          'element.hover',
+          'element.out',
+          'element.mousedown',
+          'canvas.viewbox.changed'
+        ];
+
+        function clearCustomListeners() {
+          CUSTOM_LISTENERS.forEach(function(event) {
+            viewer.get('eventBus').off(event);
+          });
+        }
+
         $scope.zoomIn = function() {
           viewer.get('zoomScroll').zoom(1, {
             x: $element[0].offsetWidth / 2,
@@ -2655,6 +2676,7 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
         $scope.$on('$destroy', function() {
           detatchDiagram();
           viewer.get('overlays').clear();
+          clearCustomListeners();
           viewer.get('eventBus')._destroy();
           Viewer.cacheViewer({ key: $scope.key, viewer: viewer });
         });
@@ -101320,7 +101342,7 @@ arguments[4][84][0].apply(exports,arguments)
 /*!
  * Determine if an object is a Buffer
  *
- * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @author   Feross Aboukhadijeh <https://feross.org>
  * @license  MIT
  */
 
