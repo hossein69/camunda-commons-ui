@@ -2455,12 +2455,6 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
           return deferred.promise;
         }
 
-        function clearHeatmapImage() {
-          if(heatmapImage && document.body.contains(heatmapImage[0])) {
-            heatmapImage[0].parentNode.removeChild(heatmapImage[0]);
-          }
-        }
-
         var viewer = Viewer.generateViewer({
           width: '100%',
           height: '100%',
@@ -2678,7 +2672,6 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
         };
 
         $scope.$on('$destroy', function() {
-          clearHeatmapImage();
           detatchDiagram();
           clearEventListeners();
           viewer.get('overlays').clear();
