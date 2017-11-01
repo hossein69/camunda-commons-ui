@@ -2405,6 +2405,8 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
           $compile(htmlElement)($scope);
         };
 
+        var heatmapImage;
+
         $scope.control.addImage = function(image, x, y) {
           return preloadImage(image)
             .then(
@@ -2422,7 +2424,8 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
                 $document[0].body.removeChild(preloadedElement);
                 canvas._viewport.appendChild(imageElement);
 
-                return angular.element(imageElement);
+                heatmapImage = angular.element(imageElement);
+                return heatmapImage;
               },
               function(preloadedElement) {
                 $document[0].body.removeChild(preloadedElement);
@@ -2450,6 +2453,12 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
           body.appendChild(imageElement);
 
           return deferred.promise;
+        }
+
+        function clearHeatmapImage() {
+          if(heatmapImage && document.body.contains(heatmapImage[0])) {
+            heatmapImage[0].parentNode.removeChild(heatmapImage[0]);
+          }
         }
 
         var viewer = Viewer.generateViewer({
@@ -2669,6 +2678,7 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
         };
 
         $scope.$on('$destroy', function() {
+          clearHeatmapImage();
           detatchDiagram();
           clearEventListeners();
           viewer.get('overlays').clear();
