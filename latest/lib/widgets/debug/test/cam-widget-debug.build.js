@@ -5,7 +5,7 @@ var Clipboard = require('clipboard');
 
 var template = "<span ng-transclude></span>\n<a ng-if=\"!noTooltip\"\n   tooltip=\"{{ tooltipText }}\"\n   tooltip-append-to-body=\"true\"\n   ng-class=\"{'copy-ok': copyStatus === true, 'copy-error': copyStatus === false}\"\n   class=\"glyphicon {{icon}}\"></a>\n<a ng-if=\"noTooltip\"\n   ng-class=\"{'copy-ok': copyStatus === true, 'copy-error': copyStatus === false}\"\n   class=\"glyphicon {{icon}}\"></a>\n";
 
-module.exports = ['$timeout', function($timeout) {
+module.exports = ['$timeout', '$translate', function($timeout, $translate) {
   return {
     transclude: true,
     template: template,
@@ -21,7 +21,7 @@ module.exports = ['$timeout', function($timeout) {
       $scope.icon = attrs.icon || 'glyphicon-copy';
 
       $scope.$watch('value', function() {
-        $scope.tooltipText = attrs.tooltipText || 'Click to copy \'' + $scope.value + '\'';
+        $scope.tooltipText = attrs.tooltipText || $translate.instant('CAM_WIDGET_COPY', {value: $scope.value});
       });
 
       var _top;
