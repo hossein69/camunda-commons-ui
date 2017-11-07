@@ -5734,6 +5734,7 @@ var angular = require('camunda-bpm-sdk-js/vendor/angular'),
     camCommonsUi = require('../../index');
 
 require('../../../../vendor/ui-bootstrap-tpls-0.11.2-camunda');
+require('angular-translate');
 
 var variableModule = angular.module('variableModule', [
   'ui.bootstrap'
@@ -5911,10 +5912,10 @@ testModule.controller('example2Controller', ['$scope', function($scope) {
 
 
 angular.element(document).ready(function() {
-  angular.bootstrap(document.body, [testModule.name]);
+  angular.bootstrap(document.body, [testModule.name, 'pascalprecht.translate']);
 });
 
-},{"../../../../vendor/ui-bootstrap-tpls-0.11.2-camunda":1121,"../../clipboard/cam-widget-clipboard":26,"../../index":32,"../../variable/cam-variable-utils":38,"../../variable/cam-widget-variable":40,"../cam-render-var-template":41,"../cam-widget-variables-table":42,"camunda-bpm-sdk-js/vendor/angular":212}],44:[function(require,module,exports){
+},{"../../../../vendor/ui-bootstrap-tpls-0.11.2-camunda":1121,"../../clipboard/cam-widget-clipboard":26,"../../index":32,"../../variable/cam-variable-utils":38,"../../variable/cam-widget-variable":40,"../cam-render-var-template":41,"../cam-widget-variables-table":42,"angular-translate":46,"camunda-bpm-sdk-js/vendor/angular":212}],44:[function(require,module,exports){
 /**
  * @license AngularJS v1.2.29
  * (c) 2010-2014 Google, Inc. http://angularjs.org
