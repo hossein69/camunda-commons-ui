@@ -91891,6 +91891,11 @@ ElementSerializer.prototype.logNamespaceUsed = function(ns) {
 
   var prefix = ns.prefix;
 
+  // graceful handle anonymous (non-ns) elements, cf. #23
+  if (typeof prefix === 'undefined') {
+    return {};
+  }
+
   var wellknownUri = DEFAULT_NS_MAP[prefix] || model && (model.getPackage(prefix) || {}).uri;
 
   var uri = ns.uri || namespaces.prefixMap[prefix] || wellknownUri;
