@@ -32,15 +32,15 @@ function noopPromise(info/*, i*/) {
 }
 
 module.exports = [
-  '$modal', '$translate',
+  '$modal',
   function(
-    $modal, $translate
+    $modal
   ) {
     return {
       template: template,
 
       scope: {
-        variables:          '=camVariables',
+        variables:          '=?camVariables',
         headers:            '=?camHeaders',
         editable:           '=?camEditable',
 
@@ -49,7 +49,9 @@ module.exports = [
         saveVar:            '=?onSave',
         editVar:            '=?onEdit',
         downloadVar:        '=?onDownload',
-        uploadVar:          '=?onUpload'
+        uploadVar:          '=?onUpload',
+        onSortChange:       '&',
+        defaultSort:        '='
       },
 
 
@@ -78,29 +80,27 @@ module.exports = [
           return yep;
         }
 
+        $scope.sortObj = $scope.defaultSort;
 
-        $scope.editable = ($scope.editable || ['type', 'name', 'value']);
-
-        $scope.headers = ($scope.headers || {
-          name:   $translate.instant('CAM_WIDGET_VARIABLES_TABLE_NAME'),
-          type:   $translate.instant('CAM_WIDGET_VARIABLES_TABLE_TYPE'),
-          value:  $translate.instant('CAM_WIDGET_VARIABLES_TABLE_VALUE')
+        // Array of header Names
+        $scope.headerNames = [];
+        $scope.headers.forEach(function(column) {
+          $scope.headerNames.push(column.content);
         });
-        $scope.headerNames = Object.keys($scope.headers);
+
+        // Array of header class
+        $scope.headerClasses = [];
+        $scope.headers.forEach(function(column) {
+          $scope.headerClasses.push(column.class);
+        });
+
+        $scope.editable = ($scope.editable ||  $scope.HeaderClasses);
 
         $scope.variableTypes = angular.copy(varUtils.types);
         $scope.defaultValues = varUtils.defaultValues;
         $scope.isPrimitive = varUtils.isPrimitive($scope);
         $scope.isBinary = varUtils.isBinary($scope);
         $scope.useCheckbox = varUtils.useCheckbox($scope);
-
-        $scope.headers = ($scope.headers || {
-          name:   $translate.instant('CAM_WIDGET_VARIABLES_TABLE_NAME'),
-          type:   $translate.instant('CAM_WIDGET_VARIABLES_TABLE_TYPE'),
-          value:  $translate.instant('CAM_WIDGET_VARIABLES_TABLE_VALUE')
-        });
-
-        $scope.headerNames = Object.keys($scope.headers);
 
         [
           'uploadVar',
@@ -109,6 +109,28 @@ module.exports = [
         ].forEach(function(name) {
           $scope[name] = (angular.isFunction($scope[name]) ? $scope[name] : noopPromise);
         });
+
+        // Set default sorting
+        $scope.sortObj = $scope.defaultSort;
+
+        // Order Icons
+        $scope.orderClass = function(forColumn) {
+          forColumn = forColumn || $scope.sortObj.sortBy;
+          var icons = {
+            none: 'minus',
+            desc: 'chevron-down',
+            asc: 'chevron-up'
+          };
+          return 'glyphicon-' + (icons[forColumn === $scope.sortObj.sortBy ? $scope.sortObj.sortOrder : 'none']);
+        };
+
+        // On-click function to order Columns
+        $scope.changeOrder = function(column) {
+          $scope.sortObj.sortBy    = column;
+          $scope.sortObj.sortOrder = ($scope.sortObj.sortOrder === 'desc') ? 'asc' : 'desc';
+          // pass sorting to updateView function in parent scope.
+          $scope.onSortChange({sortObj: $scope.sortObj});
+        };
 
         var variableModalConfig = function(variable, template, readonly) {
           return {
@@ -215,9 +237,6 @@ module.exports = [
         $scope.$watch('variables', initVariables);
         initVariables();
 
-
-
-
         $scope.canEditVariable = angular.isFunction($scope.isVariableEditable) ? $scope.isVariableEditable : (function() {
           return true;
         });
@@ -238,11 +257,11 @@ module.exports = [
           ];
         };
 
-        $scope.colClasses = function(info, headerName/*, v*/) {
+        $scope.colClasses = function(info, headerClass/*, v*/) {
           return [
-            $scope.isEditable(headerName, info) ? 'editable' : null,
+            $scope.isEditable(headerClass, info) ? 'editable' : null,
             'type-' + (info.variable.type || '').toLowerCase(),
-            'col-' + headerName
+            'col-' + headerClass
           ];
         };
 

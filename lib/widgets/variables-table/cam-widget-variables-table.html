@@ -1,24 +1,27 @@
 <table class="cam-table">
   <thead>
-    <tr>
-      <td ng-repeat="headerName in headerNames" ng-class="'col-' + headerName">
-        {{ headers[headerName] }}
-      </td>
-
-      <td class="actions"
-          ng-if="editable.length">
-        Actions
-      </td>
-    </tr>
+  <tr>
+    <td ng-repeat="column in headers" ng-class="col-{{column.class}}">
+      <span class="{{column.class}}">{{column.content}}</span>
+      <a ng-if="column.sortable === true"
+         ng-click="changeOrder(column.request)">
+        <span class="glyphicon" ng-class="orderClass(column.request)"></span>
+      </a>
+    </td>
+    <td class="actions"
+        ng-if="editable.length">
+      Actions
+    </td>
+  </tr>
   </thead>
 
   <tbody>
     <tr ng-repeat="(v, info) in variables"
         ng-class="rowClasses(info, v)">
-      <td ng-repeat="headerName in headerNames"
+      <td ng-repeat="headerClass in headerClasses"
           ng-init="variable=info.variable"
-          ng-class="colClasses(info, headerName, v)"
-          ng-switch on="headerName">
+          ng-class="colClasses(info, headerClass, v)"
+          ng-switch on="headerClass">
         <!-- ................................................................................... -->
         <div ng-switch-when="type"
              ng-if="!isEditable('type', info)">
@@ -152,7 +155,7 @@
         <div ng-switch-default
              cam-render-var-template
              info="info"
-             header-name="headerName">
+             header-name="headerClass">
         </div>
       </td>
 
