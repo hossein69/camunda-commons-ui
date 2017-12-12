@@ -5602,9 +5602,7 @@ module.exports = [
           return yep;
         }
 
-        $scope.sortObj = $scope.defaultSort;
-
-        // Array of header Names
+        // Array of header names
         $scope.headerNames = [];
         $scope.headers.forEach(function(column) {
           $scope.headerNames.push(column.content);
