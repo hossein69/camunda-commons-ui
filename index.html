@@ -1,5 +1,5 @@
 <html>
-<!-- Tue Dec 12 2017 11:59:36 GMT+0100 (CET) -->
+<!-- Tue Dec 12 2017 15:16:37 GMT+0100 (CET) -->
 <head>
 <meta charset="utf-8" />
 <title>Camunda commons UI library</title>
@@ -163,7 +163,9 @@ nodemon -w lib/widgets/ --exec &quot;protractor ./test/protractor.conf.js&quot;
 <p>You can also run the tests on a single widget like that:</p>
 <pre><code>TESTED=variable nodemon -w lib/widgets/ --exec &quot;protractor ./test/protractor.conf.js&quot;
 </code></pre><p>This will only run the <code>cam-widget-variable</code> tests.</p>
-<h2 id="test">Test</h2>
+<h2 id="grunt-connect-keep-alive-web-server">grunt connect keep alive web server</h2>
+<pre><code>grunt connect:widgetTests:keepalive
+</code></pre><h2 id="test">Test</h2>
 <pre><code class="lang-sh">grunt karma
 </code></pre>
 <h2 id="license">License</h2>
