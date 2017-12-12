@@ -5590,7 +5590,7 @@ module.exports = [
           $scope.headerClasses.push(column.class);
         });
 
-        $scope.editable = ($scope.editable ||  $scope.HeaderClasses);
+        $scope.editable = ($scope.editable || $scope.headerClasses);
 
         $scope.variableTypes = angular.copy(varUtils.types);
         $scope.defaultValues = varUtils.defaultValues;

@@ -5496,7 +5496,7 @@ module.exports = [
           $scope.headerClasses.push(column.class);
         });
 
-        $scope.editable = ($scope.editable ||  $scope.HeaderClasses);
+        $scope.editable = ($scope.editable || $scope.headerClasses);
 
         $scope.variableTypes = angular.copy(varUtils.types);
         $scope.defaultValues = varUtils.defaultValues;
@@ -5914,14 +5914,24 @@ testModule.controller('example2Controller', ['$scope', function($scope) {
     return 'http://i.ytimg.com/vi/2DzryjDrjCM/maxresdefault.jpg';
   };
 
-  $scope.headers = {
+  /*$scope.headers = {
     plain:      'Plain',
     name:       'Name',
     unused:     'Unused',
     value:      'Value',
     type:       'Type',
     formatted:  'Formatted'
-  };
+  };*/
+
+  $scope.headers = [
+    { class: 'plain',     request: '',             sortable: false, content: 'Plain'},
+    { class: 'name',      request: 'variableName', sortable: true,  content: 'Name'},
+    { class: 'unused',    request: '',             sortable: false, content: 'Unused'},
+    { class: 'value',     request: '',             sortable: false, content: 'Value'},
+    { class: 'type',      request: '',             sortable: false, content: 'Type'},
+    { class: 'formatted', request: '',             sortable: false, content: 'Formatted'}
+  ];
+
 
   $scope.vars = angular.copy(vars).map(function(variable, v) {
     return {
