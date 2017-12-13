@@ -5547,7 +5547,7 @@ module.exports = [
         downloadVar:        '=?onDownload',
         uploadVar:          '=?onUpload',
         onSortChange:       '&',
-        defaultSort:        '='
+        defaultSort:        '=?'
       },
 
 
