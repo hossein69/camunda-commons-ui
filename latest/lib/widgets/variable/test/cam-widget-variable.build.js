@@ -23718,7 +23718,7 @@ var xmlNode = function(tagname,parent,val){
 //var tagsRegx = new RegExp("<(\\/?[\\w:-]+)([^>]*)>([^<]+)?","g");
 //var cdataRegx = "<!\\[CDATA\\[([^\\]\\]]*)\\]\\]>";
 var cdataRegx = "<!\\[CDATA\\[(.*?)(\\]\\]>)";
-var tagsRegx = new RegExp("<(\\/?[\\w:\\-\._]+)([^>]*)>("+cdataRegx+")*([^<]+)?","g");
+var tagsRegx = new RegExp("<(\\/?[\\w:\\-\._]+)([^>]*)>(\\s*"+cdataRegx+")*([^<]+)?","g");
 
 var defaultOptions = {
     attrPrefix : "@_",
@@ -23749,6 +23749,7 @@ var getTraversalObj =function (xmlData,options){
     //xmlData = xmlData.replace(/>(\s+)/g, ">");//Remove spaces and make it single line.
     xmlData = xmlData.replace(/<!--(.|\n)*?-->/g, "");//Remove single and multiline comments
     var tags = getAllMatches(xmlData,tagsRegx);
+    //console.log(tags);
     var xmlObj = new xmlNode('!xml');
     var currentNode = xmlObj;
 
@@ -23945,7 +23946,7 @@ var util = require("./util");
 
 var tagsPattern = new RegExp("<\\/?([\\w:\\-_\.]+)\\s*\/?>","g");
 exports.validate = function(xmlData){
-    xmlData = xmlData.replace(/\n/g,"");//make it single line
+    xmlData = xmlData.replace(/(\r\n|\n|\r)/gm,"");//make it single line
     xmlData = xmlData.replace(/(^\s*<\?xml.*?\?>)/g,"");//Remove XML starting tag
     xmlData = xmlData.replace(/(<!DOCTYPE[\s\w\"\.\/\-\:]+(\[.*\])*\s*>)/g,"");//Remove DOCTYPE
 
@@ -23954,9 +23955,9 @@ exports.validate = function(xmlData){
 
         if(xmlData[i] === "<"){//starting of tag
             //read until you reach to '>' avoiding any '>' in attribute value
-            
+
             i++;
-            
+
             if(xmlData[i] === "!"){
                 i = readCommentAndCDATA(xmlData,i);
                 continue;
@@ -23968,22 +23969,23 @@ exports.validate = function(xmlData){
                 }
                 //read tagname
                 var tagName = "";
-                for(;i < xmlData.length 
-                    && xmlData[i] !== ">" 
+                for(;i < xmlData.length
+                    && xmlData[i] !== ">"
                     && xmlData[i] !== " "
                     && xmlData[i] !== "\t" ; i++) {
 
                     tagName +=xmlData[i];
                 }
                 tagName = tagName.trim();
-                
+                //console.log(tagName);
+
                 if(tagName[tagName.length-1] === "/"){//self closing tag without attributes
                     tagName = tagName.substring(0,tagName.length-2);
                     return validateTagName(tagName);
                 }
                 if(!validateTagName(tagName)) return false;
 
-                
+
                 var attrStr = "";
                 var startChar = "";
                 for(;i < xmlData.length ;i++){
@@ -24000,16 +24002,17 @@ exports.validate = function(xmlData){
                     }
                     attrStr += xmlData[i];
                 }
-                if(startChar !== "") return false;//You have forgot to close the quote
+                if(startChar !== "") return false;//Unclosed quote
                 attrStr = attrStr.trim();
-                
+                //console.log(attrStr, attrStr);
+
                 if(attrStr[attrStr.length-1] === "/" ){//self closing tag
                     attrStr = attrStr.substring(0,attrStr.length-2);
-                    
+
                     if(!validateAttributeString(attrStr)){
                         return false;
                     }else{
-                        
+
                         continue;
                     }
                 }else if(closingTag){
@@ -24017,7 +24020,7 @@ exports.validate = function(xmlData){
                         return false;
                         //throw new Error("XML validation error: closing tag should not have any attribute");
                     }else{
-                        var otg = tags.pop();    
+                        var otg = tags.pop();
                         if(tagName !== otg){
                             return false;
                             //throw new Error("XML validation error: no mathicng closing tag");
@@ -24046,18 +24049,18 @@ exports.validate = function(xmlData){
                 if(xmlData[i] === "<") i--;
             }
         }else{
-            
+
             if(xmlData[i] === " " || xmlData[i] === "\t") continue;
             return false;
         }
     }
 
-    
+
     if(tags.length > 0){
         return false;
         //throw new Error("XML validation error");
     }
-    
+
     return true;
 }
 
@@ -24069,8 +24072,8 @@ function readCommentAndCDATA(xmlData,i){
                 break;
             }
         }
-    }else if( xmlData.length > i+9 
-        && xmlData[i+1] === "[" 
+    }else if( xmlData.length > i+9
+        && xmlData[i+1] === "["
         && xmlData[i+2] === "C"
         && xmlData[i+3] === "D"
         && xmlData[i+4] === "A"
@@ -24088,7 +24091,7 @@ function readCommentAndCDATA(xmlData,i){
 
     return i;
 }
-//attr, ="sd", a="amit's", a="sd"b="saf", 
+//attr, ="sd", a="amit's", a="sd"b="saf",
 function validateAttributeString(attrStr){
     var attrNames = [];
     for(var i=0; i< attrStr.length; i++){
@@ -24101,8 +24104,8 @@ function validateAttributeString(attrStr){
         //validate attrName
         attrName = attrName.trim();
 
-        
-        
+
+
         if(!attrNames.hasOwnProperty(attrName)){
             attrNames[attrName]=1;
         }else{
@@ -24112,20 +24115,20 @@ function validateAttributeString(attrStr){
             return false;
         }
         i++;
-        
+
         //skip whitespaces
-        for(;i < attrStr.length 
+        for(;i < attrStr.length
             && (attrStr[i] === " "
             || attrStr[i] === "\t") ; i++);
 
         //read attribute value
         startChar = attrStr[i++];
-        
+
         var attrVal = "";
         for(;i < attrStr.length && attrStr[i] !== startChar; i++) {
             attrVal +=attrStr[i];
         }
-        
+
         //validate attrVal
 
         if(startChar !== ""){
@@ -24145,12 +24148,12 @@ var validAttrRegxp = new RegExp("^[_a-zA-Z][\\w\\-\\.\\:]*$");
 function validateAttrName(attrName){
     return util.doesMatch(attrName,validAttrRegxp);
 }
-var startsWithXML = new RegExp("^[Xx][Mm][Ll]");
+//var startsWithXML = new RegExp("^[Xx][Mm][Ll]");
 var startsWith = new RegExp("^([a-zA-Z]|_)[\\w\.\\-_:]*");
 
 function validateTagName(tagname){
-    if(util.doesMatch(tagname,startsWithXML)) return false;
-    else if(util.doesNotMatch(tagname,startsWith)) return false;
+    /*if(util.doesMatch(tagname,startsWithXML)) return false;
+    else*/ if(util.doesNotMatch(tagname,startsWith)) return false;
     else return true;
 }
 
