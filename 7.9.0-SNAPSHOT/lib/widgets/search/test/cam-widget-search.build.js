@@ -10,6 +10,10 @@ function roundUp(v, x) {
 
 function noop() {}
 
+function log10(x) {
+  return Math.log(x) / Math.log(10);
+}
+
 function LineChart(options) {
   this.moment = options.moment;
   this.abbreviateNumber = options.abbreviateNumber;
@@ -869,7 +873,7 @@ proto.hoveredSelectionHandle = function(evt) {
  */
 proto.maxLog = function() {
   var max = this.max() || 1;
-  return Math.ceil(Math.log10(max));
+  return Math.ceil(log10(max));
 };
 
 
@@ -964,7 +968,7 @@ proto.drawRulers = function() {
   for (index = 0; index < valueLabels.length; index++) {
     valueLabel = valueLabels[index];
     if(this.isLogScale) {
-      transformedVal = valueLabel && (innerH / (maxLog+1)) * (Math.log10(valueLabel) + 1);
+      transformedVal = valueLabel && (innerH / (maxLog+1)) * (log10(valueLabel) + 1);
       yPosition = (innerH - transformedVal + padding);
     } else {
       yPosition = Math.round(padding + (step * index)) - 0.5;
@@ -1013,7 +1017,7 @@ proto.draw = function() {
   var rounded = roundUp(max, this.valueLabelsCount);
   function pxFromTop(val) {
     if (!val) return t;
-    var transformedVal = val && (innerH / (maxLog+1) * (Math.log10(val)+1));
+    var transformedVal = val && (innerH / (maxLog+1) * (log10(val)+1));
     return isLogScale ?
       innerH - transformedVal + padding:
       (innerH - ((innerH / rounded) * val)) + padding;
@@ -101774,7 +101778,7 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 },{}],1093:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
-  var eLen = nBytes * 8 - mLen - 1
+  var eLen = (nBytes * 8) - mLen - 1
   var eMax = (1 << eLen) - 1
   var eBias = eMax >> 1
   var nBits = -7
@@ -101787,12 +101791,12 @@ exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   e = s & ((1 << (-nBits)) - 1)
   s >>= (-nBits)
   nBits += eLen
-  for (; nBits > 0; e = e * 256 + buffer[offset + i], i += d, nBits -= 8) {}
+  for (; nBits > 0; e = (e * 256) + buffer[offset + i], i += d, nBits -= 8) {}
 
   m = e & ((1 << (-nBits)) - 1)
   e >>= (-nBits)
   nBits += mLen
-  for (; nBits > 0; m = m * 256 + buffer[offset + i], i += d, nBits -= 8) {}
+  for (; nBits > 0; m = (m * 256) + buffer[offset + i], i += d, nBits -= 8) {}
 
   if (e === 0) {
     e = 1 - eBias
@@ -101807,7 +101811,7 @@ exports.read = function (buffer, offset, isLE, mLen, nBytes) {
 
 exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   var e, m, c
-  var eLen = nBytes * 8 - mLen - 1
+  var eLen = (nBytes * 8) - mLen - 1
   var eMax = (1 << eLen) - 1
   var eBias = eMax >> 1
   var rt = (mLen === 23 ? Math.pow(2, -24) - Math.pow(2, -77) : 0)
@@ -101840,7 +101844,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
       m = 0
       e = eMax
     } else if (e + eBias >= 1) {
-      m = (value * c - 1) * Math.pow(2, mLen)
+      m = ((value * c) - 1) * Math.pow(2, mLen)
       e = e + eBias
     } else {
       m = value * Math.pow(2, eBias - 1) * Math.pow(2, mLen)
