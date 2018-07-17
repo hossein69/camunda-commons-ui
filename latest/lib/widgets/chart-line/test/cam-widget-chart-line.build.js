@@ -1111,11 +1111,7 @@ proto.remove = function() {
 var AbbreviateNumberFilter = function() {
   return function(number, decimal) {
 
-    if (!number) {
-      return;
-    }
-
-    if (number < 950) {
+    if (!number || number < 950) {
       return number;
     }
 
