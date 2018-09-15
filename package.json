@@ -43,7 +43,7 @@
     "angular-scenario": "1.7.4",
     "angular-touch": "1.7.4",
     "angular-translate": "2.18.1",
-    "bootstrap": "3.3.6",
+    "bootstrap": "3.3.7",
     "bpmn-font": "0.2.0",
     "camunda-bpm-sdk-js": "git://github.com/camunda/camunda-bpm-sdk-js#angularjs17",
     "clipboard": "1.5.10",
