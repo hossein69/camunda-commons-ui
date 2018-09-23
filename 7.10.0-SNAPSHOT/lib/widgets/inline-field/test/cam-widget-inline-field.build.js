@@ -81604,7 +81604,7 @@ exports.NavigatedViewer = Viewer$4;
 exports.Modeler = Modeler$1;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":64}],4:[function(require,module,exports){
+},{"_process":65}],4:[function(require,module,exports){
 'use strict';
 
 function roundUp(v, x) {
@@ -82859,7 +82859,7 @@ module.exports = function() {
   };
 };
 
-},{"camunda-bpm-sdk-js/vendor/angular":53,"jquery":66}],9:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":54,"jquery":67}],9:[function(require,module,exports){
 'use strict';
 
 
@@ -82960,7 +82960,7 @@ module.exports = [
     };
   }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":53}],10:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":54}],10:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular'),
@@ -83017,7 +83017,7 @@ directivesModule.config([
 
 module.exports = directivesModule;
 
-},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":71,"../util/index":21,"./autoFill":5,"./compileTemplate":6,"./email":7,"./engineSelect":8,"./inPlaceTextField":9,"./instantTypeahead":11,"./nl2br":12,"./notificationsPanel":13,"./passwordRepeat":14,"./showIfAuthorized":15,"camunda-bpm-sdk-js/vendor/angular":53}],11:[function(require,module,exports){
+},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":72,"../util/index":21,"./autoFill":5,"./compileTemplate":6,"./email":7,"./engineSelect":8,"./inPlaceTextField":9,"./instantTypeahead":11,"./nl2br":12,"./notificationsPanel":13,"./passwordRepeat":14,"./showIfAuthorized":15,"camunda-bpm-sdk-js/vendor/angular":54}],11:[function(require,module,exports){
   'use strict';
 
   var secretEmptyKey = '[$empty$]';
@@ -83209,7 +83209,7 @@ module.exports = ['Notifications', '$filter', '$sce',
     };
   }];
 
-},{"angular-sanitize":48}],14:[function(require,module,exports){
+},{"angular-sanitize":49}],14:[function(require,module,exports){
   'use strict';
 
   /**
@@ -83440,7 +83440,7 @@ filtersModule.config([
 
 module.exports = filtersModule;
 
-},{"angular-translate":49,"camunda-bpm-sdk-js/vendor/angular":53,"camunda-bpm-sdk-js/vendor/moment":54}],18:[function(require,module,exports){
+},{"angular-translate":50,"camunda-bpm-sdk-js/vendor/angular":54,"camunda-bpm-sdk-js/vendor/moment":55}],18:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular');
@@ -83492,7 +83492,7 @@ searchModule.factory('search', SearchFactory);
 
 module.exports = searchModule;
 
-},{"camunda-bpm-sdk-js/vendor/angular":53}],19:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":54}],19:[function(require,module,exports){
 'use strict';
 module.exports = ['$window', function($window) {
   var storage = $window.localStorage;
@@ -83549,7 +83549,16 @@ module.exports = angular.module('cam.commons.util', [])
   .provider('Uri', uriProvider)
   .service('Notifications', notifications);
 
-},{"./notifications":22,"./uriFilter":23,"./uriProvider":24,"camunda-bpm-sdk-js/vendor/angular":53}],22:[function(require,module,exports){
+},{"./notifications":23,"./uriFilter":24,"./uriProvider":25,"camunda-bpm-sdk-js/vendor/angular":54}],22:[function(require,module,exports){
+'use strict';
+
+module.exports = {
+  load: function() {
+    return requirejs.s.contexts._.defined;
+  }
+};
+
+},{}],23:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular');
@@ -83700,7 +83709,7 @@ module.exports = [
     };
   }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":53}],23:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":54}],24:[function(require,module,exports){
 'use strict';
 
 var UriFilter = [ 'Uri', function(Uri) {
@@ -83711,7 +83720,7 @@ var UriFilter = [ 'Uri', function(Uri) {
 
 module.exports = UriFilter;
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 var angular = require('camunda-bpm-sdk-js/vendor/angular');
 
@@ -83781,7 +83790,7 @@ module.exports = function() {
   }];
 };
 
-},{"camunda-bpm-sdk-js/vendor/angular":53}],25:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":54}],26:[function(require,module,exports){
 'use strict';
 
 var Viewer = require('../../bpmn-js');
@@ -83816,9 +83825,13 @@ function cacheViewer(options) {
 }
 
 
-},{"../../bpmn-js":1}],26:[function(require,module,exports){
+},{"../../bpmn-js":1}],27:[function(require,module,exports){
 'use strict';
 
+
+var $ = require('jquery');
+
+var ModuleLoader = require('../../util/moduleLoader');
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular'),
 
@@ -83838,13 +83851,16 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
         onLoad: '&',
         onClick: '&',
         onMouseEnter: '&',
-        onMouseLeave: '&'
+        onMouseLeave: '&',
+        bpmnJsConf: '=?'
       },
 
       template: template,
 
       link: function($scope, $element) {
 
+        var viewer = null;
+        var canvas = null;
         var definitions;
         var diagramContainer = $element[0].querySelector('.diagram-holder');
 
@@ -84023,234 +84039,262 @@ module.exports = ['$q', '$document', '$compile', '$location', '$rootScope', 'sea
           return deferred.promise;
         }
 
-        var viewer = Viewer.generateViewer({
-          width: '100%',
-          height: '100%',
-          canvas: {
-            deferUpdate: false
-          },
-          key: $scope.key,
-          disableNavigation: $scope.disableNavigation
-        });
+        var bpmnJsConf = $scope.bpmnJsConf;
 
-        if(!viewer.cached) {
-          // attach diagram immediately to avoid having the bpmn logo for viewers that are not cached
-          attachDiagram();
+        var bpmnJsModules = [];
+        if (bpmnJsConf && bpmnJsConf.additionalModules) {
+          angular.forEach(ModuleLoader.load(), function(module, name) {
+            if (bpmnJsConf.additionalModules[name]) {
+              bpmnJsModules.push(module);
+            }
+          });
         }
 
-
-        // The following logic mirrors diagram-js to defer its update of the viewbox change.
-        // We tell diagram-js to not defer the update (see above) and do it ourselves instead.
-        // Only difference: We use a delay of 0. This causes the update to basically be propagated
-        // immediately after the current execution is finished (instead of halting the execution
-        // until the viewbox changes and all event listeners are executed). This results in a much
-        // better performance while moving the diagram, but at a cost: In the interval between the
-        // trigger of the viewbox change and the calculation of the event handlers in the debounced
-        // execution, things like badges or migration arrows are at the wrong position; they feel
-        // like they are "dragged behind". Therefore, we temporarily hide the overlays.
-
-        // patch show and hide of overlays
-        var originalShow = viewer.get('overlays').show.bind(viewer.get('overlays'));
-        viewer.get('overlays').show = function() {
-          viewer.get('eventBus').fire('overlays.show');
-          originalShow();
-        };
-
-        var originalHide = viewer.get('overlays').hide.bind(viewer.get('overlays'));
-        viewer.get('overlays').hide = function() {
-          viewer.get('eventBus').fire('overlays.hide');
-          originalHide();
-        };
-
-        var showAgain = debounce(function() {
-          viewer.get('overlays').show();
-        }, 300);
-
-        var originalViewboxChanged = viewer.get('canvas')._viewboxChanged.bind(viewer.get('canvas'));
-        var debouncedOriginal = debounce(function() {
-          originalViewboxChanged();
-          viewer.get('overlays').hide();
-          showAgain();
-        }, 0);
-        viewer.get('canvas')._viewboxChanged = function() {
-          debouncedOriginal();
-        };
-
-
-        var diagramData = null;
-        var canvas = null;
-
-        $scope.$watch('diagramData', function(newValue) {
-          if (newValue) {
-            diagramData = newValue;
-            renderDiagram();
-          }
-        });
-
-        function handleViewerLoad() {
-          canvas = viewer.get('canvas');
-          definitions = viewer._definitions;
-          setupEventListeners();
-          zoom();
-          $scope.loaded = true;
-        }
-
-        function renderDiagram() {
-          // if there is a cached viewer, no need to import data
-          if(viewer.cached) {
-            attachDiagram();
-            handleViewerLoad();
-            return $scope.onLoad();
-
-          } else if (diagramData) {
-            $scope.loaded = false;
-
-            var useDefinitions = (typeof diagramData === 'object');
-
-            var importFunction = (useDefinitions ? viewer.importDefinitions : viewer.importXML).bind(viewer);
-
-            importFunction(diagramData, function(err, warn) {
-
-              var applyFunction = useDefinitions ? function(fn) {fn();} : $scope.$apply.bind($scope);
-
-              applyFunction(function() {
-                if (err) {
-                  $scope.error = err;
-                  return;
-                }
-
-                $scope.warn = warn;
-
-                handleViewerLoad();
-                return $scope.onLoad();
-              });
+        var moddleExtensionPromises = {};
+        if (bpmnJsConf && bpmnJsConf.moddleExtensions) {
+          angular.forEach(bpmnJsConf.moddleExtensions, function(moddleExtensionPath, name) {
+            moddleExtensionPromises[name] = $.getJSON('../' + moddleExtensionPath + '.json', function(moddleExtension) {
+              return moddleExtension;
             });
+          });
+        }
 
+        function generateAndConfigureViewer(bpmnJsModdleExtensions) {
+          viewer = Viewer.generateViewer({
+            width: '100%',
+            height: '100%',
+            canvas: {
+              deferUpdate: false
+            },
+            key: $scope.key,
+            disableNavigation: $scope.disableNavigation,
+            additionalModules: bpmnJsModules,
+            moddleExtensions: bpmnJsModdleExtensions
+          });
+
+          if(!viewer.cached) {
+            // attach diagram immediately to avoid having the bpmn logo for viewers that are not cached
+            attachDiagram();
           }
 
-        }
 
+          // The following logic mirrors diagram-js to defer its update of the viewbox change.
+          // We tell diagram-js to not defer the update (see above) and do it ourselves instead.
+          // Only difference: We use a delay of 0. This causes the update to basically be propagated
+          // immediately after the current execution is finished (instead of halting the execution
+          // until the viewbox changes and all event listeners are executed). This results in a much
+          // better performance while moving the diagram, but at a cost: In the interval between the
+          // trigger of the viewbox change and the calculation of the event handlers in the debounced
+          // execution, things like badges or migration arrows are at the wrong position; they feel
+          // like they are "dragged behind". Therefore, we temporarily hide the overlays.
 
-        function zoom() {
-          if (canvas) {
-            var viewbox = JSON.parse(($location.search() || {}).viewbox || '{}')[definitions.id];
-
-            if (viewbox) {
-              canvas.viewbox(viewbox);
-            }
-            else {
-              canvas.zoom('fit-viewport', 'auto');
-            }
-          }
-        }
-
-        var mouseReleaseCallback = function() {
-          $scope.grabbing = false;
-          document.removeEventListener('mouseup', mouseReleaseCallback);
-          $scope.$apply();
-        };
-
-        function onClick(e) {
-          // e.element = the model element
-          // e.gfx = the graphical element
-          $scope.onClick({element: e.element, $event: e.originalEvent});
-        }
-
-        function onHover(e) {
-          $scope.onMouseEnter({element: e.element, $event: e.originalEvent});
-        }
-
-        function onOut(e) {
-          $scope.onMouseLeave({element: e.element, $event: e.originalEvent});
-        }
-
-        function onMousedown() {
-          $scope.grabbing = true;
-          document.addEventListener('mouseup', mouseReleaseCallback);
-          $scope.$apply();
-        }
-
-        var onViewboxChange = debounce(function(e) {
-          var viewbox = JSON.parse(($location.search() || {}).viewbox || '{}');
-
-          viewbox[definitions.id] = {
-            x: e.viewbox.x,
-            y: e.viewbox.y,
-            width: e.viewbox.width,
-            height: e.viewbox.height
+          // patch show and hide of overlays
+          var originalShow = viewer.get('overlays').show.bind(viewer.get('overlays'));
+          viewer.get('overlays').show = function() {
+            viewer.get('eventBus').fire('overlays.show');
+            originalShow();
           };
 
-          search.updateSilently({
-            viewbox: JSON.stringify(viewbox)
+          var originalHide = viewer.get('overlays').hide.bind(viewer.get('overlays'));
+          viewer.get('overlays').hide = function() {
+            viewer.get('eventBus').fire('overlays.hide');
+            originalHide();
+          };
+
+          var showAgain = debounce(function() {
+            viewer.get('overlays').show();
+          }, 300);
+
+          var originalViewboxChanged = viewer.get('canvas')._viewboxChanged.bind(viewer.get('canvas'));
+          var debouncedOriginal = debounce(function() {
+            originalViewboxChanged();
+            viewer.get('overlays').hide();
+            showAgain();
+          }, 0);
+          viewer.get('canvas')._viewboxChanged = function() {
+            debouncedOriginal();
+          };
+
+
+          var diagramData = null;
+
+          $scope.$watch('diagramData', function(newValue) {
+            if (newValue) {
+              diagramData = newValue;
+              renderDiagram();
+            }
           });
 
-          var phase = $rootScope.$$phase;
-          if (phase !== '$apply' && phase !== '$digest') {
-            $scope.$apply(function() {
-              $location.replace();
-            });
-          } else {
-            $location.replace();
+          function handleViewerLoad() {
+            canvas = viewer.get('canvas');
+            definitions = viewer._definitions;
+            setupEventListeners();
+            zoom();
+            $scope.loaded = true;
           }
-        }, 500);
+
+          function renderDiagram() {
+            // if there is a cached viewer, no need to import data
+            if(viewer.cached) {
+              attachDiagram();
+              handleViewerLoad();
+              return $scope.onLoad();
+
+            } else if (diagramData) {
+              $scope.loaded = false;
+
+              var useDefinitions = (typeof diagramData === 'object');
+
+              var importFunction = (useDefinitions ? viewer.importDefinitions : viewer.importXML).bind(viewer);
+
+              importFunction(diagramData, function(err, warn) {
+
+                var applyFunction = useDefinitions ? function(fn) {fn();} : $scope.$apply.bind($scope);
+
+                applyFunction(function() {
+                  if (err) {
+                    $scope.error = err;
+                    return;
+                  }
+
+                  $scope.warn = warn;
+
+                  handleViewerLoad();
+                  return $scope.onLoad();
+                });
+              });
+
+            }
+
+          }
 
 
-        function setupEventListeners() {
-          var eventBus = viewer.get('eventBus');
-          eventBus.on('element.click', onClick);
-          eventBus.on('element.hover', onHover);
-          eventBus.on('element.out', onOut);
-          eventBus.on('element.mousedown', onMousedown);
-          eventBus.on('canvas.viewbox.changed', onViewboxChange);
+          function zoom() {
+            if (canvas) {
+              var viewbox = JSON.parse(($location.search() || {}).viewbox || '{}')[definitions.id];
+
+              if (viewbox) {
+                canvas.viewbox(viewbox);
+              }
+              else {
+                canvas.zoom('fit-viewport', 'auto');
+              }
+            }
+          }
+
+          var mouseReleaseCallback = function() {
+            $scope.grabbing = false;
+            document.removeEventListener('mouseup', mouseReleaseCallback);
+            $scope.$apply();
+          };
+
+          function onClick(e) {
+            // e.element = the model element
+            // e.gfx = the graphical element
+            $scope.onClick({element: e.element, $event: e.originalEvent});
+          }
+
+          function onHover(e) {
+            $scope.onMouseEnter({element: e.element, $event: e.originalEvent});
+          }
+
+          function onOut(e) {
+            $scope.onMouseLeave({element: e.element, $event: e.originalEvent});
+          }
+
+          function onMousedown() {
+            $scope.grabbing = true;
+            document.addEventListener('mouseup', mouseReleaseCallback);
+            $scope.$apply();
+          }
+
+          var onViewboxChange = debounce(function(e) {
+            var viewbox = JSON.parse(($location.search() || {}).viewbox || '{}');
+
+            viewbox[definitions.id] = {
+              x: e.viewbox.x,
+              y: e.viewbox.y,
+              width: e.viewbox.width,
+              height: e.viewbox.height
+            };
+
+            search.updateSilently({
+              viewbox: JSON.stringify(viewbox)
+            });
+
+            var phase = $rootScope.$$phase;
+            if (phase !== '$apply' && phase !== '$digest') {
+              $scope.$apply(function() {
+                $location.replace();
+              });
+            } else {
+              $location.replace();
+            }
+          }, 500);
+
+
+          function setupEventListeners() {
+            var eventBus = viewer.get('eventBus');
+            eventBus.on('element.click', onClick);
+            eventBus.on('element.hover', onHover);
+            eventBus.on('element.out', onOut);
+            eventBus.on('element.mousedown', onMousedown);
+            eventBus.on('canvas.viewbox.changed', onViewboxChange);
+          }
+
+          function clearEventListeners() {
+            var eventBus = viewer.get('eventBus');
+            eventBus.off('element.click', onClick);
+            eventBus.off('element.hover', onHover);
+            eventBus.off('element.out', onOut);
+            eventBus.off('element.mousedown', onMousedown);
+            eventBus.off('canvas.viewbox.changed', onViewboxChange);
+          }
+
+          $scope.zoomIn = function() {
+            viewer.get('zoomScroll').zoom(1, {
+              x: $element[0].offsetWidth / 2,
+              y: $element[0].offsetHeight / 2
+            });
+          };
+
+          $scope.zoomOut = function() {
+            viewer.get('zoomScroll').zoom(-1, {
+              x: $element[0].offsetWidth / 2,
+              y: $element[0].offsetHeight / 2
+            });
+          };
+
+          $scope.resetZoom = function() {
+            canvas.resized();
+            canvas.zoom('fit-viewport', 'auto');
+          };
+
+          $scope.control.resetZoom = $scope.resetZoom;
+
+          $scope.control.refreshZoom = function() {
+            canvas.resized();
+            canvas.zoom(canvas.zoom(), 'auto');
+          };
+
+          $scope.$on('$destroy', function() {
+            detatchDiagram();
+            clearEventListeners();
+            viewer.get('overlays').clear();
+            Viewer.cacheViewer({ key: $scope.key, viewer: viewer });
+          });
         }
 
-        function clearEventListeners() {
-          var eventBus = viewer.get('eventBus');
-          eventBus.off('element.click', onClick);
-          eventBus.off('element.hover', onHover);
-          eventBus.off('element.out', onOut);
-          eventBus.off('element.mousedown', onMousedown);
-          eventBus.off('canvas.viewbox.changed', onViewboxChange);
-        }
-
-        $scope.zoomIn = function() {
-          viewer.get('zoomScroll').zoom(1, {
-            x: $element[0].offsetWidth / 2,
-            y: $element[0].offsetHeight / 2
-          });
-        };
-
-        $scope.zoomOut = function() {
-          viewer.get('zoomScroll').zoom(-1, {
-            x: $element[0].offsetWidth / 2,
-            y: $element[0].offsetHeight / 2
-          });
-        };
-
-        $scope.resetZoom = function() {
-          canvas.resized();
-          canvas.zoom('fit-viewport', 'auto');
-        };
-
-        $scope.control.resetZoom = $scope.resetZoom;
-
-        $scope.control.refreshZoom = function() {
-          canvas.resized();
-          canvas.zoom(canvas.zoom(), 'auto');
-        };
-
-        $scope.$on('$destroy', function() {
-          detatchDiagram();
-          clearEventListeners();
-          viewer.get('overlays').clear();
-          Viewer.cacheViewer({ key: $scope.key, viewer: viewer });
+        $q.all(moddleExtensionPromises).then(function(moddleExtensions) {
+          generateAndConfigureViewer(moddleExtensions);
+        }).catch(function() {
+          generateAndConfigureViewer([]);
         });
-
       }
     };
   }];
 
-},{"../../util/viewer":25,"camunda-bpm-sdk-js/vendor/angular":53}],27:[function(require,module,exports){
+},{"../../util/moduleLoader":22,"../../util/viewer":26,"camunda-bpm-sdk-js/vendor/angular":54,"jquery":67}],28:[function(require,module,exports){
 'use strict';
 
 
@@ -84267,7 +84311,7 @@ module.exports = ['$location', function($location) {
   };
 }];
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 var throttle = require('lodash').throttle;
@@ -84378,7 +84422,7 @@ module.exports = ['$window', function($window) {
   };
 }];
 
-},{"./../../chart/line":4,"./../../filter/abbreviateNumber":16,"camunda-bpm-sdk-js/vendor/moment":54,"lodash":67}],29:[function(require,module,exports){
+},{"./../../chart/line":4,"./../../filter/abbreviateNumber":16,"camunda-bpm-sdk-js/vendor/moment":55,"lodash":68}],30:[function(require,module,exports){
 'use strict';
 
 var Clipboard = require('clipboard');
@@ -84450,7 +84494,7 @@ module.exports = ['$timeout', '$translate', function($timeout, $translate) {
   };
 }];
 
-},{"clipboard":56}],30:[function(require,module,exports){
+},{"clipboard":57}],31:[function(require,module,exports){
 'use strict';
 
 var Viewer = require('../../../cmmn-js/index.js');
@@ -84796,7 +84840,7 @@ module.exports = ['$compile', '$location', '$rootScope', 'search', 'debounce',
     };
   }];
 
-},{"../../../cmmn-js/index.js":2}],31:[function(require,module,exports){
+},{"../../../cmmn-js/index.js":2}],32:[function(require,module,exports){
 'use strict';
 
 
@@ -84826,7 +84870,7 @@ module.exports = [function() {
   };
 }];
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular');
@@ -85097,7 +85141,7 @@ module.exports = ['$window', function($window) {
   };
 }];
 
-},{"../../../dmn-js/index.js":3,"../../util/change-dmn-namespace":20,"camunda-bpm-sdk-js/vendor/angular":53}],33:[function(require,module,exports){
+},{"../../../dmn-js/index.js":3,"../../util/change-dmn-namespace":20,"camunda-bpm-sdk-js/vendor/angular":54}],34:[function(require,module,exports){
 'use strict';
 
 
@@ -85115,7 +85159,7 @@ module.exports = [function() {
   };
 }];
 
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 'use strict';
 
 
@@ -85211,7 +85255,7 @@ module.exports = ['$translate', function($translate) {
   };
 }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":53}],35:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":54}],36:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular'),
@@ -85266,7 +85310,7 @@ widgetModule.filter('camQueryComponent', camQueryComponent);
 
 module.exports = widgetModule;
 
-},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":71,"../directives/index":10,"../filter/date/index":17,"../search/index":18,"./../services/cam-local-configuration":19,"./bpmn-viewer/cam-widget-bpmn-viewer":26,"./cam-share-link/cam-share-link":27,"./chart-line/cam-widget-chart-line":28,"./clipboard/cam-widget-clipboard":29,"./cmmn-viewer/cam-widget-cmmn-viewer":30,"./debug/cam-widget-debug":31,"./dmn-viewer/cam-widget-dmn-viewer":32,"./footer/cam-widget-footer":33,"./header/cam-widget-header":34,"./inline-field/cam-widget-inline-field":36,"./loader/cam-widget-loader":38,"./search-pill/cam-query-component":39,"./search-pill/cam-widget-search-pill":40,"./search/cam-widget-search":41,"./variable/cam-variable-validator":43,"./variable/cam-widget-variable":44,"./variables-table/cam-render-var-template":45,"./variables-table/cam-widget-variables-table":46,"camunda-bpm-sdk-js/vendor/angular":53}],36:[function(require,module,exports){
+},{"../../vendor/ui-bootstrap-tpls-0.11.2-camunda":72,"../directives/index":10,"../filter/date/index":17,"../search/index":18,"./../services/cam-local-configuration":19,"./bpmn-viewer/cam-widget-bpmn-viewer":27,"./cam-share-link/cam-share-link":28,"./chart-line/cam-widget-chart-line":29,"./clipboard/cam-widget-clipboard":30,"./cmmn-viewer/cam-widget-cmmn-viewer":31,"./debug/cam-widget-debug":32,"./dmn-viewer/cam-widget-dmn-viewer":33,"./footer/cam-widget-footer":34,"./header/cam-widget-header":35,"./inline-field/cam-widget-inline-field":37,"./loader/cam-widget-loader":39,"./search-pill/cam-query-component":40,"./search-pill/cam-widget-search-pill":41,"./search/cam-widget-search":42,"./variable/cam-variable-validator":44,"./variable/cam-widget-variable":45,"./variables-table/cam-render-var-template":46,"./variables-table/cam-widget-variables-table":47,"camunda-bpm-sdk-js/vendor/angular":54}],37:[function(require,module,exports){
 'use strict';
 
 
@@ -85710,7 +85754,7 @@ module.exports = [
     };
   }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":53,"jquery":66}],37:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":54,"jquery":67}],38:[function(require,module,exports){
 'use strict';
 
 var angular = require('camunda-bpm-sdk-js/vendor/angular'),
@@ -85733,7 +85777,7 @@ angular.element(document).ready(function() {
   angular.bootstrap(document.body, [testModule.name]);
 });
 
-},{"../../index":35,"camunda-bpm-sdk-js/vendor/angular":53}],38:[function(require,module,exports){
+},{"../../index":36,"camunda-bpm-sdk-js/vendor/angular":54}],39:[function(require,module,exports){
 'use strict';
 
 
@@ -85766,7 +85810,7 @@ module.exports = [function() {
   };
 }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":53}],39:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":54}],40:[function(require,module,exports){
 'use strict';
 
 module.exports = [
@@ -85789,7 +85833,7 @@ module.exports = [
 
   }];
 
-},{}],40:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 'use strict';
 
 
@@ -85899,7 +85943,7 @@ module.exports = ['$timeout',
     };
   }];
 
-},{"jquery":66}],41:[function(require,module,exports){
+},{"jquery":67}],42:[function(require,module,exports){
 'use strict';
 
 
@@ -86619,7 +86663,7 @@ module.exports = ['$timeout', '$location', 'search', 'widgetLocalConf',
     };
   }];
 
-},{"camunda-bpm-sdk-js/vendor/angular":53,"jquery":66}],42:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/vendor/angular":54,"jquery":67}],43:[function(require,module,exports){
 'use strict';
 
 
@@ -86789,7 +86833,7 @@ varUtils.validate = function($scope) {
 
 module.exports = varUtils;
 
-},{"camunda-bpm-sdk-js/lib/forms/type-util":52,"camunda-bpm-sdk-js/vendor/angular":53}],43:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/lib/forms/type-util":53,"camunda-bpm-sdk-js/vendor/angular":54}],44:[function(require,module,exports){
 'use strict';
 
 var typeUtils = require('camunda-bpm-sdk-js/lib/forms/type-util');
@@ -86824,7 +86868,7 @@ module.exports = [function() {
   };
 }];
 
-},{"camunda-bpm-sdk-js/lib/forms/type-util":52}],44:[function(require,module,exports){
+},{"camunda-bpm-sdk-js/lib/forms/type-util":53}],45:[function(require,module,exports){
 'use strict';
 
 
@@ -86986,7 +87030,7 @@ module.exports = [
     };
   }];
 
-},{"./cam-variable-utils":42,"camunda-bpm-sdk-js/vendor/angular":53}],45:[function(require,module,exports){
+},{"./cam-variable-utils":43,"camunda-bpm-sdk-js/vendor/angular":54}],46:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -87022,7 +87066,7 @@ module.exports = [
     };
   }];
 
-},{"jquery":66}],46:[function(require,module,exports){
+},{"jquery":67}],47:[function(require,module,exports){
 'use strict';
 
 
@@ -87361,7 +87405,7 @@ module.exports = [
     };
   }];
 
-},{"../variable/cam-variable-utils":42,"camunda-bpm-sdk-js/vendor/angular":53}],47:[function(require,module,exports){
+},{"../variable/cam-variable-utils":43,"camunda-bpm-sdk-js/vendor/angular":54}],48:[function(require,module,exports){
 /**
  * @license AngularJS v1.2.29
  * (c) 2010-2014 Google, Inc. http://angularjs.org
@@ -88010,11 +88054,11 @@ angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
 
 })(window, window.angular);
 
-},{}],48:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 require('./angular-sanitize');
 module.exports = 'ngSanitize';
 
-},{"./angular-sanitize":47}],49:[function(require,module,exports){
+},{"./angular-sanitize":48}],50:[function(require,module,exports){
 /*!
  * angular-translate - v2.4.2 - 2014-10-21
  * http://github.com/angular-translate/angular-translate
@@ -88975,7 +89019,7 @@ angular.module('pascalprecht.translate').filter('translate', [
     return translateFilter;
   }
 ]);
-},{}],50:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 /**
  * @license AngularJS v1.2.29
  * (c) 2010-2014 Google, Inc. http://angularjs.org
@@ -111145,11 +111189,11 @@ var styleDirective = valueFn({
 })(window, document);
 
 !window.angular.$$csp() && window.angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>');
-},{}],51:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":50}],52:[function(require,module,exports){
+},{"./angular":51}],53:[function(require,module,exports){
 'use strict';
 
 var INTEGER_PATTERN = /^-?[\d]+$/;
@@ -111256,17 +111300,17 @@ module.exports = {
   dateToString : dateToString
 };
 
-},{"fast-xml-parser":59}],53:[function(require,module,exports){
+},{"fast-xml-parser":60}],54:[function(require,module,exports){
 'use strict';
 
 module.exports = require('angular');
 
-},{"angular":51}],54:[function(require,module,exports){
+},{"angular":52}],55:[function(require,module,exports){
 'use strict';
 
 module.exports = require('moment');
 
-},{"moment":68}],55:[function(require,module,exports){
+},{"moment":69}],56:[function(require,module,exports){
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
         define(['module', 'select'], factory);
@@ -111491,7 +111535,7 @@ module.exports = require('moment');
 
     module.exports = ClipboardAction;
 });
-},{"select":69}],56:[function(require,module,exports){
+},{"select":70}],57:[function(require,module,exports){
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
         define(['module', './clipboard-action', 'tiny-emitter', 'good-listener'], factory);
@@ -111651,7 +111695,7 @@ module.exports = require('moment');
 
     module.exports = Clipboard;
 });
-},{"./clipboard-action":55,"good-listener":63,"tiny-emitter":70}],57:[function(require,module,exports){
+},{"./clipboard-action":56,"good-listener":64,"tiny-emitter":71}],58:[function(require,module,exports){
 var DOCUMENT_NODE_TYPE = 9;
 
 /**
@@ -111686,7 +111730,7 @@ function closest (element, selector) {
 
 module.exports = closest;
 
-},{}],58:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 var closest = require('./closest');
 
 /**
@@ -111732,7 +111776,7 @@ function listener(element, selector, type, callback) {
 
 module.exports = delegate;
 
-},{"./closest":57}],59:[function(require,module,exports){
+},{"./closest":58}],60:[function(require,module,exports){
 var he = require("he");
 var getAllMatches = require("./util").getAllMatches;
 
@@ -111945,7 +111989,7 @@ exports.getTraversalObj = getTraversalObj;
 exports.convertToJson = convertToJson;
 exports.validate = require("./validator").validate;
 
-},{"./util":60,"./validator":61,"he":65}],60:[function(require,module,exports){
+},{"./util":61,"./validator":62,"he":66}],61:[function(require,module,exports){
 var getAllMatches = function(string, regex) {
   var matches = [];
   var match = regex.exec(string);
@@ -111974,7 +112018,7 @@ var doesNotMatch = function(string,regex){
 exports.doesMatch = doesMatch
 exports.doesNotMatch = doesNotMatch
 exports.getAllMatches = getAllMatches;
-},{}],61:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 var util = require("./util");
 
 
@@ -112193,7 +112237,7 @@ function validateTagName(tagname){
 
 
 
-},{"./util":60}],62:[function(require,module,exports){
+},{"./util":61}],63:[function(require,module,exports){
 /**
  * Check if argument is a HTML element.
  *
@@ -112244,7 +112288,7 @@ exports.fn = function(value) {
     return type === '[object Function]';
 };
 
-},{}],63:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 var is = require('./is');
 var delegate = require('delegate');
 
@@ -112341,7 +112385,7 @@ function listenSelector(selector, type, callback) {
 
 module.exports = listen;
 
-},{"./is":62,"delegate":58}],64:[function(require,module,exports){
+},{"./is":63,"delegate":59}],65:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -112527,7 +112571,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],65:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 (function (global){
 /*! https://mths.be/he v1.1.1 by @mathias | MIT license */
 ;(function(root) {
@@ -112873,7 +112917,7 @@ process.umask = function() { return 0; };
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],66:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.1
  * http://jquery.com/
@@ -122065,7 +122109,7 @@ return jQuery;
 
 }));
 
-},{}],67:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -128854,7 +128898,7 @@ return jQuery;
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],68:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 (function (global){
 //! moment.js
 //! version : 2.9.0
@@ -131901,7 +131945,7 @@ return jQuery;
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],69:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 function select(element) {
     var selectedText;
 
@@ -131946,7 +131990,7 @@ function select(element) {
 
 module.exports = select;
 
-},{}],70:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 function E () {
   // Keep this empty so it's easier to inherit from
   // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
@@ -132014,7 +132058,7 @@ E.prototype = {
 
 module.exports = E;
 
-},{}],71:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 /*
  * angular-ui-bootstrap
  * http://angular-ui.github.io/bootstrap/
@@ -136286,4 +136330,4 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
     "");
 }]);
 
-},{}]},{},[37]);
+},{}]},{},[38]);
