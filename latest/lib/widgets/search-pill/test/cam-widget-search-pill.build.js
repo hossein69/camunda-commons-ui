@@ -15820,7 +15820,7 @@ function getTransitions(element) {
 
 _$ModelUtil_16.getTransitions = getTransitions;
 
-var _$collection_68 = {};
+var _$collection_61 = {};
 'use strict';
 
 /**
@@ -15938,13 +15938,13 @@ function isExtended(collection) {
   return collection.__refs_collection === true;
 }
 
-_$collection_68.extend = extend;
+_$collection_61.extend = extend;
 
-_$collection_68.isExtended = isExtended;
+_$collection_61.isExtended = isExtended;
 
 'use strict';
 
-/* removed: var _$collection_68 = require('./collection'); */;
+/* removed: var _$collection_61 = require('./collection'); */;
 
 function hasOwnProperty(e, property) {
   return Object.prototype.hasOwnProperty.call(e, property.name || property);
@@ -15952,7 +15952,7 @@ function hasOwnProperty(e, property) {
 
 function defineCollectionProperty(ref, property, target) {
 
-  var collection = _$collection_68.extend(target[property.name] || [], ref, property, target);
+  var collection = _$collection_61.extend(target[property.name] || [], ref, property, target);
 
   Object.defineProperty(target, property.name, {
     enumerable: property.enumerable,
@@ -16092,7 +16092,7 @@ Refs.prototype.ensureRefsCollection = function (target, property) {
 
   var collection = target[property.name];
 
-  if (!_$collection_68.isExtended(collection)) {
+  if (!_$collection_61.isExtended(collection)) {
     defineCollectionProperty(this, property, target);
   }
 
@@ -16131,7 +16131,7 @@ Refs.prototype.set = function (target, property, value) {
   }
 };
 
-var _$Refs_69 = Refs;
+var _$Refs_62 = Refs;
 
 /**
  * An attribute descriptor to be used specify an attribute in a {@link Refs} instance
@@ -16142,12 +16142,12 @@ var _$Refs_69 = Refs;
  * @property {boolean} [enumerable=false]
  */
 
-var _$objectRefs_67 = {};
+var _$objectRefs_60 = {};
 'use strict';
 
-_$objectRefs_67 = _$Refs_69;
+_$objectRefs_60 = _$Refs_62;
 
-_$objectRefs_67.Collection = _$collection_68;
+_$objectRefs_60.Collection = _$collection_61;
 
 var _$inherits_browser_71 = {};
 'use strict';
@@ -16817,18 +16817,18 @@ _$dist_72.pick = pick;
 _$dist_72.omit = omit;
 _$dist_72.merge = merge;
 
-var _$model_47 = {};
+var _$model_40 = {};
 'use strict';
 
-Object.defineProperty(_$model_47, "__esModule", {
+Object.defineProperty(_$model_40, "__esModule", {
   value: true
 });
-_$model_47.Base = Base;
-_$model_47.Shape = Shape;
-_$model_47.Root = Root;
-_$model_47.Label = Label;
-_$model_47.Connection = Connection;
-_$model_47.create = create;
+_$model_40.Base = Base;
+_$model_40.Shape = Shape;
+_$model_40.Root = Root;
+_$model_40.Label = Label;
+_$model_40.Connection = Connection;
+_$model_40.create = create;
 
 /* removed: var _$dist_72 = require('min-dash'); */;
 
@@ -16836,14 +16836,14 @@ _$model_47.create = create;
 
 var _inherits2 = _interopRequireDefault(_$inherits_browser_71);
 
-/* removed: var _$objectRefs_67 = require('object-refs'); */;
+/* removed: var _$objectRefs_60 = require('object-refs'); */;
 
-var _objectRefs2 = _interopRequireDefault(_$objectRefs_67);
+var _objectRefs2 = _interopRequireDefault(_$objectRefs_60);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var parentRefs = new _objectRefs2.default({ name: 'children', enumerable: true, collection: true }, { name: 'parent' }),
-    labelRefs = new _objectRefs2.default({ name: 'label', enumerable: true }, { name: 'labelTarget' }),
+    labelRefs = new _objectRefs2.default({ name: 'labels', enumerable: true, collection: true }, { name: 'labelTarget' }),
     attacherRefs = new _objectRefs2.default({ name: 'attachers', collection: true }, { name: 'host' }),
     outgoingRefs = new _objectRefs2.default({ name: 'outgoing', collection: true }, { name: 'source' }),
     incomingRefs = new _objectRefs2.default({ name: 'incoming', collection: true }, { name: 'target' });
@@ -16876,6 +16876,29 @@ function Base() {
   });
 
   /**
+   * Single label support, will mapped to multi label array
+   *
+   * @name Base#label
+   * @type Object
+   */
+  Object.defineProperty(this, 'label', {
+    get: function get() {
+      return this.labels[0];
+    },
+    set: function set(newLabel) {
+
+      var label = this.label,
+          labels = this.labels;
+
+      if (!newLabel && label) {
+        labels.remove(label);
+      } else {
+        labels.add(newLabel, 0);
+      }
+    }
+  });
+
+  /**
    * The parent shape
    *
    * @name Base#parent
@@ -16884,10 +16907,12 @@ function Base() {
   parentRefs.bind(this, 'parent');
 
   /**
-   * @name Base#label
+   * The list of labels
+   *
+   * @name Base#labels
    * @type Label
    */
-  labelRefs.bind(this, 'label');
+  labelRefs.bind(this, 'labels');
 
   /**
    * The list of outgoing connections
@@ -17047,7 +17072,7 @@ var __dummy_8$0 = 0,
     __is_8 = _$ModelUtil_16.is,
     __getBusinessObject_8 = _$ModelUtil_16.getBusinessObject;
 
-/* removed: var _$model_47 = require('diagram-js/lib/model'); */;
+/* removed: var _$model_40 = require('diagram-js/lib/model'); */;
 
 /**
  * Return true if given elements are the same.
@@ -17165,7 +17190,7 @@ function isAny(element, types) {
 _$ModelingUtil_8.isAny = isAny;
 
 function isLabel(element) {
-  return element instanceof _$model_47.Label;
+  return element instanceof _$model_40.Label;
 }
 
 _$ModelingUtil_8.isLabel = isLabel;
@@ -17492,13 +17517,13 @@ _$DiUtil_14.isStandardEventVisible = function (element) {
   return !!(__is_14(cmmnElement, 'cmmn:OnPart') && element.isStandardEventVisible);
 };
 
-var _$BaseRenderer_33 = {};
+var _$BaseRenderer_26 = {};
 'use strict';
 
-Object.defineProperty(_$BaseRenderer_33, "__esModule", {
+Object.defineProperty(_$BaseRenderer_26, "__esModule", {
   value: true
 });
-_$BaseRenderer_33.default = BaseRenderer;
+_$BaseRenderer_26.default = BaseRenderer;
 var DEFAULT_RENDER_PRIORITY = 1000;
 
 /**
@@ -17585,10 +17610,10 @@ BaseRenderer.prototype.getShapePath = function () {};
  */
 BaseRenderer.prototype.getConnectionPath = function () {};
 
-var _$indexCjs_92 = {};
+var _$indexCjs_89 = {};
 'use strict';
 
-Object.defineProperty(_$indexCjs_92, '__esModule', { value: true });
+Object.defineProperty(_$indexCjs_89, '__esModule', { value: true });
 
 function ensureImported(element, target) {
 
@@ -18048,7 +18073,7 @@ function parseDocument(svg) {
  *
  * @returns {SVGElement}
  */
-function __create_92(name, attrs) {
+function __create_89(name, attrs) {
   var element;
 
   if (name.charAt(0) === '<') {
@@ -18082,9 +18107,9 @@ function off(node, event, listener, useCapture) {
  */
 
 // fake node used to instantiate svg geometry elements
-var node = __create_92('svg');
+var node = __create_89('svg');
 
-function __extend_92(object, props) {
+function __extend_89(object, props) {
   var i,
       k,
       keys = Object.keys(props);
@@ -18110,7 +18135,7 @@ function createPoint(x, y) {
       break;
   }
 
-  return __extend_92(point, x);
+  return __extend_89(point, x);
 }
 
 function createMatrix(a, b, c, d, e, f) {
@@ -18131,7 +18156,7 @@ function createMatrix(a, b, c, d, e, f) {
       break;
   }
 
-  return __extend_92(matrix, a);
+  return __extend_89(matrix, a);
 }
 
 function createTransform(matrix) {
@@ -18334,37 +18359,37 @@ function transform(node, transforms) {
   }
 }
 
-_$indexCjs_92.append = append;
-_$indexCjs_92.appendTo = appendTo;
-_$indexCjs_92.attr = attr;
-_$indexCjs_92.classes = classes;
-_$indexCjs_92.clear = clear;
-_$indexCjs_92.clone = clone;
-_$indexCjs_92.create = __create_92;
-_$indexCjs_92.innerSVG = innerSVG;
-_$indexCjs_92.remove = remove;
-_$indexCjs_92.replace = replace;
-_$indexCjs_92.transform = transform;
-_$indexCjs_92.on = on;
-_$indexCjs_92.off = off;
-_$indexCjs_92.createPoint = createPoint;
-_$indexCjs_92.createMatrix = createMatrix;
-_$indexCjs_92.createTransform = createTransform;
-_$indexCjs_92.select = select;
-_$indexCjs_92.selectAll = selectAll;
+_$indexCjs_89.append = append;
+_$indexCjs_89.appendTo = appendTo;
+_$indexCjs_89.attr = attr;
+_$indexCjs_89.classes = classes;
+_$indexCjs_89.clear = clear;
+_$indexCjs_89.clone = clone;
+_$indexCjs_89.create = __create_89;
+_$indexCjs_89.innerSVG = innerSVG;
+_$indexCjs_89.remove = remove;
+_$indexCjs_89.replace = replace;
+_$indexCjs_89.transform = transform;
+_$indexCjs_89.on = on;
+_$indexCjs_89.off = off;
+_$indexCjs_89.createPoint = createPoint;
+_$indexCjs_89.createMatrix = createMatrix;
+_$indexCjs_89.createTransform = createTransform;
+_$indexCjs_89.select = select;
+_$indexCjs_89.selectAll = selectAll;
 
-var _$RenderUtil_64 = {};
+var _$RenderUtil_57 = {};
 'use strict';
 
-Object.defineProperty(_$RenderUtil_64, "__esModule", {
+Object.defineProperty(_$RenderUtil_57, "__esModule", {
   value: true
 });
-_$RenderUtil_64.componentsToPath = componentsToPath;
-_$RenderUtil_64.toSVGPoints = toSVGPoints;
-_$RenderUtil_64.createLine = createLine;
-_$RenderUtil_64.updateLine = updateLine;
+_$RenderUtil_57.componentsToPath = componentsToPath;
+_$RenderUtil_57.toSVGPoints = toSVGPoints;
+_$RenderUtil_57.createLine = createLine;
+_$RenderUtil_57.updateLine = updateLine;
 
-/* removed: var _$indexCjs_92 = require('tiny-svg'); */;
+/* removed: var _$indexCjs_89 = require('tiny-svg'); */;
 
 function componentsToPath(elements) {
   return elements.join(',').replace(/,?([A-z]),?/g, '$1');
@@ -18382,34 +18407,34 @@ function toSVGPoints(points) {
 
 function createLine(points, attrs) {
 
-  var line = (0, _$indexCjs_92.create)('polyline');
-  (0, _$indexCjs_92.attr)(line, { points: toSVGPoints(points) });
+  var line = (0, _$indexCjs_89.create)('polyline');
+  (0, _$indexCjs_89.attr)(line, { points: toSVGPoints(points) });
 
   if (attrs) {
-    (0, _$indexCjs_92.attr)(line, attrs);
+    (0, _$indexCjs_89.attr)(line, attrs);
   }
 
   return line;
 }
 
 function updateLine(gfx, points) {
-  (0, _$indexCjs_92.attr)(gfx, { points: toSVGPoints(points) });
+  (0, _$indexCjs_89.attr)(gfx, { points: toSVGPoints(points) });
 
   return gfx;
 }
 
-var _$SvgTransformUtil_65 = {};
+var _$SvgTransformUtil_58 = {};
 'use strict';
 
-Object.defineProperty(_$SvgTransformUtil_65, "__esModule", {
+Object.defineProperty(_$SvgTransformUtil_58, "__esModule", {
   value: true
 });
-_$SvgTransformUtil_65.transform = __transform_65;
-_$SvgTransformUtil_65.translate = translate;
-_$SvgTransformUtil_65.rotate = rotate;
-_$SvgTransformUtil_65.scale = scale;
+_$SvgTransformUtil_58.transform = __transform_58;
+_$SvgTransformUtil_58.translate = translate;
+_$SvgTransformUtil_58.rotate = rotate;
+_$SvgTransformUtil_58.scale = scale;
 
-/* removed: var _$indexCjs_92 = require('tiny-svg'); */;
+/* removed: var _$indexCjs_89 = require('tiny-svg'); */;
 
 /**
  * @param {<SVGElement>} element
@@ -18418,17 +18443,17 @@ _$SvgTransformUtil_65.scale = scale;
  * @param {Number} angle
  * @param {Number} amount
  */
-function __transform_65(gfx, x, y, angle, amount) {
-  var translate = (0, _$indexCjs_92.createTransform)();
+function __transform_58(gfx, x, y, angle, amount) {
+  var translate = (0, _$indexCjs_89.createTransform)();
   translate.setTranslate(x, y);
 
-  var rotate = (0, _$indexCjs_92.createTransform)();
+  var rotate = (0, _$indexCjs_89.createTransform)();
   rotate.setRotate(angle, 0, 0);
 
-  var scale = (0, _$indexCjs_92.createTransform)();
+  var scale = (0, _$indexCjs_89.createTransform)();
   scale.setScale(amount || 1, amount || 1);
 
-  (0, _$indexCjs_92.transform)(gfx, [translate, rotate, scale]);
+  (0, _$indexCjs_89.transform)(gfx, [translate, rotate, scale]);
 }
 
 /**
@@ -18437,10 +18462,10 @@ function __transform_65(gfx, x, y, angle, amount) {
  * @param {Number} y
  */
 function translate(gfx, x, y) {
-  var translate = (0, _$indexCjs_92.createTransform)();
+  var translate = (0, _$indexCjs_89.createTransform)();
   translate.setTranslate(x, y);
 
-  (0, _$indexCjs_92.transform)(gfx, translate);
+  (0, _$indexCjs_89.transform)(gfx, translate);
 }
 
 /**
@@ -18448,10 +18473,10 @@ function translate(gfx, x, y) {
  * @param {Number} angle
  */
 function rotate(gfx, angle) {
-  var rotate = (0, _$indexCjs_92.createTransform)();
+  var rotate = (0, _$indexCjs_89.createTransform)();
   rotate.setRotate(angle, 0, 0);
 
-  (0, _$indexCjs_92.transform)(gfx, rotate);
+  (0, _$indexCjs_89.transform)(gfx, rotate);
 }
 
 /**
@@ -18459,23 +18484,23 @@ function rotate(gfx, angle) {
  * @param {Number} amount
  */
 function scale(gfx, amount) {
-  var scale = (0, _$indexCjs_92.createTransform)();
+  var scale = (0, _$indexCjs_89.createTransform)();
   scale.setScale(amount, amount);
 
-  (0, _$indexCjs_92.transform)(gfx, scale);
+  (0, _$indexCjs_89.transform)(gfx, scale);
 }
 
-var _$Text_66 = {};
+var _$Text_59 = {};
 'use strict';
 
-Object.defineProperty(_$Text_66, "__esModule", {
+Object.defineProperty(_$Text_59, "__esModule", {
   value: true
 });
-_$Text_66.default = Text;
+_$Text_59.default = Text;
 
 /* removed: var _$dist_72 = require('min-dash'); */;
 
-/* removed: var _$indexCjs_92 = require('tiny-svg'); */;
+/* removed: var _$indexCjs_89 = require('tiny-svg'); */;
 
 var DEFAULT_BOX_PADDING = 0;
 
@@ -18512,14 +18537,24 @@ function getTextBBox(text, fakeText) {
 
   fakeText.textContent = text;
 
+  var textBBox;
+
   try {
     var bbox,
         emptyLine = text === '';
 
-    // add dummy text, when line is empty to determine correct height
+    // add dummy text, when line is empty to
+    // determine correct height
     fakeText.textContent = emptyLine ? 'dummy' : text;
 
-    bbox = (0, _$dist_72.pick)(fakeText.getBBox(), ['width', 'height']);
+    textBBox = fakeText.getBBox();
+
+    // take text rendering related horizontal
+    // padding into account
+    bbox = {
+      width: textBBox.width + textBBox.x * 2,
+      height: textBBox.height
+    };
 
     if (emptyLine) {
       // correct width
@@ -18567,7 +18602,12 @@ function fit(lines, fitLine, originalLine, textBBox) {
 
     lines.unshift(remainder);
   }
-  return { width: textBBox.width, height: textBBox.height, text: fitLine };
+
+  return {
+    width: textBBox.width,
+    height: textBBox.height,
+    text: fitLine
+  };
 }
 
 /**
@@ -18623,9 +18663,9 @@ function getHelperSvg() {
   var helperSvg = document.getElementById('helper-svg');
 
   if (!helperSvg) {
-    helperSvg = (0, _$indexCjs_92.create)('svg');
+    helperSvg = (0, _$indexCjs_89.create)('svg');
 
-    (0, _$indexCjs_92.attr)(helperSvg, {
+    (0, _$indexCjs_89.attr)(helperSvg, {
       id: 'helper-svg',
       width: 0,
       height: 0,
@@ -18704,52 +18744,59 @@ Text.prototype.layoutText = function (text, options) {
       padding = parsePadding(options.padding !== undefined ? options.padding : this._config.padding),
       fitBox = options.fitBox || false;
 
+  var lineHeight = getLineHeight(style);
+
   var lines = text.split(/\r?\n/g),
       layouted = [];
 
   var maxWidth = box.width - padding.left - padding.right;
 
   // ensure correct rendering by attaching helper text node to invisible SVG
-  var helperText = (0, _$indexCjs_92.create)('text');
-  (0, _$indexCjs_92.attr)(helperText, { x: 0, y: 0 });
-  (0, _$indexCjs_92.attr)(helperText, style);
+  var helperText = (0, _$indexCjs_89.create)('text');
+  (0, _$indexCjs_89.attr)(helperText, { x: 0, y: 0 });
+  (0, _$indexCjs_89.attr)(helperText, style);
 
   var helperSvg = getHelperSvg();
 
-  (0, _$indexCjs_92.append)(helperSvg, helperText);
+  (0, _$indexCjs_89.append)(helperSvg, helperText);
 
   while (lines.length) {
     layouted.push(layoutNext(lines, maxWidth, helperText));
   }
 
+  if (align.vertical === 'middle') {
+    padding.top = padding.bottom = 0;
+  }
+
   var totalHeight = (0, _$dist_72.reduce)(layouted, function (sum, line, idx) {
-    return sum + line.height;
-  }, 0);
+    return sum + (lineHeight || line.height);
+  }, 0) + padding.top + padding.bottom;
 
   var maxLineWidth = (0, _$dist_72.reduce)(layouted, function (sum, line, idx) {
     return line.width > sum ? line.width : sum;
   }, 0);
 
   // the y position of the next line
-  var y, x;
+  var y = padding.top;
 
-  switch (align.vertical) {
-    case 'middle':
-      y = (box.height - totalHeight) / 2 - layouted[0].height / 4;
-      break;
-
-    default:
-      y = padding.top;
+  if (align.vertical === 'middle') {
+    y += (box.height - totalHeight) / 2;
   }
 
-  var textElement = (0, _$indexCjs_92.create)('text');
+  // magic number initial offset
+  y -= (lineHeight || layouted[0].height) / 4;
 
-  (0, _$indexCjs_92.attr)(textElement, style);
+  var textElement = (0, _$indexCjs_89.create)('text');
+
+  (0, _$indexCjs_89.attr)(textElement, style);
 
   // layout each line taking into account that parent
   // shape might resize to fit text size
   (0, _$dist_72.forEach)(layouted, function (line) {
-    y += line.height;
+
+    var x;
+
+    y += lineHeight || line.height;
 
     switch (align.horizontal) {
       case 'left':
@@ -18765,15 +18812,15 @@ Text.prototype.layoutText = function (text, options) {
         x = Math.max(((fitBox ? maxLineWidth : maxWidth) - line.width) / 2 + padding.left, 0);
     }
 
-    var tspan = (0, _$indexCjs_92.create)('tspan');
-    (0, _$indexCjs_92.attr)(tspan, { x: x, y: y });
+    var tspan = (0, _$indexCjs_89.create)('tspan');
+    (0, _$indexCjs_89.attr)(tspan, { x: x, y: y });
 
     tspan.textContent = line.text;
 
-    (0, _$indexCjs_92.append)(textElement, tspan);
+    (0, _$indexCjs_89.append)(textElement, tspan);
   });
 
-  (0, _$indexCjs_92.remove)(helperText);
+  (0, _$indexCjs_89.remove)(helperText);
 
   var dimensions = {
     width: maxLineWidth,
@@ -18785,6 +18832,12 @@ Text.prototype.layoutText = function (text, options) {
     element: textElement
   };
 };
+
+function getLineHeight(style) {
+  if ('fontSize' in style && 'lineHeight' in style) {
+    return style.lineHeight * parseInt(style.fontSize, 10);
+  }
+}
 
 var _$dist_73 = {};
 'use strict';
@@ -19322,8 +19375,8 @@ var __dummy_5$0 = 0,
     __isObject_5 = _$dist_72.isObject,
     __assign_5 = _$dist_72.assign;
 
-var __BaseRenderer_5 = _$BaseRenderer_33.default,
-    TextUtil = _$Text_66.default,
+var __BaseRenderer_5 = _$BaseRenderer_26.default,
+    TextUtil = _$Text_59.default,
     __dummy_5$1 = 0,
     __dummy_5$2 = 0;
 
@@ -19345,14 +19398,14 @@ var __getStandardEvent_5 = _$ModelUtil_16.getStandardEvent;
 
 var domQuery = _$dist_73.query;
 
-var svgAppend = _$indexCjs_92.append,
-    svgAttr = _$indexCjs_92.attr,
-    svgClasses = _$indexCjs_92.classes,
-    svgCreate = _$indexCjs_92.create;
+var svgAppend = _$indexCjs_89.append,
+    svgAttr = _$indexCjs_89.attr,
+    svgClasses = _$indexCjs_89.classes,
+    svgCreate = _$indexCjs_89.create;
 
-var __translate_5 = _$SvgTransformUtil_65.translate;
+var __translate_5 = _$SvgTransformUtil_58.translate;
 
-var __createLine_5 = _$RenderUtil_64.createLine;
+var __createLine_5 = _$RenderUtil_57.createLine;
 
 function CmmnRenderer(eventBus, styles, pathMap) {
 
@@ -19669,7 +19722,11 @@ function CmmnRenderer(eventBus, styles, pathMap) {
 
   function renderEmbeddedLabel(p, element, align) {
     var name = __getName_5(element);
-    return renderLabel(p, name, { box: element, align: align, padding: 5 });
+    return renderLabel(p, name, {
+      box: element,
+      align: align,
+      padding: 5
+    });
   }
 
   function renderExpandedStageLabel(p, element, align) {
@@ -19724,7 +19781,7 @@ function CmmnRenderer(eventBus, styles, pathMap) {
     textBox.parentNode.insertBefore(polygon, textBox);
 
     // reset the position of the text box
-    __translate_5(textBox, 25, -height - 1);
+    __translate_5(textBox, 25, -height + 5);
 
     return textBox;
   }
@@ -21206,15 +21263,15 @@ var _$core_4 = {
   itemRegistry: ['type', _$ItemRegistry_3]
 };
 
-var _$Collections_54 = {};
+var _$Collections_47 = {};
 'use strict';
 
-Object.defineProperty(_$Collections_54, "__esModule", {
+Object.defineProperty(_$Collections_47, "__esModule", {
   value: true
 });
-_$Collections_54.remove = __remove_54;
-_$Collections_54.add = add;
-_$Collections_54.indexOf = __indexOf_54;
+_$Collections_47.remove = __remove_47;
+_$Collections_47.add = add;
+_$Collections_47.indexOf = __indexOf_47;
 /**
  * Failsafe remove an element from a collection
  *
@@ -21223,7 +21280,7 @@ _$Collections_54.indexOf = __indexOf_54;
  *
  * @return {Number} the previous index of the element
  */
-function __remove_54(collection, element) {
+function __remove_47(collection, element) {
 
   if (!collection || !element) {
     return -1;
@@ -21293,7 +21350,7 @@ function add(collection, element, idx) {
  * @return {Number} the index or -1 if collection or element do
  *                  not exist or the element is not contained.
  */
-function __indexOf_54(collection, element) {
+function __indexOf_47(collection, element) {
 
   if (!collection || !element) {
     return -1;
@@ -21302,313 +21359,19 @@ function __indexOf_54(collection, element) {
   return collection.indexOf(element);
 }
 
-var _$collection_88 = {};
-'use strict';
-
-/**
- * An empty collection stub. Use {@link RefsCollection.extend} to extend a
- * collection with ref semantics.
- *
- * @class RefsCollection
- */
-
-/**
- * Extends a collection with {@link Refs} aware methods
- *
- * @memberof RefsCollection
- * @static
- *
- * @param  {Array<Object>} collection
- * @param  {Refs} refs instance
- * @param  {Object} property represented by the collection
- * @param  {Object} target object the collection is attached to
- *
- * @return {RefsCollection<Object>} the extended array
- */
-
-function __extend_88(collection, refs, property, target) {
-
-  var inverseProperty = property.inverse;
-
-  /**
-   * Removes the given element from the array and returns it.
-   *
-   * @method RefsCollection#remove
-   *
-   * @param {Object} element the element to remove
-   */
-  Object.defineProperty(collection, 'remove', {
-    value: function value(element) {
-      var idx = this.indexOf(element);
-      if (idx !== -1) {
-        this.splice(idx, 1);
-
-        // unset inverse
-        refs.unset(element, inverseProperty, target);
-      }
-
-      return element;
-    }
-  });
-
-  /**
-   * Returns true if the collection contains the given element
-   *
-   * @method RefsCollection#contains
-   *
-   * @param {Object} element the element to check for
-   */
-  Object.defineProperty(collection, 'contains', {
-    value: function value(element) {
-      return this.indexOf(element) !== -1;
-    }
-  });
-
-  /**
-   * Adds an element to the array, unless it exists already (set semantics).
-   *
-   * @method RefsCollection#add
-   *
-   * @param {Object} element the element to add
-   */
-  Object.defineProperty(collection, 'add', {
-    value: function value(element) {
-
-      if (!this.contains(element)) {
-        this.push(element);
-
-        // set inverse
-        refs.set(element, inverseProperty, target);
-      }
-    }
-  });
-
-  // a simple marker, identifying this element
-  // as being a refs collection
-  Object.defineProperty(collection, '__refs_collection', {
-    value: true
-  });
-
-  return collection;
-}
-
-function __isExtended_88(collection) {
-  return collection.__refs_collection === true;
-}
-
-_$collection_88.extend = __extend_88;
-
-_$collection_88.isExtended = __isExtended_88;
-
-'use strict';
-
-/* removed: var _$collection_88 = require('./collection'); */;
-
-function __hasOwnProperty_89(e, property) {
-  return Object.prototype.hasOwnProperty.call(e, property.name || property);
-}
-
-function __defineCollectionProperty_89(ref, property, target) {
-  Object.defineProperty(target, property.name, {
-    enumerable: property.enumerable,
-    value: _$collection_88.extend(target[property.name] || [], ref, property, target)
-  });
-}
-
-function __defineProperty_89(ref, property, target) {
-
-  var inverseProperty = property.inverse;
-
-  var _value = target[property.name];
-
-  Object.defineProperty(target, property.name, {
-    enumerable: property.enumerable,
-
-    get: function get() {
-      return _value;
-    },
-
-    set: function set(value) {
-
-      // return if we already performed all changes
-      if (value === _value) {
-        return;
-      }
-
-      var old = _value;
-
-      // temporary set null
-      _value = null;
-
-      if (old) {
-        ref.unset(old, inverseProperty, target);
-      }
-
-      // set new value
-      _value = value;
-
-      // set inverse value
-      ref.set(_value, inverseProperty, target);
-    }
-  });
-}
-
-/**
- * Creates a new references object defining two inversly related
- * attribute descriptors a and b.
- *
- * <p>
- *   When bound to an object using {@link Refs#bind} the references
- *   get activated and ensure that add and remove operations are applied
- *   reversely, too.
- * </p>
- *
- * <p>
- *   For attributes represented as collections {@link Refs} provides the
- *   {@link RefsCollection#add}, {@link RefsCollection#remove} and {@link RefsCollection#contains} extensions
- *   that must be used to properly hook into the inverse change mechanism.
- * </p>
- *
- * @class Refs
- *
- * @classdesc A bi-directional reference between two attributes.
- *
- * @param {Refs.AttributeDescriptor} a property descriptor
- * @param {Refs.AttributeDescriptor} b property descriptor
- *
- * @example
- *
- * var refs = Refs({ name: 'wheels', collection: true, enumerable: true }, { name: 'car' });
- *
- * var car = { name: 'toyota' };
- * var wheels = [{ pos: 'front-left' }, { pos: 'front-right' }];
- *
- * refs.bind(car, 'wheels');
- *
- * car.wheels // []
- * car.wheels.add(wheels[0]);
- * car.wheels.add(wheels[1]);
- *
- * car.wheels // [{ pos: 'front-left' }, { pos: 'front-right' }]
- *
- * wheels[0].car // { name: 'toyota' };
- * car.wheels.remove(wheels[0]);
- *
- * wheels[0].car // undefined
- */
-function __Refs_89(a, b) {
-
-  if (!(this instanceof __Refs_89)) {
-    return new __Refs_89(a, b);
-  }
-
-  // link
-  a.inverse = b;
-  b.inverse = a;
-
-  this.props = {};
-  this.props[a.name] = a;
-  this.props[b.name] = b;
-}
-
-/**
- * Binds one side of a bi-directional reference to a
- * target object.
- *
- * @memberOf Refs
- *
- * @param  {Object} target
- * @param  {String} property
- */
-__Refs_89.prototype.bind = function (target, property) {
-  if (typeof property === 'string') {
-    if (!this.props[property]) {
-      throw new Error('no property <' + property + '> in ref');
-    }
-    property = this.props[property];
-  }
-
-  if (property.collection) {
-    __defineCollectionProperty_89(this, property, target);
-  } else {
-    __defineProperty_89(this, property, target);
-  }
-};
-
-__Refs_89.prototype.ensureRefsCollection = function (target, property) {
-
-  var collection = target[property.name];
-
-  if (!_$collection_88.isExtended(collection)) {
-    __defineCollectionProperty_89(this, property, target);
-  }
-
-  return collection;
-};
-
-__Refs_89.prototype.ensureBound = function (target, property) {
-  if (!__hasOwnProperty_89(target, property)) {
-    this.bind(target, property);
-  }
-};
-
-__Refs_89.prototype.unset = function (target, property, value) {
-
-  if (target) {
-    this.ensureBound(target, property);
-
-    if (property.collection) {
-      this.ensureRefsCollection(target, property).remove(value);
-    } else {
-      target[property.name] = undefined;
-    }
-  }
-};
-
-__Refs_89.prototype.set = function (target, property, value) {
-
-  if (target) {
-    this.ensureBound(target, property);
-
-    if (property.collection) {
-      this.ensureRefsCollection(target, property).add(value);
-    } else {
-      target[property.name] = value;
-    }
-  }
-};
-
-var _$Refs_89 = __Refs_89;
-
-/**
- * An attribute descriptor to be used specify an attribute in a {@link Refs} instance
- *
- * @typedef {Object} Refs.AttributeDescriptor
- * @property {String} name
- * @property {boolean} [collection=false]
- * @property {boolean} [enumerable=false]
- */
-
-var _$objectRefs_87 = {};
-'use strict';
-
-_$objectRefs_87 = _$Refs_89;
-
-_$objectRefs_87.Collection = _$collection_88;
-
 'use strict';
 
 var __forEach_10 = _$dist_72.forEach,
     __filter_10 = _$dist_72.filter;
 
-/* removed: var _$objectRefs_87 = require('object-refs'); */;
+/* removed: var _$objectRefs_60 = require('object-refs'); */;
 
 var __elementToString_10 = _$Util_12.elementToString;
 var __is_10 = _$ModelUtil_16.is;
 
-/* removed: var _$Collections_54 = require('diagram-js/lib/util/Collections'); */;
+/* removed: var _$Collections_47 = require('diagram-js/lib/util/Collections'); */;
 
-var diRefs = new _$objectRefs_87({ name: 'cmmnElement', enumerable: true }, { name: 'di' });
+var diRefs = new _$objectRefs_60({ name: 'cmmnElement', enumerable: true }, { name: 'di' });
 
 function CmmnTreeWalker(handler) {
 
@@ -21927,7 +21690,7 @@ function CmmnTreeWalker(handler) {
       var elements = getEnclosedElements(elementsWithoutParent, container);
 
       __forEach_10(elements, function (e) {
-        _$Collections_54.remove(elementsWithoutParent, e);
+        _$Collections_47.remove(elementsWithoutParent, e);
         handleElementWithoutParent(e, context);
       });
     }
@@ -22099,6 +21862,4658 @@ function open() {
 _$PoweredByUtil_17.open = open;
 
 _$PoweredByUtil_17.BPMNIO_IMG = BPMNIO_IMG;
+
+var _$Elements_49 = {};
+'use strict';
+
+Object.defineProperty(_$Elements_49, "__esModule", {
+  value: true
+});
+_$Elements_49.add = __add_49;
+_$Elements_49.eachElement = eachElement;
+_$Elements_49.selfAndChildren = selfAndChildren;
+_$Elements_49.selfAndDirectChildren = selfAndDirectChildren;
+_$Elements_49.selfAndAllChildren = selfAndAllChildren;
+_$Elements_49.getClosure = getClosure;
+_$Elements_49.getBBox = getBBox;
+_$Elements_49.getEnclosedElements = getEnclosedElements;
+_$Elements_49.getType = getType;
+
+/* removed: var _$dist_72 = require('min-dash'); */;
+
+/**
+ * Adds an element to a collection and returns true if the
+ * element was added.
+ *
+ * @param {Array<Object>} elements
+ * @param {Object} e
+ * @param {Boolean} unique
+ */
+function __add_49(elements, e, unique) {
+  var canAdd = !unique || elements.indexOf(e) === -1;
+
+  if (canAdd) {
+    elements.push(e);
+  }
+
+  return canAdd;
+}
+
+/**
+ * Iterate over each element in a collection, calling the iterator function `fn`
+ * with (element, index, recursionDepth).
+ *
+ * Recurse into all elements that are returned by `fn`.
+ *
+ * @param  {Object|Array<Object>} elements
+ * @param  {Function} fn iterator function called with (element, index, recursionDepth)
+ * @param  {Number} [depth] maximum recursion depth
+ */
+function eachElement(elements, fn, depth) {
+
+  depth = depth || 0;
+
+  if (!(0, _$dist_72.isArray)(elements)) {
+    elements = [elements];
+  }
+
+  (0, _$dist_72.forEach)(elements, function (s, i) {
+    var filter = fn(s, i, depth);
+
+    if ((0, _$dist_72.isArray)(filter) && filter.length) {
+      eachElement(filter, fn, depth + 1);
+    }
+  });
+}
+
+/**
+ * Collects self + child elements up to a given depth from a list of elements.
+ *
+ * @param  {djs.model.Base|Array<djs.model.Base>} elements the elements to select the children from
+ * @param  {Boolean} unique whether to return a unique result set (no duplicates)
+ * @param  {Number} maxDepth the depth to search through or -1 for infinite
+ *
+ * @return {Array<djs.model.Base>} found elements
+ */
+function selfAndChildren(elements, unique, maxDepth) {
+  var result = [],
+      processedChildren = [];
+
+  eachElement(elements, function (element, i, depth) {
+    __add_49(result, element, unique);
+
+    var children = element.children;
+
+    // max traversal depth not reached yet
+    if (maxDepth === -1 || depth < maxDepth) {
+
+      // children exist && children not yet processed
+      if (children && __add_49(processedChildren, children, unique)) {
+        return children;
+      }
+    }
+  });
+
+  return result;
+}
+
+/**
+ * Return self + direct children for a number of elements
+ *
+ * @param  {Array<djs.model.Base>} elements to query
+ * @param  {Boolean} allowDuplicates to allow duplicates in the result set
+ *
+ * @return {Array<djs.model.Base>} the collected elements
+ */
+function selfAndDirectChildren(elements, allowDuplicates) {
+  return selfAndChildren(elements, !allowDuplicates, 1);
+}
+
+/**
+ * Return self + ALL children for a number of elements
+ *
+ * @param  {Array<djs.model.Base>} elements to query
+ * @param  {Boolean} allowDuplicates to allow duplicates in the result set
+ *
+ * @return {Array<djs.model.Base>} the collected elements
+ */
+function selfAndAllChildren(elements, allowDuplicates) {
+  return selfAndChildren(elements, !allowDuplicates, -1);
+}
+
+/**
+ * Gets the the closure for all selected elements,
+ * their enclosed children and connections.
+ *
+ * @param {Array<djs.model.Base>} elements
+ * @param {Boolean} [isTopLevel=true]
+ * @param {Object} [existingClosure]
+ *
+ * @return {Object} newClosure
+ */
+function getClosure(elements, isTopLevel, closure) {
+
+  if ((0, _$dist_72.isUndefined)(isTopLevel)) {
+    isTopLevel = true;
+  }
+
+  if ((0, _$dist_72.isObject)(isTopLevel)) {
+    closure = isTopLevel;
+    isTopLevel = true;
+  }
+
+  closure = closure || {};
+
+  var allShapes = copyObject(closure.allShapes),
+      allConnections = copyObject(closure.allConnections),
+      enclosedElements = copyObject(closure.enclosedElements),
+      enclosedConnections = copyObject(closure.enclosedConnections);
+
+  var topLevel = copyObject(closure.topLevel, isTopLevel && (0, _$dist_72.groupBy)(elements, function (e) {
+    return e.id;
+  }));
+
+  function handleConnection(c) {
+    if (topLevel[c.source.id] && topLevel[c.target.id]) {
+      topLevel[c.id] = [c];
+    }
+
+    // not enclosed as a child, but maybe logically
+    // (connecting two moved elements?)
+    if (allShapes[c.source.id] && allShapes[c.target.id]) {
+      enclosedConnections[c.id] = enclosedElements[c.id] = c;
+    }
+
+    allConnections[c.id] = c;
+  }
+
+  function handleElement(element) {
+
+    enclosedElements[element.id] = element;
+
+    if (element.waypoints) {
+      // remember connection
+      enclosedConnections[element.id] = allConnections[element.id] = element;
+    } else {
+      // remember shape
+      allShapes[element.id] = element;
+
+      // remember all connections
+      (0, _$dist_72.forEach)(element.incoming, handleConnection);
+
+      (0, _$dist_72.forEach)(element.outgoing, handleConnection);
+
+      // recurse into children
+      return element.children;
+    }
+  }
+
+  eachElement(elements, handleElement);
+
+  return {
+    allShapes: allShapes,
+    allConnections: allConnections,
+    topLevel: topLevel,
+    enclosedConnections: enclosedConnections,
+    enclosedElements: enclosedElements
+  };
+}
+
+/**
+ * Returns the surrounding bbox for all elements in
+ * the array or the element primitive.
+ *
+ * @param {Array<djs.model.Shape>|djs.model.Shape} elements
+ * @param {Boolean} stopRecursion
+ */
+function getBBox(elements, stopRecursion) {
+
+  stopRecursion = !!stopRecursion;
+  if (!(0, _$dist_72.isArray)(elements)) {
+    elements = [elements];
+  }
+
+  var minX, minY, maxX, maxY;
+
+  (0, _$dist_72.forEach)(elements, function (element) {
+
+    // If element is a connection the bbox must be computed first
+    var bbox = element;
+    if (element.waypoints && !stopRecursion) {
+      bbox = getBBox(element.waypoints, true);
+    }
+
+    var x = bbox.x,
+        y = bbox.y,
+        height = bbox.height || 0,
+        width = bbox.width || 0;
+
+    if (x < minX || minX === undefined) {
+      minX = x;
+    }
+    if (y < minY || minY === undefined) {
+      minY = y;
+    }
+
+    if (x + width > maxX || maxX === undefined) {
+      maxX = x + width;
+    }
+    if (y + height > maxY || maxY === undefined) {
+      maxY = y + height;
+    }
+  });
+
+  return {
+    x: minX,
+    y: minY,
+    height: maxY - minY,
+    width: maxX - minX
+  };
+}
+
+/**
+ * Returns all elements that are enclosed from the bounding box.
+ *
+ *   * If bbox.(width|height) is not specified the method returns
+ *     all elements with element.x/y > bbox.x/y
+ *   * If only bbox.x or bbox.y is specified, method return all elements with
+ *     e.x > bbox.x or e.y > bbox.y
+ *
+ * @param {Array<djs.model.Shape>} elements List of Elements to search through
+ * @param {djs.model.Shape} bbox the enclosing bbox.
+ *
+ * @return {Array<djs.model.Shape>} enclosed elements
+ */
+function getEnclosedElements(elements, bbox) {
+
+  var filteredElements = {};
+
+  (0, _$dist_72.forEach)(elements, function (element) {
+
+    var e = element;
+
+    if (e.waypoints) {
+      e = getBBox(e);
+    }
+
+    if (!(0, _$dist_72.isNumber)(bbox.y) && e.x > bbox.x) {
+      filteredElements[element.id] = element;
+    }
+    if (!(0, _$dist_72.isNumber)(bbox.x) && e.y > bbox.y) {
+      filteredElements[element.id] = element;
+    }
+    if (e.x > bbox.x && e.y > bbox.y) {
+      if ((0, _$dist_72.isNumber)(bbox.width) && (0, _$dist_72.isNumber)(bbox.height) && e.width + e.x < bbox.width + bbox.x && e.height + e.y < bbox.height + bbox.y) {
+
+        filteredElements[element.id] = element;
+      } else if (!(0, _$dist_72.isNumber)(bbox.width) || !(0, _$dist_72.isNumber)(bbox.height)) {
+        filteredElements[element.id] = element;
+      }
+    }
+  });
+
+  return filteredElements;
+}
+
+function getType(element) {
+
+  if ('waypoints' in element) {
+    return 'connection';
+  }
+
+  if ('x' in element) {
+    return 'shape';
+  }
+
+  return 'root';
+}
+
+// helpers ///////////////////////////////
+
+function copyObject(src1, src2) {
+  return (0, _$dist_72.assign)({}, src1 || {}, src2 || {});
+}
+
+var _$Canvas_20 = {};
+'use strict';
+
+Object.defineProperty(_$Canvas_20, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+_$Canvas_20.default = Canvas;
+
+/* removed: var _$dist_72 = require('min-dash'); */;
+
+/* removed: var _$Collections_47 = require('../util/Collections'); */;
+
+/* removed: var _$Elements_49 = require('../util/Elements'); */;
+
+/* removed: var _$indexCjs_89 = require('tiny-svg'); */;
+
+function round(number, resolution) {
+  return Math.round(number * resolution) / resolution;
+}
+
+function ensurePx(number) {
+  return (0, _$dist_72.isNumber)(number) ? number + 'px' : number;
+}
+
+/**
+ * Creates a HTML container element for a SVG element with
+ * the given configuration
+ *
+ * @param  {Object} options
+ * @return {HTMLElement} the container element
+ */
+function createContainer(options) {
+
+  options = (0, _$dist_72.assign)({}, { width: '100%', height: '100%' }, options);
+
+  var container = options.container || document.body;
+
+  // create a <div> around the svg element with the respective size
+  // this way we can always get the correct container size
+  // (this is impossible for <svg> elements at the moment)
+  var parent = document.createElement('div');
+  parent.setAttribute('class', 'djs-container');
+
+  (0, _$dist_72.assign)(parent.style, {
+    position: 'relative',
+    overflow: 'hidden',
+    width: ensurePx(options.width),
+    height: ensurePx(options.height)
+  });
+
+  container.appendChild(parent);
+
+  return parent;
+}
+
+function createGroup(parent, cls, childIndex) {
+  var group = (0, _$indexCjs_89.create)('g');
+  (0, _$indexCjs_89.classes)(group).add(cls);
+
+  var index = childIndex !== undefined ? childIndex : parent.childNodes.length - 1;
+
+  // must ensure second argument is node or _null_
+  // cf. https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore
+  parent.insertBefore(group, parent.childNodes[index] || null);
+
+  return group;
+}
+
+var BASE_LAYER = 'base';
+
+var REQUIRED_MODEL_ATTRS = {
+  shape: ['x', 'y', 'width', 'height'],
+  connection: ['waypoints']
+};
+
+/**
+ * The main drawing canvas.
+ *
+ * @class
+ * @constructor
+ *
+ * @emits Canvas#canvas.init
+ *
+ * @param {Object} config
+ * @param {EventBus} eventBus
+ * @param {GraphicsFactory} graphicsFactory
+ * @param {ElementRegistry} elementRegistry
+ */
+function Canvas(config, eventBus, graphicsFactory, elementRegistry) {
+
+  this._eventBus = eventBus;
+  this._elementRegistry = elementRegistry;
+  this._graphicsFactory = graphicsFactory;
+
+  this._init(config || {});
+}
+
+Canvas.$inject = ['config.canvas', 'eventBus', 'graphicsFactory', 'elementRegistry'];
+
+Canvas.prototype._init = function (config) {
+
+  var eventBus = this._eventBus;
+
+  // Creates a <svg> element that is wrapped into a <div>.
+  // This way we are always able to correctly figure out the size of the svg element
+  // by querying the parent node.
+  //
+  // (It is not possible to get the size of a svg element cross browser @ 2014-04-01)
+  //
+  // <div class="djs-container" style="width: {desired-width}, height: {desired-height}">
+  //   <svg width="100%" height="100%">
+  //    ...
+  //   </svg>
+  // </div>
+
+  // html container
+  var container = this._container = createContainer(config);
+
+  var svg = this._svg = (0, _$indexCjs_89.create)('svg');
+  (0, _$indexCjs_89.attr)(svg, { width: '100%', height: '100%' });
+
+  (0, _$indexCjs_89.append)(container, svg);
+
+  var viewport = this._viewport = createGroup(svg, 'viewport');
+
+  this._layers = {};
+
+  // debounce canvas.viewbox.changed events
+  // for smoother diagram interaction
+  if (config.deferUpdate !== false) {
+    this._viewboxChanged = (0, _$dist_72.debounce)((0, _$dist_72.bind)(this._viewboxChanged, this), 300);
+  }
+
+  eventBus.on('diagram.init', function () {
+
+    /**
+     * An event indicating that the canvas is ready to be drawn on.
+     *
+     * @memberOf Canvas
+     *
+     * @event canvas.init
+     *
+     * @type {Object}
+     * @property {SVGElement} svg the created svg element
+     * @property {SVGElement} viewport the direct parent of diagram elements and shapes
+     */
+    eventBus.fire('canvas.init', {
+      svg: svg,
+      viewport: viewport
+    });
+  }, this);
+
+  // reset viewbox on shape changes to
+  // recompute the viewbox
+  eventBus.on(['shape.added', 'connection.added', 'shape.removed', 'connection.removed', 'elements.changed'], function () {
+    delete this._cachedViewbox;
+  }, this);
+
+  eventBus.on('diagram.destroy', 500, this._destroy, this);
+  eventBus.on('diagram.clear', 500, this._clear, this);
+};
+
+Canvas.prototype._destroy = function (emit) {
+  this._eventBus.fire('canvas.destroy', {
+    svg: this._svg,
+    viewport: this._viewport
+  });
+
+  var parent = this._container.parentNode;
+
+  if (parent) {
+    parent.removeChild(this._container);
+  }
+
+  delete this._svg;
+  delete this._container;
+  delete this._layers;
+  delete this._rootElement;
+  delete this._viewport;
+};
+
+Canvas.prototype._clear = function () {
+
+  var self = this;
+
+  var allElements = this._elementRegistry.getAll();
+
+  // remove all elements
+  allElements.forEach(function (element) {
+    var type = (0, _$Elements_49.getType)(element);
+
+    if (type === 'root') {
+      self.setRootElement(null, true);
+    } else {
+      self._removeElement(element, type);
+    }
+  });
+
+  // force recomputation of view box
+  delete this._cachedViewbox;
+};
+
+/**
+ * Returns the default layer on which
+ * all elements are drawn.
+ *
+ * @returns {SVGElement}
+ */
+Canvas.prototype.getDefaultLayer = function () {
+  return this.getLayer(BASE_LAYER, 0);
+};
+
+/**
+ * Returns a layer that is used to draw elements
+ * or annotations on it.
+ *
+ * Non-existing layers retrieved through this method
+ * will be created. During creation, the optional index
+ * may be used to create layers below or above existing layers.
+ * A layer with a certain index is always created above all
+ * existing layers with the same index.
+ *
+ * @param {String} name
+ * @param {Number} index
+ *
+ * @returns {SVGElement}
+ */
+Canvas.prototype.getLayer = function (name, index) {
+
+  if (!name) {
+    throw new Error('must specify a name');
+  }
+
+  var layer = this._layers[name];
+
+  if (!layer) {
+    layer = this._layers[name] = this._createLayer(name, index);
+  }
+
+  // throw an error if layer creation / retrival is
+  // requested on different index
+  if (typeof index !== 'undefined' && layer.index !== index) {
+    throw new Error('layer <' + name + '> already created at index <' + index + '>');
+  }
+
+  return layer.group;
+};
+
+/**
+ * Creates a given layer and returns it.
+ *
+ * @param {String} name
+ * @param {Number} [index=0]
+ *
+ * @return {Object} layer descriptor with { index, group: SVGGroup }
+ */
+Canvas.prototype._createLayer = function (name, index) {
+
+  if (!index) {
+    index = 0;
+  }
+
+  var childIndex = (0, _$dist_72.reduce)(this._layers, function (childIndex, layer) {
+    if (index >= layer.index) {
+      childIndex++;
+    }
+
+    return childIndex;
+  }, 0);
+
+  return {
+    group: createGroup(this._viewport, 'layer-' + name, childIndex),
+    index: index
+  };
+};
+
+/**
+ * Returns the html element that encloses the
+ * drawing canvas.
+ *
+ * @return {DOMNode}
+ */
+Canvas.prototype.getContainer = function () {
+  return this._container;
+};
+
+// markers //////////////////////
+
+Canvas.prototype._updateMarker = function (element, marker, add) {
+  var container;
+
+  if (!element.id) {
+    element = this._elementRegistry.get(element);
+  }
+
+  // we need to access all
+  container = this._elementRegistry._elements[element.id];
+
+  if (!container) {
+    return;
+  }
+
+  (0, _$dist_72.forEach)([container.gfx, container.secondaryGfx], function (gfx) {
+    if (gfx) {
+      // invoke either addClass or removeClass based on mode
+      if (add) {
+        (0, _$indexCjs_89.classes)(gfx).add(marker);
+      } else {
+        (0, _$indexCjs_89.classes)(gfx).remove(marker);
+      }
+    }
+  });
+
+  /**
+   * An event indicating that a marker has been updated for an element
+   *
+   * @event element.marker.update
+   * @type {Object}
+   * @property {djs.model.Element} element the shape
+   * @property {Object} gfx the graphical representation of the shape
+   * @property {String} marker
+   * @property {Boolean} add true if the marker was added, false if it got removed
+   */
+  this._eventBus.fire('element.marker.update', { element: element, gfx: container.gfx, marker: marker, add: !!add });
+};
+
+/**
+ * Adds a marker to an element (basically a css class).
+ *
+ * Fires the element.marker.update event, making it possible to
+ * integrate extension into the marker life-cycle, too.
+ *
+ * @example
+ * canvas.addMarker('foo', 'some-marker');
+ *
+ * var fooGfx = canvas.getGraphics('foo');
+ *
+ * fooGfx; // <g class="... some-marker"> ... </g>
+ *
+ * @param {String|djs.model.Base} element
+ * @param {String} marker
+ */
+Canvas.prototype.addMarker = function (element, marker) {
+  this._updateMarker(element, marker, true);
+};
+
+/**
+ * Remove a marker from an element.
+ *
+ * Fires the element.marker.update event, making it possible to
+ * integrate extension into the marker life-cycle, too.
+ *
+ * @param  {String|djs.model.Base} element
+ * @param  {String} marker
+ */
+Canvas.prototype.removeMarker = function (element, marker) {
+  this._updateMarker(element, marker, false);
+};
+
+/**
+ * Check the existence of a marker on element.
+ *
+ * @param  {String|djs.model.Base} element
+ * @param  {String} marker
+ */
+Canvas.prototype.hasMarker = function (element, marker) {
+  if (!element.id) {
+    element = this._elementRegistry.get(element);
+  }
+
+  var gfx = this.getGraphics(element);
+
+  return (0, _$indexCjs_89.classes)(gfx).has(marker);
+};
+
+/**
+ * Toggles a marker on an element.
+ *
+ * Fires the element.marker.update event, making it possible to
+ * integrate extension into the marker life-cycle, too.
+ *
+ * @param  {String|djs.model.Base} element
+ * @param  {String} marker
+ */
+Canvas.prototype.toggleMarker = function (element, marker) {
+  if (this.hasMarker(element, marker)) {
+    this.removeMarker(element, marker);
+  } else {
+    this.addMarker(element, marker);
+  }
+};
+
+Canvas.prototype.getRootElement = function () {
+  if (!this._rootElement) {
+    this.setRootElement({ id: '__implicitroot', children: [] });
+  }
+
+  return this._rootElement;
+};
+
+// root element handling //////////////////////
+
+/**
+ * Sets a given element as the new root element for the canvas
+ * and returns the new root element.
+ *
+ * @param {Object|djs.model.Root} element
+ * @param {Boolean} [override] whether to override the current root element, if any
+ *
+ * @return {Object|djs.model.Root} new root element
+ */
+Canvas.prototype.setRootElement = function (element, override) {
+
+  if (element) {
+    this._ensureValid('root', element);
+  }
+
+  var currentRoot = this._rootElement,
+      elementRegistry = this._elementRegistry,
+      eventBus = this._eventBus;
+
+  if (currentRoot) {
+    if (!override) {
+      throw new Error('rootElement already set, need to specify override');
+    }
+
+    // simulate element remove event sequence
+    eventBus.fire('root.remove', { element: currentRoot });
+    eventBus.fire('root.removed', { element: currentRoot });
+
+    elementRegistry.remove(currentRoot);
+  }
+
+  if (element) {
+    var gfx = this.getDefaultLayer();
+
+    // resemble element add event sequence
+    eventBus.fire('root.add', { element: element });
+
+    elementRegistry.add(element, gfx, this._svg);
+
+    eventBus.fire('root.added', { element: element, gfx: gfx });
+  }
+
+  this._rootElement = element;
+
+  return element;
+};
+
+// add functionality //////////////////////
+
+Canvas.prototype._ensureValid = function (type, element) {
+  if (!element.id) {
+    throw new Error('element must have an id');
+  }
+
+  if (this._elementRegistry.get(element.id)) {
+    throw new Error('element with id ' + element.id + ' already exists');
+  }
+
+  var requiredAttrs = REQUIRED_MODEL_ATTRS[type];
+
+  var valid = (0, _$dist_72.every)(requiredAttrs, function (attr) {
+    return typeof element[attr] !== 'undefined';
+  });
+
+  if (!valid) {
+    throw new Error('must supply { ' + requiredAttrs.join(', ') + ' } with ' + type);
+  }
+};
+
+Canvas.prototype._setParent = function (element, parent, parentIndex) {
+  (0, _$Collections_47.add)(parent.children, element, parentIndex);
+  element.parent = parent;
+};
+
+/**
+ * Adds an element to the canvas.
+ *
+ * This wires the parent <-> child relationship between the element and
+ * a explicitly specified parent or an implicit root element.
+ *
+ * During add it emits the events
+ *
+ *  * <{type}.add> (element, parent)
+ *  * <{type}.added> (element, gfx)
+ *
+ * Extensions may hook into these events to perform their magic.
+ *
+ * @param {String} type
+ * @param {Object|djs.model.Base} element
+ * @param {Object|djs.model.Base} [parent]
+ * @param {Number} [parentIndex]
+ *
+ * @return {Object|djs.model.Base} the added element
+ */
+Canvas.prototype._addElement = function (type, element, parent, parentIndex) {
+
+  parent = parent || this.getRootElement();
+
+  var eventBus = this._eventBus,
+      graphicsFactory = this._graphicsFactory;
+
+  this._ensureValid(type, element);
+
+  eventBus.fire(type + '.add', { element: element, parent: parent });
+
+  this._setParent(element, parent, parentIndex);
+
+  // create graphics
+  var gfx = graphicsFactory.create(type, element, parentIndex);
+
+  this._elementRegistry.add(element, gfx);
+
+  // update its visual
+  graphicsFactory.update(type, element, gfx);
+
+  eventBus.fire(type + '.added', { element: element, gfx: gfx });
+
+  return element;
+};
+
+/**
+ * Adds a shape to the canvas
+ *
+ * @param {Object|djs.model.Shape} shape to add to the diagram
+ * @param {djs.model.Base} [parent]
+ * @param {Number} [parentIndex]
+ *
+ * @return {djs.model.Shape} the added shape
+ */
+Canvas.prototype.addShape = function (shape, parent, parentIndex) {
+  return this._addElement('shape', shape, parent, parentIndex);
+};
+
+/**
+ * Adds a connection to the canvas
+ *
+ * @param {Object|djs.model.Connection} connection to add to the diagram
+ * @param {djs.model.Base} [parent]
+ * @param {Number} [parentIndex]
+ *
+ * @return {djs.model.Connection} the added connection
+ */
+Canvas.prototype.addConnection = function (connection, parent, parentIndex) {
+  return this._addElement('connection', connection, parent, parentIndex);
+};
+
+/**
+ * Internal remove element
+ */
+Canvas.prototype._removeElement = function (element, type) {
+
+  var elementRegistry = this._elementRegistry,
+      graphicsFactory = this._graphicsFactory,
+      eventBus = this._eventBus;
+
+  element = elementRegistry.get(element.id || element);
+
+  if (!element) {
+    // element was removed already
+    return;
+  }
+
+  eventBus.fire(type + '.remove', { element: element });
+
+  graphicsFactory.remove(element);
+
+  // unset parent <-> child relationship
+  (0, _$Collections_47.remove)(element.parent && element.parent.children, element);
+  element.parent = null;
+
+  eventBus.fire(type + '.removed', { element: element });
+
+  elementRegistry.remove(element);
+
+  return element;
+};
+
+/**
+ * Removes a shape from the canvas
+ *
+ * @param {String|djs.model.Shape} shape or shape id to be removed
+ *
+ * @return {djs.model.Shape} the removed shape
+ */
+Canvas.prototype.removeShape = function (shape) {
+
+  /**
+   * An event indicating that a shape is about to be removed from the canvas.
+   *
+   * @memberOf Canvas
+   *
+   * @event shape.remove
+   * @type {Object}
+   * @property {djs.model.Shape} element the shape descriptor
+   * @property {Object} gfx the graphical representation of the shape
+   */
+
+  /**
+   * An event indicating that a shape has been removed from the canvas.
+   *
+   * @memberOf Canvas
+   *
+   * @event shape.removed
+   * @type {Object}
+   * @property {djs.model.Shape} element the shape descriptor
+   * @property {Object} gfx the graphical representation of the shape
+   */
+  return this._removeElement(shape, 'shape');
+};
+
+/**
+ * Removes a connection from the canvas
+ *
+ * @param {String|djs.model.Connection} connection or connection id to be removed
+ *
+ * @return {djs.model.Connection} the removed connection
+ */
+Canvas.prototype.removeConnection = function (connection) {
+
+  /**
+   * An event indicating that a connection is about to be removed from the canvas.
+   *
+   * @memberOf Canvas
+   *
+   * @event connection.remove
+   * @type {Object}
+   * @property {djs.model.Connection} element the connection descriptor
+   * @property {Object} gfx the graphical representation of the connection
+   */
+
+  /**
+   * An event indicating that a connection has been removed from the canvas.
+   *
+   * @memberOf Canvas
+   *
+   * @event connection.removed
+   * @type {Object}
+   * @property {djs.model.Connection} element the connection descriptor
+   * @property {Object} gfx the graphical representation of the connection
+   */
+  return this._removeElement(connection, 'connection');
+};
+
+/**
+ * Return the graphical object underlaying a certain diagram element
+ *
+ * @param {String|djs.model.Base} element descriptor of the element
+ * @param {Boolean} [secondary=false] whether to return the secondary connected element
+ *
+ * @return {SVGElement}
+ */
+Canvas.prototype.getGraphics = function (element, secondary) {
+  return this._elementRegistry.getGraphics(element, secondary);
+};
+
+/**
+ * Perform a viewbox update via a given change function.
+ *
+ * @param {Function} changeFn
+ */
+Canvas.prototype._changeViewbox = function (changeFn) {
+
+  // notify others of the upcoming viewbox change
+  this._eventBus.fire('canvas.viewbox.changing');
+
+  // perform actual change
+  changeFn.apply(this);
+
+  // reset the cached viewbox so that
+  // a new get operation on viewbox or zoom
+  // triggers a viewbox re-computation
+  this._cachedViewbox = null;
+
+  // notify others of the change; this step
+  // may or may not be debounced
+  this._viewboxChanged();
+};
+
+Canvas.prototype._viewboxChanged = function () {
+  this._eventBus.fire('canvas.viewbox.changed', { viewbox: this.viewbox() });
+};
+
+/**
+ * Gets or sets the view box of the canvas, i.e. the
+ * area that is currently displayed.
+ *
+ * The getter may return a cached viewbox (if it is currently
+ * changing). To force a recomputation, pass `false` as the first argument.
+ *
+ * @example
+ *
+ * canvas.viewbox({ x: 100, y: 100, width: 500, height: 500 })
+ *
+ * // sets the visible area of the diagram to (100|100) -> (600|100)
+ * // and and scales it according to the diagram width
+ *
+ * var viewbox = canvas.viewbox(); // pass `false` to force recomputing the box.
+ *
+ * console.log(viewbox);
+ * // {
+ * //   inner: Dimensions,
+ * //   outer: Dimensions,
+ * //   scale,
+ * //   x, y,
+ * //   width, height
+ * // }
+ *
+ * // if the current diagram is zoomed and scrolled, you may reset it to the
+ * // default zoom via this method, too:
+ *
+ * var zoomedAndScrolledViewbox = canvas.viewbox();
+ *
+ * canvas.viewbox({
+ *   x: 0,
+ *   y: 0,
+ *   width: zoomedAndScrolledViewbox.outer.width,
+ *   height: zoomedAndScrolledViewbox.outer.height
+ * });
+ *
+ * @param  {Object} [box] the new view box to set
+ * @param  {Number} box.x the top left X coordinate of the canvas visible in view box
+ * @param  {Number} box.y the top left Y coordinate of the canvas visible in view box
+ * @param  {Number} box.width the visible width
+ * @param  {Number} box.height
+ *
+ * @return {Object} the current view box
+ */
+Canvas.prototype.viewbox = function (box) {
+
+  if (box === undefined && this._cachedViewbox) {
+    return this._cachedViewbox;
+  }
+
+  var viewport = this._viewport,
+      innerBox,
+      outerBox = this.getSize(),
+      matrix,
+      transform,
+      scale,
+      x,
+      y;
+
+  if (!box) {
+    // compute the inner box based on the
+    // diagrams default layer. This allows us to exclude
+    // external components, such as overlays
+    innerBox = this.getDefaultLayer().getBBox();
+
+    transform = (0, _$indexCjs_89.transform)(viewport);
+    matrix = transform ? transform.matrix : (0, _$indexCjs_89.createMatrix)();
+    scale = round(matrix.a, 1000);
+
+    x = round(-matrix.e || 0, 1000);
+    y = round(-matrix.f || 0, 1000);
+
+    box = this._cachedViewbox = {
+      x: x ? x / scale : 0,
+      y: y ? y / scale : 0,
+      width: outerBox.width / scale,
+      height: outerBox.height / scale,
+      scale: scale,
+      inner: {
+        width: innerBox.width,
+        height: innerBox.height,
+        x: innerBox.x,
+        y: innerBox.y
+      },
+      outer: outerBox
+    };
+
+    return box;
+  } else {
+
+    this._changeViewbox(function () {
+      scale = Math.min(outerBox.width / box.width, outerBox.height / box.height);
+
+      var matrix = this._svg.createSVGMatrix().scale(scale).translate(-box.x, -box.y);
+
+      (0, _$indexCjs_89.transform)(viewport, matrix);
+    });
+  }
+
+  return box;
+};
+
+/**
+ * Gets or sets the scroll of the canvas.
+ *
+ * @param {Object} [delta] the new scroll to apply.
+ *
+ * @param {Number} [delta.dx]
+ * @param {Number} [delta.dy]
+ */
+Canvas.prototype.scroll = function (delta) {
+
+  var node = this._viewport;
+  var matrix = node.getCTM();
+
+  if (delta) {
+    this._changeViewbox(function () {
+      delta = (0, _$dist_72.assign)({ dx: 0, dy: 0 }, delta || {});
+
+      matrix = this._svg.createSVGMatrix().translate(delta.dx, delta.dy).multiply(matrix);
+
+      setCTM(node, matrix);
+    });
+  }
+
+  return { x: matrix.e, y: matrix.f };
+};
+
+/**
+ * Gets or sets the current zoom of the canvas, optionally zooming
+ * to the specified position.
+ *
+ * The getter may return a cached zoom level. Call it with `false` as
+ * the first argument to force recomputation of the current level.
+ *
+ * @param {String|Number} [newScale] the new zoom level, either a number, i.e. 0.9,
+ *                                   or `fit-viewport` to adjust the size to fit the current viewport
+ * @param {String|Point} [center] the reference point { x: .., y: ..} to zoom to, 'auto' to zoom into mid or null
+ *
+ * @return {Number} the current scale
+ */
+Canvas.prototype.zoom = function (newScale, center) {
+
+  if (!newScale) {
+    return this.viewbox(newScale).scale;
+  }
+
+  if (newScale === 'fit-viewport') {
+    return this._fitViewport(center);
+  }
+
+  var outer, matrix;
+
+  this._changeViewbox(function () {
+
+    if ((typeof center === 'undefined' ? 'undefined' : _typeof(center)) !== 'object') {
+      outer = this.viewbox().outer;
+
+      center = {
+        x: outer.width / 2,
+        y: outer.height / 2
+      };
+    }
+
+    matrix = this._setZoom(newScale, center);
+  });
+
+  return round(matrix.a, 1000);
+};
+
+function setCTM(node, m) {
+  var mstr = 'matrix(' + m.a + ',' + m.b + ',' + m.c + ',' + m.d + ',' + m.e + ',' + m.f + ')';
+  node.setAttribute('transform', mstr);
+}
+
+Canvas.prototype._fitViewport = function (center) {
+
+  var vbox = this.viewbox(),
+      outer = vbox.outer,
+      inner = vbox.inner,
+      newScale,
+      newViewbox;
+
+  // display the complete diagram without zooming in.
+  // instead of relying on internal zoom, we perform a
+  // hard reset on the canvas viewbox to realize this
+  //
+  // if diagram does not need to be zoomed in, we focus it around
+  // the diagram origin instead
+
+  if (inner.x >= 0 && inner.y >= 0 && inner.x + inner.width <= outer.width && inner.y + inner.height <= outer.height && !center) {
+
+    newViewbox = {
+      x: 0,
+      y: 0,
+      width: Math.max(inner.width + inner.x, outer.width),
+      height: Math.max(inner.height + inner.y, outer.height)
+    };
+  } else {
+
+    newScale = Math.min(1, outer.width / inner.width, outer.height / inner.height);
+    newViewbox = {
+      x: inner.x + (center ? inner.width / 2 - outer.width / newScale / 2 : 0),
+      y: inner.y + (center ? inner.height / 2 - outer.height / newScale / 2 : 0),
+      width: outer.width / newScale,
+      height: outer.height / newScale
+    };
+  }
+
+  this.viewbox(newViewbox);
+
+  return this.viewbox(false).scale;
+};
+
+Canvas.prototype._setZoom = function (scale, center) {
+
+  var svg = this._svg,
+      viewport = this._viewport;
+
+  var matrix = svg.createSVGMatrix();
+  var point = svg.createSVGPoint();
+
+  var centerPoint, originalPoint, currentMatrix, scaleMatrix, newMatrix;
+
+  currentMatrix = viewport.getCTM();
+
+  var currentScale = currentMatrix.a;
+
+  if (center) {
+    centerPoint = (0, _$dist_72.assign)(point, center);
+
+    // revert applied viewport transformations
+    originalPoint = centerPoint.matrixTransform(currentMatrix.inverse());
+
+    // create scale matrix
+    scaleMatrix = matrix.translate(originalPoint.x, originalPoint.y).scale(1 / currentScale * scale).translate(-originalPoint.x, -originalPoint.y);
+
+    newMatrix = currentMatrix.multiply(scaleMatrix);
+  } else {
+    newMatrix = matrix.scale(scale);
+  }
+
+  setCTM(this._viewport, newMatrix);
+
+  return newMatrix;
+};
+
+/**
+ * Returns the size of the canvas
+ *
+ * @return {Dimensions}
+ */
+Canvas.prototype.getSize = function () {
+  return {
+    width: this._container.clientWidth,
+    height: this._container.clientHeight
+  };
+};
+
+/**
+ * Return the absolute bounding box for the given element
+ *
+ * The absolute bounding box may be used to display overlays in the
+ * callers (browser) coordinate system rather than the zoomed in/out
+ * canvas coordinates.
+ *
+ * @param  {ElementDescriptor} element
+ * @return {Bounds} the absolute bounding box
+ */
+Canvas.prototype.getAbsoluteBBox = function (element) {
+  var vbox = this.viewbox();
+  var bbox;
+
+  // connection
+  // use svg bbox
+  if (element.waypoints) {
+    var gfx = this.getGraphics(element);
+
+    bbox = gfx.getBBox();
+  }
+  // shapes
+  // use data
+  else {
+      bbox = element;
+    }
+
+  var x = bbox.x * vbox.scale - vbox.x * vbox.scale;
+  var y = bbox.y * vbox.scale - vbox.y * vbox.scale;
+
+  var width = bbox.width * vbox.scale;
+  var height = bbox.height * vbox.scale;
+
+  return {
+    x: x,
+    y: y,
+    width: width,
+    height: height
+  };
+};
+
+/**
+ * Fires an event in order other modules can react to the
+ * canvas resizing
+ */
+Canvas.prototype.resized = function () {
+
+  // force recomputation of view box
+  delete this._cachedViewbox;
+
+  this._eventBus.fire('canvas.resized');
+};
+
+var _$ElementFactory_21 = {};
+'use strict';
+
+Object.defineProperty(_$ElementFactory_21, "__esModule", {
+  value: true
+});
+_$ElementFactory_21.default = ElementFactory;
+
+/* removed: var _$model_40 = require('../model'); */;
+
+/* removed: var _$dist_72 = require('min-dash'); */;
+
+/**
+ * A factory for diagram-js shapes
+ */
+function ElementFactory() {
+  this._uid = 12;
+}
+
+ElementFactory.prototype.createRoot = function (attrs) {
+  return this.create('root', attrs);
+};
+
+ElementFactory.prototype.createLabel = function (attrs) {
+  return this.create('label', attrs);
+};
+
+ElementFactory.prototype.createShape = function (attrs) {
+  return this.create('shape', attrs);
+};
+
+ElementFactory.prototype.createConnection = function (attrs) {
+  return this.create('connection', attrs);
+};
+
+/**
+ * Create a model element with the given type and
+ * a number of pre-set attributes.
+ *
+ * @param  {String} type
+ * @param  {Object} attrs
+ * @return {djs.model.Base} the newly created model instance
+ */
+ElementFactory.prototype.create = function (type, attrs) {
+
+  attrs = (0, _$dist_72.assign)({}, attrs || {});
+
+  if (!attrs.id) {
+    attrs.id = type + '_' + this._uid++;
+  }
+
+  return (0, _$model_40.create)(type, attrs);
+};
+
+var _$ElementRegistry_22 = {};
+'use strict';
+
+Object.defineProperty(_$ElementRegistry_22, "__esModule", {
+  value: true
+});
+_$ElementRegistry_22.default = ElementRegistry;
+
+/* removed: var _$indexCjs_89 = require('tiny-svg'); */;
+
+var ELEMENT_ID = 'data-element-id';
+
+/**
+ * @class
+ *
+ * A registry that keeps track of all shapes in the diagram.
+ */
+function ElementRegistry(eventBus) {
+  this._elements = {};
+
+  this._eventBus = eventBus;
+}
+
+ElementRegistry.$inject = ['eventBus'];
+
+/**
+ * Register a pair of (element, gfx, (secondaryGfx)).
+ *
+ * @param {djs.model.Base} element
+ * @param {SVGElement} gfx
+ * @param {SVGElement} [secondaryGfx] optional other element to register, too
+ */
+ElementRegistry.prototype.add = function (element, gfx, secondaryGfx) {
+
+  var id = element.id;
+
+  this._validateId(id);
+
+  // associate dom node with element
+  (0, _$indexCjs_89.attr)(gfx, ELEMENT_ID, id);
+
+  if (secondaryGfx) {
+    (0, _$indexCjs_89.attr)(secondaryGfx, ELEMENT_ID, id);
+  }
+
+  this._elements[id] = { element: element, gfx: gfx, secondaryGfx: secondaryGfx };
+};
+
+/**
+ * Removes an element from the registry.
+ *
+ * @param {djs.model.Base} element
+ */
+ElementRegistry.prototype.remove = function (element) {
+  var elements = this._elements,
+      id = element.id || element,
+      container = id && elements[id];
+
+  if (container) {
+
+    // unset element id on gfx
+    (0, _$indexCjs_89.attr)(container.gfx, ELEMENT_ID, '');
+
+    if (container.secondaryGfx) {
+      (0, _$indexCjs_89.attr)(container.secondaryGfx, ELEMENT_ID, '');
+    }
+
+    delete elements[id];
+  }
+};
+
+/**
+ * Update the id of an element
+ *
+ * @param {djs.model.Base} element
+ * @param {String} newId
+ */
+ElementRegistry.prototype.updateId = function (element, newId) {
+
+  this._validateId(newId);
+
+  if (typeof element === 'string') {
+    element = this.get(element);
+  }
+
+  this._eventBus.fire('element.updateId', {
+    element: element,
+    newId: newId
+  });
+
+  var gfx = this.getGraphics(element),
+      secondaryGfx = this.getGraphics(element, true);
+
+  this.remove(element);
+
+  element.id = newId;
+
+  this.add(element, gfx, secondaryGfx);
+};
+
+/**
+ * Return the model element for a given id or graphics.
+ *
+ * @example
+ *
+ * elementRegistry.get('SomeElementId_1');
+ * elementRegistry.get(gfx);
+ *
+ *
+ * @param {String|SVGElement} filter for selecting the element
+ *
+ * @return {djs.model.Base}
+ */
+ElementRegistry.prototype.get = function (filter) {
+  var id;
+
+  if (typeof filter === 'string') {
+    id = filter;
+  } else {
+    id = filter && (0, _$indexCjs_89.attr)(filter, ELEMENT_ID);
+  }
+
+  var container = this._elements[id];
+  return container && container.element;
+};
+
+/**
+ * Return all elements that match a given filter function.
+ *
+ * @param {Function} fn
+ *
+ * @return {Array<djs.model.Base>}
+ */
+ElementRegistry.prototype.filter = function (fn) {
+
+  var filtered = [];
+
+  this.forEach(function (element, gfx) {
+    if (fn(element, gfx)) {
+      filtered.push(element);
+    }
+  });
+
+  return filtered;
+};
+
+/**
+ * Return all rendered model elements.
+ *
+ * @return {Array<djs.model.Base>}
+ */
+ElementRegistry.prototype.getAll = function () {
+  return this.filter(function (e) {
+    return e;
+  });
+};
+
+/**
+ * Iterate over all diagram elements.
+ *
+ * @param {Function} fn
+ */
+ElementRegistry.prototype.forEach = function (fn) {
+
+  var map = this._elements;
+
+  Object.keys(map).forEach(function (id) {
+    var container = map[id],
+        element = container.element,
+        gfx = container.gfx;
+
+    return fn(element, gfx);
+  });
+};
+
+/**
+ * Return the graphical representation of an element or its id.
+ *
+ * @example
+ * elementRegistry.getGraphics('SomeElementId_1');
+ * elementRegistry.getGraphics(rootElement); // <g ...>
+ *
+ * elementRegistry.getGraphics(rootElement, true); // <svg ...>
+ *
+ *
+ * @param {String|djs.model.Base} filter
+ * @param {Boolean} [secondary=false] whether to return the secondary connected element
+ *
+ * @return {SVGElement}
+ */
+ElementRegistry.prototype.getGraphics = function (filter, secondary) {
+  var id = filter.id || filter;
+
+  var container = this._elements[id];
+  return container && (secondary ? container.secondaryGfx : container.gfx);
+};
+
+/**
+ * Validate the suitability of the given id and signals a problem
+ * with an exception.
+ *
+ * @param {String} id
+ *
+ * @throws {Error} if id is empty or already assigned
+ */
+ElementRegistry.prototype._validateId = function (id) {
+  if (!id) {
+    throw new Error('element must have an id');
+  }
+
+  if (this._elements[id]) {
+    throw new Error('element with id ' + id + ' already added');
+  }
+};
+
+var _$EventBus_23 = {};
+'use strict';
+
+Object.defineProperty(_$EventBus_23, "__esModule", {
+  value: true
+});
+
+var ___typeof_23 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+_$EventBus_23.default = EventBus;
+
+/* removed: var _$dist_72 = require('min-dash'); */;
+
+var FN_REF = '__fn';
+
+var DEFAULT_PRIORITY = 1000;
+
+var __slice_23 = Array.prototype.slice;
+
+/**
+ * A general purpose event bus.
+ *
+ * This component is used to communicate across a diagram instance.
+ * Other parts of a diagram can use it to listen to and broadcast events.
+ *
+ *
+ * ## Registering for Events
+ *
+ * The event bus provides the {@link EventBus#on} and {@link EventBus#once}
+ * methods to register for events. {@link EventBus#off} can be used to
+ * remove event registrations. Listeners receive an instance of {@link Event}
+ * as the first argument. It allows them to hook into the event execution.
+ *
+ * ```javascript
+ *
+ * // listen for event
+ * eventBus.on('foo', function(event) {
+ *
+ *   // access event type
+ *   event.type; // 'foo'
+ *
+ *   // stop propagation to other listeners
+ *   event.stopPropagation();
+ *
+ *   // prevent event default
+ *   event.preventDefault();
+ * });
+ *
+ * // listen for event with custom payload
+ * eventBus.on('bar', function(event, payload) {
+ *   console.log(payload);
+ * });
+ *
+ * // listen for event returning value
+ * eventBus.on('foobar', function(event) {
+ *
+ *   // stop event propagation + prevent default
+ *   return false;
+ *
+ *   // stop event propagation + return custom result
+ *   return {
+ *     complex: 'listening result'
+ *   };
+ * });
+ *
+ *
+ * // listen with custom priority (default=1000, higher is better)
+ * eventBus.on('priorityfoo', 1500, function(event) {
+ *   console.log('invoked first!');
+ * });
+ *
+ *
+ * // listen for event and pass the context (`this`)
+ * eventBus.on('foobar', function(event) {
+ *   this.foo();
+ * }, this);
+ * ```
+ *
+ *
+ * ## Emitting Events
+ *
+ * Events can be emitted via the event bus using {@link EventBus#fire}.
+ *
+ * ```javascript
+ *
+ * // false indicates that the default action
+ * // was prevented by listeners
+ * if (eventBus.fire('foo') === false) {
+ *   console.log('default has been prevented!');
+ * };
+ *
+ *
+ * // custom args + return value listener
+ * eventBus.on('sum', function(event, a, b) {
+ *   return a + b;
+ * });
+ *
+ * // you can pass custom arguments + retrieve result values.
+ * var sum = eventBus.fire('sum', 1, 2);
+ * console.log(sum); // 3
+ * ```
+ */
+function EventBus() {
+  this._listeners = {};
+
+  // cleanup on destroy on lowest priority to allow
+  // message passing until the bitter end
+  this.on('diagram.destroy', 1, this._destroy, this);
+}
+
+/**
+ * Register an event listener for events with the given name.
+ *
+ * The callback will be invoked with `event, ...additionalArguments`
+ * that have been passed to {@link EventBus#fire}.
+ *
+ * Returning false from a listener will prevent the events default action
+ * (if any is specified). To stop an event from being processed further in
+ * other listeners execute {@link Event#stopPropagation}.
+ *
+ * Returning anything but `undefined` from a listener will stop the listener propagation.
+ *
+ * @param {String|Array<String>} events
+ * @param {Number} [priority=1000] the priority in which this listener is called, larger is higher
+ * @param {Function} callback
+ * @param {Object} [that] Pass context (`this`) to the callback
+ */
+EventBus.prototype.on = function (events, priority, callback, that) {
+
+  events = (0, _$dist_72.isArray)(events) ? events : [events];
+
+  if ((0, _$dist_72.isFunction)(priority)) {
+    that = callback;
+    callback = priority;
+    priority = DEFAULT_PRIORITY;
+  }
+
+  if (!(0, _$dist_72.isNumber)(priority)) {
+    throw new Error('priority must be a number');
+  }
+
+  var actualCallback = callback;
+
+  if (that) {
+    actualCallback = (0, _$dist_72.bind)(callback, that);
+
+    // make sure we remember and are able to remove
+    // bound callbacks via {@link #off} using the original
+    // callback
+    actualCallback[FN_REF] = callback[FN_REF] || callback;
+  }
+
+  var self = this,
+      listener = { priority: priority, callback: actualCallback };
+
+  events.forEach(function (e) {
+    self._addListener(e, listener);
+  });
+};
+
+/**
+ * Register an event listener that is executed only once.
+ *
+ * @param {String} event the event name to register for
+ * @param {Function} callback the callback to execute
+ * @param {Object} [that] Pass context (`this`) to the callback
+ */
+EventBus.prototype.once = function (event, priority, callback, that) {
+  var self = this;
+
+  if ((0, _$dist_72.isFunction)(priority)) {
+    that = callback;
+    callback = priority;
+    priority = DEFAULT_PRIORITY;
+  }
+
+  if (!(0, _$dist_72.isNumber)(priority)) {
+    throw new Error('priority must be a number');
+  }
+
+  function wrappedCallback() {
+    self.off(event, wrappedCallback);
+    return callback.apply(that, arguments);
+  }
+
+  // make sure we remember and are able to remove
+  // bound callbacks via {@link #off} using the original
+  // callback
+  wrappedCallback[FN_REF] = callback;
+
+  this.on(event, priority, wrappedCallback);
+};
+
+/**
+ * Removes event listeners by event and callback.
+ *
+ * If no callback is given, all listeners for a given event name are being removed.
+ *
+ * @param {String|Array<String>} events
+ * @param {Function} [callback]
+ */
+EventBus.prototype.off = function (events, callback) {
+
+  events = (0, _$dist_72.isArray)(events) ? events : [events];
+
+  var self = this;
+
+  events.forEach(function (event) {
+    self._removeListener(event, callback);
+  });
+};
+
+/**
+ * Create an EventBus event.
+ *
+ * @param {Object} data
+ *
+ * @return {Object} event, recognized by the eventBus
+ */
+EventBus.prototype.createEvent = function (data) {
+  var event = new InternalEvent();
+
+  event.init(data);
+
+  return event;
+};
+
+/**
+ * Fires a named event.
+ *
+ * @example
+ *
+ * // fire event by name
+ * events.fire('foo');
+ *
+ * // fire event object with nested type
+ * var event = { type: 'foo' };
+ * events.fire(event);
+ *
+ * // fire event with explicit type
+ * var event = { x: 10, y: 20 };
+ * events.fire('element.moved', event);
+ *
+ * // pass additional arguments to the event
+ * events.on('foo', function(event, bar) {
+ *   alert(bar);
+ * });
+ *
+ * events.fire({ type: 'foo' }, 'I am bar!');
+ *
+ * @param {String} [name] the optional event name
+ * @param {Object} [event] the event object
+ * @param {...Object} additional arguments to be passed to the callback functions
+ *
+ * @return {Boolean} the events return value, if specified or false if the
+ *                   default action was prevented by listeners
+ */
+EventBus.prototype.fire = function (type, data) {
+
+  var event, listeners, returnValue, args;
+
+  args = __slice_23.call(arguments);
+
+  if ((typeof type === 'undefined' ? 'undefined' : ___typeof_23(type)) === 'object') {
+    event = type;
+    type = event.type;
+  }
+
+  if (!type) {
+    throw new Error('no event type specified');
+  }
+
+  listeners = this._listeners[type];
+
+  if (!listeners) {
+    return;
+  }
+
+  // we make sure we fire instances of our home made
+  // events here. We wrap them only once, though
+  if (data instanceof InternalEvent) {
+    // we are fine, we alread have an event
+    event = data;
+  } else {
+    event = this.createEvent(data);
+  }
+
+  // ensure we pass the event as the first parameter
+  args[0] = event;
+
+  // original event type (in case we delegate)
+  var originalType = event.type;
+
+  // update event type before delegation
+  if (type !== originalType) {
+    event.type = type;
+  }
+
+  try {
+    returnValue = this._invokeListeners(event, args, listeners);
+  } finally {
+    // reset event type after delegation
+    if (type !== originalType) {
+      event.type = originalType;
+    }
+  }
+
+  // set the return value to false if the event default
+  // got prevented and no other return value exists
+  if (returnValue === undefined && event.defaultPrevented) {
+    returnValue = false;
+  }
+
+  return returnValue;
+};
+
+EventBus.prototype.handleError = function (error) {
+  return this.fire('error', { error: error }) === false;
+};
+
+EventBus.prototype._destroy = function () {
+  this._listeners = {};
+};
+
+EventBus.prototype._invokeListeners = function (event, args, listeners) {
+
+  var idx, listener, returnValue;
+
+  for (idx = 0; listener = listeners[idx]; idx++) {
+
+    // handle stopped propagation
+    if (event.cancelBubble) {
+      break;
+    }
+
+    returnValue = this._invokeListener(event, args, listener);
+  }
+
+  return returnValue;
+};
+
+EventBus.prototype._invokeListener = function (event, args, listener) {
+
+  var returnValue;
+
+  try {
+    // returning false prevents the default action
+    returnValue = invokeFunction(listener.callback, args);
+
+    // stop propagation on return value
+    if (returnValue !== undefined) {
+      event.returnValue = returnValue;
+      event.stopPropagation();
+    }
+
+    // prevent default on return false
+    if (returnValue === false) {
+      event.preventDefault();
+    }
+  } catch (e) {
+    if (!this.handleError(e)) {
+      console.error('unhandled error in event listener');
+      console.error(e.stack);
+
+      throw e;
+    }
+  }
+
+  return returnValue;
+};
+
+/*
+ * Add new listener with a certain priority to the list
+ * of listeners (for the given event).
+ *
+ * The semantics of listener registration / listener execution are
+ * first register, first serve: New listeners will always be inserted
+ * after existing listeners with the same priority.
+ *
+ * Example: Inserting two listeners with priority 1000 and 1300
+ *
+ *    * before: [ 1500, 1500, 1000, 1000 ]
+ *    * after: [ 1500, 1500, (new=1300), 1000, 1000, (new=1000) ]
+ *
+ * @param {String} event
+ * @param {Object} listener { priority, callback }
+ */
+EventBus.prototype._addListener = function (event, newListener) {
+
+  var listeners = this._getListeners(event),
+      existingListener,
+      idx;
+
+  // ensure we order listeners by priority from
+  // 0 (high) to n > 0 (low)
+  for (idx = 0; existingListener = listeners[idx]; idx++) {
+    if (existingListener.priority < newListener.priority) {
+
+      // prepend newListener at before existingListener
+      listeners.splice(idx, 0, newListener);
+      return;
+    }
+  }
+
+  listeners.push(newListener);
+};
+
+EventBus.prototype._getListeners = function (name) {
+  var listeners = this._listeners[name];
+
+  if (!listeners) {
+    this._listeners[name] = listeners = [];
+  }
+
+  return listeners;
+};
+
+EventBus.prototype._removeListener = function (event, callback) {
+
+  var listeners = this._getListeners(event),
+      listener,
+      listenerCallback,
+      idx;
+
+  if (callback) {
+
+    // move through listeners from back to front
+    // and remove matching listeners
+    for (idx = listeners.length - 1; listener = listeners[idx]; idx--) {
+      listenerCallback = listener.callback;
+
+      if (listenerCallback === callback || listenerCallback[FN_REF] === callback) {
+        listeners.splice(idx, 1);
+      }
+    }
+  } else {
+    // clear listeners
+    listeners.length = 0;
+  }
+};
+
+/**
+ * A event that is emitted via the event bus.
+ */
+function InternalEvent() {}
+
+InternalEvent.prototype.stopPropagation = function () {
+  this.cancelBubble = true;
+};
+
+InternalEvent.prototype.preventDefault = function () {
+  this.defaultPrevented = true;
+};
+
+InternalEvent.prototype.init = function (data) {
+  (0, _$dist_72.assign)(this, data || {});
+};
+
+/**
+ * Invoke function. Be fast...
+ *
+ * @param {Function} fn
+ * @param {Array<Object>} args
+ *
+ * @return {Any}
+ */
+function invokeFunction(fn, args) {
+  return fn.apply(null, args);
+}
+
+var _$GraphicsUtil_51 = {};
+'use strict';
+
+Object.defineProperty(_$GraphicsUtil_51, "__esModule", {
+  value: true
+});
+_$GraphicsUtil_51.getVisual = getVisual;
+_$GraphicsUtil_51.getChildren = getChildren;
+
+/* removed: var _$dist_73 = require('min-dom'); */;
+
+/**
+ * SVGs for elements are generated by the {@link GraphicsFactory}.
+ *
+ * This utility gives quick access to the important semantic
+ * parts of an element.
+ */
+
+/**
+ * Returns the visual part of a diagram element
+ *
+ * @param {Snap<SVGElement>} gfx
+ *
+ * @return {Snap<SVGElement>}
+ */
+function getVisual(gfx) {
+  return (0, _$dist_73.query)('.djs-visual', gfx);
+}
+
+/**
+ * Returns the children for a given diagram element.
+ *
+ * @param {Snap<SVGElement>} gfx
+ * @return {Snap<SVGElement>}
+ */
+function getChildren(gfx) {
+  return gfx.parentNode.childNodes[1];
+}
+
+var _$GraphicsFactory_24 = {};
+'use strict';
+
+Object.defineProperty(_$GraphicsFactory_24, "__esModule", {
+  value: true
+});
+_$GraphicsFactory_24.default = GraphicsFactory;
+
+/* removed: var _$dist_72 = require('min-dash'); */;
+
+/* removed: var _$GraphicsUtil_51 = require('../util/GraphicsUtil'); */;
+
+/* removed: var _$SvgTransformUtil_58 = require('../util/SvgTransformUtil'); */;
+
+/* removed: var _$dist_73 = require('min-dom'); */;
+
+/* removed: var _$indexCjs_89 = require('tiny-svg'); */;
+
+/**
+ * A factory that creates graphical elements
+ *
+ * @param {EventBus} eventBus
+ * @param {ElementRegistry} elementRegistry
+ */
+function GraphicsFactory(eventBus, elementRegistry) {
+  this._eventBus = eventBus;
+  this._elementRegistry = elementRegistry;
+}
+
+GraphicsFactory.$inject = ['eventBus', 'elementRegistry'];
+
+GraphicsFactory.prototype._getChildren = function (element) {
+
+  var gfx = this._elementRegistry.getGraphics(element);
+
+  var childrenGfx;
+
+  // root element
+  if (!element.parent) {
+    childrenGfx = gfx;
+  } else {
+    childrenGfx = (0, _$GraphicsUtil_51.getChildren)(gfx);
+    if (!childrenGfx) {
+      childrenGfx = (0, _$indexCjs_89.create)('g');
+      (0, _$indexCjs_89.classes)(childrenGfx).add('djs-children');
+
+      (0, _$indexCjs_89.append)(gfx.parentNode, childrenGfx);
+    }
+  }
+
+  return childrenGfx;
+};
+
+/**
+ * Clears the graphical representation of the element and returns the
+ * cleared visual (the <g class="djs-visual" /> element).
+ */
+GraphicsFactory.prototype._clear = function (gfx) {
+  var visual = (0, _$GraphicsUtil_51.getVisual)(gfx);
+
+  (0, _$dist_73.clear)(visual);
+
+  return visual;
+};
+
+/**
+ * Creates a gfx container for shapes and connections
+ *
+ * The layout is as follows:
+ *
+ * <g class="djs-group">
+ *
+ *   <!-- the gfx -->
+ *   <g class="djs-element djs-(shape|connection)">
+ *     <g class="djs-visual">
+ *       <!-- the renderer draws in here -->
+ *     </g>
+ *
+ *     <!-- extensions (overlays, click box, ...) goes here
+ *   </g>
+ *
+ *   <!-- the gfx child nodes -->
+ *   <g class="djs-children"></g>
+ * </g>
+ *
+ * @param {Object} parent
+ * @param {String} type the type of the element, i.e. shape | connection
+ * @param {Number} [parentIndex] position to create container in parent
+ */
+GraphicsFactory.prototype._createContainer = function (type, childrenGfx, parentIndex) {
+  var outerGfx = (0, _$indexCjs_89.create)('g');
+  (0, _$indexCjs_89.classes)(outerGfx).add('djs-group');
+
+  // insert node at position
+  if (typeof parentIndex !== 'undefined') {
+    prependTo(outerGfx, childrenGfx, childrenGfx.childNodes[parentIndex]);
+  } else {
+    (0, _$indexCjs_89.append)(childrenGfx, outerGfx);
+  }
+
+  var gfx = (0, _$indexCjs_89.create)('g');
+  (0, _$indexCjs_89.classes)(gfx).add('djs-element');
+  (0, _$indexCjs_89.classes)(gfx).add('djs-' + type);
+
+  (0, _$indexCjs_89.append)(outerGfx, gfx);
+
+  // create visual
+  var visual = (0, _$indexCjs_89.create)('g');
+  (0, _$indexCjs_89.classes)(visual).add('djs-visual');
+
+  (0, _$indexCjs_89.append)(gfx, visual);
+
+  return gfx;
+};
+
+GraphicsFactory.prototype.create = function (type, element, parentIndex) {
+  var childrenGfx = this._getChildren(element.parent);
+  return this._createContainer(type, childrenGfx, parentIndex);
+};
+
+GraphicsFactory.prototype.updateContainments = function (elements) {
+
+  var self = this,
+      elementRegistry = this._elementRegistry,
+      parents;
+
+  parents = (0, _$dist_72.reduce)(elements, function (map, e) {
+
+    if (e.parent) {
+      map[e.parent.id] = e.parent;
+    }
+
+    return map;
+  }, {});
+
+  // update all parents of changed and reorganized their children
+  // in the correct order (as indicated in our model)
+  (0, _$dist_72.forEach)(parents, function (parent) {
+
+    var children = parent.children;
+
+    if (!children) {
+      return;
+    }
+
+    var childGfx = self._getChildren(parent);
+
+    (0, _$dist_72.forEach)(children.slice().reverse(), function (c) {
+      var gfx = elementRegistry.getGraphics(c);
+
+      prependTo(gfx.parentNode, childGfx);
+    });
+  });
+};
+
+GraphicsFactory.prototype.drawShape = function (visual, element) {
+  var eventBus = this._eventBus;
+
+  return eventBus.fire('render.shape', { gfx: visual, element: element });
+};
+
+GraphicsFactory.prototype.getShapePath = function (element) {
+  var eventBus = this._eventBus;
+
+  return eventBus.fire('render.getShapePath', element);
+};
+
+GraphicsFactory.prototype.drawConnection = function (visual, element) {
+  var eventBus = this._eventBus;
+
+  return eventBus.fire('render.connection', { gfx: visual, element: element });
+};
+
+GraphicsFactory.prototype.getConnectionPath = function (waypoints) {
+  var eventBus = this._eventBus;
+
+  return eventBus.fire('render.getConnectionPath', waypoints);
+};
+
+GraphicsFactory.prototype.update = function (type, element, gfx) {
+  // Do not update root element
+  if (!element.parent) {
+    return;
+  }
+
+  var visual = this._clear(gfx);
+
+  // redraw
+  if (type === 'shape') {
+    this.drawShape(visual, element);
+
+    // update positioning
+    (0, _$SvgTransformUtil_58.translate)(gfx, element.x, element.y);
+  } else if (type === 'connection') {
+    this.drawConnection(visual, element);
+  } else {
+    throw new Error('unknown type: ' + type);
+  }
+
+  if (element.hidden) {
+    (0, _$indexCjs_89.attr)(gfx, 'display', 'none');
+  } else {
+    (0, _$indexCjs_89.attr)(gfx, 'display', 'block');
+  }
+};
+
+GraphicsFactory.prototype.remove = function (element) {
+  var gfx = this._elementRegistry.getGraphics(element);
+
+  // remove
+  (0, _$indexCjs_89.remove)(gfx.parentNode);
+};
+
+// helpers //////////////////////
+
+function prependTo(newNode, parentNode, siblingNode) {
+  parentNode.insertBefore(newNode, siblingNode || parentNode.firstChild);
+}
+
+var _$DefaultRenderer_27 = {};
+'use strict';
+
+Object.defineProperty(_$DefaultRenderer_27, "__esModule", {
+  value: true
+});
+_$DefaultRenderer_27.default = DefaultRenderer;
+
+/* removed: var _$inherits_browser_71 = require('inherits'); */;
+
+var ___inherits2_27 = ___interopRequireDefault_27(_$inherits_browser_71);
+
+/* removed: var _$BaseRenderer_26 = require('./BaseRenderer'); */;
+
+var _BaseRenderer2 = ___interopRequireDefault_27(_$BaseRenderer_26);
+
+/* removed: var _$RenderUtil_57 = require('../util/RenderUtil'); */;
+
+/* removed: var _$indexCjs_89 = require('tiny-svg'); */;
+
+function ___interopRequireDefault_27(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// apply default renderer with lowest possible priority
+// so that it only kicks in if noone else could render
+var __DEFAULT_RENDER_PRIORITY_27 = 1;
+
+/**
+ * The default renderer used for shapes and connections.
+ *
+ * @param {EventBus} eventBus
+ * @param {Styles} styles
+ */
+function DefaultRenderer(eventBus, styles) {
+  //
+  _BaseRenderer2.default.call(this, eventBus, __DEFAULT_RENDER_PRIORITY_27);
+
+  this.CONNECTION_STYLE = styles.style(['no-fill'], { strokeWidth: 5, stroke: 'fuchsia' });
+  this.SHAPE_STYLE = styles.style({ fill: 'white', stroke: 'fuchsia', strokeWidth: 2 });
+}
+
+(0, ___inherits2_27.default)(DefaultRenderer, _BaseRenderer2.default);
+
+DefaultRenderer.prototype.canRender = function () {
+  return true;
+};
+
+DefaultRenderer.prototype.drawShape = function drawShape(visuals, element) {
+
+  var rect = (0, _$indexCjs_89.create)('rect');
+  (0, _$indexCjs_89.attr)(rect, {
+    x: 0,
+    y: 0,
+    width: element.width || 0,
+    height: element.height || 0
+  });
+  (0, _$indexCjs_89.attr)(rect, this.SHAPE_STYLE);
+
+  (0, _$indexCjs_89.append)(visuals, rect);
+
+  return rect;
+};
+
+DefaultRenderer.prototype.drawConnection = function drawConnection(visuals, connection) {
+
+  var line = (0, _$RenderUtil_57.createLine)(connection.waypoints, this.CONNECTION_STYLE);
+  (0, _$indexCjs_89.append)(visuals, line);
+
+  return line;
+};
+
+DefaultRenderer.prototype.getShapePath = function getShapePath(shape) {
+
+  var x = shape.x,
+      y = shape.y,
+      width = shape.width,
+      height = shape.height;
+
+  var shapePath = [['M', x, y], ['l', width, 0], ['l', 0, height], ['l', -width, 0], ['z']];
+
+  return (0, _$RenderUtil_57.componentsToPath)(shapePath);
+};
+
+DefaultRenderer.prototype.getConnectionPath = function getConnectionPath(connection) {
+  var waypoints = connection.waypoints;
+
+  var idx,
+      point,
+      connectionPath = [];
+
+  for (idx = 0; point = waypoints[idx]; idx++) {
+
+    // take invisible docking into account
+    // when creating the path
+    point = point.original || point;
+
+    connectionPath.push([idx === 0 ? 'M' : 'L', point.x, point.y]);
+  }
+
+  return (0, _$RenderUtil_57.componentsToPath)(connectionPath);
+};
+
+DefaultRenderer.$inject = ['eventBus', 'styles'];
+
+var _$Styles_28 = {};
+'use strict';
+
+Object.defineProperty(_$Styles_28, "__esModule", {
+  value: true
+});
+_$Styles_28.default = Styles;
+
+/* removed: var _$dist_72 = require('min-dash'); */;
+
+/**
+ * A component that manages shape styles
+ */
+function Styles() {
+
+  var defaultTraits = {
+
+    'no-fill': {
+      fill: 'none'
+    },
+    'no-border': {
+      strokeOpacity: 0.0
+    },
+    'no-events': {
+      pointerEvents: 'none'
+    }
+  };
+
+  var self = this;
+
+  /**
+   * Builds a style definition from a className, a list of traits and an object of additional attributes.
+   *
+   * @param  {String} className
+   * @param  {Array<String>} traits
+   * @param  {Object} additionalAttrs
+   *
+   * @return {Object} the style defintion
+   */
+  this.cls = function (className, traits, additionalAttrs) {
+    var attrs = this.style(traits, additionalAttrs);
+
+    return (0, _$dist_72.assign)(attrs, { 'class': className });
+  };
+
+  /**
+   * Builds a style definition from a list of traits and an object of additional attributes.
+   *
+   * @param  {Array<String>} traits
+   * @param  {Object} additionalAttrs
+   *
+   * @return {Object} the style defintion
+   */
+  this.style = function (traits, additionalAttrs) {
+
+    if (!(0, _$dist_72.isArray)(traits) && !additionalAttrs) {
+      additionalAttrs = traits;
+      traits = [];
+    }
+
+    var attrs = (0, _$dist_72.reduce)(traits, function (attrs, t) {
+      return (0, _$dist_72.assign)(attrs, defaultTraits[t] || {});
+    }, {});
+
+    return additionalAttrs ? (0, _$dist_72.assign)(attrs, additionalAttrs) : attrs;
+  };
+
+  this.computeStyle = function (custom, traits, defaultStyles) {
+    if (!(0, _$dist_72.isArray)(traits)) {
+      defaultStyles = traits;
+      traits = [];
+    }
+
+    return self.style(traits || [], (0, _$dist_72.assign)({}, defaultStyles, custom || {}));
+  };
+}
+
+var _$draw_29 = {};
+'use strict';
+
+Object.defineProperty(_$draw_29, "__esModule", {
+  value: true
+});
+
+/* removed: var _$DefaultRenderer_27 = require('./DefaultRenderer'); */;
+
+var _DefaultRenderer2 = ___interopRequireDefault_29(_$DefaultRenderer_27);
+
+/* removed: var _$Styles_28 = require('./Styles'); */;
+
+var _Styles2 = ___interopRequireDefault_29(_$Styles_28);
+
+function ___interopRequireDefault_29(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_$draw_29.default = {
+  __init__: ['defaultRenderer'],
+  defaultRenderer: ['type', _DefaultRenderer2.default],
+  styles: ['type', _Styles2.default]
+};
+
+var _$core_25 = {};
+'use strict';
+
+Object.defineProperty(_$core_25, "__esModule", {
+  value: true
+});
+
+/* removed: var _$draw_29 = require('../draw'); */;
+
+var _draw2 = ___interopRequireDefault_25(_$draw_29);
+
+/* removed: var _$Canvas_20 = require('./Canvas'); */;
+
+var _Canvas2 = ___interopRequireDefault_25(_$Canvas_20);
+
+/* removed: var _$ElementRegistry_22 = require('./ElementRegistry'); */;
+
+var _ElementRegistry2 = ___interopRequireDefault_25(_$ElementRegistry_22);
+
+/* removed: var _$ElementFactory_21 = require('./ElementFactory'); */;
+
+var _ElementFactory2 = ___interopRequireDefault_25(_$ElementFactory_21);
+
+/* removed: var _$EventBus_23 = require('./EventBus'); */;
+
+var _EventBus2 = ___interopRequireDefault_25(_$EventBus_23);
+
+/* removed: var _$GraphicsFactory_24 = require('./GraphicsFactory'); */;
+
+var _GraphicsFactory2 = ___interopRequireDefault_25(_$GraphicsFactory_24);
+
+function ___interopRequireDefault_25(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_$core_25.default = {
+  __depends__: [_draw2.default],
+  __init__: ['canvas'],
+  canvas: ['type', _Canvas2.default],
+  elementRegistry: ['type', _ElementRegistry2.default],
+  elementFactory: ['type', _ElementFactory2.default],
+  eventBus: ['type', _EventBus2.default],
+  graphicsFactory: ['type', _GraphicsFactory2.default]
+};
+
+var _$dist_70 = {};
+'use strict';
+
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+Object.defineProperty(_$dist_70, '__esModule', { value: true });
+
+var CLASS_PATTERN = /^class /;
+
+function isClass(fn) {
+  return CLASS_PATTERN.test(fn.toString());
+}
+
+function __isArray_70(obj) {
+  return Object.prototype.toString.call(obj) === '[object Array]';
+}
+
+function annotate() {
+  var args = Array.prototype.slice.call(arguments);
+
+  if (args.length === 1 && __isArray_70(args[0])) {
+    args = args[0];
+  }
+
+  var fn = args.pop();
+
+  fn.$inject = args;
+
+  return fn;
+}
+
+// Current limitations:
+// - can't put into "function arg" comments
+// function /* (no parenthesis like this) */ (){}
+// function abc( /* xx (no parenthesis like this) */ a, b) {}
+//
+// Just put the comment before function or inside:
+// /* (((this is fine))) */ function(a, b) {}
+// function abc(a) { /* (((this is fine))) */}
+//
+// - can't reliably auto-annotate constructor; we'll match the
+// first constructor(...) pattern found which may be the one
+// of a nested class, too.
+
+var CONSTRUCTOR_ARGS = /constructor\s*[^(]*\(\s*([^)]*)\)/m;
+var FN_ARGS = /^function\s*[^(]*\(\s*([^)]*)\)/m;
+var FN_ARG = /\/\*([^*]*)\*\//m;
+
+function __parse_70(fn) {
+
+  if (typeof fn !== 'function') {
+    throw new Error('Cannot annotate "' + fn + '". Expected a function!');
+  }
+
+  var match = fn.toString().match(isClass(fn) ? CONSTRUCTOR_ARGS : FN_ARGS);
+
+  // may parse class without constructor
+  if (!match) {
+    return [];
+  }
+
+  return match[1] && match[1].split(',').map(function (arg) {
+    match = arg.match(FN_ARG);
+    return match ? match[1].trim() : arg.trim();
+  }) || [];
+}
+
+function Module() {
+  var providers = [];
+
+  this.factory = function (name, factory) {
+    providers.push([name, 'factory', factory]);
+    return this;
+  };
+
+  this.value = function (name, value) {
+    providers.push([name, 'value', value]);
+    return this;
+  };
+
+  this.type = function (name, type) {
+    providers.push([name, 'type', type]);
+    return this;
+  };
+
+  this.forEach = function (iterator) {
+    providers.forEach(iterator);
+  };
+}
+
+var ___typeof_70 = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
+  return typeof obj === 'undefined' ? 'undefined' : _typeof2(obj);
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === 'undefined' ? 'undefined' : _typeof2(obj);
+};
+
+function ___toConsumableArray_70(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }return arr2;
+  } else {
+    return Array.from(arr);
+  }
+}
+
+function Injector(modules, parent) {
+  parent = parent || {
+    get: function get(name, strict) {
+      currentlyResolving.push(name);
+
+      if (strict === false) {
+        return null;
+      } else {
+        throw error('No provider for "' + name + '"!');
+      }
+    }
+  };
+
+  var currentlyResolving = [];
+  var providers = this._providers = Object.create(parent._providers || null);
+  var instances = this._instances = Object.create(null);
+
+  var self = instances.injector = this;
+
+  var error = function error(msg) {
+    var stack = currentlyResolving.join(' -> ');
+    currentlyResolving.length = 0;
+    return new Error(stack ? msg + ' (Resolving: ' + stack + ')' : msg);
+  };
+
+  /**
+   * Return a named service.
+   *
+   * @param {String} name
+   * @param {Boolean} [strict=true] if false, resolve missing services to null
+   *
+   * @return {Object}
+   */
+  var get = function get(name, strict) {
+    if (!providers[name] && name.indexOf('.') !== -1) {
+      var parts = name.split('.');
+      var pivot = get(parts.shift());
+
+      while (parts.length) {
+        pivot = pivot[parts.shift()];
+      }
+
+      return pivot;
+    }
+
+    if (hasProp(instances, name)) {
+      return instances[name];
+    }
+
+    if (hasProp(providers, name)) {
+      if (currentlyResolving.indexOf(name) !== -1) {
+        currentlyResolving.push(name);
+        throw error('Cannot resolve circular dependency!');
+      }
+
+      currentlyResolving.push(name);
+      instances[name] = providers[name][0](providers[name][1]);
+      currentlyResolving.pop();
+
+      return instances[name];
+    }
+
+    return parent.get(name, strict);
+  };
+
+  var fnDef = function fnDef(fn) {
+    var locals = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    if (typeof fn !== 'function') {
+      if (__isArray_70(fn)) {
+        fn = annotate(fn.slice());
+      } else {
+        throw new Error('Cannot invoke "' + fn + '". Expected a function!');
+      }
+    }
+
+    var inject = fn.$inject || __parse_70(fn);
+    var dependencies = inject.map(function (dep) {
+      if (hasProp(locals, dep)) {
+        return locals[dep];
+      } else {
+        return get(dep);
+      }
+    });
+
+    return {
+      fn: fn,
+      dependencies: dependencies
+    };
+  };
+
+  var instantiate = function instantiate(Type) {
+    var _fnDef = fnDef(Type),
+        dependencies = _fnDef.dependencies,
+        fn = _fnDef.fn;
+
+    return new (Function.prototype.bind.apply(fn, [null].concat(___toConsumableArray_70(dependencies))))();
+  };
+
+  var invoke = function invoke(func, context, locals) {
+    var _fnDef2 = fnDef(func, locals),
+        dependencies = _fnDef2.dependencies,
+        fn = _fnDef2.fn;
+
+    return fn.call.apply(fn, [context].concat(___toConsumableArray_70(dependencies)));
+  };
+
+  var createPrivateInjectorFactory = function createPrivateInjectorFactory(privateChildInjector) {
+    return annotate(function (key) {
+      return privateChildInjector.get(key);
+    });
+  };
+
+  var createChild = function createChild(modules, forceNewInstances) {
+    if (forceNewInstances && forceNewInstances.length) {
+      var fromParentModule = Object.create(null);
+      var matchedScopes = Object.create(null);
+
+      var privateInjectorsCache = [];
+      var privateChildInjectors = [];
+      var privateChildFactories = [];
+
+      var provider;
+      var cacheIdx;
+      var privateChildInjector;
+      var privateChildInjectorFactory;
+      for (var name in providers) {
+        provider = providers[name];
+
+        if (forceNewInstances.indexOf(name) !== -1) {
+          if (provider[2] === 'private') {
+            cacheIdx = privateInjectorsCache.indexOf(provider[3]);
+            if (cacheIdx === -1) {
+              privateChildInjector = provider[3].createChild([], forceNewInstances);
+              privateChildInjectorFactory = createPrivateInjectorFactory(privateChildInjector);
+              privateInjectorsCache.push(provider[3]);
+              privateChildInjectors.push(privateChildInjector);
+              privateChildFactories.push(privateChildInjectorFactory);
+              fromParentModule[name] = [privateChildInjectorFactory, name, 'private', privateChildInjector];
+            } else {
+              fromParentModule[name] = [privateChildFactories[cacheIdx], name, 'private', privateChildInjectors[cacheIdx]];
+            }
+          } else {
+            fromParentModule[name] = [provider[2], provider[1]];
+          }
+          matchedScopes[name] = true;
+        }
+
+        if ((provider[2] === 'factory' || provider[2] === 'type') && provider[1].$scope) {
+          /* jshint -W083 */
+          forceNewInstances.forEach(function (scope) {
+            if (provider[1].$scope.indexOf(scope) !== -1) {
+              fromParentModule[name] = [provider[2], provider[1]];
+              matchedScopes[scope] = true;
+            }
+          });
+        }
+      }
+
+      forceNewInstances.forEach(function (scope) {
+        if (!matchedScopes[scope]) {
+          throw new Error('No provider for "' + scope + '". Cannot use provider from the parent!');
+        }
+      });
+
+      modules.unshift(fromParentModule);
+    }
+
+    return new Injector(modules, self);
+  };
+
+  var factoryMap = {
+    factory: invoke,
+    type: instantiate,
+    value: function value(_value) {
+      return _value;
+    }
+  };
+
+  modules.forEach(function (module) {
+
+    function arrayUnwrap(type, value) {
+      if (type !== 'value' && __isArray_70(value)) {
+        value = annotate(value.slice());
+      }
+
+      return value;
+    }
+
+    // TODO(vojta): handle wrong inputs (modules)
+    if (module instanceof Module) {
+      module.forEach(function (provider) {
+        var name = provider[0];
+        var type = provider[1];
+        var value = provider[2];
+
+        providers[name] = [factoryMap[type], arrayUnwrap(type, value), type];
+      });
+    } else if ((typeof module === 'undefined' ? 'undefined' : ___typeof_70(module)) === 'object') {
+      if (module.__exports__) {
+        var clonedModule = Object.keys(module).reduce(function (m, key) {
+          if (key.substring(0, 2) !== '__') {
+            m[key] = module[key];
+          }
+          return m;
+        }, Object.create(null));
+
+        var privateInjector = new Injector((module.__modules__ || []).concat([clonedModule]), self);
+        var getFromPrivateInjector = annotate(function (key) {
+          return privateInjector.get(key);
+        });
+        module.__exports__.forEach(function (key) {
+          providers[key] = [getFromPrivateInjector, key, 'private', privateInjector];
+        });
+      } else {
+        Object.keys(module).forEach(function (name) {
+          if (module[name][2] === 'private') {
+            providers[name] = module[name];
+            return;
+          }
+
+          var type = module[name][0];
+          var value = module[name][1];
+
+          providers[name] = [factoryMap[type], arrayUnwrap(type, value), type];
+        });
+      }
+    }
+  });
+
+  // public API
+  this.get = get;
+  this.invoke = invoke;
+  this.instantiate = instantiate;
+  this.createChild = createChild;
+}
+
+// helpers /////////////////
+
+function hasProp(obj, prop) {
+  return Object.hasOwnProperty.call(obj, prop);
+}
+
+_$dist_70.annotate = annotate;
+_$dist_70.Module = Module;
+_$dist_70.Injector = Injector;
+
+var _$Diagram_19 = {};
+'use strict';
+
+Object.defineProperty(_$Diagram_19, "__esModule", {
+  value: true
+});
+_$Diagram_19.default = Diagram;
+
+/* removed: var _$dist_70 = require('didi'); */;
+
+/* removed: var _$core_25 = require('./core'); */;
+
+var _core2 = ___interopRequireDefault_19(_$core_25);
+
+function ___interopRequireDefault_19(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Bootstrap an injector from a list of modules, instantiating a number of default components
+ *
+ * @ignore
+ * @param {Array<didi.Module>} bootstrapModules
+ *
+ * @return {didi.Injector} a injector to use to access the components
+ */
+function bootstrap(bootstrapModules) {
+
+  var modules = [],
+      components = [];
+
+  function hasModule(m) {
+    return modules.indexOf(m) >= 0;
+  }
+
+  function addModule(m) {
+    modules.push(m);
+  }
+
+  function visit(m) {
+    if (hasModule(m)) {
+      return;
+    }
+
+    (m.__depends__ || []).forEach(visit);
+
+    if (hasModule(m)) {
+      return;
+    }
+
+    addModule(m);
+
+    (m.__init__ || []).forEach(function (c) {
+      components.push(c);
+    });
+  }
+
+  bootstrapModules.forEach(visit);
+
+  var injector = new _$dist_70.Injector(modules);
+
+  components.forEach(function (c) {
+
+    try {
+      // eagerly resolve component (fn or string)
+      injector[typeof c === 'string' ? 'get' : 'invoke'](c);
+    } catch (e) {
+      console.error('Failed to instantiate component');
+      console.error(e.stack);
+
+      throw e;
+    }
+  });
+
+  return injector;
+}
+
+/**
+ * Creates an injector from passed options.
+ *
+ * @ignore
+ * @param  {Object} options
+ * @return {didi.Injector}
+ */
+function createInjector(options) {
+
+  options = options || {};
+
+  var configModule = {
+    'config': ['value', options]
+  };
+
+  var modules = [configModule, _core2.default].concat(options.modules || []);
+
+  return bootstrap(modules);
+}
+
+/**
+ * The main diagram-js entry point that bootstraps the diagram with the given
+ * configuration.
+ *
+ * To register extensions with the diagram, pass them as Array<didi.Module> to the constructor.
+ *
+ * @class djs.Diagram
+ * @memberOf djs
+ * @constructor
+ *
+ * @example
+ *
+ * <caption>Creating a plug-in that logs whenever a shape is added to the canvas.</caption>
+ *
+ * // plug-in implemenentation
+ * function MyLoggingPlugin(eventBus) {
+ *   eventBus.on('shape.added', function(event) {
+ *     console.log('shape ', event.shape, ' was added to the diagram');
+ *   });
+ * }
+ *
+ * // export as module
+ * export default {
+ *   __init__: [ 'myLoggingPlugin' ],
+ *     myLoggingPlugin: [ 'type', MyLoggingPlugin ]
+ * };
+ *
+ *
+ * // instantiate the diagram with the new plug-in
+ *
+ * import MyLoggingModule from 'path-to-my-logging-plugin';
+ *
+ * var diagram = new Diagram({
+ *   modules: [
+ *     MyLoggingModule
+ *   ]
+ * });
+ *
+ * diagram.invoke([ 'canvas', function(canvas) {
+ *   // add shape to drawing canvas
+ *   canvas.addShape({ x: 10, y: 10 });
+ * });
+ *
+ * // 'shape ... was added to the diagram' logged to console
+ *
+ * @param {Object} options
+ * @param {Array<didi.Module>} [options.modules] external modules to instantiate with the diagram
+ * @param {didi.Injector} [injector] an (optional) injector to bootstrap the diagram with
+ */
+function Diagram(options, injector) {
+
+  // create injector unless explicitly specified
+  this.injector = injector = injector || createInjector(options);
+
+  // API
+
+  /**
+   * Resolves a diagram service
+   *
+   * @method Diagram#get
+   *
+   * @param {String} name the name of the diagram service to be retrieved
+   * @param {Boolean} [strict=true] if false, resolve missing services to null
+   */
+  this.get = injector.get;
+
+  /**
+   * Executes a function into which diagram services are injected
+   *
+   * @method Diagram#invoke
+   *
+   * @param {Function|Object[]} fn the function to resolve
+   * @param {Object} locals a number of locals to use to resolve certain dependencies
+   */
+  this.invoke = injector.invoke;
+
+  // init
+
+  // indicate via event
+
+
+  /**
+   * An event indicating that all plug-ins are loaded.
+   *
+   * Use this event to fire other events to interested plug-ins
+   *
+   * @memberOf Diagram
+   *
+   * @event diagram.init
+   *
+   * @example
+   *
+   * eventBus.on('diagram.init', function() {
+   *   eventBus.fire('my-custom-event', { foo: 'BAR' });
+   * });
+   *
+   * @type {Object}
+   */
+  this.get('eventBus').fire('diagram.init');
+}
+
+/**
+ * Destroys the diagram
+ *
+ * @method  Diagram#destroy
+ */
+Diagram.prototype.destroy = function () {
+  this.get('eventBus').fire('diagram.destroy');
+};
+
+/**
+ * Clear the diagram, removing all contents.
+ */
+Diagram.prototype.clear = function () {
+  this.get('eventBus').fire('diagram.clear');
+};
+
+'use strict';
+
+var _$diagramJs_18 = _$Diagram_19;
+
+var _$IdGenerator_52 = {};
+'use strict';
+
+Object.defineProperty(_$IdGenerator_52, "__esModule", {
+  value: true
+});
+_$IdGenerator_52.default = IdGenerator;
+/**
+ * Util that provides unique IDs.
+ *
+ * @class djs.util.IdGenerator
+ * @constructor
+ * @memberOf djs.util
+ *
+ * The ids can be customized via a given prefix and contain a random value to avoid collisions.
+ *
+ * @param {String} prefix a prefix to prepend to generated ids (for better readability)
+ */
+function IdGenerator(prefix) {
+
+  this._counter = 0;
+  this._prefix = (prefix ? prefix + '-' : '') + Math.floor(Math.random() * 1000000000) + '-';
+}
+
+/**
+ * Returns a next unique ID.
+ *
+ * @method djs.util.IdGenerator#next
+ *
+ * @returns {String} the id
+ */
+IdGenerator.prototype.next = function () {
+  return this._prefix + ++this._counter;
+};
+
+var _$Overlays_34 = {};
+'use strict';
+
+Object.defineProperty(_$Overlays_34, "__esModule", {
+  value: true
+});
+_$Overlays_34.default = Overlays;
+
+/* removed: var _$dist_72 = require('min-dash'); */;
+
+/* removed: var _$dist_73 = require('min-dom'); */;
+
+/* removed: var _$Elements_49 = require('../../util/Elements'); */;
+
+/* removed: var _$IdGenerator_52 = require('../../util/IdGenerator'); */;
+
+var _IdGenerator2 = ___interopRequireDefault_34(_$IdGenerator_52);
+
+function ___interopRequireDefault_34(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// document wide unique overlay ids
+var ids = new _IdGenerator2.default('ov');
+
+var LOW_PRIORITY = 500;
+
+function createRoot(parent) {
+  var root = (0, _$dist_73.domify)('<div class="djs-overlay-container" style="position: absolute; width: 0; height: 0;" />');
+  parent.insertBefore(root, parent.firstChild);
+
+  return root;
+}
+
+function setPosition(el, x, y) {
+  (0, _$dist_72.assign)(el.style, { left: x + 'px', top: y + 'px' });
+}
+
+function setVisible(el, visible) {
+  el.style.display = visible === false ? 'none' : '';
+}
+
+function setTransform(el, transform) {
+
+  el.style['transform-origin'] = 'top left';
+
+  ['', '-ms-', '-webkit-'].forEach(function (prefix) {
+    el.style[prefix + 'transform'] = transform;
+  });
+}
+
+function isDef(o) {
+  return typeof o !== 'undefined';
+}
+
+/**
+ * A service that allows users to attach overlays to diagram elements.
+ *
+ * The overlay service will take care of overlay positioning during updates.
+ *
+ * @example
+ *
+ * // add a pink badge on the top left of the shape
+ * overlays.add(someShape, {
+ *   position: {
+ *     top: -5,
+ *     left: -5
+ *   },
+ *   html: '<div style="width: 10px; background: fuchsia; color: white;">0</div>'
+ * });
+ *
+ * // or add via shape id
+ *
+ * overlays.add('some-element-id', {
+ *   position: {
+ *     top: -5,
+ *     left: -5
+ *   }
+ *   html: '<div style="width: 10px; background: fuchsia; color: white;">0</div>'
+ * });
+ *
+ * // or add with optional type
+ *
+ * overlays.add(someShape, 'badge', {
+ *   position: {
+ *     top: -5,
+ *     left: -5
+ *   }
+ *   html: '<div style="width: 10px; background: fuchsia; color: white;">0</div>'
+ * });
+ *
+ *
+ * // remove an overlay
+ *
+ * var id = overlays.add(...);
+ * overlays.remove(id);
+ *
+ *
+ * You may configure overlay defaults during tool by providing a `config` module
+ * with `overlays.defaults` as an entry:
+ *
+ * {
+ *   overlays: {
+ *     defaults: {
+ *       show: {
+ *         minZoom: 0.7,
+ *         maxZoom: 5.0
+ *       },
+ *       scale: {
+ *         min: 1
+ *       }
+ *     }
+ * }
+ *
+ * @param {Object} config
+ * @param {EventBus} eventBus
+ * @param {Canvas} canvas
+ * @param {ElementRegistry} elementRegistry
+ */
+function Overlays(config, eventBus, canvas, elementRegistry) {
+
+  this._eventBus = eventBus;
+  this._canvas = canvas;
+  this._elementRegistry = elementRegistry;
+
+  this._ids = ids;
+
+  this._overlayDefaults = (0, _$dist_72.assign)({
+    // no show constraints
+    show: null,
+
+    // always scale
+    scale: true
+  }, config && config.defaults);
+
+  /**
+   * Mapping overlayId -> overlay
+   */
+  this._overlays = {};
+
+  /**
+   * Mapping elementId -> overlay container
+   */
+  this._overlayContainers = [];
+
+  // root html element for all overlays
+  this._overlayRoot = createRoot(canvas.getContainer());
+
+  this._init();
+}
+
+Overlays.$inject = ['config.overlays', 'eventBus', 'canvas', 'elementRegistry'];
+
+/**
+ * Returns the overlay with the specified id or a list of overlays
+ * for an element with a given type.
+ *
+ * @example
+ *
+ * // return the single overlay with the given id
+ * overlays.get('some-id');
+ *
+ * // return all overlays for the shape
+ * overlays.get({ element: someShape });
+ *
+ * // return all overlays on shape with type 'badge'
+ * overlays.get({ element: someShape, type: 'badge' });
+ *
+ * // shape can also be specified as id
+ * overlays.get({ element: 'element-id', type: 'badge' });
+ *
+ *
+ * @param {Object} search
+ * @param {String} [search.id]
+ * @param {String|djs.model.Base} [search.element]
+ * @param {String} [search.type]
+ *
+ * @return {Object|Array<Object>} the overlay(s)
+ */
+Overlays.prototype.get = function (search) {
+
+  if ((0, _$dist_72.isString)(search)) {
+    search = { id: search };
+  }
+
+  if ((0, _$dist_72.isString)(search.element)) {
+    search.element = this._elementRegistry.get(search.element);
+  }
+
+  if (search.element) {
+    var container = this._getOverlayContainer(search.element, true);
+
+    // return a list of overlays when searching by element (+type)
+    if (container) {
+      return search.type ? (0, _$dist_72.filter)(container.overlays, (0, _$dist_72.matchPattern)({ type: search.type })) : container.overlays.slice();
+    } else {
+      return [];
+    }
+  } else if (search.type) {
+    return (0, _$dist_72.filter)(this._overlays, (0, _$dist_72.matchPattern)({ type: search.type }));
+  } else {
+    // return single element when searching by id
+    return search.id ? this._overlays[search.id] : null;
+  }
+};
+
+/**
+ * Adds a HTML overlay to an element.
+ *
+ * @param {String|djs.model.Base}   element   attach overlay to this shape
+ * @param {String}                  [type]    optional type to assign to the overlay
+ * @param {Object}                  overlay   the overlay configuration
+ *
+ * @param {String|DOMElement}       overlay.html                 html element to use as an overlay
+ * @param {Object}                  [overlay.show]               show configuration
+ * @param {Number}                  [overlay.show.minZoom]       minimal zoom level to show the overlay
+ * @param {Number}                  [overlay.show.maxZoom]       maximum zoom level to show the overlay
+ * @param {Object}                  overlay.position             where to attach the overlay
+ * @param {Number}                  [overlay.position.left]      relative to element bbox left attachment
+ * @param {Number}                  [overlay.position.top]       relative to element bbox top attachment
+ * @param {Number}                  [overlay.position.bottom]    relative to element bbox bottom attachment
+ * @param {Number}                  [overlay.position.right]     relative to element bbox right attachment
+ * @param {Boolean|Object}          [overlay.scale=true]         false to preserve the same size regardless of
+ *                                                               diagram zoom
+ * @param {Number}                  [overlay.scale.min]
+ * @param {Number}                  [overlay.scale.max]
+ *
+ * @return {String}                 id that may be used to reference the overlay for update or removal
+ */
+Overlays.prototype.add = function (element, type, overlay) {
+
+  if ((0, _$dist_72.isObject)(type)) {
+    overlay = type;
+    type = null;
+  }
+
+  if (!element.id) {
+    element = this._elementRegistry.get(element);
+  }
+
+  if (!overlay.position) {
+    throw new Error('must specifiy overlay position');
+  }
+
+  if (!overlay.html) {
+    throw new Error('must specifiy overlay html');
+  }
+
+  if (!element) {
+    throw new Error('invalid element specified');
+  }
+
+  var id = this._ids.next();
+
+  overlay = (0, _$dist_72.assign)({}, this._overlayDefaults, overlay, {
+    id: id,
+    type: type,
+    element: element,
+    html: overlay.html
+  });
+
+  this._addOverlay(overlay);
+
+  return id;
+};
+
+/**
+ * Remove an overlay with the given id or all overlays matching the given filter.
+ *
+ * @see Overlays#get for filter options.
+ *
+ * @param {String} [id]
+ * @param {Object} [filter]
+ */
+Overlays.prototype.remove = function (filter) {
+
+  var overlays = this.get(filter) || [];
+
+  if (!(0, _$dist_72.isArray)(overlays)) {
+    overlays = [overlays];
+  }
+
+  var self = this;
+
+  (0, _$dist_72.forEach)(overlays, function (overlay) {
+
+    var container = self._getOverlayContainer(overlay.element, true);
+
+    if (overlay) {
+      (0, _$dist_73.remove)(overlay.html);
+      (0, _$dist_73.remove)(overlay.htmlContainer);
+
+      delete overlay.htmlContainer;
+      delete overlay.element;
+
+      delete self._overlays[overlay.id];
+    }
+
+    if (container) {
+      var idx = container.overlays.indexOf(overlay);
+      if (idx !== -1) {
+        container.overlays.splice(idx, 1);
+      }
+    }
+  });
+};
+
+Overlays.prototype.show = function () {
+  setVisible(this._overlayRoot);
+};
+
+Overlays.prototype.hide = function () {
+  setVisible(this._overlayRoot, false);
+};
+
+Overlays.prototype.clear = function () {
+  this._overlays = {};
+
+  this._overlayContainers = [];
+
+  (0, _$dist_73.clear)(this._overlayRoot);
+};
+
+Overlays.prototype._updateOverlayContainer = function (container) {
+  var element = container.element,
+      html = container.html;
+
+  // update container left,top according to the elements x,y coordinates
+  // this ensures we can attach child elements relative to this container
+
+  var x = element.x,
+      y = element.y;
+
+  if (element.waypoints) {
+    var bbox = (0, _$Elements_49.getBBox)(element);
+    x = bbox.x;
+    y = bbox.y;
+  }
+
+  setPosition(html, x, y);
+
+  (0, _$dist_73.attr)(container.html, 'data-container-id', element.id);
+};
+
+Overlays.prototype._updateOverlay = function (overlay) {
+
+  var position = overlay.position,
+      htmlContainer = overlay.htmlContainer,
+      element = overlay.element;
+
+  // update overlay html relative to shape because
+  // it is already positioned on the element
+
+  // update relative
+  var left = position.left,
+      top = position.top;
+
+  if (position.right !== undefined) {
+
+    var width;
+
+    if (element.waypoints) {
+      width = (0, _$Elements_49.getBBox)(element).width;
+    } else {
+      width = element.width;
+    }
+
+    left = position.right * -1 + width;
+  }
+
+  if (position.bottom !== undefined) {
+
+    var height;
+
+    if (element.waypoints) {
+      height = (0, _$Elements_49.getBBox)(element).height;
+    } else {
+      height = element.height;
+    }
+
+    top = position.bottom * -1 + height;
+  }
+
+  setPosition(htmlContainer, left || 0, top || 0);
+};
+
+Overlays.prototype._createOverlayContainer = function (element) {
+  var html = (0, _$dist_73.domify)('<div class="djs-overlays" style="position: absolute" />');
+
+  this._overlayRoot.appendChild(html);
+
+  var container = {
+    html: html,
+    element: element,
+    overlays: []
+  };
+
+  this._updateOverlayContainer(container);
+
+  this._overlayContainers.push(container);
+
+  return container;
+};
+
+Overlays.prototype._updateRoot = function (viewbox) {
+  var scale = viewbox.scale || 1;
+
+  var matrix = 'matrix(' + [scale, 0, 0, scale, -1 * viewbox.x * scale, -1 * viewbox.y * scale].join(',') + ')';
+
+  setTransform(this._overlayRoot, matrix);
+};
+
+Overlays.prototype._getOverlayContainer = function (element, raw) {
+  var container = (0, _$dist_72.find)(this._overlayContainers, function (c) {
+    return c.element === element;
+  });
+
+  if (!container && !raw) {
+    return this._createOverlayContainer(element);
+  }
+
+  return container;
+};
+
+Overlays.prototype._addOverlay = function (overlay) {
+
+  var id = overlay.id,
+      element = overlay.element,
+      html = overlay.html,
+      htmlContainer,
+      overlayContainer;
+
+  // unwrap jquery (for those who need it)
+  if (html.get && html.constructor.prototype.jquery) {
+    html = html.get(0);
+  }
+
+  // create proper html elements from
+  // overlay HTML strings
+  if ((0, _$dist_72.isString)(html)) {
+    html = (0, _$dist_73.domify)(html);
+  }
+
+  overlayContainer = this._getOverlayContainer(element);
+
+  htmlContainer = (0, _$dist_73.domify)('<div class="djs-overlay" data-overlay-id="' + id + '" style="position: absolute">');
+
+  htmlContainer.appendChild(html);
+
+  if (overlay.type) {
+    (0, _$dist_73.classes)(htmlContainer).add('djs-overlay-' + overlay.type);
+  }
+
+  overlay.htmlContainer = htmlContainer;
+
+  overlayContainer.overlays.push(overlay);
+  overlayContainer.html.appendChild(htmlContainer);
+
+  this._overlays[id] = overlay;
+
+  this._updateOverlay(overlay);
+  this._updateOverlayVisibilty(overlay, this._canvas.viewbox());
+};
+
+Overlays.prototype._updateOverlayVisibilty = function (overlay, viewbox) {
+  var show = overlay.show,
+      minZoom = show && show.minZoom,
+      maxZoom = show && show.maxZoom,
+      htmlContainer = overlay.htmlContainer,
+      visible = true;
+
+  if (show) {
+    if (isDef(minZoom) && minZoom > viewbox.scale || isDef(maxZoom) && maxZoom < viewbox.scale) {
+      visible = false;
+    }
+
+    setVisible(htmlContainer, visible);
+  }
+
+  this._updateOverlayScale(overlay, viewbox);
+};
+
+Overlays.prototype._updateOverlayScale = function (overlay, viewbox) {
+  var shouldScale = overlay.scale,
+      minScale,
+      maxScale,
+      htmlContainer = overlay.htmlContainer;
+
+  var scale,
+      transform = '';
+
+  if (shouldScale !== true) {
+
+    if (shouldScale === false) {
+      minScale = 1;
+      maxScale = 1;
+    } else {
+      minScale = shouldScale.min;
+      maxScale = shouldScale.max;
+    }
+
+    if (isDef(minScale) && viewbox.scale < minScale) {
+      scale = (1 / viewbox.scale || 1) * minScale;
+    }
+
+    if (isDef(maxScale) && viewbox.scale > maxScale) {
+      scale = (1 / viewbox.scale || 1) * maxScale;
+    }
+  }
+
+  if (isDef(scale)) {
+    transform = 'scale(' + scale + ',' + scale + ')';
+  }
+
+  setTransform(htmlContainer, transform);
+};
+
+Overlays.prototype._updateOverlaysVisibilty = function (viewbox) {
+
+  var self = this;
+
+  (0, _$dist_72.forEach)(this._overlays, function (overlay) {
+    self._updateOverlayVisibilty(overlay, viewbox);
+  });
+};
+
+Overlays.prototype._init = function () {
+
+  var eventBus = this._eventBus;
+
+  var self = this;
+
+  // scroll/zoom integration
+
+  function updateViewbox(viewbox) {
+    self._updateRoot(viewbox);
+    self._updateOverlaysVisibilty(viewbox);
+
+    self.show();
+  }
+
+  eventBus.on('canvas.viewbox.changing', function (event) {
+    self.hide();
+  });
+
+  eventBus.on('canvas.viewbox.changed', function (event) {
+    updateViewbox(event.viewbox);
+  });
+
+  // remove integration
+
+  eventBus.on(['shape.remove', 'connection.remove'], function (e) {
+    var element = e.element;
+    var overlays = self.get({ element: element });
+
+    (0, _$dist_72.forEach)(overlays, function (o) {
+      self.remove(o.id);
+    });
+
+    var container = self._getOverlayContainer(element);
+
+    if (container) {
+      (0, _$dist_73.remove)(container.html);
+      var i = self._overlayContainers.indexOf(container);
+      if (i !== -1) {
+        self._overlayContainers.splice(i, 1);
+      }
+    }
+  });
+
+  // move integration
+
+  eventBus.on('element.changed', LOW_PRIORITY, function (e) {
+    var element = e.element;
+
+    var container = self._getOverlayContainer(element, true);
+
+    if (container) {
+      (0, _$dist_72.forEach)(container.overlays, function (overlay) {
+        self._updateOverlay(overlay);
+      });
+
+      self._updateOverlayContainer(container);
+    }
+  });
+
+  // marker integration, simply add them on the overlays as classes, too.
+
+  eventBus.on('element.marker.update', function (e) {
+    var container = self._getOverlayContainer(e.element, true);
+    if (container) {
+      (0, _$dist_73.classes)(container.html)[e.add ? 'add' : 'remove'](e.marker);
+    }
+  });
+
+  // clear overlays with diagram
+
+  eventBus.on('diagram.clear', this.clear, this);
+};
+
+var _$overlays_35 = {};
+'use strict';
+
+Object.defineProperty(_$overlays_35, "__esModule", {
+  value: true
+});
+
+/* removed: var _$Overlays_34 = require('./Overlays'); */;
+
+var _Overlays2 = ___interopRequireDefault_35(_$Overlays_34);
+
+function ___interopRequireDefault_35(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_$overlays_35.default = {
+  __init__: ['overlays'],
+  overlays: ['type', _Overlays2.default]
+};
+
+var _$Event_50 = {};
+'use strict';
+
+Object.defineProperty(_$Event_50, "__esModule", {
+  value: true
+});
+_$Event_50.getOriginal = getOriginal;
+_$Event_50.stopPropagation = stopPropagation;
+_$Event_50.toPoint = toPoint;
+function __stopPropagation(event) {
+  if (!event || typeof event.stopPropagation !== 'function') {
+    return;
+  }
+
+  event.stopPropagation();
+}
+
+function getOriginal(event) {
+  return event.originalEvent || event.srcEvent;
+}
+
+function stopPropagation(event, immediate) {
+  __stopPropagation(event, immediate);
+  __stopPropagation(getOriginal(event), immediate);
+}
+
+function toPoint(event) {
+
+  if (event.pointers && event.pointers.length) {
+    event = event.pointers[0];
+  }
+
+  if (event.touches && event.touches.length) {
+    event = event.touches[0];
+  }
+
+  return event ? {
+    x: event.clientX,
+    y: event.clientY
+  } : null;
+}
+
+var _$Platform_55 = {};
+"use strict";
+
+Object.defineProperty(_$Platform_55, "__esModule", {
+  value: true
+});
+_$Platform_55.isMac = isMac;
+function isMac() {
+  return (/mac/i.test(navigator.platform)
+  );
+}
+
+var _$Mouse_54 = {};
+'use strict';
+
+Object.defineProperty(_$Mouse_54, "__esModule", {
+  value: true
+});
+_$Mouse_54.isMac = undefined;
+
+/* removed: var _$Platform_55 = require('./Platform'); */;
+
+Object.defineProperty(_$Mouse_54, 'isMac', {
+  enumerable: true,
+  get: function get() {
+    return _$Platform_55.isMac;
+  }
+});
+_$Mouse_54.isPrimaryButton = isPrimaryButton;
+_$Mouse_54.hasPrimaryModifier = hasPrimaryModifier;
+_$Mouse_54.hasSecondaryModifier = hasSecondaryModifier;
+
+/* removed: var _$Event_50 = require('./Event'); */;
+
+function isPrimaryButton(event) {
+  // button === 0 -> left áka primary mouse button
+  return !((0, _$Event_50.getOriginal)(event) || event).button;
+}
+
+function hasPrimaryModifier(event) {
+  var originalEvent = (0, _$Event_50.getOriginal)(event) || event;
+
+  if (!isPrimaryButton(event)) {
+    return false;
+  }
+
+  // Use alt as primary modifier key for mac OS
+  if ((0, _$Platform_55.isMac)()) {
+    return originalEvent.metaKey;
+  } else {
+    return originalEvent.ctrlKey;
+  }
+}
+
+function hasSecondaryModifier(event) {
+  var originalEvent = (0, _$Event_50.getOriginal)(event) || event;
+
+  return isPrimaryButton(event) && originalEvent.shiftKey;
+}
+
+var _$InteractionEvents_30 = {};
+'use strict';
+
+Object.defineProperty(_$InteractionEvents_30, "__esModule", {
+  value: true
+});
+_$InteractionEvents_30.default = InteractionEvents;
+
+/* removed: var _$dist_72 = require('min-dash'); */;
+
+/* removed: var _$dist_73 = require('min-dom'); */;
+
+/* removed: var _$Mouse_54 = require('../../util/Mouse'); */;
+
+/* removed: var _$indexCjs_89 = require('tiny-svg'); */;
+
+/* removed: var _$RenderUtil_57 = require('../../util/RenderUtil'); */;
+
+function allowAll(e) {
+  return true;
+}
+
+var __LOW_PRIORITY_30 = 500;
+
+/**
+ * A plugin that provides interaction events for diagram elements.
+ *
+ * It emits the following events:
+ *
+ *   * element.hover
+ *   * element.out
+ *   * element.click
+ *   * element.dblclick
+ *   * element.mousedown
+ *   * element.contextmenu
+ *
+ * Each event is a tuple { element, gfx, originalEvent }.
+ *
+ * Canceling the event via Event#preventDefault()
+ * prevents the original DOM operation.
+ *
+ * @param {EventBus} eventBus
+ */
+function InteractionEvents(eventBus, elementRegistry, styles) {
+
+  var HIT_STYLE = styles.cls('djs-hit', ['no-fill', 'no-border'], {
+    stroke: 'white',
+    strokeWidth: 15
+  });
+
+  /**
+   * Fire an interaction event.
+   *
+   * @param {String} type local event name, e.g. element.click.
+   * @param {DOMEvent} event native event
+   * @param {djs.model.Base} [element] the diagram element to emit the event on;
+   *                                   defaults to the event target
+   */
+  function fire(type, event, element) {
+
+    if (isIgnored(type, event)) {
+      return;
+    }
+
+    var target, gfx, returnValue;
+
+    if (!element) {
+      target = event.delegateTarget || event.target;
+
+      if (target) {
+        gfx = target;
+        element = elementRegistry.get(gfx);
+      }
+    } else {
+      gfx = elementRegistry.getGraphics(element);
+    }
+
+    if (!gfx || !element) {
+      return;
+    }
+
+    returnValue = eventBus.fire(type, {
+      element: element,
+      gfx: gfx,
+      originalEvent: event
+    });
+
+    if (returnValue === false) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+  }
+
+  // TODO(nikku): document this
+  var handlers = {};
+
+  function mouseHandler(localEventName) {
+    return handlers[localEventName];
+  }
+
+  function isIgnored(localEventName, event) {
+
+    var filter = ignoredFilters[localEventName] || _$Mouse_54.isPrimaryButton;
+
+    // only react on left mouse button interactions
+    // except for interaction events that are enabled
+    // for secundary mouse button
+    return !filter(event);
+  }
+
+  var bindings = {
+    mouseover: 'element.hover',
+    mouseout: 'element.out',
+    click: 'element.click',
+    dblclick: 'element.dblclick',
+    mousedown: 'element.mousedown',
+    mouseup: 'element.mouseup',
+    contextmenu: 'element.contextmenu'
+  };
+
+  var ignoredFilters = {
+    'element.contextmenu': allowAll
+  };
+
+  // manual event trigger
+
+  /**
+   * Trigger an interaction event (based on a native dom event)
+   * on the target shape or connection.
+   *
+   * @param {String} eventName the name of the triggered DOM event
+   * @param {MouseEvent} event
+   * @param {djs.model.Base} targetElement
+   */
+  function triggerMouseEvent(eventName, event, targetElement) {
+
+    // i.e. element.mousedown...
+    var localEventName = bindings[eventName];
+
+    if (!localEventName) {
+      throw new Error('unmapped DOM event name <' + eventName + '>');
+    }
+
+    return fire(localEventName, event, targetElement);
+  }
+
+  var elementSelector = 'svg, .djs-element';
+
+  // event registration
+
+  function registerEvent(node, event, localEvent, ignoredFilter) {
+
+    var handler = handlers[localEvent] = function (event) {
+      fire(localEvent, event);
+    };
+
+    if (ignoredFilter) {
+      ignoredFilters[localEvent] = ignoredFilter;
+    }
+
+    handler.$delegate = _$dist_73.delegate.bind(node, elementSelector, event, handler);
+  }
+
+  function unregisterEvent(node, event, localEvent) {
+
+    var handler = mouseHandler(localEvent);
+
+    if (!handler) {
+      return;
+    }
+
+    _$dist_73.delegate.unbind(node, event, handler.$delegate);
+  }
+
+  function registerEvents(svg) {
+    (0, _$dist_72.forEach)(bindings, function (val, key) {
+      registerEvent(svg, key, val);
+    });
+  }
+
+  function unregisterEvents(svg) {
+    (0, _$dist_72.forEach)(bindings, function (val, key) {
+      unregisterEvent(svg, key, val);
+    });
+  }
+
+  eventBus.on('canvas.destroy', function (event) {
+    unregisterEvents(event.svg);
+  });
+
+  eventBus.on('canvas.init', function (event) {
+    registerEvents(event.svg);
+  });
+
+  eventBus.on(['shape.added', 'connection.added'], function (event) {
+    var element = event.element,
+        gfx = event.gfx,
+        hit;
+
+    if (element.waypoints) {
+      hit = (0, _$RenderUtil_57.createLine)(element.waypoints);
+    } else {
+      hit = (0, _$indexCjs_89.create)('rect');
+      (0, _$indexCjs_89.attr)(hit, {
+        x: 0,
+        y: 0,
+        width: element.width,
+        height: element.height
+      });
+    }
+
+    (0, _$indexCjs_89.attr)(hit, HIT_STYLE);
+
+    (0, _$indexCjs_89.append)(gfx, hit);
+  });
+
+  // Update djs-hit on change.
+  // A low priortity is necessary, because djs-hit of labels has to be updated
+  // after the label bounds have been updated in the renderer.
+  eventBus.on('shape.changed', __LOW_PRIORITY_30, function (event) {
+
+    var element = event.element,
+        gfx = event.gfx,
+        hit = (0, _$dist_73.query)('.djs-hit', gfx);
+
+    (0, _$indexCjs_89.attr)(hit, {
+      width: element.width,
+      height: element.height
+    });
+  });
+
+  eventBus.on('connection.changed', function (event) {
+
+    var element = event.element,
+        gfx = event.gfx,
+        hit = (0, _$dist_73.query)('.djs-hit', gfx);
+
+    (0, _$RenderUtil_57.updateLine)(hit, element.waypoints);
+  });
+
+  // API
+
+  this.fire = fire;
+
+  this.triggerMouseEvent = triggerMouseEvent;
+
+  this.mouseHandler = mouseHandler;
+
+  this.registerEvent = registerEvent;
+  this.unregisterEvent = unregisterEvent;
+}
+
+InteractionEvents.$inject = ['eventBus', 'elementRegistry', 'styles'];
+
+/**
+ * An event indicating that the mouse hovered over an element
+ *
+ * @event element.hover
+ *
+ * @type {Object}
+ * @property {djs.model.Base} element
+ * @property {SVGElement} gfx
+ * @property {Event} originalEvent
+ */
+
+/**
+ * An event indicating that the mouse has left an element
+ *
+ * @event element.out
+ *
+ * @type {Object}
+ * @property {djs.model.Base} element
+ * @property {SVGElement} gfx
+ * @property {Event} originalEvent
+ */
+
+/**
+ * An event indicating that the mouse has clicked an element
+ *
+ * @event element.click
+ *
+ * @type {Object}
+ * @property {djs.model.Base} element
+ * @property {SVGElement} gfx
+ * @property {Event} originalEvent
+ */
+
+/**
+ * An event indicating that the mouse has double clicked an element
+ *
+ * @event element.dblclick
+ *
+ * @type {Object}
+ * @property {djs.model.Base} element
+ * @property {SVGElement} gfx
+ * @property {Event} originalEvent
+ */
+
+/**
+ * An event indicating that the mouse has gone down on an element.
+ *
+ * @event element.mousedown
+ *
+ * @type {Object}
+ * @property {djs.model.Base} element
+ * @property {SVGElement} gfx
+ * @property {Event} originalEvent
+ */
+
+/**
+ * An event indicating that the mouse has gone up on an element.
+ *
+ * @event element.mouseup
+ *
+ * @type {Object}
+ * @property {djs.model.Base} element
+ * @property {SVGElement} gfx
+ * @property {Event} originalEvent
+ */
+
+/**
+ * An event indicating that the context menu action is triggered
+ * via mouse or touch controls.
+ *
+ * @event element.contextmenu
+ *
+ * @type {Object}
+ * @property {djs.model.Base} element
+ * @property {SVGElement} gfx
+ * @property {Event} originalEvent
+ */
+
+var _$interactionEvents_31 = {};
+'use strict';
+
+Object.defineProperty(_$interactionEvents_31, "__esModule", {
+  value: true
+});
+
+/* removed: var _$InteractionEvents_30 = require('./InteractionEvents'); */;
+
+var _InteractionEvents2 = ___interopRequireDefault_31(_$InteractionEvents_30);
+
+function ___interopRequireDefault_31(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_$interactionEvents_31.default = {
+  __init__: ['interactionEvents'],
+  interactionEvents: ['type', _InteractionEvents2.default]
+};
+
+var _$Outline_32 = {};
+'use strict';
+
+Object.defineProperty(_$Outline_32, "__esModule", {
+  value: true
+});
+_$Outline_32.default = Outline;
+
+/* removed: var _$Elements_49 = require('../../util/Elements'); */;
+
+/* removed: var _$indexCjs_89 = require('tiny-svg'); */;
+
+/* removed: var _$dist_73 = require('min-dom'); */;
+
+/* removed: var _$dist_72 = require('min-dash'); */;
+
+var __LOW_PRIORITY_32 = 500;
+
+/**
+ * @class
+ *
+ * A plugin that adds an outline to shapes and connections that may be activated and styled
+ * via CSS classes.
+ *
+ * @param {EventBus} eventBus
+ * @param {Styles} styles
+ * @param {ElementRegistry} elementRegistry
+ */
+function Outline(eventBus, styles, elementRegistry) {
+
+  this.offset = 6;
+
+  var OUTLINE_STYLE = styles.cls('djs-outline', ['no-fill']);
+
+  var self = this;
+
+  function createOutline(gfx, bounds) {
+    var outline = (0, _$indexCjs_89.create)('rect');
+
+    (0, _$indexCjs_89.attr)(outline, (0, _$dist_72.assign)({
+      x: 10,
+      y: 10,
+      width: 100,
+      height: 100
+    }, OUTLINE_STYLE));
+
+    (0, _$indexCjs_89.append)(gfx, outline);
+
+    return outline;
+  }
+
+  // A low priortity is necessary, because outlines of labels have to be updated
+  // after the label bounds have been updated in the renderer.
+  eventBus.on(['shape.added', 'shape.changed'], __LOW_PRIORITY_32, function (event) {
+    var element = event.element,
+        gfx = event.gfx;
+
+    var outline = (0, _$dist_73.query)('.djs-outline', gfx);
+
+    if (!outline) {
+      outline = createOutline(gfx, element);
+    }
+
+    self.updateShapeOutline(outline, element);
+  });
+
+  eventBus.on(['connection.added', 'connection.changed'], function (event) {
+    var element = event.element,
+        gfx = event.gfx;
+
+    var outline = (0, _$dist_73.query)('.djs-outline', gfx);
+
+    if (!outline) {
+      outline = createOutline(gfx, element);
+    }
+
+    self.updateConnectionOutline(outline, element);
+  });
+}
+
+/**
+ * Updates the outline of a shape respecting the dimension of the
+ * element and an outline offset.
+ *
+ * @param  {SVGElement} outline
+ * @param  {djs.model.Base} element
+ */
+Outline.prototype.updateShapeOutline = function (outline, element) {
+
+  (0, _$indexCjs_89.attr)(outline, {
+    x: -this.offset,
+    y: -this.offset,
+    width: element.width + this.offset * 2,
+    height: element.height + this.offset * 2
+  });
+};
+
+/**
+ * Updates the outline of a connection respecting the bounding box of
+ * the connection and an outline offset.
+ *
+ * @param  {SVGElement} outline
+ * @param  {djs.model.Base} element
+ */
+Outline.prototype.updateConnectionOutline = function (outline, connection) {
+
+  var bbox = (0, _$Elements_49.getBBox)(connection);
+
+  (0, _$indexCjs_89.attr)(outline, {
+    x: bbox.x - this.offset,
+    y: bbox.y - this.offset,
+    width: bbox.width + this.offset * 2,
+    height: bbox.height + this.offset * 2
+  });
+};
+
+Outline.$inject = ['eventBus', 'styles', 'elementRegistry'];
+
+var _$outline_33 = {};
+'use strict';
+
+Object.defineProperty(_$outline_33, "__esModule", {
+  value: true
+});
+
+/* removed: var _$Outline_32 = require('./Outline'); */;
+
+var _Outline2 = ___interopRequireDefault_33(_$Outline_32);
+
+function ___interopRequireDefault_33(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_$outline_33.default = {
+  __init__: ['outline'],
+  outline: ['type', _Outline2.default]
+};
+
+var _$Selection_36 = {};
+'use strict';
+
+Object.defineProperty(_$Selection_36, "__esModule", {
+  value: true
+});
+_$Selection_36.default = Selection;
+
+/* removed: var _$dist_72 = require('min-dash'); */;
+
+/**
+ * A service that offers the current selection in a diagram.
+ * Offers the api to control the selection, too.
+ *
+ * @class
+ *
+ * @param {EventBus} eventBus the event bus
+ */
+function Selection(eventBus) {
+
+  this._eventBus = eventBus;
+
+  this._selectedElements = [];
+
+  var self = this;
+
+  eventBus.on(['shape.remove', 'connection.remove'], function (e) {
+    var element = e.element;
+    self.deselect(element);
+  });
+
+  eventBus.on(['diagram.clear'], function (e) {
+    self.select(null);
+  });
+}
+
+Selection.$inject = ['eventBus'];
+
+Selection.prototype.deselect = function (element) {
+  var selectedElements = this._selectedElements;
+
+  var idx = selectedElements.indexOf(element);
+
+  if (idx !== -1) {
+    var oldSelection = selectedElements.slice();
+
+    selectedElements.splice(idx, 1);
+
+    this._eventBus.fire('selection.changed', { oldSelection: oldSelection, newSelection: selectedElements });
+  }
+};
+
+Selection.prototype.get = function () {
+  return this._selectedElements;
+};
+
+Selection.prototype.isSelected = function (element) {
+  return this._selectedElements.indexOf(element) !== -1;
+};
+
+/**
+ * This method selects one or more elements on the diagram.
+ *
+ * By passing an additional add parameter you can decide whether or not the element(s)
+ * should be added to the already existing selection or not.
+ *
+ * @method Selection#select
+ *
+ * @param  {Object|Object[]} elements element or array of elements to be selected
+ * @param  {boolean} [add] whether the element(s) should be appended to the current selection, defaults to false
+ */
+Selection.prototype.select = function (elements, add) {
+  var selectedElements = this._selectedElements,
+      oldSelection = selectedElements.slice();
+
+  if (!(0, _$dist_72.isArray)(elements)) {
+    elements = elements ? [elements] : [];
+  }
+
+  // selection may be cleared by passing an empty array or null
+  // to the method
+  if (add) {
+    (0, _$dist_72.forEach)(elements, function (element) {
+      if (selectedElements.indexOf(element) !== -1) {
+        // already selected
+        return;
+      } else {
+        selectedElements.push(element);
+      }
+    });
+  } else {
+    this._selectedElements = selectedElements = elements.slice();
+  }
+
+  this._eventBus.fire('selection.changed', { oldSelection: oldSelection, newSelection: selectedElements });
+};
+
+var _$SelectionBehavior_37 = {};
+'use strict';
+
+Object.defineProperty(_$SelectionBehavior_37, "__esModule", {
+  value: true
+});
+_$SelectionBehavior_37.default = SelectionBehavior;
+
+/* removed: var _$Mouse_54 = require('../../util/Mouse'); */;
+
+/* removed: var _$dist_72 = require('min-dash'); */;
+
+function SelectionBehavior(eventBus, selection, canvas, elementRegistry) {
+
+  eventBus.on('create.end', 500, function (e) {
+
+    // select the created shape after a
+    // successful create operation
+    if (e.context.canExecute) {
+      selection.select(e.context.shape);
+    }
+  });
+
+  eventBus.on('connect.end', 500, function (e) {
+
+    // select the connect end target
+    // after a connect operation
+    if (e.context.canExecute && e.context.target) {
+      selection.select(e.context.target);
+    }
+  });
+
+  eventBus.on('shape.move.end', 500, function (e) {
+    var previousSelection = e.previousSelection || [];
+
+    var shape = elementRegistry.get(e.context.shape.id);
+
+    // make sure at least the main moved element is being
+    // selected after a move operation
+    var inSelection = (0, _$dist_72.find)(previousSelection, function (selectedShape) {
+      return shape.id === selectedShape.id;
+    });
+
+    if (!inSelection) {
+      selection.select(shape);
+    }
+  });
+
+  // Shift + click selection
+  eventBus.on('element.click', function (event) {
+
+    var element = event.element;
+
+    // do not select the root element
+    // or connections
+    if (element === canvas.getRootElement()) {
+      element = null;
+    }
+
+    var isSelected = selection.isSelected(element),
+        isMultiSelect = selection.get().length > 1;
+
+    // mouse-event: SELECTION_KEY
+    var add = (0, _$Mouse_54.hasPrimaryModifier)(event);
+
+    // select OR deselect element in multi selection
+    if (isSelected && isMultiSelect) {
+      if (add) {
+        return selection.deselect(element);
+      } else {
+        return selection.select(element);
+      }
+    } else if (!isSelected) {
+      selection.select(element, add);
+    } else {
+      selection.deselect(element);
+    }
+  });
+}
+
+SelectionBehavior.$inject = ['eventBus', 'selection', 'canvas', 'elementRegistry'];
+
+var _$SelectionVisuals_38 = {};
+'use strict';
+
+Object.defineProperty(_$SelectionVisuals_38, "__esModule", {
+  value: true
+});
+_$SelectionVisuals_38.default = SelectionVisuals;
+
+/* removed: var _$dist_72 = require('min-dash'); */;
+
+var MARKER_HOVER = 'hover',
+    MARKER_SELECTED = 'selected';
+
+/**
+ * A plugin that adds a visible selection UI to shapes and connections
+ * by appending the <code>hover</code> and <code>selected</code> classes to them.
+ *
+ * @class
+ *
+ * Makes elements selectable, too.
+ *
+ * @param {EventBus} events
+ * @param {SelectionService} selection
+ * @param {Canvas} canvas
+ */
+function SelectionVisuals(events, canvas, selection, styles) {
+
+  this._multiSelectionBox = null;
+
+  function addMarker(e, cls) {
+    canvas.addMarker(e, cls);
+  }
+
+  function removeMarker(e, cls) {
+    canvas.removeMarker(e, cls);
+  }
+
+  events.on('element.hover', function (event) {
+    addMarker(event.element, MARKER_HOVER);
+  });
+
+  events.on('element.out', function (event) {
+    removeMarker(event.element, MARKER_HOVER);
+  });
+
+  events.on('selection.changed', function (event) {
+
+    function deselect(s) {
+      removeMarker(s, MARKER_SELECTED);
+    }
+
+    function select(s) {
+      addMarker(s, MARKER_SELECTED);
+    }
+
+    var oldSelection = event.oldSelection,
+        newSelection = event.newSelection;
+
+    (0, _$dist_72.forEach)(oldSelection, function (e) {
+      if (newSelection.indexOf(e) === -1) {
+        deselect(e);
+      }
+    });
+
+    (0, _$dist_72.forEach)(newSelection, function (e) {
+      if (oldSelection.indexOf(e) === -1) {
+        select(e);
+      }
+    });
+  });
+}
+
+SelectionVisuals.$inject = ['eventBus', 'canvas', 'selection', 'styles'];
+
+var _$selection_39 = {};
+'use strict';
+
+Object.defineProperty(_$selection_39, "__esModule", {
+  value: true
+});
+
+/* removed: var _$interactionEvents_31 = require('../interaction-events'); */;
+
+var _interactionEvents2 = ___interopRequireDefault_39(_$interactionEvents_31);
+
+/* removed: var _$outline_33 = require('../outline'); */;
+
+var _outline2 = ___interopRequireDefault_39(_$outline_33);
+
+/* removed: var _$Selection_36 = require('./Selection'); */;
+
+var _Selection2 = ___interopRequireDefault_39(_$Selection_36);
+
+/* removed: var _$SelectionVisuals_38 = require('./SelectionVisuals'); */;
+
+var _SelectionVisuals2 = ___interopRequireDefault_39(_$SelectionVisuals_38);
+
+/* removed: var _$SelectionBehavior_37 = require('./SelectionBehavior'); */;
+
+var _SelectionBehavior2 = ___interopRequireDefault_39(_$SelectionBehavior_37);
+
+function ___interopRequireDefault_39(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_$selection_39.default = {
+  __init__: ['selectionVisuals', 'selectionBehavior'],
+  __depends__: [_interactionEvents2.default, _outline2.default],
+  selection: ['type', _Selection2.default],
+  selectionVisuals: ['type', _SelectionVisuals2.default],
+  selectionBehavior: ['type', _SelectionBehavior2.default]
+};
 
 var _$common_75 = {};
 'use strict';
@@ -23115,16 +27530,16 @@ Object.defineProperty(_$moddle_78, 'default', {
 
 function ___interopRequireDefault_78(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _$dist_90 = {};
+var _$dist_87 = {};
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var ___typeof_87 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-Object.defineProperty(_$dist_90, '__esModule', { value: true });
+Object.defineProperty(_$dist_87, '__esModule', { value: true });
 
 var fromCharCode = String.fromCharCode;
 
-var __hasOwnProperty_90 = Object.prototype.hasOwnProperty;
+var __hasOwnProperty_87 = Object.prototype.hasOwnProperty;
 
 var ENTITY_PATTERN = /&#(\d+);|&#x([0-9a-f]+);|&(\w+);/ig;
 
@@ -23145,7 +27560,7 @@ function replaceEntities(_, d, x, z) {
 
   // reserved names, i.e. &nbsp;
   if (z) {
-    if (__hasOwnProperty_90.call(ENTITY_MAPPING, z)) {
+    if (__hasOwnProperty_87.call(ENTITY_MAPPING, z)) {
       return ENTITY_MAPPING[z];
     } else {
       // fall back to original value
@@ -23181,7 +27596,7 @@ function decodeEntities(s) {
 
 var XSI_URI = 'http://www.w3.org/2001/XMLSchema-instance';
 var XSI_PREFIX = 'xsi';
-var __XSI_TYPE_90 = 'xsi:type';
+var __XSI_TYPE_87 = 'xsi:type';
 
 function error(msg) {
   return new Error(msg);
@@ -23391,7 +27806,7 @@ function Parser(options) {
       nsMap = {};
     }
 
-    if ((typeof nsMap === 'undefined' ? 'undefined' : _typeof(nsMap)) !== 'object') {
+    if ((typeof nsMap === 'undefined' ? 'undefined' : ___typeof_87(nsMap)) !== 'object') {
       throw error('required args <nsMap={}>');
     }
 
@@ -23717,7 +28132,7 @@ function Parser(options) {
         // end: normalize ns attribute name
 
         // normalize xsi:type ns attribute value
-        if (name === __XSI_TYPE_90) {
+        if (name === __XSI_TYPE_87) {
           w = value.indexOf(':');
 
           if (w !== -1) {
@@ -23756,7 +28171,7 @@ function Parser(options) {
             // end: normalize ns attribute name
 
             // normalize xsi:type ns attribute value
-            if (name === __XSI_TYPE_90) {
+            if (name === __XSI_TYPE_87) {
               w = value.indexOf(':');
 
               if (w !== -1) {
@@ -24135,10 +28550,10 @@ function Parser(options) {
   } /** end parse */
 }
 
-_$dist_90.Parser = Parser;
-_$dist_90.decode = decodeEntities;
+_$dist_87.Parser = Parser;
+_$dist_87.decode = decodeEntities;
 
-var _$tinyStack_91 = {};
+var _$tinyStack_88 = {};
 "use strict";
 
 /**
@@ -24270,8 +28685,8 @@ var _$tinyStack_91 = {};
   }
 
   // Node, AMD & window supported
-  if (typeof _$tinyStack_91 != "undefined") {
-    _$tinyStack_91 = factory;
+  if (typeof _$tinyStack_88 != "undefined") {
+    _$tinyStack_88 = factory;
   } else if (typeof define == "function") {
     define(function () {
       return factory;
@@ -24293,11 +28708,11 @@ _$read_76.Reader = Reader;
 
 /* removed: var _$dist_72 = require('min-dash'); */;
 
-/* removed: var _$tinyStack_91 = require('tiny-stack'); */;
+/* removed: var _$tinyStack_88 = require('tiny-stack'); */;
 
-var _tinyStack2 = ___interopRequireDefault_76(_$tinyStack_91);
+var _tinyStack2 = ___interopRequireDefault_76(_$tinyStack_88);
 
-/* removed: var _$dist_90 = require('saxen'); */;
+/* removed: var _$dist_87 = require('saxen'); */;
 
 /* removed: var _$moddle_78 = require('moddle'); */;
 
@@ -24907,7 +29322,7 @@ Reader.prototype.fromXML = function (xml, options, done) {
       lax = this.lax;
 
   var context = new Context((0, _$dist_72.assign)({}, options, { rootHandler: rootHandler })),
-      parser = new _$dist_90.Parser({ proxy: true }),
+      parser = new _$dist_87.Parser({ proxy: true }),
       stack = new _tinyStack2.default();
 
   rootHandler.context = context;
@@ -25953,23 +30368,23 @@ Object.defineProperty(_$moddleXml_74, 'Writer', {
   }
 });
 
-var _$cmmnModdle_19 = {};
+var _$cmmnModdle_64 = {};
 'use strict';
 
-Object.defineProperty(_$cmmnModdle_19, "__esModule", {
+Object.defineProperty(_$cmmnModdle_64, "__esModule", {
   value: true
 });
-_$cmmnModdle_19.default = CmmnModdle;
+_$cmmnModdle_64.default = CmmnModdle;
 
 /* removed: var _$dist_72 = require('min-dash'); */;
 
 /* removed: var _$moddle_78 = require('moddle'); */;
 
-var ___moddle2_19 = ___interopRequireDefault_19(_$moddle_78);
+var ___moddle2_64 = ___interopRequireDefault_64(_$moddle_78);
 
 /* removed: var _$moddleXml_74 = require('moddle-xml'); */;
 
-function ___interopRequireDefault_19(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function ___interopRequireDefault_64(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * A sub class of {@link Moddle} with support for import and export of CMMN 1.1 xml files.
@@ -25981,10 +30396,10 @@ function ___interopRequireDefault_19(obj) { return obj && obj.__esModule ? obj :
  * @param {Object} [options] additional options to pass over
  */
 function CmmnModdle(packages, options) {
-  ___moddle2_19.default.call(this, packages, options);
+  ___moddle2_64.default.call(this, packages, options);
 }
 
-CmmnModdle.prototype = Object.create(___moddle2_19.default.prototype);
+CmmnModdle.prototype = Object.create(___moddle2_64.default.prototype);
 
 /**
  * Instantiates a CMMN model tree from a given xml string.
@@ -26042,7 +30457,7 @@ CmmnModdle.prototype.toXML = function (element, options, done) {
   return done(err, result);
 };
 
-var _$cmmn_21={
+var _$cmmn_66={
   "name": "CMMN",
   "uri": "http://www.omg.org/spec/CMMN/20151109/MODEL",
   "types": [
@@ -27522,7 +31937,7 @@ var _$cmmn_21={
   },
   "prefix": "cmmn"
 }
-var _$cmmndi_22={
+var _$cmmndi_67={
   "name": "CMMNDI",
   "uri": "http://www.omg.org/spec/CMMN/20151109/CMMNDI",
   "types": [
@@ -27708,7 +32123,7 @@ var _$cmmndi_22={
   "associations": [],
   "prefix": "cmmndi"
 }
-var _$dc_23={
+var _$dc_68={
   "name": "DC",
   "uri": "http://www.omg.org/spec/CMMN/20151109/DC",
   "types": [
@@ -27800,7 +32215,7 @@ var _$dc_23={
   "prefix": "dc",
   "associations": []
 }
-var _$di_24={
+var _$di_69={
   "name": "DI",
   "uri": "http://www.omg.org/spec/CMMN/20151109/DI",
   "types": [
@@ -27921,14 +32336,14 @@ var _$di_24={
     "tagAlias": "lowerCase"
   }
 }
-var _$simple_20 = {};
+var _$simple_65 = {};
 'use strict';
 
-Object.defineProperty(_$simple_20, "__esModule", {
+Object.defineProperty(_$simple_65, "__esModule", {
   value: true
 });
 
-_$simple_20.default = function (additionalPackages, options) {
+_$simple_65.default = function (additionalPackages, options) {
   var pks = (0, _$dist_72.assign)({}, packages, additionalPackages);
 
   return new _cmmnModdle2.default(pks, options);
@@ -27936,27 +32351,27 @@ _$simple_20.default = function (additionalPackages, options) {
 
 /* removed: var _$dist_72 = require('min-dash'); */;
 
-/* removed: var _$cmmnModdle_19 = require('./cmmn-moddle'); */;
+/* removed: var _$cmmnModdle_64 = require('./cmmn-moddle'); */;
 
-var _cmmnModdle2 = ___interopRequireDefault_20(_$cmmnModdle_19);
+var _cmmnModdle2 = ___interopRequireDefault_65(_$cmmnModdle_64);
 
-/* removed: var _$cmmn_21 = require('../resources/cmmn/json/cmmn.json'); */;
+/* removed: var _$cmmn_66 = require('../resources/cmmn/json/cmmn.json'); */;
 
-var _cmmn2 = ___interopRequireDefault_20(_$cmmn_21);
+var _cmmn2 = ___interopRequireDefault_65(_$cmmn_66);
 
-/* removed: var _$cmmndi_22 = require('../resources/cmmn/json/cmmndi.json'); */;
+/* removed: var _$cmmndi_67 = require('../resources/cmmn/json/cmmndi.json'); */;
 
-var _cmmndi2 = ___interopRequireDefault_20(_$cmmndi_22);
+var _cmmndi2 = ___interopRequireDefault_65(_$cmmndi_67);
 
-/* removed: var _$dc_23 = require('../resources/cmmn/json/dc.json'); */;
+/* removed: var _$dc_68 = require('../resources/cmmn/json/dc.json'); */;
 
-var _dc2 = ___interopRequireDefault_20(_$dc_23);
+var _dc2 = ___interopRequireDefault_65(_$dc_68);
 
-/* removed: var _$di_24 = require('../resources/cmmn/json/di.json'); */;
+/* removed: var _$di_69 = require('../resources/cmmn/json/di.json'); */;
 
-var _di2 = ___interopRequireDefault_20(_$di_24);
+var _di2 = ___interopRequireDefault_65(_$di_69);
 
-function ___interopRequireDefault_20(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function ___interopRequireDefault_65(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var packages = {
   cmmn: _cmmn2.default,
@@ -27965,4642 +32380,23 @@ var packages = {
   di: _di2.default
 };
 
-var _$cmmnModdle_18 = {};
+var _$cmmnModdle_63 = {};
 'use strict';
 
-Object.defineProperty(_$cmmnModdle_18, "__esModule", {
+Object.defineProperty(_$cmmnModdle_63, "__esModule", {
   value: true
 });
 
-/* removed: var _$simple_20 = require('./lib/simple'); */;
+/* removed: var _$simple_65 = require('./lib/simple'); */;
 
-Object.defineProperty(_$cmmnModdle_18, 'default', {
+Object.defineProperty(_$cmmnModdle_63, 'default', {
   enumerable: true,
   get: function get() {
-    return ___interopRequireDefault_18(_$simple_20).default;
+    return ___interopRequireDefault_63(_$simple_65).default;
   }
 });
 
-function ___interopRequireDefault_18(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _$Elements_56 = {};
-'use strict';
-
-Object.defineProperty(_$Elements_56, "__esModule", {
-  value: true
-});
-_$Elements_56.add = __add_56;
-_$Elements_56.eachElement = eachElement;
-_$Elements_56.selfAndChildren = selfAndChildren;
-_$Elements_56.selfAndDirectChildren = selfAndDirectChildren;
-_$Elements_56.selfAndAllChildren = selfAndAllChildren;
-_$Elements_56.getClosure = getClosure;
-_$Elements_56.getBBox = getBBox;
-_$Elements_56.getEnclosedElements = getEnclosedElements;
-_$Elements_56.getType = getType;
-
-/* removed: var _$dist_72 = require('min-dash'); */;
-
-/**
- * Adds an element to a collection and returns true if the
- * element was added.
- *
- * @param {Array<Object>} elements
- * @param {Object} e
- * @param {Boolean} unique
- */
-function __add_56(elements, e, unique) {
-  var canAdd = !unique || elements.indexOf(e) === -1;
-
-  if (canAdd) {
-    elements.push(e);
-  }
-
-  return canAdd;
-}
-
-/**
- * Iterate over each element in a collection, calling the iterator function `fn`
- * with (element, index, recursionDepth).
- *
- * Recurse into all elements that are returned by `fn`.
- *
- * @param  {Object|Array<Object>} elements
- * @param  {Function} fn iterator function called with (element, index, recursionDepth)
- * @param  {Number} [depth] maximum recursion depth
- */
-function eachElement(elements, fn, depth) {
-
-  depth = depth || 0;
-
-  if (!(0, _$dist_72.isArray)(elements)) {
-    elements = [elements];
-  }
-
-  (0, _$dist_72.forEach)(elements, function (s, i) {
-    var filter = fn(s, i, depth);
-
-    if ((0, _$dist_72.isArray)(filter) && filter.length) {
-      eachElement(filter, fn, depth + 1);
-    }
-  });
-}
-
-/**
- * Collects self + child elements up to a given depth from a list of elements.
- *
- * @param  {djs.model.Base|Array<djs.model.Base>} elements the elements to select the children from
- * @param  {Boolean} unique whether to return a unique result set (no duplicates)
- * @param  {Number} maxDepth the depth to search through or -1 for infinite
- *
- * @return {Array<djs.model.Base>} found elements
- */
-function selfAndChildren(elements, unique, maxDepth) {
-  var result = [],
-      processedChildren = [];
-
-  eachElement(elements, function (element, i, depth) {
-    __add_56(result, element, unique);
-
-    var children = element.children;
-
-    // max traversal depth not reached yet
-    if (maxDepth === -1 || depth < maxDepth) {
-
-      // children exist && children not yet processed
-      if (children && __add_56(processedChildren, children, unique)) {
-        return children;
-      }
-    }
-  });
-
-  return result;
-}
-
-/**
- * Return self + direct children for a number of elements
- *
- * @param  {Array<djs.model.Base>} elements to query
- * @param  {Boolean} allowDuplicates to allow duplicates in the result set
- *
- * @return {Array<djs.model.Base>} the collected elements
- */
-function selfAndDirectChildren(elements, allowDuplicates) {
-  return selfAndChildren(elements, !allowDuplicates, 1);
-}
-
-/**
- * Return self + ALL children for a number of elements
- *
- * @param  {Array<djs.model.Base>} elements to query
- * @param  {Boolean} allowDuplicates to allow duplicates in the result set
- *
- * @return {Array<djs.model.Base>} the collected elements
- */
-function selfAndAllChildren(elements, allowDuplicates) {
-  return selfAndChildren(elements, !allowDuplicates, -1);
-}
-
-/**
- * Gets the the closure for all selected elements,
- * their connections and their attachment's connections
- *
- * @param {Array<djs.model.Base>} elements
- * @return {Object} enclosure
- */
-function getClosure(elements) {
-
-  // original elements passed to this function
-  var topLevel = (0, _$dist_72.groupBy)(elements, function (e) {
-    return e.id;
-  });
-
-  var allShapes = {},
-      allConnections = {},
-      enclosedElements = {},
-      enclosedConnections = {};
-
-  function handleConnection(c) {
-    if (topLevel[c.source.id] && topLevel[c.target.id]) {
-      topLevel[c.id] = [c];
-    }
-
-    // not enclosed as a child, but maybe logically
-    // (connecting two moved elements?)
-    if (allShapes[c.source.id] && allShapes[c.target.id]) {
-      enclosedConnections[c.id] = enclosedElements[c.id] = c;
-    }
-
-    allConnections[c.id] = c;
-  }
-
-  function handleElement(element) {
-
-    enclosedElements[element.id] = element;
-
-    if (element.waypoints) {
-      // remember connection
-      enclosedConnections[element.id] = allConnections[element.id] = element;
-    } else {
-      // remember shape
-      allShapes[element.id] = element;
-
-      // remember all connections
-      (0, _$dist_72.forEach)(element.incoming, handleConnection);
-
-      (0, _$dist_72.forEach)(element.outgoing, handleConnection);
-
-      // recurse into children
-      return element.children;
-    }
-  }
-
-  eachElement(elements, handleElement);
-
-  return {
-    allShapes: allShapes,
-    allConnections: allConnections,
-    topLevel: topLevel,
-    enclosedConnections: enclosedConnections,
-    enclosedElements: enclosedElements
-  };
-}
-
-/**
- * Returns the surrounding bbox for all elements in
- * the array or the element primitive.
- *
- * @param {Array<djs.model.Shape>|djs.model.Shape} elements
- * @param {Boolean} stopRecursion
- */
-function getBBox(elements, stopRecursion) {
-
-  stopRecursion = !!stopRecursion;
-  if (!(0, _$dist_72.isArray)(elements)) {
-    elements = [elements];
-  }
-
-  var minX, minY, maxX, maxY;
-
-  (0, _$dist_72.forEach)(elements, function (element) {
-
-    // If element is a connection the bbox must be computed first
-    var bbox = element;
-    if (element.waypoints && !stopRecursion) {
-      bbox = getBBox(element.waypoints, true);
-    }
-
-    var x = bbox.x,
-        y = bbox.y,
-        height = bbox.height || 0,
-        width = bbox.width || 0;
-
-    if (x < minX || minX === undefined) {
-      minX = x;
-    }
-    if (y < minY || minY === undefined) {
-      minY = y;
-    }
-
-    if (x + width > maxX || maxX === undefined) {
-      maxX = x + width;
-    }
-    if (y + height > maxY || maxY === undefined) {
-      maxY = y + height;
-    }
-  });
-
-  return {
-    x: minX,
-    y: minY,
-    height: maxY - minY,
-    width: maxX - minX
-  };
-}
-
-/**
- * Returns all elements that are enclosed from the bounding box.
- *
- *   * If bbox.(width|height) is not specified the method returns
- *     all elements with element.x/y > bbox.x/y
- *   * If only bbox.x or bbox.y is specified, method return all elements with
- *     e.x > bbox.x or e.y > bbox.y
- *
- * @param {Array<djs.model.Shape>} elements List of Elements to search through
- * @param {djs.model.Shape} bbox the enclosing bbox.
- *
- * @return {Array<djs.model.Shape>} enclosed elements
- */
-function getEnclosedElements(elements, bbox) {
-
-  var filteredElements = {};
-
-  (0, _$dist_72.forEach)(elements, function (element) {
-
-    var e = element;
-
-    if (e.waypoints) {
-      e = getBBox(e);
-    }
-
-    if (!(0, _$dist_72.isNumber)(bbox.y) && e.x > bbox.x) {
-      filteredElements[element.id] = element;
-    }
-    if (!(0, _$dist_72.isNumber)(bbox.x) && e.y > bbox.y) {
-      filteredElements[element.id] = element;
-    }
-    if (e.x > bbox.x && e.y > bbox.y) {
-      if ((0, _$dist_72.isNumber)(bbox.width) && (0, _$dist_72.isNumber)(bbox.height) && e.width + e.x < bbox.width + bbox.x && e.height + e.y < bbox.height + bbox.y) {
-
-        filteredElements[element.id] = element;
-      } else if (!(0, _$dist_72.isNumber)(bbox.width) || !(0, _$dist_72.isNumber)(bbox.height)) {
-        filteredElements[element.id] = element;
-      }
-    }
-  });
-
-  return filteredElements;
-}
-
-function getType(element) {
-
-  if ('waypoints' in element) {
-    return 'connection';
-  }
-
-  if ('x' in element) {
-    return 'shape';
-  }
-
-  return 'root';
-}
-
-var _$Canvas_27 = {};
-'use strict';
-
-Object.defineProperty(_$Canvas_27, "__esModule", {
-  value: true
-});
-
-var ___typeof_27 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-_$Canvas_27.default = Canvas;
-
-/* removed: var _$dist_72 = require('min-dash'); */;
-
-/* removed: var _$Collections_54 = require('../util/Collections'); */;
-
-/* removed: var _$Elements_56 = require('../util/Elements'); */;
-
-/* removed: var _$indexCjs_92 = require('tiny-svg'); */;
-
-function round(number, resolution) {
-  return Math.round(number * resolution) / resolution;
-}
-
-function ensurePx(number) {
-  return (0, _$dist_72.isNumber)(number) ? number + 'px' : number;
-}
-
-/**
- * Creates a HTML container element for a SVG element with
- * the given configuration
- *
- * @param  {Object} options
- * @return {HTMLElement} the container element
- */
-function createContainer(options) {
-
-  options = (0, _$dist_72.assign)({}, { width: '100%', height: '100%' }, options);
-
-  var container = options.container || document.body;
-
-  // create a <div> around the svg element with the respective size
-  // this way we can always get the correct container size
-  // (this is impossible for <svg> elements at the moment)
-  var parent = document.createElement('div');
-  parent.setAttribute('class', 'djs-container');
-
-  (0, _$dist_72.assign)(parent.style, {
-    position: 'relative',
-    overflow: 'hidden',
-    width: ensurePx(options.width),
-    height: ensurePx(options.height)
-  });
-
-  container.appendChild(parent);
-
-  return parent;
-}
-
-function createGroup(parent, cls, childIndex) {
-  var group = (0, _$indexCjs_92.create)('g');
-  (0, _$indexCjs_92.classes)(group).add(cls);
-
-  var index = childIndex !== undefined ? childIndex : parent.childNodes.length - 1;
-
-  parent.insertBefore(group, parent.childNodes[index]);
-
-  return group;
-}
-
-var BASE_LAYER = 'base';
-
-var REQUIRED_MODEL_ATTRS = {
-  shape: ['x', 'y', 'width', 'height'],
-  connection: ['waypoints']
-};
-
-/**
- * The main drawing canvas.
- *
- * @class
- * @constructor
- *
- * @emits Canvas#canvas.init
- *
- * @param {Object} config
- * @param {EventBus} eventBus
- * @param {GraphicsFactory} graphicsFactory
- * @param {ElementRegistry} elementRegistry
- */
-function Canvas(config, eventBus, graphicsFactory, elementRegistry) {
-
-  this._eventBus = eventBus;
-  this._elementRegistry = elementRegistry;
-  this._graphicsFactory = graphicsFactory;
-
-  this._init(config || {});
-}
-
-Canvas.$inject = ['config.canvas', 'eventBus', 'graphicsFactory', 'elementRegistry'];
-
-Canvas.prototype._init = function (config) {
-
-  var eventBus = this._eventBus;
-
-  // Creates a <svg> element that is wrapped into a <div>.
-  // This way we are always able to correctly figure out the size of the svg element
-  // by querying the parent node.
-  //
-  // (It is not possible to get the size of a svg element cross browser @ 2014-04-01)
-  //
-  // <div class="djs-container" style="width: {desired-width}, height: {desired-height}">
-  //   <svg width="100%" height="100%">
-  //    ...
-  //   </svg>
-  // </div>
-
-  // html container
-  var container = this._container = createContainer(config);
-
-  var svg = this._svg = (0, _$indexCjs_92.create)('svg');
-  (0, _$indexCjs_92.attr)(svg, { width: '100%', height: '100%' });
-
-  (0, _$indexCjs_92.append)(container, svg);
-
-  var viewport = this._viewport = createGroup(svg, 'viewport');
-
-  this._layers = {};
-
-  // debounce canvas.viewbox.changed events
-  // for smoother diagram interaction
-  if (config.deferUpdate !== false) {
-    this._viewboxChanged = (0, _$dist_72.debounce)((0, _$dist_72.bind)(this._viewboxChanged, this), 300);
-  }
-
-  eventBus.on('diagram.init', function () {
-
-    /**
-     * An event indicating that the canvas is ready to be drawn on.
-     *
-     * @memberOf Canvas
-     *
-     * @event canvas.init
-     *
-     * @type {Object}
-     * @property {SVGElement} svg the created svg element
-     * @property {SVGElement} viewport the direct parent of diagram elements and shapes
-     */
-    eventBus.fire('canvas.init', {
-      svg: svg,
-      viewport: viewport
-    });
-  }, this);
-
-  // reset viewbox on shape changes to
-  // recompute the viewbox
-  eventBus.on(['shape.added', 'connection.added', 'shape.removed', 'connection.removed', 'elements.changed'], function () {
-    delete this._cachedViewbox;
-  }, this);
-
-  eventBus.on('diagram.destroy', 500, this._destroy, this);
-  eventBus.on('diagram.clear', 500, this._clear, this);
-};
-
-Canvas.prototype._destroy = function (emit) {
-  this._eventBus.fire('canvas.destroy', {
-    svg: this._svg,
-    viewport: this._viewport
-  });
-
-  var parent = this._container.parentNode;
-
-  if (parent) {
-    parent.removeChild(this._container);
-  }
-
-  delete this._svg;
-  delete this._container;
-  delete this._layers;
-  delete this._rootElement;
-  delete this._viewport;
-};
-
-Canvas.prototype._clear = function () {
-
-  var self = this;
-
-  var allElements = this._elementRegistry.getAll();
-
-  // remove all elements
-  allElements.forEach(function (element) {
-    var type = (0, _$Elements_56.getType)(element);
-
-    if (type === 'root') {
-      self.setRootElement(null, true);
-    } else {
-      self._removeElement(element, type);
-    }
-  });
-
-  // force recomputation of view box
-  delete this._cachedViewbox;
-};
-
-/**
- * Returns the default layer on which
- * all elements are drawn.
- *
- * @returns {SVGElement}
- */
-Canvas.prototype.getDefaultLayer = function () {
-  return this.getLayer(BASE_LAYER, 0);
-};
-
-/**
- * Returns a layer that is used to draw elements
- * or annotations on it.
- *
- * Non-existing layers retrieved through this method
- * will be created. During creation, the optional index
- * may be used to create layers below or above existing layers.
- * A layer with a certain index is always created above all
- * existing layers with the same index.
- *
- * @param {String} name
- * @param {Number} index
- *
- * @returns {SVGElement}
- */
-Canvas.prototype.getLayer = function (name, index) {
-
-  if (!name) {
-    throw new Error('must specify a name');
-  }
-
-  var layer = this._layers[name];
-
-  if (!layer) {
-    layer = this._layers[name] = this._createLayer(name, index);
-  }
-
-  // throw an error if layer creation / retrival is
-  // requested on different index
-  if (typeof index !== 'undefined' && layer.index !== index) {
-    throw new Error('layer <' + name + '> already created at index <' + index + '>');
-  }
-
-  return layer.group;
-};
-
-/**
- * Creates a given layer and returns it.
- *
- * @param {String} name
- * @param {Number} [index=0]
- *
- * @return {Object} layer descriptor with { index, group: SVGGroup }
- */
-Canvas.prototype._createLayer = function (name, index) {
-
-  if (!index) {
-    index = 0;
-  }
-
-  var childIndex = (0, _$dist_72.reduce)(this._layers, function (childIndex, layer) {
-    if (index >= layer.index) {
-      childIndex++;
-    }
-
-    return childIndex;
-  }, 0);
-
-  return {
-    group: createGroup(this._viewport, 'layer-' + name, childIndex),
-    index: index
-  };
-};
-
-/**
- * Returns the html element that encloses the
- * drawing canvas.
- *
- * @return {DOMNode}
- */
-Canvas.prototype.getContainer = function () {
-  return this._container;
-};
-
-// markers //////////////////////
-
-Canvas.prototype._updateMarker = function (element, marker, add) {
-  var container;
-
-  if (!element.id) {
-    element = this._elementRegistry.get(element);
-  }
-
-  // we need to access all
-  container = this._elementRegistry._elements[element.id];
-
-  if (!container) {
-    return;
-  }
-
-  (0, _$dist_72.forEach)([container.gfx, container.secondaryGfx], function (gfx) {
-    if (gfx) {
-      // invoke either addClass or removeClass based on mode
-      if (add) {
-        (0, _$indexCjs_92.classes)(gfx).add(marker);
-      } else {
-        (0, _$indexCjs_92.classes)(gfx).remove(marker);
-      }
-    }
-  });
-
-  /**
-   * An event indicating that a marker has been updated for an element
-   *
-   * @event element.marker.update
-   * @type {Object}
-   * @property {djs.model.Element} element the shape
-   * @property {Object} gfx the graphical representation of the shape
-   * @property {String} marker
-   * @property {Boolean} add true if the marker was added, false if it got removed
-   */
-  this._eventBus.fire('element.marker.update', { element: element, gfx: container.gfx, marker: marker, add: !!add });
-};
-
-/**
- * Adds a marker to an element (basically a css class).
- *
- * Fires the element.marker.update event, making it possible to
- * integrate extension into the marker life-cycle, too.
- *
- * @example
- * canvas.addMarker('foo', 'some-marker');
- *
- * var fooGfx = canvas.getGraphics('foo');
- *
- * fooGfx; // <g class="... some-marker"> ... </g>
- *
- * @param {String|djs.model.Base} element
- * @param {String} marker
- */
-Canvas.prototype.addMarker = function (element, marker) {
-  this._updateMarker(element, marker, true);
-};
-
-/**
- * Remove a marker from an element.
- *
- * Fires the element.marker.update event, making it possible to
- * integrate extension into the marker life-cycle, too.
- *
- * @param  {String|djs.model.Base} element
- * @param  {String} marker
- */
-Canvas.prototype.removeMarker = function (element, marker) {
-  this._updateMarker(element, marker, false);
-};
-
-/**
- * Check the existence of a marker on element.
- *
- * @param  {String|djs.model.Base} element
- * @param  {String} marker
- */
-Canvas.prototype.hasMarker = function (element, marker) {
-  if (!element.id) {
-    element = this._elementRegistry.get(element);
-  }
-
-  var gfx = this.getGraphics(element);
-
-  return (0, _$indexCjs_92.classes)(gfx).has(marker);
-};
-
-/**
- * Toggles a marker on an element.
- *
- * Fires the element.marker.update event, making it possible to
- * integrate extension into the marker life-cycle, too.
- *
- * @param  {String|djs.model.Base} element
- * @param  {String} marker
- */
-Canvas.prototype.toggleMarker = function (element, marker) {
-  if (this.hasMarker(element, marker)) {
-    this.removeMarker(element, marker);
-  } else {
-    this.addMarker(element, marker);
-  }
-};
-
-Canvas.prototype.getRootElement = function () {
-  if (!this._rootElement) {
-    this.setRootElement({ id: '__implicitroot', children: [] });
-  }
-
-  return this._rootElement;
-};
-
-// root element handling //////////////////////
-
-/**
- * Sets a given element as the new root element for the canvas
- * and returns the new root element.
- *
- * @param {Object|djs.model.Root} element
- * @param {Boolean} [override] whether to override the current root element, if any
- *
- * @return {Object|djs.model.Root} new root element
- */
-Canvas.prototype.setRootElement = function (element, override) {
-
-  if (element) {
-    this._ensureValid('root', element);
-  }
-
-  var currentRoot = this._rootElement,
-      elementRegistry = this._elementRegistry,
-      eventBus = this._eventBus;
-
-  if (currentRoot) {
-    if (!override) {
-      throw new Error('rootElement already set, need to specify override');
-    }
-
-    // simulate element remove event sequence
-    eventBus.fire('root.remove', { element: currentRoot });
-    eventBus.fire('root.removed', { element: currentRoot });
-
-    elementRegistry.remove(currentRoot);
-  }
-
-  if (element) {
-    var gfx = this.getDefaultLayer();
-
-    // resemble element add event sequence
-    eventBus.fire('root.add', { element: element });
-
-    elementRegistry.add(element, gfx, this._svg);
-
-    eventBus.fire('root.added', { element: element, gfx: gfx });
-  }
-
-  this._rootElement = element;
-
-  return element;
-};
-
-// add functionality //////////////////////
-
-Canvas.prototype._ensureValid = function (type, element) {
-  if (!element.id) {
-    throw new Error('element must have an id');
-  }
-
-  if (this._elementRegistry.get(element.id)) {
-    throw new Error('element with id ' + element.id + ' already exists');
-  }
-
-  var requiredAttrs = REQUIRED_MODEL_ATTRS[type];
-
-  var valid = (0, _$dist_72.every)(requiredAttrs, function (attr) {
-    return typeof element[attr] !== 'undefined';
-  });
-
-  if (!valid) {
-    throw new Error('must supply { ' + requiredAttrs.join(', ') + ' } with ' + type);
-  }
-};
-
-Canvas.prototype._setParent = function (element, parent, parentIndex) {
-  (0, _$Collections_54.add)(parent.children, element, parentIndex);
-  element.parent = parent;
-};
-
-/**
- * Adds an element to the canvas.
- *
- * This wires the parent <-> child relationship between the element and
- * a explicitly specified parent or an implicit root element.
- *
- * During add it emits the events
- *
- *  * <{type}.add> (element, parent)
- *  * <{type}.added> (element, gfx)
- *
- * Extensions may hook into these events to perform their magic.
- *
- * @param {String} type
- * @param {Object|djs.model.Base} element
- * @param {Object|djs.model.Base} [parent]
- * @param {Number} [parentIndex]
- *
- * @return {Object|djs.model.Base} the added element
- */
-Canvas.prototype._addElement = function (type, element, parent, parentIndex) {
-
-  parent = parent || this.getRootElement();
-
-  var eventBus = this._eventBus,
-      graphicsFactory = this._graphicsFactory;
-
-  this._ensureValid(type, element);
-
-  eventBus.fire(type + '.add', { element: element, parent: parent });
-
-  this._setParent(element, parent, parentIndex);
-
-  // create graphics
-  var gfx = graphicsFactory.create(type, element, parentIndex);
-
-  this._elementRegistry.add(element, gfx);
-
-  // update its visual
-  graphicsFactory.update(type, element, gfx);
-
-  eventBus.fire(type + '.added', { element: element, gfx: gfx });
-
-  return element;
-};
-
-/**
- * Adds a shape to the canvas
- *
- * @param {Object|djs.model.Shape} shape to add to the diagram
- * @param {djs.model.Base} [parent]
- * @param {Number} [parentIndex]
- *
- * @return {djs.model.Shape} the added shape
- */
-Canvas.prototype.addShape = function (shape, parent, parentIndex) {
-  return this._addElement('shape', shape, parent, parentIndex);
-};
-
-/**
- * Adds a connection to the canvas
- *
- * @param {Object|djs.model.Connection} connection to add to the diagram
- * @param {djs.model.Base} [parent]
- * @param {Number} [parentIndex]
- *
- * @return {djs.model.Connection} the added connection
- */
-Canvas.prototype.addConnection = function (connection, parent, parentIndex) {
-  return this._addElement('connection', connection, parent, parentIndex);
-};
-
-/**
- * Internal remove element
- */
-Canvas.prototype._removeElement = function (element, type) {
-
-  var elementRegistry = this._elementRegistry,
-      graphicsFactory = this._graphicsFactory,
-      eventBus = this._eventBus;
-
-  element = elementRegistry.get(element.id || element);
-
-  if (!element) {
-    // element was removed already
-    return;
-  }
-
-  eventBus.fire(type + '.remove', { element: element });
-
-  graphicsFactory.remove(element);
-
-  // unset parent <-> child relationship
-  (0, _$Collections_54.remove)(element.parent && element.parent.children, element);
-  element.parent = null;
-
-  eventBus.fire(type + '.removed', { element: element });
-
-  elementRegistry.remove(element);
-
-  return element;
-};
-
-/**
- * Removes a shape from the canvas
- *
- * @param {String|djs.model.Shape} shape or shape id to be removed
- *
- * @return {djs.model.Shape} the removed shape
- */
-Canvas.prototype.removeShape = function (shape) {
-
-  /**
-   * An event indicating that a shape is about to be removed from the canvas.
-   *
-   * @memberOf Canvas
-   *
-   * @event shape.remove
-   * @type {Object}
-   * @property {djs.model.Shape} element the shape descriptor
-   * @property {Object} gfx the graphical representation of the shape
-   */
-
-  /**
-   * An event indicating that a shape has been removed from the canvas.
-   *
-   * @memberOf Canvas
-   *
-   * @event shape.removed
-   * @type {Object}
-   * @property {djs.model.Shape} element the shape descriptor
-   * @property {Object} gfx the graphical representation of the shape
-   */
-  return this._removeElement(shape, 'shape');
-};
-
-/**
- * Removes a connection from the canvas
- *
- * @param {String|djs.model.Connection} connection or connection id to be removed
- *
- * @return {djs.model.Connection} the removed connection
- */
-Canvas.prototype.removeConnection = function (connection) {
-
-  /**
-   * An event indicating that a connection is about to be removed from the canvas.
-   *
-   * @memberOf Canvas
-   *
-   * @event connection.remove
-   * @type {Object}
-   * @property {djs.model.Connection} element the connection descriptor
-   * @property {Object} gfx the graphical representation of the connection
-   */
-
-  /**
-   * An event indicating that a connection has been removed from the canvas.
-   *
-   * @memberOf Canvas
-   *
-   * @event connection.removed
-   * @type {Object}
-   * @property {djs.model.Connection} element the connection descriptor
-   * @property {Object} gfx the graphical representation of the connection
-   */
-  return this._removeElement(connection, 'connection');
-};
-
-/**
- * Return the graphical object underlaying a certain diagram element
- *
- * @param {String|djs.model.Base} element descriptor of the element
- * @param {Boolean} [secondary=false] whether to return the secondary connected element
- *
- * @return {SVGElement}
- */
-Canvas.prototype.getGraphics = function (element, secondary) {
-  return this._elementRegistry.getGraphics(element, secondary);
-};
-
-/**
- * Perform a viewbox update via a given change function.
- *
- * @param {Function} changeFn
- */
-Canvas.prototype._changeViewbox = function (changeFn) {
-
-  // notify others of the upcoming viewbox change
-  this._eventBus.fire('canvas.viewbox.changing');
-
-  // perform actual change
-  changeFn.apply(this);
-
-  // reset the cached viewbox so that
-  // a new get operation on viewbox or zoom
-  // triggers a viewbox re-computation
-  this._cachedViewbox = null;
-
-  // notify others of the change; this step
-  // may or may not be debounced
-  this._viewboxChanged();
-};
-
-Canvas.prototype._viewboxChanged = function () {
-  this._eventBus.fire('canvas.viewbox.changed', { viewbox: this.viewbox() });
-};
-
-/**
- * Gets or sets the view box of the canvas, i.e. the
- * area that is currently displayed.
- *
- * The getter may return a cached viewbox (if it is currently
- * changing). To force a recomputation, pass `false` as the first argument.
- *
- * @example
- *
- * canvas.viewbox({ x: 100, y: 100, width: 500, height: 500 })
- *
- * // sets the visible area of the diagram to (100|100) -> (600|100)
- * // and and scales it according to the diagram width
- *
- * var viewbox = canvas.viewbox(); // pass `false` to force recomputing the box.
- *
- * console.log(viewbox);
- * // {
- * //   inner: Dimensions,
- * //   outer: Dimensions,
- * //   scale,
- * //   x, y,
- * //   width, height
- * // }
- *
- * // if the current diagram is zoomed and scrolled, you may reset it to the
- * // default zoom via this method, too:
- *
- * var zoomedAndScrolledViewbox = canvas.viewbox();
- *
- * canvas.viewbox({
- *   x: 0,
- *   y: 0,
- *   width: zoomedAndScrolledViewbox.outer.width,
- *   height: zoomedAndScrolledViewbox.outer.height
- * });
- *
- * @param  {Object} [box] the new view box to set
- * @param  {Number} box.x the top left X coordinate of the canvas visible in view box
- * @param  {Number} box.y the top left Y coordinate of the canvas visible in view box
- * @param  {Number} box.width the visible width
- * @param  {Number} box.height
- *
- * @return {Object} the current view box
- */
-Canvas.prototype.viewbox = function (box) {
-
-  if (box === undefined && this._cachedViewbox) {
-    return this._cachedViewbox;
-  }
-
-  var viewport = this._viewport,
-      innerBox,
-      outerBox = this.getSize(),
-      matrix,
-      transform,
-      scale,
-      x,
-      y;
-
-  if (!box) {
-    // compute the inner box based on the
-    // diagrams default layer. This allows us to exclude
-    // external components, such as overlays
-    innerBox = this.getDefaultLayer().getBBox();
-
-    transform = (0, _$indexCjs_92.transform)(viewport);
-    matrix = transform ? transform.matrix : (0, _$indexCjs_92.createMatrix)();
-    scale = round(matrix.a, 1000);
-
-    x = round(-matrix.e || 0, 1000);
-    y = round(-matrix.f || 0, 1000);
-
-    box = this._cachedViewbox = {
-      x: x ? x / scale : 0,
-      y: y ? y / scale : 0,
-      width: outerBox.width / scale,
-      height: outerBox.height / scale,
-      scale: scale,
-      inner: {
-        width: innerBox.width,
-        height: innerBox.height,
-        x: innerBox.x,
-        y: innerBox.y
-      },
-      outer: outerBox
-    };
-
-    return box;
-  } else {
-
-    this._changeViewbox(function () {
-      scale = Math.min(outerBox.width / box.width, outerBox.height / box.height);
-
-      var matrix = this._svg.createSVGMatrix().scale(scale).translate(-box.x, -box.y);
-
-      (0, _$indexCjs_92.transform)(viewport, matrix);
-    });
-  }
-
-  return box;
-};
-
-/**
- * Gets or sets the scroll of the canvas.
- *
- * @param {Object} [delta] the new scroll to apply.
- *
- * @param {Number} [delta.dx]
- * @param {Number} [delta.dy]
- */
-Canvas.prototype.scroll = function (delta) {
-
-  var node = this._viewport;
-  var matrix = node.getCTM();
-
-  if (delta) {
-    this._changeViewbox(function () {
-      delta = (0, _$dist_72.assign)({ dx: 0, dy: 0 }, delta || {});
-
-      matrix = this._svg.createSVGMatrix().translate(delta.dx, delta.dy).multiply(matrix);
-
-      setCTM(node, matrix);
-    });
-  }
-
-  return { x: matrix.e, y: matrix.f };
-};
-
-/**
- * Gets or sets the current zoom of the canvas, optionally zooming
- * to the specified position.
- *
- * The getter may return a cached zoom level. Call it with `false` as
- * the first argument to force recomputation of the current level.
- *
- * @param {String|Number} [newScale] the new zoom level, either a number, i.e. 0.9,
- *                                   or `fit-viewport` to adjust the size to fit the current viewport
- * @param {String|Point} [center] the reference point { x: .., y: ..} to zoom to, 'auto' to zoom into mid or null
- *
- * @return {Number} the current scale
- */
-Canvas.prototype.zoom = function (newScale, center) {
-
-  if (!newScale) {
-    return this.viewbox(newScale).scale;
-  }
-
-  if (newScale === 'fit-viewport') {
-    return this._fitViewport(center);
-  }
-
-  var outer, matrix;
-
-  this._changeViewbox(function () {
-
-    if ((typeof center === 'undefined' ? 'undefined' : ___typeof_27(center)) !== 'object') {
-      outer = this.viewbox().outer;
-
-      center = {
-        x: outer.width / 2,
-        y: outer.height / 2
-      };
-    }
-
-    matrix = this._setZoom(newScale, center);
-  });
-
-  return round(matrix.a, 1000);
-};
-
-function setCTM(node, m) {
-  var mstr = 'matrix(' + m.a + ',' + m.b + ',' + m.c + ',' + m.d + ',' + m.e + ',' + m.f + ')';
-  node.setAttribute('transform', mstr);
-}
-
-Canvas.prototype._fitViewport = function (center) {
-
-  var vbox = this.viewbox(),
-      outer = vbox.outer,
-      inner = vbox.inner,
-      newScale,
-      newViewbox;
-
-  // display the complete diagram without zooming in.
-  // instead of relying on internal zoom, we perform a
-  // hard reset on the canvas viewbox to realize this
-  //
-  // if diagram does not need to be zoomed in, we focus it around
-  // the diagram origin instead
-
-  if (inner.x >= 0 && inner.y >= 0 && inner.x + inner.width <= outer.width && inner.y + inner.height <= outer.height && !center) {
-
-    newViewbox = {
-      x: 0,
-      y: 0,
-      width: Math.max(inner.width + inner.x, outer.width),
-      height: Math.max(inner.height + inner.y, outer.height)
-    };
-  } else {
-
-    newScale = Math.min(1, outer.width / inner.width, outer.height / inner.height);
-    newViewbox = {
-      x: inner.x + (center ? inner.width / 2 - outer.width / newScale / 2 : 0),
-      y: inner.y + (center ? inner.height / 2 - outer.height / newScale / 2 : 0),
-      width: outer.width / newScale,
-      height: outer.height / newScale
-    };
-  }
-
-  this.viewbox(newViewbox);
-
-  return this.viewbox(false).scale;
-};
-
-Canvas.prototype._setZoom = function (scale, center) {
-
-  var svg = this._svg,
-      viewport = this._viewport;
-
-  var matrix = svg.createSVGMatrix();
-  var point = svg.createSVGPoint();
-
-  var centerPoint, originalPoint, currentMatrix, scaleMatrix, newMatrix;
-
-  currentMatrix = viewport.getCTM();
-
-  var currentScale = currentMatrix.a;
-
-  if (center) {
-    centerPoint = (0, _$dist_72.assign)(point, center);
-
-    // revert applied viewport transformations
-    originalPoint = centerPoint.matrixTransform(currentMatrix.inverse());
-
-    // create scale matrix
-    scaleMatrix = matrix.translate(originalPoint.x, originalPoint.y).scale(1 / currentScale * scale).translate(-originalPoint.x, -originalPoint.y);
-
-    newMatrix = currentMatrix.multiply(scaleMatrix);
-  } else {
-    newMatrix = matrix.scale(scale);
-  }
-
-  setCTM(this._viewport, newMatrix);
-
-  return newMatrix;
-};
-
-/**
- * Returns the size of the canvas
- *
- * @return {Dimensions}
- */
-Canvas.prototype.getSize = function () {
-  return {
-    width: this._container.clientWidth,
-    height: this._container.clientHeight
-  };
-};
-
-/**
- * Return the absolute bounding box for the given element
- *
- * The absolute bounding box may be used to display overlays in the
- * callers (browser) coordinate system rather than the zoomed in/out
- * canvas coordinates.
- *
- * @param  {ElementDescriptor} element
- * @return {Bounds} the absolute bounding box
- */
-Canvas.prototype.getAbsoluteBBox = function (element) {
-  var vbox = this.viewbox();
-  var bbox;
-
-  // connection
-  // use svg bbox
-  if (element.waypoints) {
-    var gfx = this.getGraphics(element);
-
-    bbox = gfx.getBBox();
-  }
-  // shapes
-  // use data
-  else {
-      bbox = element;
-    }
-
-  var x = bbox.x * vbox.scale - vbox.x * vbox.scale;
-  var y = bbox.y * vbox.scale - vbox.y * vbox.scale;
-
-  var width = bbox.width * vbox.scale;
-  var height = bbox.height * vbox.scale;
-
-  return {
-    x: x,
-    y: y,
-    width: width,
-    height: height
-  };
-};
-
-/**
- * Fires an event in order other modules can react to the
- * canvas resizing
- */
-Canvas.prototype.resized = function () {
-
-  // force recomputation of view box
-  delete this._cachedViewbox;
-
-  this._eventBus.fire('canvas.resized');
-};
-
-var _$ElementFactory_28 = {};
-'use strict';
-
-Object.defineProperty(_$ElementFactory_28, "__esModule", {
-  value: true
-});
-_$ElementFactory_28.default = ElementFactory;
-
-/* removed: var _$model_47 = require('../model'); */;
-
-/* removed: var _$dist_72 = require('min-dash'); */;
-
-/**
- * A factory for diagram-js shapes
- */
-function ElementFactory() {
-  this._uid = 12;
-}
-
-ElementFactory.prototype.createRoot = function (attrs) {
-  return this.create('root', attrs);
-};
-
-ElementFactory.prototype.createLabel = function (attrs) {
-  return this.create('label', attrs);
-};
-
-ElementFactory.prototype.createShape = function (attrs) {
-  return this.create('shape', attrs);
-};
-
-ElementFactory.prototype.createConnection = function (attrs) {
-  return this.create('connection', attrs);
-};
-
-/**
- * Create a model element with the given type and
- * a number of pre-set attributes.
- *
- * @param  {String} type
- * @param  {Object} attrs
- * @return {djs.model.Base} the newly created model instance
- */
-ElementFactory.prototype.create = function (type, attrs) {
-
-  attrs = (0, _$dist_72.assign)({}, attrs || {});
-
-  if (!attrs.id) {
-    attrs.id = type + '_' + this._uid++;
-  }
-
-  return (0, _$model_47.create)(type, attrs);
-};
-
-var _$ElementRegistry_29 = {};
-'use strict';
-
-Object.defineProperty(_$ElementRegistry_29, "__esModule", {
-  value: true
-});
-_$ElementRegistry_29.default = ElementRegistry;
-
-/* removed: var _$indexCjs_92 = require('tiny-svg'); */;
-
-var ELEMENT_ID = 'data-element-id';
-
-/**
- * @class
- *
- * A registry that keeps track of all shapes in the diagram.
- */
-function ElementRegistry(eventBus) {
-  this._elements = {};
-
-  this._eventBus = eventBus;
-}
-
-ElementRegistry.$inject = ['eventBus'];
-
-/**
- * Register a pair of (element, gfx, (secondaryGfx)).
- *
- * @param {djs.model.Base} element
- * @param {SVGElement} gfx
- * @param {SVGElement} [secondaryGfx] optional other element to register, too
- */
-ElementRegistry.prototype.add = function (element, gfx, secondaryGfx) {
-
-  var id = element.id;
-
-  this._validateId(id);
-
-  // associate dom node with element
-  (0, _$indexCjs_92.attr)(gfx, ELEMENT_ID, id);
-
-  if (secondaryGfx) {
-    (0, _$indexCjs_92.attr)(secondaryGfx, ELEMENT_ID, id);
-  }
-
-  this._elements[id] = { element: element, gfx: gfx, secondaryGfx: secondaryGfx };
-};
-
-/**
- * Removes an element from the registry.
- *
- * @param {djs.model.Base} element
- */
-ElementRegistry.prototype.remove = function (element) {
-  var elements = this._elements,
-      id = element.id || element,
-      container = id && elements[id];
-
-  if (container) {
-
-    // unset element id on gfx
-    (0, _$indexCjs_92.attr)(container.gfx, ELEMENT_ID, '');
-
-    if (container.secondaryGfx) {
-      (0, _$indexCjs_92.attr)(container.secondaryGfx, ELEMENT_ID, '');
-    }
-
-    delete elements[id];
-  }
-};
-
-/**
- * Update the id of an element
- *
- * @param {djs.model.Base} element
- * @param {String} newId
- */
-ElementRegistry.prototype.updateId = function (element, newId) {
-
-  this._validateId(newId);
-
-  if (typeof element === 'string') {
-    element = this.get(element);
-  }
-
-  this._eventBus.fire('element.updateId', {
-    element: element,
-    newId: newId
-  });
-
-  var gfx = this.getGraphics(element),
-      secondaryGfx = this.getGraphics(element, true);
-
-  this.remove(element);
-
-  element.id = newId;
-
-  this.add(element, gfx, secondaryGfx);
-};
-
-/**
- * Return the model element for a given id or graphics.
- *
- * @example
- *
- * elementRegistry.get('SomeElementId_1');
- * elementRegistry.get(gfx);
- *
- *
- * @param {String|SVGElement} filter for selecting the element
- *
- * @return {djs.model.Base}
- */
-ElementRegistry.prototype.get = function (filter) {
-  var id;
-
-  if (typeof filter === 'string') {
-    id = filter;
-  } else {
-    id = filter && (0, _$indexCjs_92.attr)(filter, ELEMENT_ID);
-  }
-
-  var container = this._elements[id];
-  return container && container.element;
-};
-
-/**
- * Return all elements that match a given filter function.
- *
- * @param {Function} fn
- *
- * @return {Array<djs.model.Base>}
- */
-ElementRegistry.prototype.filter = function (fn) {
-
-  var filtered = [];
-
-  this.forEach(function (element, gfx) {
-    if (fn(element, gfx)) {
-      filtered.push(element);
-    }
-  });
-
-  return filtered;
-};
-
-/**
- * Return all rendered model elements.
- *
- * @return {Array<djs.model.Base>}
- */
-ElementRegistry.prototype.getAll = function () {
-  return this.filter(function (e) {
-    return e;
-  });
-};
-
-/**
- * Iterate over all diagram elements.
- *
- * @param {Function} fn
- */
-ElementRegistry.prototype.forEach = function (fn) {
-
-  var map = this._elements;
-
-  Object.keys(map).forEach(function (id) {
-    var container = map[id],
-        element = container.element,
-        gfx = container.gfx;
-
-    return fn(element, gfx);
-  });
-};
-
-/**
- * Return the graphical representation of an element or its id.
- *
- * @example
- * elementRegistry.getGraphics('SomeElementId_1');
- * elementRegistry.getGraphics(rootElement); // <g ...>
- *
- * elementRegistry.getGraphics(rootElement, true); // <svg ...>
- *
- *
- * @param {String|djs.model.Base} filter
- * @param {Boolean} [secondary=false] whether to return the secondary connected element
- *
- * @return {SVGElement}
- */
-ElementRegistry.prototype.getGraphics = function (filter, secondary) {
-  var id = filter.id || filter;
-
-  var container = this._elements[id];
-  return container && (secondary ? container.secondaryGfx : container.gfx);
-};
-
-/**
- * Validate the suitability of the given id and signals a problem
- * with an exception.
- *
- * @param {String} id
- *
- * @throws {Error} if id is empty or already assigned
- */
-ElementRegistry.prototype._validateId = function (id) {
-  if (!id) {
-    throw new Error('element must have an id');
-  }
-
-  if (this._elements[id]) {
-    throw new Error('element with id ' + id + ' already added');
-  }
-};
-
-var _$EventBus_30 = {};
-'use strict';
-
-Object.defineProperty(_$EventBus_30, "__esModule", {
-  value: true
-});
-
-var ___typeof_30 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-_$EventBus_30.default = EventBus;
-
-/* removed: var _$dist_72 = require('min-dash'); */;
-
-var FN_REF = '__fn';
-
-var DEFAULT_PRIORITY = 1000;
-
-var __slice_30 = Array.prototype.slice;
-
-/**
- * A general purpose event bus.
- *
- * This component is used to communicate across a diagram instance.
- * Other parts of a diagram can use it to listen to and broadcast events.
- *
- *
- * ## Registering for Events
- *
- * The event bus provides the {@link EventBus#on} and {@link EventBus#once}
- * methods to register for events. {@link EventBus#off} can be used to
- * remove event registrations. Listeners receive an instance of {@link Event}
- * as the first argument. It allows them to hook into the event execution.
- *
- * ```javascript
- *
- * // listen for event
- * eventBus.on('foo', function(event) {
- *
- *   // access event type
- *   event.type; // 'foo'
- *
- *   // stop propagation to other listeners
- *   event.stopPropagation();
- *
- *   // prevent event default
- *   event.preventDefault();
- * });
- *
- * // listen for event with custom payload
- * eventBus.on('bar', function(event, payload) {
- *   console.log(payload);
- * });
- *
- * // listen for event returning value
- * eventBus.on('foobar', function(event) {
- *
- *   // stop event propagation + prevent default
- *   return false;
- *
- *   // stop event propagation + return custom result
- *   return {
- *     complex: 'listening result'
- *   };
- * });
- *
- *
- * // listen with custom priority (default=1000, higher is better)
- * eventBus.on('priorityfoo', 1500, function(event) {
- *   console.log('invoked first!');
- * });
- *
- *
- * // listen for event and pass the context (`this`)
- * eventBus.on('foobar', function(event) {
- *   this.foo();
- * }, this);
- * ```
- *
- *
- * ## Emitting Events
- *
- * Events can be emitted via the event bus using {@link EventBus#fire}.
- *
- * ```javascript
- *
- * // false indicates that the default action
- * // was prevented by listeners
- * if (eventBus.fire('foo') === false) {
- *   console.log('default has been prevented!');
- * };
- *
- *
- * // custom args + return value listener
- * eventBus.on('sum', function(event, a, b) {
- *   return a + b;
- * });
- *
- * // you can pass custom arguments + retrieve result values.
- * var sum = eventBus.fire('sum', 1, 2);
- * console.log(sum); // 3
- * ```
- */
-function EventBus() {
-  this._listeners = {};
-
-  // cleanup on destroy on lowest priority to allow
-  // message passing until the bitter end
-  this.on('diagram.destroy', 1, this._destroy, this);
-}
-
-/**
- * Register an event listener for events with the given name.
- *
- * The callback will be invoked with `event, ...additionalArguments`
- * that have been passed to {@link EventBus#fire}.
- *
- * Returning false from a listener will prevent the events default action
- * (if any is specified). To stop an event from being processed further in
- * other listeners execute {@link Event#stopPropagation}.
- *
- * Returning anything but `undefined` from a listener will stop the listener propagation.
- *
- * @param {String|Array<String>} events
- * @param {Number} [priority=1000] the priority in which this listener is called, larger is higher
- * @param {Function} callback
- * @param {Object} [that] Pass context (`this`) to the callback
- */
-EventBus.prototype.on = function (events, priority, callback, that) {
-
-  events = (0, _$dist_72.isArray)(events) ? events : [events];
-
-  if ((0, _$dist_72.isFunction)(priority)) {
-    that = callback;
-    callback = priority;
-    priority = DEFAULT_PRIORITY;
-  }
-
-  if (!(0, _$dist_72.isNumber)(priority)) {
-    throw new Error('priority must be a number');
-  }
-
-  var actualCallback = callback;
-
-  if (that) {
-    actualCallback = (0, _$dist_72.bind)(callback, that);
-
-    // make sure we remember and are able to remove
-    // bound callbacks via {@link #off} using the original
-    // callback
-    actualCallback[FN_REF] = callback[FN_REF] || callback;
-  }
-
-  var self = this,
-      listener = { priority: priority, callback: actualCallback };
-
-  events.forEach(function (e) {
-    self._addListener(e, listener);
-  });
-};
-
-/**
- * Register an event listener that is executed only once.
- *
- * @param {String} event the event name to register for
- * @param {Function} callback the callback to execute
- * @param {Object} [that] Pass context (`this`) to the callback
- */
-EventBus.prototype.once = function (event, priority, callback, that) {
-  var self = this;
-
-  if ((0, _$dist_72.isFunction)(priority)) {
-    that = callback;
-    callback = priority;
-    priority = DEFAULT_PRIORITY;
-  }
-
-  if (!(0, _$dist_72.isNumber)(priority)) {
-    throw new Error('priority must be a number');
-  }
-
-  function wrappedCallback() {
-    self.off(event, wrappedCallback);
-    return callback.apply(that, arguments);
-  }
-
-  // make sure we remember and are able to remove
-  // bound callbacks via {@link #off} using the original
-  // callback
-  wrappedCallback[FN_REF] = callback;
-
-  this.on(event, priority, wrappedCallback);
-};
-
-/**
- * Removes event listeners by event and callback.
- *
- * If no callback is given, all listeners for a given event name are being removed.
- *
- * @param {String} event
- * @param {Function} [callback]
- */
-EventBus.prototype.off = function (event, callback) {
-  var listeners = this._getListeners(event),
-      listener,
-      listenerCallback,
-      idx;
-
-  if (callback) {
-
-    // move through listeners from back to front
-    // and remove matching listeners
-    for (idx = listeners.length - 1; listener = listeners[idx]; idx--) {
-      listenerCallback = listener.callback;
-
-      if (listenerCallback === callback || listenerCallback[FN_REF] === callback) {
-        listeners.splice(idx, 1);
-      }
-    }
-  } else {
-    // clear listeners
-    listeners.length = 0;
-  }
-};
-
-/**
- * Create an EventBus event.
- *
- * @param {Object} data
- *
- * @return {Object} event, recognized by the eventBus
- */
-EventBus.prototype.createEvent = function (data) {
-  var event = new InternalEvent();
-
-  event.init(data);
-
-  return event;
-};
-
-/**
- * Fires a named event.
- *
- * @example
- *
- * // fire event by name
- * events.fire('foo');
- *
- * // fire event object with nested type
- * var event = { type: 'foo' };
- * events.fire(event);
- *
- * // fire event with explicit type
- * var event = { x: 10, y: 20 };
- * events.fire('element.moved', event);
- *
- * // pass additional arguments to the event
- * events.on('foo', function(event, bar) {
- *   alert(bar);
- * });
- *
- * events.fire({ type: 'foo' }, 'I am bar!');
- *
- * @param {String} [name] the optional event name
- * @param {Object} [event] the event object
- * @param {...Object} additional arguments to be passed to the callback functions
- *
- * @return {Boolean} the events return value, if specified or false if the
- *                   default action was prevented by listeners
- */
-EventBus.prototype.fire = function (type, data) {
-
-  var event, listeners, returnValue, args;
-
-  args = __slice_30.call(arguments);
-
-  if ((typeof type === 'undefined' ? 'undefined' : ___typeof_30(type)) === 'object') {
-    event = type;
-    type = event.type;
-  }
-
-  if (!type) {
-    throw new Error('no event type specified');
-  }
-
-  listeners = this._listeners[type];
-
-  if (!listeners) {
-    return;
-  }
-
-  // we make sure we fire instances of our home made
-  // events here. We wrap them only once, though
-  if (data instanceof InternalEvent) {
-    // we are fine, we alread have an event
-    event = data;
-  } else {
-    event = this.createEvent(data);
-  }
-
-  // ensure we pass the event as the first parameter
-  args[0] = event;
-
-  // original event type (in case we delegate)
-  var originalType = event.type;
-
-  // update event type before delegation
-  if (type !== originalType) {
-    event.type = type;
-  }
-
-  try {
-    returnValue = this._invokeListeners(event, args, listeners);
-  } finally {
-    // reset event type after delegation
-    if (type !== originalType) {
-      event.type = originalType;
-    }
-  }
-
-  // set the return value to false if the event default
-  // got prevented and no other return value exists
-  if (returnValue === undefined && event.defaultPrevented) {
-    returnValue = false;
-  }
-
-  return returnValue;
-};
-
-EventBus.prototype.handleError = function (error) {
-  return this.fire('error', { error: error }) === false;
-};
-
-EventBus.prototype._destroy = function () {
-  this._listeners = {};
-};
-
-EventBus.prototype._invokeListeners = function (event, args, listeners) {
-
-  var idx, listener, returnValue;
-
-  for (idx = 0; listener = listeners[idx]; idx++) {
-
-    // handle stopped propagation
-    if (event.cancelBubble) {
-      break;
-    }
-
-    returnValue = this._invokeListener(event, args, listener);
-  }
-
-  return returnValue;
-};
-
-EventBus.prototype._invokeListener = function (event, args, listener) {
-
-  var returnValue;
-
-  try {
-    // returning false prevents the default action
-    returnValue = invokeFunction(listener.callback, args);
-
-    // stop propagation on return value
-    if (returnValue !== undefined) {
-      event.returnValue = returnValue;
-      event.stopPropagation();
-    }
-
-    // prevent default on return false
-    if (returnValue === false) {
-      event.preventDefault();
-    }
-  } catch (e) {
-    if (!this.handleError(e)) {
-      console.error('unhandled error in event listener');
-      console.error(e.stack);
-
-      throw e;
-    }
-  }
-
-  return returnValue;
-};
-
-/*
- * Add new listener with a certain priority to the list
- * of listeners (for the given event).
- *
- * The semantics of listener registration / listener execution are
- * first register, first serve: New listeners will always be inserted
- * after existing listeners with the same priority.
- *
- * Example: Inserting two listeners with priority 1000 and 1300
- *
- *    * before: [ 1500, 1500, 1000, 1000 ]
- *    * after: [ 1500, 1500, (new=1300), 1000, 1000, (new=1000) ]
- *
- * @param {String} event
- * @param {Object} listener { priority, callback }
- */
-EventBus.prototype._addListener = function (event, newListener) {
-
-  var listeners = this._getListeners(event),
-      existingListener,
-      idx;
-
-  // ensure we order listeners by priority from
-  // 0 (high) to n > 0 (low)
-  for (idx = 0; existingListener = listeners[idx]; idx++) {
-    if (existingListener.priority < newListener.priority) {
-
-      // prepend newListener at before existingListener
-      listeners.splice(idx, 0, newListener);
-      return;
-    }
-  }
-
-  listeners.push(newListener);
-};
-
-EventBus.prototype._getListeners = function (name) {
-  var listeners = this._listeners[name];
-
-  if (!listeners) {
-    this._listeners[name] = listeners = [];
-  }
-
-  return listeners;
-};
-
-/**
- * A event that is emitted via the event bus.
- */
-function InternalEvent() {}
-
-InternalEvent.prototype.stopPropagation = function () {
-  this.cancelBubble = true;
-};
-
-InternalEvent.prototype.preventDefault = function () {
-  this.defaultPrevented = true;
-};
-
-InternalEvent.prototype.init = function (data) {
-  (0, _$dist_72.assign)(this, data || {});
-};
-
-/**
- * Invoke function. Be fast...
- *
- * @param {Function} fn
- * @param {Array<Object>} args
- *
- * @return {Any}
- */
-function invokeFunction(fn, args) {
-  return fn.apply(null, args);
-}
-
-var _$GraphicsUtil_58 = {};
-'use strict';
-
-Object.defineProperty(_$GraphicsUtil_58, "__esModule", {
-  value: true
-});
-_$GraphicsUtil_58.getVisual = getVisual;
-_$GraphicsUtil_58.getChildren = getChildren;
-
-/* removed: var _$dist_73 = require('min-dom'); */;
-
-/**
- * SVGs for elements are generated by the {@link GraphicsFactory}.
- *
- * This utility gives quick access to the important semantic
- * parts of an element.
- */
-
-/**
- * Returns the visual part of a diagram element
- *
- * @param {Snap<SVGElement>} gfx
- *
- * @return {Snap<SVGElement>}
- */
-function getVisual(gfx) {
-  return (0, _$dist_73.query)('.djs-visual', gfx);
-}
-
-/**
- * Returns the children for a given diagram element.
- *
- * @param {Snap<SVGElement>} gfx
- * @return {Snap<SVGElement>}
- */
-function getChildren(gfx) {
-  return gfx.parentNode.childNodes[1];
-}
-
-var _$GraphicsFactory_31 = {};
-'use strict';
-
-Object.defineProperty(_$GraphicsFactory_31, "__esModule", {
-  value: true
-});
-_$GraphicsFactory_31.default = GraphicsFactory;
-
-/* removed: var _$dist_72 = require('min-dash'); */;
-
-/* removed: var _$GraphicsUtil_58 = require('../util/GraphicsUtil'); */;
-
-/* removed: var _$SvgTransformUtil_65 = require('../util/SvgTransformUtil'); */;
-
-/* removed: var _$dist_73 = require('min-dom'); */;
-
-/* removed: var _$indexCjs_92 = require('tiny-svg'); */;
-
-/**
- * A factory that creates graphical elements
- *
- * @param {EventBus} eventBus
- * @param {ElementRegistry} elementRegistry
- */
-function GraphicsFactory(eventBus, elementRegistry) {
-  this._eventBus = eventBus;
-  this._elementRegistry = elementRegistry;
-}
-
-GraphicsFactory.$inject = ['eventBus', 'elementRegistry'];
-
-GraphicsFactory.prototype._getChildren = function (element) {
-
-  var gfx = this._elementRegistry.getGraphics(element);
-
-  var childrenGfx;
-
-  // root element
-  if (!element.parent) {
-    childrenGfx = gfx;
-  } else {
-    childrenGfx = (0, _$GraphicsUtil_58.getChildren)(gfx);
-    if (!childrenGfx) {
-      childrenGfx = (0, _$indexCjs_92.create)('g');
-      (0, _$indexCjs_92.classes)(childrenGfx).add('djs-children');
-
-      (0, _$indexCjs_92.append)(gfx.parentNode, childrenGfx);
-    }
-  }
-
-  return childrenGfx;
-};
-
-/**
- * Clears the graphical representation of the element and returns the
- * cleared visual (the <g class="djs-visual" /> element).
- */
-GraphicsFactory.prototype._clear = function (gfx) {
-  var visual = (0, _$GraphicsUtil_58.getVisual)(gfx);
-
-  (0, _$dist_73.clear)(visual);
-
-  return visual;
-};
-
-/**
- * Creates a gfx container for shapes and connections
- *
- * The layout is as follows:
- *
- * <g class="djs-group">
- *
- *   <!-- the gfx -->
- *   <g class="djs-element djs-(shape|connection)">
- *     <g class="djs-visual">
- *       <!-- the renderer draws in here -->
- *     </g>
- *
- *     <!-- extensions (overlays, click box, ...) goes here
- *   </g>
- *
- *   <!-- the gfx child nodes -->
- *   <g class="djs-children"></g>
- * </g>
- *
- * @param {Object} parent
- * @param {String} type the type of the element, i.e. shape | connection
- * @param {Number} [parentIndex] position to create container in parent
- */
-GraphicsFactory.prototype._createContainer = function (type, childrenGfx, parentIndex) {
-  var outerGfx = (0, _$indexCjs_92.create)('g');
-  (0, _$indexCjs_92.classes)(outerGfx).add('djs-group');
-
-  // insert node at position
-  if (typeof parentIndex !== 'undefined') {
-    prependTo(outerGfx, childrenGfx, childrenGfx.childNodes[parentIndex]);
-  } else {
-    (0, _$indexCjs_92.append)(childrenGfx, outerGfx);
-  }
-
-  var gfx = (0, _$indexCjs_92.create)('g');
-  (0, _$indexCjs_92.classes)(gfx).add('djs-element');
-  (0, _$indexCjs_92.classes)(gfx).add('djs-' + type);
-
-  (0, _$indexCjs_92.append)(outerGfx, gfx);
-
-  // create visual
-  var visual = (0, _$indexCjs_92.create)('g');
-  (0, _$indexCjs_92.classes)(visual).add('djs-visual');
-
-  (0, _$indexCjs_92.append)(gfx, visual);
-
-  return gfx;
-};
-
-GraphicsFactory.prototype.create = function (type, element, parentIndex) {
-  var childrenGfx = this._getChildren(element.parent);
-  return this._createContainer(type, childrenGfx, parentIndex);
-};
-
-GraphicsFactory.prototype.updateContainments = function (elements) {
-
-  var self = this,
-      elementRegistry = this._elementRegistry,
-      parents;
-
-  parents = (0, _$dist_72.reduce)(elements, function (map, e) {
-
-    if (e.parent) {
-      map[e.parent.id] = e.parent;
-    }
-
-    return map;
-  }, {});
-
-  // update all parents of changed and reorganized their children
-  // in the correct order (as indicated in our model)
-  (0, _$dist_72.forEach)(parents, function (parent) {
-
-    var children = parent.children;
-
-    if (!children) {
-      return;
-    }
-
-    var childGfx = self._getChildren(parent);
-
-    (0, _$dist_72.forEach)(children.slice().reverse(), function (c) {
-      var gfx = elementRegistry.getGraphics(c);
-
-      prependTo(gfx.parentNode, childGfx);
-    });
-  });
-};
-
-GraphicsFactory.prototype.drawShape = function (visual, element) {
-  var eventBus = this._eventBus;
-
-  return eventBus.fire('render.shape', { gfx: visual, element: element });
-};
-
-GraphicsFactory.prototype.getShapePath = function (element) {
-  var eventBus = this._eventBus;
-
-  return eventBus.fire('render.getShapePath', element);
-};
-
-GraphicsFactory.prototype.drawConnection = function (visual, element) {
-  var eventBus = this._eventBus;
-
-  return eventBus.fire('render.connection', { gfx: visual, element: element });
-};
-
-GraphicsFactory.prototype.getConnectionPath = function (waypoints) {
-  var eventBus = this._eventBus;
-
-  return eventBus.fire('render.getConnectionPath', waypoints);
-};
-
-GraphicsFactory.prototype.update = function (type, element, gfx) {
-  // Do not update root element
-  if (!element.parent) {
-    return;
-  }
-
-  var visual = this._clear(gfx);
-
-  // redraw
-  if (type === 'shape') {
-    this.drawShape(visual, element);
-
-    // update positioning
-    (0, _$SvgTransformUtil_65.translate)(gfx, element.x, element.y);
-  } else if (type === 'connection') {
-    this.drawConnection(visual, element);
-  } else {
-    throw new Error('unknown type: ' + type);
-  }
-
-  if (element.hidden) {
-    (0, _$indexCjs_92.attr)(gfx, 'display', 'none');
-  } else {
-    (0, _$indexCjs_92.attr)(gfx, 'display', 'block');
-  }
-};
-
-GraphicsFactory.prototype.remove = function (element) {
-  var gfx = this._elementRegistry.getGraphics(element);
-
-  // remove
-  (0, _$indexCjs_92.remove)(gfx.parentNode);
-};
-
-// helpers //////////////////////
-
-function prependTo(newNode, parentNode, siblingNode) {
-  parentNode.insertBefore(newNode, siblingNode || parentNode.firstChild);
-}
-
-var _$DefaultRenderer_34 = {};
-'use strict';
-
-Object.defineProperty(_$DefaultRenderer_34, "__esModule", {
-  value: true
-});
-_$DefaultRenderer_34.default = DefaultRenderer;
-
-/* removed: var _$inherits_browser_71 = require('inherits'); */;
-
-var ___inherits2_34 = ___interopRequireDefault_34(_$inherits_browser_71);
-
-/* removed: var _$BaseRenderer_33 = require('./BaseRenderer'); */;
-
-var _BaseRenderer2 = ___interopRequireDefault_34(_$BaseRenderer_33);
-
-/* removed: var _$RenderUtil_64 = require('../util/RenderUtil'); */;
-
-/* removed: var _$indexCjs_92 = require('tiny-svg'); */;
-
-function ___interopRequireDefault_34(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// apply default renderer with lowest possible priority
-// so that it only kicks in if noone else could render
-var __DEFAULT_RENDER_PRIORITY_34 = 1;
-
-/**
- * The default renderer used for shapes and connections.
- *
- * @param {EventBus} eventBus
- * @param {Styles} styles
- */
-function DefaultRenderer(eventBus, styles) {
-  //
-  _BaseRenderer2.default.call(this, eventBus, __DEFAULT_RENDER_PRIORITY_34);
-
-  this.CONNECTION_STYLE = styles.style(['no-fill'], { strokeWidth: 5, stroke: 'fuchsia' });
-  this.SHAPE_STYLE = styles.style({ fill: 'white', stroke: 'fuchsia', strokeWidth: 2 });
-}
-
-(0, ___inherits2_34.default)(DefaultRenderer, _BaseRenderer2.default);
-
-DefaultRenderer.prototype.canRender = function () {
-  return true;
-};
-
-DefaultRenderer.prototype.drawShape = function drawShape(visuals, element) {
-
-  var rect = (0, _$indexCjs_92.create)('rect');
-  (0, _$indexCjs_92.attr)(rect, {
-    x: 0,
-    y: 0,
-    width: element.width || 0,
-    height: element.height || 0
-  });
-  (0, _$indexCjs_92.attr)(rect, this.SHAPE_STYLE);
-
-  (0, _$indexCjs_92.append)(visuals, rect);
-
-  return rect;
-};
-
-DefaultRenderer.prototype.drawConnection = function drawConnection(visuals, connection) {
-
-  var line = (0, _$RenderUtil_64.createLine)(connection.waypoints, this.CONNECTION_STYLE);
-  (0, _$indexCjs_92.append)(visuals, line);
-
-  return line;
-};
-
-DefaultRenderer.prototype.getShapePath = function getShapePath(shape) {
-
-  var x = shape.x,
-      y = shape.y,
-      width = shape.width,
-      height = shape.height;
-
-  var shapePath = [['M', x, y], ['l', width, 0], ['l', 0, height], ['l', -width, 0], ['z']];
-
-  return (0, _$RenderUtil_64.componentsToPath)(shapePath);
-};
-
-DefaultRenderer.prototype.getConnectionPath = function getConnectionPath(connection) {
-  var waypoints = connection.waypoints;
-
-  var idx,
-      point,
-      connectionPath = [];
-
-  for (idx = 0; point = waypoints[idx]; idx++) {
-
-    // take invisible docking into account
-    // when creating the path
-    point = point.original || point;
-
-    connectionPath.push([idx === 0 ? 'M' : 'L', point.x, point.y]);
-  }
-
-  return (0, _$RenderUtil_64.componentsToPath)(connectionPath);
-};
-
-DefaultRenderer.$inject = ['eventBus', 'styles'];
-
-var _$Styles_35 = {};
-'use strict';
-
-Object.defineProperty(_$Styles_35, "__esModule", {
-  value: true
-});
-_$Styles_35.default = Styles;
-
-/* removed: var _$dist_72 = require('min-dash'); */;
-
-/**
- * A component that manages shape styles
- */
-function Styles() {
-
-  var defaultTraits = {
-
-    'no-fill': {
-      fill: 'none'
-    },
-    'no-border': {
-      strokeOpacity: 0.0
-    },
-    'no-events': {
-      pointerEvents: 'none'
-    }
-  };
-
-  var self = this;
-
-  /**
-   * Builds a style definition from a className, a list of traits and an object of additional attributes.
-   *
-   * @param  {String} className
-   * @param  {Array<String>} traits
-   * @param  {Object} additionalAttrs
-   *
-   * @return {Object} the style defintion
-   */
-  this.cls = function (className, traits, additionalAttrs) {
-    var attrs = this.style(traits, additionalAttrs);
-
-    return (0, _$dist_72.assign)(attrs, { 'class': className });
-  };
-
-  /**
-   * Builds a style definition from a list of traits and an object of additional attributes.
-   *
-   * @param  {Array<String>} traits
-   * @param  {Object} additionalAttrs
-   *
-   * @return {Object} the style defintion
-   */
-  this.style = function (traits, additionalAttrs) {
-
-    if (!(0, _$dist_72.isArray)(traits) && !additionalAttrs) {
-      additionalAttrs = traits;
-      traits = [];
-    }
-
-    var attrs = (0, _$dist_72.reduce)(traits, function (attrs, t) {
-      return (0, _$dist_72.assign)(attrs, defaultTraits[t] || {});
-    }, {});
-
-    return additionalAttrs ? (0, _$dist_72.assign)(attrs, additionalAttrs) : attrs;
-  };
-
-  this.computeStyle = function (custom, traits, defaultStyles) {
-    if (!(0, _$dist_72.isArray)(traits)) {
-      defaultStyles = traits;
-      traits = [];
-    }
-
-    return self.style(traits || [], (0, _$dist_72.assign)({}, defaultStyles, custom || {}));
-  };
-}
-
-var _$draw_36 = {};
-'use strict';
-
-Object.defineProperty(_$draw_36, "__esModule", {
-  value: true
-});
-
-/* removed: var _$DefaultRenderer_34 = require('./DefaultRenderer'); */;
-
-var _DefaultRenderer2 = ___interopRequireDefault_36(_$DefaultRenderer_34);
-
-/* removed: var _$Styles_35 = require('./Styles'); */;
-
-var _Styles2 = ___interopRequireDefault_36(_$Styles_35);
-
-function ___interopRequireDefault_36(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_$draw_36.default = {
-  __init__: ['defaultRenderer'],
-  defaultRenderer: ['type', _DefaultRenderer2.default],
-  styles: ['type', _Styles2.default]
-};
-
-var _$core_32 = {};
-'use strict';
-
-Object.defineProperty(_$core_32, "__esModule", {
-  value: true
-});
-
-/* removed: var _$draw_36 = require('../draw'); */;
-
-var _draw2 = ___interopRequireDefault_32(_$draw_36);
-
-/* removed: var _$Canvas_27 = require('./Canvas'); */;
-
-var _Canvas2 = ___interopRequireDefault_32(_$Canvas_27);
-
-/* removed: var _$ElementRegistry_29 = require('./ElementRegistry'); */;
-
-var _ElementRegistry2 = ___interopRequireDefault_32(_$ElementRegistry_29);
-
-/* removed: var _$ElementFactory_28 = require('./ElementFactory'); */;
-
-var _ElementFactory2 = ___interopRequireDefault_32(_$ElementFactory_28);
-
-/* removed: var _$EventBus_30 = require('./EventBus'); */;
-
-var _EventBus2 = ___interopRequireDefault_32(_$EventBus_30);
-
-/* removed: var _$GraphicsFactory_31 = require('./GraphicsFactory'); */;
-
-var _GraphicsFactory2 = ___interopRequireDefault_32(_$GraphicsFactory_31);
-
-function ___interopRequireDefault_32(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_$core_32.default = {
-  __depends__: [_draw2.default],
-  __init__: ['canvas'],
-  canvas: ['type', _Canvas2.default],
-  elementRegistry: ['type', _ElementRegistry2.default],
-  elementFactory: ['type', _ElementFactory2.default],
-  eventBus: ['type', _EventBus2.default],
-  graphicsFactory: ['type', _GraphicsFactory2.default]
-};
-
-var _$dist_70 = {};
-'use strict';
-
-var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-Object.defineProperty(_$dist_70, '__esModule', { value: true });
-
-var CLASS_PATTERN = /^class /;
-
-function isClass(fn) {
-  return CLASS_PATTERN.test(fn.toString());
-}
-
-function __isArray_70(obj) {
-  return Object.prototype.toString.call(obj) === '[object Array]';
-}
-
-function annotate() {
-  var args = Array.prototype.slice.call(arguments);
-
-  if (args.length === 1 && __isArray_70(args[0])) {
-    args = args[0];
-  }
-
-  var fn = args.pop();
-
-  fn.$inject = args;
-
-  return fn;
-}
-
-// Current limitations:
-// - can't put into "function arg" comments
-// function /* (no parenthesis like this) */ (){}
-// function abc( /* xx (no parenthesis like this) */ a, b) {}
-//
-// Just put the comment before function or inside:
-// /* (((this is fine))) */ function(a, b) {}
-// function abc(a) { /* (((this is fine))) */}
-//
-// - can't reliably auto-annotate constructor; we'll match the
-// first constructor(...) pattern found which may be the one
-// of a nested class, too.
-
-var CONSTRUCTOR_ARGS = /constructor\s*[^(]*\(\s*([^)]*)\)/m;
-var FN_ARGS = /^function\s*[^(]*\(\s*([^)]*)\)/m;
-var FN_ARG = /\/\*([^*]*)\*\//m;
-
-function __parse_70(fn) {
-
-  if (typeof fn !== 'function') {
-    throw new Error('Cannot annotate "' + fn + '". Expected a function!');
-  }
-
-  var match = fn.toString().match(isClass(fn) ? CONSTRUCTOR_ARGS : FN_ARGS);
-
-  // may parse class without constructor
-  if (!match) {
-    return [];
-  }
-
-  return match[1] && match[1].split(',').map(function (arg) {
-    match = arg.match(FN_ARG);
-    return match ? match[1].trim() : arg.trim();
-  }) || [];
-}
-
-function Module() {
-  var providers = [];
-
-  this.factory = function (name, factory) {
-    providers.push([name, 'factory', factory]);
-    return this;
-  };
-
-  this.value = function (name, value) {
-    providers.push([name, 'value', value]);
-    return this;
-  };
-
-  this.type = function (name, type) {
-    providers.push([name, 'type', type]);
-    return this;
-  };
-
-  this.forEach = function (iterator) {
-    providers.forEach(iterator);
-  };
-}
-
-var ___typeof_70 = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === 'undefined' ? 'undefined' : _typeof2(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === 'undefined' ? 'undefined' : _typeof2(obj);
-};
-
-function ___toConsumableArray_70(arr) {
-  if (Array.isArray(arr)) {
-    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
-      arr2[i] = arr[i];
-    }return arr2;
-  } else {
-    return Array.from(arr);
-  }
-}
-
-function Injector(modules, parent) {
-  parent = parent || {
-    get: function get(name, strict) {
-      currentlyResolving.push(name);
-
-      if (strict === false) {
-        return null;
-      } else {
-        throw error('No provider for "' + name + '"!');
-      }
-    }
-  };
-
-  var currentlyResolving = [];
-  var providers = this._providers = Object.create(parent._providers || null);
-  var instances = this._instances = Object.create(null);
-
-  var self = instances.injector = this;
-
-  var error = function error(msg) {
-    var stack = currentlyResolving.join(' -> ');
-    currentlyResolving.length = 0;
-    return new Error(stack ? msg + ' (Resolving: ' + stack + ')' : msg);
-  };
-
-  /**
-   * Return a named service.
-   *
-   * @param {String} name
-   * @param {Boolean} [strict=true] if false, resolve missing services to null
-   *
-   * @return {Object}
-   */
-  var get = function get(name, strict) {
-    if (!providers[name] && name.indexOf('.') !== -1) {
-      var parts = name.split('.');
-      var pivot = get(parts.shift());
-
-      while (parts.length) {
-        pivot = pivot[parts.shift()];
-      }
-
-      return pivot;
-    }
-
-    if (hasProp(instances, name)) {
-      return instances[name];
-    }
-
-    if (hasProp(providers, name)) {
-      if (currentlyResolving.indexOf(name) !== -1) {
-        currentlyResolving.push(name);
-        throw error('Cannot resolve circular dependency!');
-      }
-
-      currentlyResolving.push(name);
-      instances[name] = providers[name][0](providers[name][1]);
-      currentlyResolving.pop();
-
-      return instances[name];
-    }
-
-    return parent.get(name, strict);
-  };
-
-  var fnDef = function fnDef(fn) {
-    var locals = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    if (typeof fn !== 'function') {
-      if (__isArray_70(fn)) {
-        fn = annotate(fn.slice());
-      } else {
-        throw new Error('Cannot invoke "' + fn + '". Expected a function!');
-      }
-    }
-
-    var inject = fn.$inject || __parse_70(fn);
-    var dependencies = inject.map(function (dep) {
-      if (hasProp(locals, dep)) {
-        return locals[dep];
-      } else {
-        return get(dep);
-      }
-    });
-
-    return {
-      fn: fn,
-      dependencies: dependencies
-    };
-  };
-
-  var instantiate = function instantiate(Type) {
-    var _fnDef = fnDef(Type),
-        dependencies = _fnDef.dependencies,
-        fn = _fnDef.fn;
-
-    return new (Function.prototype.bind.apply(fn, [null].concat(___toConsumableArray_70(dependencies))))();
-  };
-
-  var invoke = function invoke(func, context, locals) {
-    var _fnDef2 = fnDef(func, locals),
-        dependencies = _fnDef2.dependencies,
-        fn = _fnDef2.fn;
-
-    return fn.call.apply(fn, [context].concat(___toConsumableArray_70(dependencies)));
-  };
-
-  var createPrivateInjectorFactory = function createPrivateInjectorFactory(privateChildInjector) {
-    return annotate(function (key) {
-      return privateChildInjector.get(key);
-    });
-  };
-
-  var createChild = function createChild(modules, forceNewInstances) {
-    if (forceNewInstances && forceNewInstances.length) {
-      var fromParentModule = Object.create(null);
-      var matchedScopes = Object.create(null);
-
-      var privateInjectorsCache = [];
-      var privateChildInjectors = [];
-      var privateChildFactories = [];
-
-      var provider;
-      var cacheIdx;
-      var privateChildInjector;
-      var privateChildInjectorFactory;
-      for (var name in providers) {
-        provider = providers[name];
-
-        if (forceNewInstances.indexOf(name) !== -1) {
-          if (provider[2] === 'private') {
-            cacheIdx = privateInjectorsCache.indexOf(provider[3]);
-            if (cacheIdx === -1) {
-              privateChildInjector = provider[3].createChild([], forceNewInstances);
-              privateChildInjectorFactory = createPrivateInjectorFactory(privateChildInjector);
-              privateInjectorsCache.push(provider[3]);
-              privateChildInjectors.push(privateChildInjector);
-              privateChildFactories.push(privateChildInjectorFactory);
-              fromParentModule[name] = [privateChildInjectorFactory, name, 'private', privateChildInjector];
-            } else {
-              fromParentModule[name] = [privateChildFactories[cacheIdx], name, 'private', privateChildInjectors[cacheIdx]];
-            }
-          } else {
-            fromParentModule[name] = [provider[2], provider[1]];
-          }
-          matchedScopes[name] = true;
-        }
-
-        if ((provider[2] === 'factory' || provider[2] === 'type') && provider[1].$scope) {
-          /* jshint -W083 */
-          forceNewInstances.forEach(function (scope) {
-            if (provider[1].$scope.indexOf(scope) !== -1) {
-              fromParentModule[name] = [provider[2], provider[1]];
-              matchedScopes[scope] = true;
-            }
-          });
-        }
-      }
-
-      forceNewInstances.forEach(function (scope) {
-        if (!matchedScopes[scope]) {
-          throw new Error('No provider for "' + scope + '". Cannot use provider from the parent!');
-        }
-      });
-
-      modules.unshift(fromParentModule);
-    }
-
-    return new Injector(modules, self);
-  };
-
-  var factoryMap = {
-    factory: invoke,
-    type: instantiate,
-    value: function value(_value) {
-      return _value;
-    }
-  };
-
-  modules.forEach(function (module) {
-
-    function arrayUnwrap(type, value) {
-      if (type !== 'value' && __isArray_70(value)) {
-        value = annotate(value.slice());
-      }
-
-      return value;
-    }
-
-    // TODO(vojta): handle wrong inputs (modules)
-    if (module instanceof Module) {
-      module.forEach(function (provider) {
-        var name = provider[0];
-        var type = provider[1];
-        var value = provider[2];
-
-        providers[name] = [factoryMap[type], arrayUnwrap(type, value), type];
-      });
-    } else if ((typeof module === 'undefined' ? 'undefined' : ___typeof_70(module)) === 'object') {
-      if (module.__exports__) {
-        var clonedModule = Object.keys(module).reduce(function (m, key) {
-          if (key.substring(0, 2) !== '__') {
-            m[key] = module[key];
-          }
-          return m;
-        }, Object.create(null));
-
-        var privateInjector = new Injector((module.__modules__ || []).concat([clonedModule]), self);
-        var getFromPrivateInjector = annotate(function (key) {
-          return privateInjector.get(key);
-        });
-        module.__exports__.forEach(function (key) {
-          providers[key] = [getFromPrivateInjector, key, 'private', privateInjector];
-        });
-      } else {
-        Object.keys(module).forEach(function (name) {
-          if (module[name][2] === 'private') {
-            providers[name] = module[name];
-            return;
-          }
-
-          var type = module[name][0];
-          var value = module[name][1];
-
-          providers[name] = [factoryMap[type], arrayUnwrap(type, value), type];
-        });
-      }
-    }
-  });
-
-  // public API
-  this.get = get;
-  this.invoke = invoke;
-  this.instantiate = instantiate;
-  this.createChild = createChild;
-}
-
-// helpers /////////////////
-
-function hasProp(obj, prop) {
-  return Object.hasOwnProperty.call(obj, prop);
-}
-
-_$dist_70.annotate = annotate;
-_$dist_70.Module = Module;
-_$dist_70.Injector = Injector;
-
-var _$Diagram_26 = {};
-'use strict';
-
-Object.defineProperty(_$Diagram_26, "__esModule", {
-  value: true
-});
-_$Diagram_26.default = Diagram;
-
-/* removed: var _$dist_70 = require('didi'); */;
-
-/* removed: var _$core_32 = require('./core'); */;
-
-var _core2 = ___interopRequireDefault_26(_$core_32);
-
-function ___interopRequireDefault_26(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Bootstrap an injector from a list of modules, instantiating a number of default components
- *
- * @ignore
- * @param {Array<didi.Module>} bootstrapModules
- *
- * @return {didi.Injector} a injector to use to access the components
- */
-function bootstrap(bootstrapModules) {
-
-  var modules = [],
-      components = [];
-
-  function hasModule(m) {
-    return modules.indexOf(m) >= 0;
-  }
-
-  function addModule(m) {
-    modules.push(m);
-  }
-
-  function visit(m) {
-    if (hasModule(m)) {
-      return;
-    }
-
-    (m.__depends__ || []).forEach(visit);
-
-    if (hasModule(m)) {
-      return;
-    }
-
-    addModule(m);
-
-    (m.__init__ || []).forEach(function (c) {
-      components.push(c);
-    });
-  }
-
-  bootstrapModules.forEach(visit);
-
-  var injector = new _$dist_70.Injector(modules);
-
-  components.forEach(function (c) {
-
-    try {
-      // eagerly resolve component (fn or string)
-      injector[typeof c === 'string' ? 'get' : 'invoke'](c);
-    } catch (e) {
-      console.error('Failed to instantiate component');
-      console.error(e.stack);
-
-      throw e;
-    }
-  });
-
-  return injector;
-}
-
-/**
- * Creates an injector from passed options.
- *
- * @ignore
- * @param  {Object} options
- * @return {didi.Injector}
- */
-function createInjector(options) {
-
-  options = options || {};
-
-  var configModule = {
-    'config': ['value', options]
-  };
-
-  var modules = [configModule, _core2.default].concat(options.modules || []);
-
-  return bootstrap(modules);
-}
-
-/**
- * The main diagram-js entry point that bootstraps the diagram with the given
- * configuration.
- *
- * To register extensions with the diagram, pass them as Array<didi.Module> to the constructor.
- *
- * @class djs.Diagram
- * @memberOf djs
- * @constructor
- *
- * @example
- *
- * <caption>Creating a plug-in that logs whenever a shape is added to the canvas.</caption>
- *
- * // plug-in implemenentation
- * function MyLoggingPlugin(eventBus) {
- *   eventBus.on('shape.added', function(event) {
- *     console.log('shape ', event.shape, ' was added to the diagram');
- *   });
- * }
- *
- * // export as module
- * export default {
- *   __init__: [ 'myLoggingPlugin' ],
- *     myLoggingPlugin: [ 'type', MyLoggingPlugin ]
- * };
- *
- *
- * // instantiate the diagram with the new plug-in
- *
- * import MyLoggingModule from 'path-to-my-logging-plugin';
- *
- * var diagram = new Diagram({
- *   modules: [
- *     MyLoggingModule
- *   ]
- * });
- *
- * diagram.invoke([ 'canvas', function(canvas) {
- *   // add shape to drawing canvas
- *   canvas.addShape({ x: 10, y: 10 });
- * });
- *
- * // 'shape ... was added to the diagram' logged to console
- *
- * @param {Object} options
- * @param {Array<didi.Module>} [options.modules] external modules to instantiate with the diagram
- * @param {didi.Injector} [injector] an (optional) injector to bootstrap the diagram with
- */
-function Diagram(options, injector) {
-
-  // create injector unless explicitly specified
-  this.injector = injector = injector || createInjector(options);
-
-  // API
-
-  /**
-   * Resolves a diagram service
-   *
-   * @method Diagram#get
-   *
-   * @param {String} name the name of the diagram service to be retrieved
-   * @param {Boolean} [strict=true] if false, resolve missing services to null
-   */
-  this.get = injector.get;
-
-  /**
-   * Executes a function into which diagram services are injected
-   *
-   * @method Diagram#invoke
-   *
-   * @param {Function|Object[]} fn the function to resolve
-   * @param {Object} locals a number of locals to use to resolve certain dependencies
-   */
-  this.invoke = injector.invoke;
-
-  // init
-
-  // indicate via event
-
-
-  /**
-   * An event indicating that all plug-ins are loaded.
-   *
-   * Use this event to fire other events to interested plug-ins
-   *
-   * @memberOf Diagram
-   *
-   * @event diagram.init
-   *
-   * @example
-   *
-   * eventBus.on('diagram.init', function() {
-   *   eventBus.fire('my-custom-event', { foo: 'BAR' });
-   * });
-   *
-   * @type {Object}
-   */
-  this.get('eventBus').fire('diagram.init');
-}
-
-/**
- * Destroys the diagram
- *
- * @method  Diagram#destroy
- */
-Diagram.prototype.destroy = function () {
-  this.get('eventBus').fire('diagram.destroy');
-};
-
-/**
- * Clear the diagram, removing all contents.
- */
-Diagram.prototype.clear = function () {
-  this.get('eventBus').fire('diagram.clear');
-};
-
-'use strict';
-
-var _$diagramJs_25 = _$Diagram_26;
-
-var _$IdGenerator_59 = {};
-'use strict';
-
-Object.defineProperty(_$IdGenerator_59, "__esModule", {
-  value: true
-});
-_$IdGenerator_59.default = IdGenerator;
-/**
- * Util that provides unique IDs.
- *
- * @class djs.util.IdGenerator
- * @constructor
- * @memberOf djs.util
- *
- * The ids can be customized via a given prefix and contain a random value to avoid collisions.
- *
- * @param {String} prefix a prefix to prepend to generated ids (for better readability)
- */
-function IdGenerator(prefix) {
-
-  this._counter = 0;
-  this._prefix = (prefix ? prefix + '-' : '') + Math.floor(Math.random() * 1000000000) + '-';
-}
-
-/**
- * Returns a next unique ID.
- *
- * @method djs.util.IdGenerator#next
- *
- * @returns {String} the id
- */
-IdGenerator.prototype.next = function () {
-  return this._prefix + ++this._counter;
-};
-
-var _$Overlays_41 = {};
-'use strict';
-
-Object.defineProperty(_$Overlays_41, "__esModule", {
-  value: true
-});
-_$Overlays_41.default = Overlays;
-
-/* removed: var _$dist_72 = require('min-dash'); */;
-
-/* removed: var _$dist_73 = require('min-dom'); */;
-
-/* removed: var _$Elements_56 = require('../../util/Elements'); */;
-
-/* removed: var _$IdGenerator_59 = require('../../util/IdGenerator'); */;
-
-var _IdGenerator2 = ___interopRequireDefault_41(_$IdGenerator_59);
-
-function ___interopRequireDefault_41(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// document wide unique overlay ids
-var ids = new _IdGenerator2.default('ov');
-
-var LOW_PRIORITY = 500;
-
-function createRoot(parent) {
-  var root = (0, _$dist_73.domify)('<div class="djs-overlay-container" style="position: absolute; width: 0; height: 0;" />');
-  parent.insertBefore(root, parent.firstChild);
-
-  return root;
-}
-
-function setPosition(el, x, y) {
-  (0, _$dist_72.assign)(el.style, { left: x + 'px', top: y + 'px' });
-}
-
-function setVisible(el, visible) {
-  el.style.display = visible === false ? 'none' : '';
-}
-
-function setTransform(el, transform) {
-
-  el.style['transform-origin'] = 'top left';
-
-  ['', '-ms-', '-webkit-'].forEach(function (prefix) {
-    el.style[prefix + 'transform'] = transform;
-  });
-}
-
-function isDef(o) {
-  return typeof o !== 'undefined';
-}
-
-/**
- * A service that allows users to attach overlays to diagram elements.
- *
- * The overlay service will take care of overlay positioning during updates.
- *
- * @example
- *
- * // add a pink badge on the top left of the shape
- * overlays.add(someShape, {
- *   position: {
- *     top: -5,
- *     left: -5
- *   },
- *   html: '<div style="width: 10px; background: fuchsia; color: white;">0</div>'
- * });
- *
- * // or add via shape id
- *
- * overlays.add('some-element-id', {
- *   position: {
- *     top: -5,
- *     left: -5
- *   }
- *   html: '<div style="width: 10px; background: fuchsia; color: white;">0</div>'
- * });
- *
- * // or add with optional type
- *
- * overlays.add(someShape, 'badge', {
- *   position: {
- *     top: -5,
- *     left: -5
- *   }
- *   html: '<div style="width: 10px; background: fuchsia; color: white;">0</div>'
- * });
- *
- *
- * // remove an overlay
- *
- * var id = overlays.add(...);
- * overlays.remove(id);
- *
- *
- * You may configure overlay defaults during tool by providing a `config` module
- * with `overlays.defaults` as an entry:
- *
- * {
- *   overlays: {
- *     defaults: {
- *       show: {
- *         minZoom: 0.7,
- *         maxZoom: 5.0
- *       },
- *       scale: {
- *         min: 1
- *       }
- *     }
- * }
- *
- * @param {Object} config
- * @param {EventBus} eventBus
- * @param {Canvas} canvas
- * @param {ElementRegistry} elementRegistry
- */
-function Overlays(config, eventBus, canvas, elementRegistry) {
-
-  this._eventBus = eventBus;
-  this._canvas = canvas;
-  this._elementRegistry = elementRegistry;
-
-  this._ids = ids;
-
-  this._overlayDefaults = (0, _$dist_72.assign)({
-    // no show constraints
-    show: null,
-
-    // always scale
-    scale: true
-  }, config && config.defaults);
-
-  /**
-   * Mapping overlayId -> overlay
-   */
-  this._overlays = {};
-
-  /**
-   * Mapping elementId -> overlay container
-   */
-  this._overlayContainers = [];
-
-  // root html element for all overlays
-  this._overlayRoot = createRoot(canvas.getContainer());
-
-  this._init();
-}
-
-Overlays.$inject = ['config.overlays', 'eventBus', 'canvas', 'elementRegistry'];
-
-/**
- * Returns the overlay with the specified id or a list of overlays
- * for an element with a given type.
- *
- * @example
- *
- * // return the single overlay with the given id
- * overlays.get('some-id');
- *
- * // return all overlays for the shape
- * overlays.get({ element: someShape });
- *
- * // return all overlays on shape with type 'badge'
- * overlays.get({ element: someShape, type: 'badge' });
- *
- * // shape can also be specified as id
- * overlays.get({ element: 'element-id', type: 'badge' });
- *
- *
- * @param {Object} search
- * @param {String} [search.id]
- * @param {String|djs.model.Base} [search.element]
- * @param {String} [search.type]
- *
- * @return {Object|Array<Object>} the overlay(s)
- */
-Overlays.prototype.get = function (search) {
-
-  if ((0, _$dist_72.isString)(search)) {
-    search = { id: search };
-  }
-
-  if ((0, _$dist_72.isString)(search.element)) {
-    search.element = this._elementRegistry.get(search.element);
-  }
-
-  if (search.element) {
-    var container = this._getOverlayContainer(search.element, true);
-
-    // return a list of overlays when searching by element (+type)
-    if (container) {
-      return search.type ? (0, _$dist_72.filter)(container.overlays, (0, _$dist_72.matchPattern)({ type: search.type })) : container.overlays.slice();
-    } else {
-      return [];
-    }
-  } else if (search.type) {
-    return (0, _$dist_72.filter)(this._overlays, (0, _$dist_72.matchPattern)({ type: search.type }));
-  } else {
-    // return single element when searching by id
-    return search.id ? this._overlays[search.id] : null;
-  }
-};
-
-/**
- * Adds a HTML overlay to an element.
- *
- * @param {String|djs.model.Base}   element   attach overlay to this shape
- * @param {String}                  [type]    optional type to assign to the overlay
- * @param {Object}                  overlay   the overlay configuration
- *
- * @param {String|DOMElement}       overlay.html                 html element to use as an overlay
- * @param {Object}                  [overlay.show]               show configuration
- * @param {Number}                  [overlay.show.minZoom]       minimal zoom level to show the overlay
- * @param {Number}                  [overlay.show.maxZoom]       maximum zoom level to show the overlay
- * @param {Object}                  overlay.position             where to attach the overlay
- * @param {Number}                  [overlay.position.left]      relative to element bbox left attachment
- * @param {Number}                  [overlay.position.top]       relative to element bbox top attachment
- * @param {Number}                  [overlay.position.bottom]    relative to element bbox bottom attachment
- * @param {Number}                  [overlay.position.right]     relative to element bbox right attachment
- * @param {Boolean|Object}          [overlay.scale=true]         false to preserve the same size regardless of
- *                                                               diagram zoom
- * @param {Number}                  [overlay.scale.min]
- * @param {Number}                  [overlay.scale.max]
- *
- * @return {String}                 id that may be used to reference the overlay for update or removal
- */
-Overlays.prototype.add = function (element, type, overlay) {
-
-  if ((0, _$dist_72.isObject)(type)) {
-    overlay = type;
-    type = null;
-  }
-
-  if (!element.id) {
-    element = this._elementRegistry.get(element);
-  }
-
-  if (!overlay.position) {
-    throw new Error('must specifiy overlay position');
-  }
-
-  if (!overlay.html) {
-    throw new Error('must specifiy overlay html');
-  }
-
-  if (!element) {
-    throw new Error('invalid element specified');
-  }
-
-  var id = this._ids.next();
-
-  overlay = (0, _$dist_72.assign)({}, this._overlayDefaults, overlay, {
-    id: id,
-    type: type,
-    element: element,
-    html: overlay.html
-  });
-
-  this._addOverlay(overlay);
-
-  return id;
-};
-
-/**
- * Remove an overlay with the given id or all overlays matching the given filter.
- *
- * @see Overlays#get for filter options.
- *
- * @param {String} [id]
- * @param {Object} [filter]
- */
-Overlays.prototype.remove = function (filter) {
-
-  var overlays = this.get(filter) || [];
-
-  if (!(0, _$dist_72.isArray)(overlays)) {
-    overlays = [overlays];
-  }
-
-  var self = this;
-
-  (0, _$dist_72.forEach)(overlays, function (overlay) {
-
-    var container = self._getOverlayContainer(overlay.element, true);
-
-    if (overlay) {
-      (0, _$dist_73.remove)(overlay.html);
-      (0, _$dist_73.remove)(overlay.htmlContainer);
-
-      delete overlay.htmlContainer;
-      delete overlay.element;
-
-      delete self._overlays[overlay.id];
-    }
-
-    if (container) {
-      var idx = container.overlays.indexOf(overlay);
-      if (idx !== -1) {
-        container.overlays.splice(idx, 1);
-      }
-    }
-  });
-};
-
-Overlays.prototype.show = function () {
-  setVisible(this._overlayRoot);
-};
-
-Overlays.prototype.hide = function () {
-  setVisible(this._overlayRoot, false);
-};
-
-Overlays.prototype.clear = function () {
-  this._overlays = {};
-
-  this._overlayContainers = [];
-
-  (0, _$dist_73.clear)(this._overlayRoot);
-};
-
-Overlays.prototype._updateOverlayContainer = function (container) {
-  var element = container.element,
-      html = container.html;
-
-  // update container left,top according to the elements x,y coordinates
-  // this ensures we can attach child elements relative to this container
-
-  var x = element.x,
-      y = element.y;
-
-  if (element.waypoints) {
-    var bbox = (0, _$Elements_56.getBBox)(element);
-    x = bbox.x;
-    y = bbox.y;
-  }
-
-  setPosition(html, x, y);
-
-  (0, _$dist_73.attr)(container.html, 'data-container-id', element.id);
-};
-
-Overlays.prototype._updateOverlay = function (overlay) {
-
-  var position = overlay.position,
-      htmlContainer = overlay.htmlContainer,
-      element = overlay.element;
-
-  // update overlay html relative to shape because
-  // it is already positioned on the element
-
-  // update relative
-  var left = position.left,
-      top = position.top;
-
-  if (position.right !== undefined) {
-
-    var width;
-
-    if (element.waypoints) {
-      width = (0, _$Elements_56.getBBox)(element).width;
-    } else {
-      width = element.width;
-    }
-
-    left = position.right * -1 + width;
-  }
-
-  if (position.bottom !== undefined) {
-
-    var height;
-
-    if (element.waypoints) {
-      height = (0, _$Elements_56.getBBox)(element).height;
-    } else {
-      height = element.height;
-    }
-
-    top = position.bottom * -1 + height;
-  }
-
-  setPosition(htmlContainer, left || 0, top || 0);
-};
-
-Overlays.prototype._createOverlayContainer = function (element) {
-  var html = (0, _$dist_73.domify)('<div class="djs-overlays" style="position: absolute" />');
-
-  this._overlayRoot.appendChild(html);
-
-  var container = {
-    html: html,
-    element: element,
-    overlays: []
-  };
-
-  this._updateOverlayContainer(container);
-
-  this._overlayContainers.push(container);
-
-  return container;
-};
-
-Overlays.prototype._updateRoot = function (viewbox) {
-  var scale = viewbox.scale || 1;
-
-  var matrix = 'matrix(' + [scale, 0, 0, scale, -1 * viewbox.x * scale, -1 * viewbox.y * scale].join(',') + ')';
-
-  setTransform(this._overlayRoot, matrix);
-};
-
-Overlays.prototype._getOverlayContainer = function (element, raw) {
-  var container = (0, _$dist_72.find)(this._overlayContainers, function (c) {
-    return c.element === element;
-  });
-
-  if (!container && !raw) {
-    return this._createOverlayContainer(element);
-  }
-
-  return container;
-};
-
-Overlays.prototype._addOverlay = function (overlay) {
-
-  var id = overlay.id,
-      element = overlay.element,
-      html = overlay.html,
-      htmlContainer,
-      overlayContainer;
-
-  // unwrap jquery (for those who need it)
-  if (html.get && html.constructor.prototype.jquery) {
-    html = html.get(0);
-  }
-
-  // create proper html elements from
-  // overlay HTML strings
-  if ((0, _$dist_72.isString)(html)) {
-    html = (0, _$dist_73.domify)(html);
-  }
-
-  overlayContainer = this._getOverlayContainer(element);
-
-  htmlContainer = (0, _$dist_73.domify)('<div class="djs-overlay" data-overlay-id="' + id + '" style="position: absolute">');
-
-  htmlContainer.appendChild(html);
-
-  if (overlay.type) {
-    (0, _$dist_73.classes)(htmlContainer).add('djs-overlay-' + overlay.type);
-  }
-
-  overlay.htmlContainer = htmlContainer;
-
-  overlayContainer.overlays.push(overlay);
-  overlayContainer.html.appendChild(htmlContainer);
-
-  this._overlays[id] = overlay;
-
-  this._updateOverlay(overlay);
-  this._updateOverlayVisibilty(overlay, this._canvas.viewbox());
-};
-
-Overlays.prototype._updateOverlayVisibilty = function (overlay, viewbox) {
-  var show = overlay.show,
-      minZoom = show && show.minZoom,
-      maxZoom = show && show.maxZoom,
-      htmlContainer = overlay.htmlContainer,
-      visible = true;
-
-  if (show) {
-    if (isDef(minZoom) && minZoom > viewbox.scale || isDef(maxZoom) && maxZoom < viewbox.scale) {
-      visible = false;
-    }
-
-    setVisible(htmlContainer, visible);
-  }
-
-  this._updateOverlayScale(overlay, viewbox);
-};
-
-Overlays.prototype._updateOverlayScale = function (overlay, viewbox) {
-  var shouldScale = overlay.scale,
-      minScale,
-      maxScale,
-      htmlContainer = overlay.htmlContainer;
-
-  var scale,
-      transform = '';
-
-  if (shouldScale !== true) {
-
-    if (shouldScale === false) {
-      minScale = 1;
-      maxScale = 1;
-    } else {
-      minScale = shouldScale.min;
-      maxScale = shouldScale.max;
-    }
-
-    if (isDef(minScale) && viewbox.scale < minScale) {
-      scale = (1 / viewbox.scale || 1) * minScale;
-    }
-
-    if (isDef(maxScale) && viewbox.scale > maxScale) {
-      scale = (1 / viewbox.scale || 1) * maxScale;
-    }
-  }
-
-  if (isDef(scale)) {
-    transform = 'scale(' + scale + ',' + scale + ')';
-  }
-
-  setTransform(htmlContainer, transform);
-};
-
-Overlays.prototype._updateOverlaysVisibilty = function (viewbox) {
-
-  var self = this;
-
-  (0, _$dist_72.forEach)(this._overlays, function (overlay) {
-    self._updateOverlayVisibilty(overlay, viewbox);
-  });
-};
-
-Overlays.prototype._init = function () {
-
-  var eventBus = this._eventBus;
-
-  var self = this;
-
-  // scroll/zoom integration
-
-  function updateViewbox(viewbox) {
-    self._updateRoot(viewbox);
-    self._updateOverlaysVisibilty(viewbox);
-
-    self.show();
-  }
-
-  eventBus.on('canvas.viewbox.changing', function (event) {
-    self.hide();
-  });
-
-  eventBus.on('canvas.viewbox.changed', function (event) {
-    updateViewbox(event.viewbox);
-  });
-
-  // remove integration
-
-  eventBus.on(['shape.remove', 'connection.remove'], function (e) {
-    var element = e.element;
-    var overlays = self.get({ element: element });
-
-    (0, _$dist_72.forEach)(overlays, function (o) {
-      self.remove(o.id);
-    });
-
-    var container = self._getOverlayContainer(element);
-
-    if (container) {
-      (0, _$dist_73.remove)(container.html);
-      var i = self._overlayContainers.indexOf(container);
-      if (i !== -1) {
-        self._overlayContainers.splice(i, 1);
-      }
-    }
-  });
-
-  // move integration
-
-  eventBus.on('element.changed', LOW_PRIORITY, function (e) {
-    var element = e.element;
-
-    var container = self._getOverlayContainer(element, true);
-
-    if (container) {
-      (0, _$dist_72.forEach)(container.overlays, function (overlay) {
-        self._updateOverlay(overlay);
-      });
-
-      self._updateOverlayContainer(container);
-    }
-  });
-
-  // marker integration, simply add them on the overlays as classes, too.
-
-  eventBus.on('element.marker.update', function (e) {
-    var container = self._getOverlayContainer(e.element, true);
-    if (container) {
-      (0, _$dist_73.classes)(container.html)[e.add ? 'add' : 'remove'](e.marker);
-    }
-  });
-
-  // clear overlays with diagram
-
-  eventBus.on('diagram.clear', this.clear, this);
-};
-
-var _$overlays_42 = {};
-'use strict';
-
-Object.defineProperty(_$overlays_42, "__esModule", {
-  value: true
-});
-
-/* removed: var _$Overlays_41 = require('./Overlays'); */;
-
-var _Overlays2 = ___interopRequireDefault_42(_$Overlays_41);
-
-function ___interopRequireDefault_42(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_$overlays_42.default = {
-  __init__: ['overlays'],
-  overlays: ['type', _Overlays2.default]
-};
-
-var _$Event_57 = {};
-'use strict';
-
-Object.defineProperty(_$Event_57, "__esModule", {
-  value: true
-});
-_$Event_57.getOriginal = getOriginal;
-_$Event_57.stopPropagation = stopPropagation;
-_$Event_57.toPoint = toPoint;
-function __stopPropagation(event) {
-  if (!event || typeof event.stopPropagation !== 'function') {
-    return;
-  }
-
-  event.stopPropagation();
-}
-
-function getOriginal(event) {
-  return event.originalEvent || event.srcEvent;
-}
-
-function stopPropagation(event, immediate) {
-  __stopPropagation(event, immediate);
-  __stopPropagation(getOriginal(event), immediate);
-}
-
-function toPoint(event) {
-
-  if (event.pointers && event.pointers.length) {
-    event = event.pointers[0];
-  }
-
-  if (event.touches && event.touches.length) {
-    event = event.touches[0];
-  }
-
-  return event ? {
-    x: event.clientX,
-    y: event.clientY
-  } : null;
-}
-
-var _$Platform_62 = {};
-"use strict";
-
-Object.defineProperty(_$Platform_62, "__esModule", {
-  value: true
-});
-_$Platform_62.isMac = isMac;
-function isMac() {
-  return (/mac/i.test(navigator.platform)
-  );
-}
-
-var _$Mouse_61 = {};
-'use strict';
-
-Object.defineProperty(_$Mouse_61, "__esModule", {
-  value: true
-});
-_$Mouse_61.isMac = undefined;
-
-/* removed: var _$Platform_62 = require('./Platform'); */;
-
-Object.defineProperty(_$Mouse_61, 'isMac', {
-  enumerable: true,
-  get: function get() {
-    return _$Platform_62.isMac;
-  }
-});
-_$Mouse_61.isPrimaryButton = isPrimaryButton;
-_$Mouse_61.hasPrimaryModifier = hasPrimaryModifier;
-_$Mouse_61.hasSecondaryModifier = hasSecondaryModifier;
-
-/* removed: var _$Event_57 = require('./Event'); */;
-
-function isPrimaryButton(event) {
-  // button === 0 -> left áka primary mouse button
-  return !((0, _$Event_57.getOriginal)(event) || event).button;
-}
-
-function hasPrimaryModifier(event) {
-  var originalEvent = (0, _$Event_57.getOriginal)(event) || event;
-
-  if (!isPrimaryButton(event)) {
-    return false;
-  }
-
-  // Use alt as primary modifier key for mac OS
-  if ((0, _$Platform_62.isMac)()) {
-    return originalEvent.metaKey;
-  } else {
-    return originalEvent.ctrlKey;
-  }
-}
-
-function hasSecondaryModifier(event) {
-  var originalEvent = (0, _$Event_57.getOriginal)(event) || event;
-
-  return isPrimaryButton(event) && originalEvent.shiftKey;
-}
-
-var _$InteractionEvents_37 = {};
-'use strict';
-
-Object.defineProperty(_$InteractionEvents_37, "__esModule", {
-  value: true
-});
-_$InteractionEvents_37.default = InteractionEvents;
-
-/* removed: var _$dist_72 = require('min-dash'); */;
-
-/* removed: var _$dist_73 = require('min-dom'); */;
-
-/* removed: var _$Mouse_61 = require('../../util/Mouse'); */;
-
-/* removed: var _$indexCjs_92 = require('tiny-svg'); */;
-
-/* removed: var _$RenderUtil_64 = require('../../util/RenderUtil'); */;
-
-function allowAll(e) {
-  return true;
-}
-
-var __LOW_PRIORITY_37 = 500;
-
-/**
- * A plugin that provides interaction events for diagram elements.
- *
- * It emits the following events:
- *
- *   * element.hover
- *   * element.out
- *   * element.click
- *   * element.dblclick
- *   * element.mousedown
- *   * element.contextmenu
- *
- * Each event is a tuple { element, gfx, originalEvent }.
- *
- * Canceling the event via Event#preventDefault()
- * prevents the original DOM operation.
- *
- * @param {EventBus} eventBus
- */
-function InteractionEvents(eventBus, elementRegistry, styles) {
-
-  var HIT_STYLE = styles.cls('djs-hit', ['no-fill', 'no-border'], {
-    stroke: 'white',
-    strokeWidth: 15
-  });
-
-  /**
-   * Fire an interaction event.
-   *
-   * @param {String} type local event name, e.g. element.click.
-   * @param {DOMEvent} event native event
-   * @param {djs.model.Base} [element] the diagram element to emit the event on;
-   *                                   defaults to the event target
-   */
-  function fire(type, event, element) {
-
-    if (isIgnored(type, event)) {
-      return;
-    }
-
-    var target, gfx, returnValue;
-
-    if (!element) {
-      target = event.delegateTarget || event.target;
-
-      if (target) {
-        gfx = target;
-        element = elementRegistry.get(gfx);
-      }
-    } else {
-      gfx = elementRegistry.getGraphics(element);
-    }
-
-    if (!gfx || !element) {
-      return;
-    }
-
-    returnValue = eventBus.fire(type, {
-      element: element,
-      gfx: gfx,
-      originalEvent: event
-    });
-
-    if (returnValue === false) {
-      event.stopPropagation();
-      event.preventDefault();
-    }
-  }
-
-  // TODO(nikku): document this
-  var handlers = {};
-
-  function mouseHandler(localEventName) {
-    return handlers[localEventName];
-  }
-
-  function isIgnored(localEventName, event) {
-
-    var filter = ignoredFilters[localEventName] || _$Mouse_61.isPrimaryButton;
-
-    // only react on left mouse button interactions
-    // except for interaction events that are enabled
-    // for secundary mouse button
-    return !filter(event);
-  }
-
-  var bindings = {
-    mouseover: 'element.hover',
-    mouseout: 'element.out',
-    click: 'element.click',
-    dblclick: 'element.dblclick',
-    mousedown: 'element.mousedown',
-    mouseup: 'element.mouseup',
-    contextmenu: 'element.contextmenu'
-  };
-
-  var ignoredFilters = {
-    'element.contextmenu': allowAll
-  };
-
-  // manual event trigger
-
-  /**
-   * Trigger an interaction event (based on a native dom event)
-   * on the target shape or connection.
-   *
-   * @param {String} eventName the name of the triggered DOM event
-   * @param {MouseEvent} event
-   * @param {djs.model.Base} targetElement
-   */
-  function triggerMouseEvent(eventName, event, targetElement) {
-
-    // i.e. element.mousedown...
-    var localEventName = bindings[eventName];
-
-    if (!localEventName) {
-      throw new Error('unmapped DOM event name <' + eventName + '>');
-    }
-
-    return fire(localEventName, event, targetElement);
-  }
-
-  var elementSelector = 'svg, .djs-element';
-
-  // event registration
-
-  function registerEvent(node, event, localEvent, ignoredFilter) {
-
-    var handler = handlers[localEvent] = function (event) {
-      fire(localEvent, event);
-    };
-
-    if (ignoredFilter) {
-      ignoredFilters[localEvent] = ignoredFilter;
-    }
-
-    handler.$delegate = _$dist_73.delegate.bind(node, elementSelector, event, handler);
-  }
-
-  function unregisterEvent(node, event, localEvent) {
-
-    var handler = mouseHandler(localEvent);
-
-    if (!handler) {
-      return;
-    }
-
-    _$dist_73.delegate.unbind(node, event, handler.$delegate);
-  }
-
-  function registerEvents(svg) {
-    (0, _$dist_72.forEach)(bindings, function (val, key) {
-      registerEvent(svg, key, val);
-    });
-  }
-
-  function unregisterEvents(svg) {
-    (0, _$dist_72.forEach)(bindings, function (val, key) {
-      unregisterEvent(svg, key, val);
-    });
-  }
-
-  eventBus.on('canvas.destroy', function (event) {
-    unregisterEvents(event.svg);
-  });
-
-  eventBus.on('canvas.init', function (event) {
-    registerEvents(event.svg);
-  });
-
-  eventBus.on(['shape.added', 'connection.added'], function (event) {
-    var element = event.element,
-        gfx = event.gfx,
-        hit;
-
-    if (element.waypoints) {
-      hit = (0, _$RenderUtil_64.createLine)(element.waypoints);
-    } else {
-      hit = (0, _$indexCjs_92.create)('rect');
-      (0, _$indexCjs_92.attr)(hit, {
-        x: 0,
-        y: 0,
-        width: element.width,
-        height: element.height
-      });
-    }
-
-    (0, _$indexCjs_92.attr)(hit, HIT_STYLE);
-
-    (0, _$indexCjs_92.append)(gfx, hit);
-  });
-
-  // Update djs-hit on change.
-  // A low priortity is necessary, because djs-hit of labels has to be updated
-  // after the label bounds have been updated in the renderer.
-  eventBus.on('shape.changed', __LOW_PRIORITY_37, function (event) {
-
-    var element = event.element,
-        gfx = event.gfx,
-        hit = (0, _$dist_73.query)('.djs-hit', gfx);
-
-    (0, _$indexCjs_92.attr)(hit, {
-      width: element.width,
-      height: element.height
-    });
-  });
-
-  eventBus.on('connection.changed', function (event) {
-
-    var element = event.element,
-        gfx = event.gfx,
-        hit = (0, _$dist_73.query)('.djs-hit', gfx);
-
-    (0, _$RenderUtil_64.updateLine)(hit, element.waypoints);
-  });
-
-  // API
-
-  this.fire = fire;
-
-  this.triggerMouseEvent = triggerMouseEvent;
-
-  this.mouseHandler = mouseHandler;
-
-  this.registerEvent = registerEvent;
-  this.unregisterEvent = unregisterEvent;
-}
-
-InteractionEvents.$inject = ['eventBus', 'elementRegistry', 'styles'];
-
-/**
- * An event indicating that the mouse hovered over an element
- *
- * @event element.hover
- *
- * @type {Object}
- * @property {djs.model.Base} element
- * @property {SVGElement} gfx
- * @property {Event} originalEvent
- */
-
-/**
- * An event indicating that the mouse has left an element
- *
- * @event element.out
- *
- * @type {Object}
- * @property {djs.model.Base} element
- * @property {SVGElement} gfx
- * @property {Event} originalEvent
- */
-
-/**
- * An event indicating that the mouse has clicked an element
- *
- * @event element.click
- *
- * @type {Object}
- * @property {djs.model.Base} element
- * @property {SVGElement} gfx
- * @property {Event} originalEvent
- */
-
-/**
- * An event indicating that the mouse has double clicked an element
- *
- * @event element.dblclick
- *
- * @type {Object}
- * @property {djs.model.Base} element
- * @property {SVGElement} gfx
- * @property {Event} originalEvent
- */
-
-/**
- * An event indicating that the mouse has gone down on an element.
- *
- * @event element.mousedown
- *
- * @type {Object}
- * @property {djs.model.Base} element
- * @property {SVGElement} gfx
- * @property {Event} originalEvent
- */
-
-/**
- * An event indicating that the mouse has gone up on an element.
- *
- * @event element.mouseup
- *
- * @type {Object}
- * @property {djs.model.Base} element
- * @property {SVGElement} gfx
- * @property {Event} originalEvent
- */
-
-/**
- * An event indicating that the context menu action is triggered
- * via mouse or touch controls.
- *
- * @event element.contextmenu
- *
- * @type {Object}
- * @property {djs.model.Base} element
- * @property {SVGElement} gfx
- * @property {Event} originalEvent
- */
-
-var _$interactionEvents_38 = {};
-'use strict';
-
-Object.defineProperty(_$interactionEvents_38, "__esModule", {
-  value: true
-});
-
-/* removed: var _$InteractionEvents_37 = require('./InteractionEvents'); */;
-
-var _InteractionEvents2 = ___interopRequireDefault_38(_$InteractionEvents_37);
-
-function ___interopRequireDefault_38(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_$interactionEvents_38.default = {
-  __init__: ['interactionEvents'],
-  interactionEvents: ['type', _InteractionEvents2.default]
-};
-
-var _$Outline_39 = {};
-'use strict';
-
-Object.defineProperty(_$Outline_39, "__esModule", {
-  value: true
-});
-_$Outline_39.default = Outline;
-
-/* removed: var _$Elements_56 = require('../../util/Elements'); */;
-
-/* removed: var _$indexCjs_92 = require('tiny-svg'); */;
-
-/* removed: var _$dist_73 = require('min-dom'); */;
-
-/* removed: var _$dist_72 = require('min-dash'); */;
-
-var __LOW_PRIORITY_39 = 500;
-
-/**
- * @class
- *
- * A plugin that adds an outline to shapes and connections that may be activated and styled
- * via CSS classes.
- *
- * @param {EventBus} eventBus
- * @param {Styles} styles
- * @param {ElementRegistry} elementRegistry
- */
-function Outline(eventBus, styles, elementRegistry) {
-
-  this.offset = 6;
-
-  var OUTLINE_STYLE = styles.cls('djs-outline', ['no-fill']);
-
-  var self = this;
-
-  function createOutline(gfx, bounds) {
-    var outline = (0, _$indexCjs_92.create)('rect');
-
-    (0, _$indexCjs_92.attr)(outline, (0, _$dist_72.assign)({
-      x: 10,
-      y: 10,
-      width: 100,
-      height: 100
-    }, OUTLINE_STYLE));
-
-    (0, _$indexCjs_92.append)(gfx, outline);
-
-    return outline;
-  }
-
-  // A low priortity is necessary, because outlines of labels have to be updated
-  // after the label bounds have been updated in the renderer.
-  eventBus.on(['shape.added', 'shape.changed'], __LOW_PRIORITY_39, function (event) {
-    var element = event.element,
-        gfx = event.gfx;
-
-    var outline = (0, _$dist_73.query)('.djs-outline', gfx);
-
-    if (!outline) {
-      outline = createOutline(gfx, element);
-    }
-
-    self.updateShapeOutline(outline, element);
-  });
-
-  eventBus.on(['connection.added', 'connection.changed'], function (event) {
-    var element = event.element,
-        gfx = event.gfx;
-
-    var outline = (0, _$dist_73.query)('.djs-outline', gfx);
-
-    if (!outline) {
-      outline = createOutline(gfx, element);
-    }
-
-    self.updateConnectionOutline(outline, element);
-  });
-}
-
-/**
- * Updates the outline of a shape respecting the dimension of the
- * element and an outline offset.
- *
- * @param  {SVGElement} outline
- * @param  {djs.model.Base} element
- */
-Outline.prototype.updateShapeOutline = function (outline, element) {
-
-  (0, _$indexCjs_92.attr)(outline, {
-    x: -this.offset,
-    y: -this.offset,
-    width: element.width + this.offset * 2,
-    height: element.height + this.offset * 2
-  });
-};
-
-/**
- * Updates the outline of a connection respecting the bounding box of
- * the connection and an outline offset.
- *
- * @param  {SVGElement} outline
- * @param  {djs.model.Base} element
- */
-Outline.prototype.updateConnectionOutline = function (outline, connection) {
-
-  var bbox = (0, _$Elements_56.getBBox)(connection);
-
-  (0, _$indexCjs_92.attr)(outline, {
-    x: bbox.x - this.offset,
-    y: bbox.y - this.offset,
-    width: bbox.width + this.offset * 2,
-    height: bbox.height + this.offset * 2
-  });
-};
-
-Outline.$inject = ['eventBus', 'styles', 'elementRegistry'];
-
-var _$outline_40 = {};
-'use strict';
-
-Object.defineProperty(_$outline_40, "__esModule", {
-  value: true
-});
-
-/* removed: var _$Outline_39 = require('./Outline'); */;
-
-var _Outline2 = ___interopRequireDefault_40(_$Outline_39);
-
-function ___interopRequireDefault_40(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_$outline_40.default = {
-  __init__: ['outline'],
-  outline: ['type', _Outline2.default]
-};
-
-var _$Selection_43 = {};
-'use strict';
-
-Object.defineProperty(_$Selection_43, "__esModule", {
-  value: true
-});
-_$Selection_43.default = Selection;
-
-/* removed: var _$dist_72 = require('min-dash'); */;
-
-/**
- * A service that offers the current selection in a diagram.
- * Offers the api to control the selection, too.
- *
- * @class
- *
- * @param {EventBus} eventBus the event bus
- */
-function Selection(eventBus) {
-
-  this._eventBus = eventBus;
-
-  this._selectedElements = [];
-
-  var self = this;
-
-  eventBus.on(['shape.remove', 'connection.remove'], function (e) {
-    var element = e.element;
-    self.deselect(element);
-  });
-
-  eventBus.on(['diagram.clear'], function (e) {
-    self.select(null);
-  });
-}
-
-Selection.$inject = ['eventBus'];
-
-Selection.prototype.deselect = function (element) {
-  var selectedElements = this._selectedElements;
-
-  var idx = selectedElements.indexOf(element);
-
-  if (idx !== -1) {
-    var oldSelection = selectedElements.slice();
-
-    selectedElements.splice(idx, 1);
-
-    this._eventBus.fire('selection.changed', { oldSelection: oldSelection, newSelection: selectedElements });
-  }
-};
-
-Selection.prototype.get = function () {
-  return this._selectedElements;
-};
-
-Selection.prototype.isSelected = function (element) {
-  return this._selectedElements.indexOf(element) !== -1;
-};
-
-/**
- * This method selects one or more elements on the diagram.
- *
- * By passing an additional add parameter you can decide whether or not the element(s)
- * should be added to the already existing selection or not.
- *
- * @method Selection#select
- *
- * @param  {Object|Object[]} elements element or array of elements to be selected
- * @param  {boolean} [add] whether the element(s) should be appended to the current selection, defaults to false
- */
-Selection.prototype.select = function (elements, add) {
-  var selectedElements = this._selectedElements,
-      oldSelection = selectedElements.slice();
-
-  if (!(0, _$dist_72.isArray)(elements)) {
-    elements = elements ? [elements] : [];
-  }
-
-  // selection may be cleared by passing an empty array or null
-  // to the method
-  if (add) {
-    (0, _$dist_72.forEach)(elements, function (element) {
-      if (selectedElements.indexOf(element) !== -1) {
-        // already selected
-        return;
-      } else {
-        selectedElements.push(element);
-      }
-    });
-  } else {
-    this._selectedElements = selectedElements = elements.slice();
-  }
-
-  this._eventBus.fire('selection.changed', { oldSelection: oldSelection, newSelection: selectedElements });
-};
-
-var _$SelectionBehavior_44 = {};
-'use strict';
-
-Object.defineProperty(_$SelectionBehavior_44, "__esModule", {
-  value: true
-});
-_$SelectionBehavior_44.default = SelectionBehavior;
-
-/* removed: var _$Mouse_61 = require('../../util/Mouse'); */;
-
-/* removed: var _$dist_72 = require('min-dash'); */;
-
-function SelectionBehavior(eventBus, selection, canvas, elementRegistry) {
-
-  eventBus.on('create.end', 500, function (e) {
-
-    // select the created shape after a
-    // successful create operation
-    if (e.context.canExecute) {
-      selection.select(e.context.shape);
-    }
-  });
-
-  eventBus.on('connect.end', 500, function (e) {
-
-    // select the connect end target
-    // after a connect operation
-    if (e.context.canExecute && e.context.target) {
-      selection.select(e.context.target);
-    }
-  });
-
-  eventBus.on('shape.move.end', 500, function (e) {
-    var previousSelection = e.previousSelection || [];
-
-    var shape = elementRegistry.get(e.context.shape.id);
-
-    // make sure at least the main moved element is being
-    // selected after a move operation
-    var inSelection = (0, _$dist_72.find)(previousSelection, function (selectedShape) {
-      return shape.id === selectedShape.id;
-    });
-
-    if (!inSelection) {
-      selection.select(shape);
-    }
-  });
-
-  // Shift + click selection
-  eventBus.on('element.click', function (event) {
-
-    var element = event.element;
-
-    // do not select the root element
-    // or connections
-    if (element === canvas.getRootElement()) {
-      element = null;
-    }
-
-    var isSelected = selection.isSelected(element),
-        isMultiSelect = selection.get().length > 1;
-
-    // mouse-event: SELECTION_KEY
-    var add = (0, _$Mouse_61.hasPrimaryModifier)(event);
-
-    // select OR deselect element in multi selection
-    if (isSelected && isMultiSelect) {
-      if (add) {
-        return selection.deselect(element);
-      } else {
-        return selection.select(element);
-      }
-    } else if (!isSelected) {
-      selection.select(element, add);
-    } else {
-      selection.deselect(element);
-    }
-  });
-}
-
-SelectionBehavior.$inject = ['eventBus', 'selection', 'canvas', 'elementRegistry'];
-
-var _$SelectionVisuals_45 = {};
-'use strict';
-
-Object.defineProperty(_$SelectionVisuals_45, "__esModule", {
-  value: true
-});
-_$SelectionVisuals_45.default = SelectionVisuals;
-
-/* removed: var _$dist_72 = require('min-dash'); */;
-
-var MARKER_HOVER = 'hover',
-    MARKER_SELECTED = 'selected';
-
-/**
- * A plugin that adds a visible selection UI to shapes and connections
- * by appending the <code>hover</code> and <code>selected</code> classes to them.
- *
- * @class
- *
- * Makes elements selectable, too.
- *
- * @param {EventBus} events
- * @param {SelectionService} selection
- * @param {Canvas} canvas
- */
-function SelectionVisuals(events, canvas, selection, styles) {
-
-  this._multiSelectionBox = null;
-
-  function addMarker(e, cls) {
-    canvas.addMarker(e, cls);
-  }
-
-  function removeMarker(e, cls) {
-    canvas.removeMarker(e, cls);
-  }
-
-  events.on('element.hover', function (event) {
-    addMarker(event.element, MARKER_HOVER);
-  });
-
-  events.on('element.out', function (event) {
-    removeMarker(event.element, MARKER_HOVER);
-  });
-
-  events.on('selection.changed', function (event) {
-
-    function deselect(s) {
-      removeMarker(s, MARKER_SELECTED);
-    }
-
-    function select(s) {
-      addMarker(s, MARKER_SELECTED);
-    }
-
-    var oldSelection = event.oldSelection,
-        newSelection = event.newSelection;
-
-    (0, _$dist_72.forEach)(oldSelection, function (e) {
-      if (newSelection.indexOf(e) === -1) {
-        deselect(e);
-      }
-    });
-
-    (0, _$dist_72.forEach)(newSelection, function (e) {
-      if (oldSelection.indexOf(e) === -1) {
-        select(e);
-      }
-    });
-  });
-}
-
-SelectionVisuals.$inject = ['eventBus', 'canvas', 'selection', 'styles'];
-
-var _$selection_46 = {};
-'use strict';
-
-Object.defineProperty(_$selection_46, "__esModule", {
-  value: true
-});
-
-/* removed: var _$interactionEvents_38 = require('../interaction-events'); */;
-
-var _interactionEvents2 = ___interopRequireDefault_46(_$interactionEvents_38);
-
-/* removed: var _$outline_40 = require('../outline'); */;
-
-var _outline2 = ___interopRequireDefault_46(_$outline_40);
-
-/* removed: var _$Selection_43 = require('./Selection'); */;
-
-var _Selection2 = ___interopRequireDefault_46(_$Selection_43);
-
-/* removed: var _$SelectionVisuals_45 = require('./SelectionVisuals'); */;
-
-var _SelectionVisuals2 = ___interopRequireDefault_46(_$SelectionVisuals_45);
-
-/* removed: var _$SelectionBehavior_44 = require('./SelectionBehavior'); */;
-
-var _SelectionBehavior2 = ___interopRequireDefault_46(_$SelectionBehavior_44);
-
-function ___interopRequireDefault_46(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_$selection_46.default = {
-  __init__: ['selectionVisuals', 'selectionBehavior'],
-  __depends__: [_interactionEvents2.default, _outline2.default],
-  selection: ['type', _Selection2.default],
-  selectionVisuals: ['type', _SelectionVisuals2.default],
-  selectionBehavior: ['type', _SelectionBehavior2.default]
-};
+function ___interopRequireDefault_63(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * The code in the <project-logo></project-logo> area
@@ -32620,10 +32416,10 @@ var __domify_2 = _$dist_73.domify,
     __domQuery_2 = _$dist_73.query,
     domRemove = _$dist_73.remove;
 
-var __innerSVG_2 = _$indexCjs_92.innerSVG;
+var __innerSVG_2 = _$indexCjs_89.innerSVG;
 
-var __Diagram_2 = _$diagramJs_25.default,
-    __CmmnModdle_2 = _$cmmnModdle_18.default;
+var __Diagram_2 = _$diagramJs_18.default,
+    __CmmnModdle_2 = _$cmmnModdle_63.default;
 
 /* removed: var _$Importer_11 = require('./import/Importer'); */;
 
@@ -32997,7 +32793,7 @@ Viewer.prototype._createModdle = function (options) {
 };
 
 // modules the viewer is composed of
-Viewer.prototype._modules = [_$core_4, _$selection_46.default, _$overlays_42.default];
+Viewer.prototype._modules = [_$core_4, _$selection_39.default, _$overlays_35.default];
 
 /* <project-logo> */
 
@@ -33030,13 +32826,13 @@ function addProjectLogo(container) {
 
 /* </project-logo> */
 
-var _$ClickTrap_53 = {};
+var _$ClickTrap_46 = {};
 'use strict';
 
-Object.defineProperty(_$ClickTrap_53, "__esModule", {
+Object.defineProperty(_$ClickTrap_46, "__esModule", {
   value: true
 });
-_$ClickTrap_53.install = install;
+_$ClickTrap_46.install = install;
 var TRAP_PRIORITY = 5000;
 
 /**
@@ -33059,21 +32855,21 @@ function install(eventBus, eventName) {
   };
 }
 
-var _$Cursor_55 = {};
+var _$Cursor_48 = {};
 'use strict';
 
-Object.defineProperty(_$Cursor_55, "__esModule", {
+Object.defineProperty(_$Cursor_48, "__esModule", {
   value: true
 });
-_$Cursor_55.set = __set_55;
-_$Cursor_55.unset = unset;
-_$Cursor_55.has = __has_55;
+_$Cursor_48.set = __set_48;
+_$Cursor_48.unset = unset;
+_$Cursor_48.has = __has_48;
 
 /* removed: var _$dist_73 = require('min-dom'); */;
 
 var CURSOR_CLS_PATTERN = /^djs-cursor-.*$/;
 
-function __set_55(mode) {
+function __set_48(mode) {
   var classes = (0, _$dist_73.classes)(document.body);
 
   classes.removeMatching(CURSOR_CLS_PATTERN);
@@ -33084,23 +32880,23 @@ function __set_55(mode) {
 }
 
 function unset() {
-  __set_55(null);
+  __set_48(null);
 }
 
-function __has_55(mode) {
+function __has_48(mode) {
   var classes = (0, _$dist_73.classes)(document.body);
 
   return classes.has('djs-cursor-' + mode);
 }
 
-var _$PositionUtil_63 = {};
+var _$PositionUtil_56 = {};
 "use strict";
 
-Object.defineProperty(_$PositionUtil_63, "__esModule", {
+Object.defineProperty(_$PositionUtil_56, "__esModule", {
   value: true
 });
-_$PositionUtil_63.center = center;
-_$PositionUtil_63.delta = delta;
+_$PositionUtil_56.center = center;
+_$PositionUtil_56.delta = delta;
 function center(bounds) {
   return {
     x: bounds.x + bounds.width / 2,
@@ -33115,23 +32911,23 @@ function delta(a, b) {
   };
 }
 
-var _$MoveCanvas_48 = {};
+var _$MoveCanvas_41 = {};
 'use strict';
 
-Object.defineProperty(_$MoveCanvas_48, "__esModule", {
+Object.defineProperty(_$MoveCanvas_41, "__esModule", {
   value: true
 });
-_$MoveCanvas_48.default = MoveCanvas;
+_$MoveCanvas_41.default = MoveCanvas;
 
-/* removed: var _$Cursor_55 = require('../../util/Cursor'); */;
+/* removed: var _$Cursor_48 = require('../../util/Cursor'); */;
 
-/* removed: var _$ClickTrap_53 = require('../../util/ClickTrap'); */;
+/* removed: var _$ClickTrap_46 = require('../../util/ClickTrap'); */;
 
-/* removed: var _$PositionUtil_63 = require('../../util/PositionUtil'); */;
+/* removed: var _$PositionUtil_56 = require('../../util/PositionUtil'); */;
 
 /* removed: var _$dist_73 = require('min-dom'); */;
 
-/* removed: var _$Event_57 = require('../../util/Event'); */;
+/* removed: var _$Event_50 = require('../../util/Event'); */;
 
 function length(point) {
   return Math.sqrt(Math.pow(point.x, 2) + Math.pow(point.y, 2));
@@ -33146,22 +32942,22 @@ function MoveCanvas(eventBus, canvas) {
   function handleMove(event) {
 
     var start = context.start,
-        position = (0, _$Event_57.toPoint)(event),
-        delta = (0, _$PositionUtil_63.delta)(position, start);
+        position = (0, _$Event_50.toPoint)(event),
+        delta = (0, _$PositionUtil_56.delta)(position, start);
 
     if (!context.dragging && length(delta) > THRESHOLD) {
       context.dragging = true;
 
-      (0, _$ClickTrap_53.install)(eventBus);
+      (0, _$ClickTrap_46.install)(eventBus);
 
-      (0, _$Cursor_55.set)('grab');
+      (0, _$Cursor_48.set)('grab');
     }
 
     if (context.dragging) {
 
       var lastPosition = context.last || context.start;
 
-      delta = (0, _$PositionUtil_63.delta)(position, lastPosition);
+      delta = (0, _$PositionUtil_56.delta)(position, lastPosition);
 
       canvas.scroll({
         dx: delta.x,
@@ -33181,7 +32977,7 @@ function MoveCanvas(eventBus, canvas) {
 
     context = null;
 
-    (0, _$Cursor_55.unset)();
+    (0, _$Cursor_48.unset)();
   }
 
   function handleStart(event) {
@@ -33196,7 +32992,7 @@ function MoveCanvas(eventBus, canvas) {
     }
 
     context = {
-      start: (0, _$Event_57.toPoint)(event)
+      start: (0, _$Event_50.toPoint)(event)
     };
 
     _$dist_73.event.bind(document, 'mousemove', handleMove);
@@ -33216,38 +33012,38 @@ function MoveCanvas(eventBus, canvas) {
 
 MoveCanvas.$inject = ['eventBus', 'canvas'];
 
-var _$movecanvas_49 = {};
+var _$movecanvas_42 = {};
 'use strict';
 
-Object.defineProperty(_$movecanvas_49, "__esModule", {
+Object.defineProperty(_$movecanvas_42, "__esModule", {
   value: true
 });
 
-/* removed: var _$MoveCanvas_48 = require('./MoveCanvas'); */;
+/* removed: var _$MoveCanvas_41 = require('./MoveCanvas'); */;
 
-var _MoveCanvas2 = ___interopRequireDefault_49(_$MoveCanvas_48);
+var _MoveCanvas2 = ___interopRequireDefault_42(_$MoveCanvas_41);
 
-function ___interopRequireDefault_49(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function ___interopRequireDefault_42(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_$movecanvas_49.default = {
+_$movecanvas_42.default = {
   __init__: ['moveCanvas'],
   moveCanvas: ['type', _MoveCanvas2.default]
 };
 
-var _$Math_60 = {};
+var _$Math_53 = {};
 'use strict';
 
-Object.defineProperty(_$Math_60, "__esModule", {
+Object.defineProperty(_$Math_53, "__esModule", {
   value: true
 });
-_$Math_60.log10 = log10;
+_$Math_53.log10 = log10;
 
-/* removed: var _$PositionUtil_63 = require('./PositionUtil'); */;
+/* removed: var _$PositionUtil_56 = require('./PositionUtil'); */;
 
-Object.defineProperty(_$Math_60, 'substract', {
+Object.defineProperty(_$Math_53, 'substract', {
   enumerable: true,
   get: function get() {
-    return _$PositionUtil_63.delta;
+    return _$PositionUtil_56.delta;
   }
 });
 /**
@@ -33258,16 +33054,16 @@ function log10(x) {
   return Math.log(x) / Math.log(10);
 }
 
-var _$ZoomUtil_51 = {};
+var _$ZoomUtil_44 = {};
 'use strict';
 
-Object.defineProperty(_$ZoomUtil_51, "__esModule", {
+Object.defineProperty(_$ZoomUtil_44, "__esModule", {
   value: true
 });
-_$ZoomUtil_51.getStepSize = getStepSize;
-_$ZoomUtil_51.cap = cap;
+_$ZoomUtil_44.getStepSize = getStepSize;
+_$ZoomUtil_44.cap = cap;
 
-/* removed: var _$Math_60 = require('../../util/Math'); */;
+/* removed: var _$Math_53 = require('../../util/Math'); */;
 
 /**
  * Get step size for given range and number of steps.
@@ -33278,8 +33074,8 @@ _$ZoomUtil_51.cap = cap;
  */
 function getStepSize(range, steps) {
 
-  var minLinearRange = (0, _$Math_60.log10)(range.min),
-      maxLinearRange = (0, _$Math_60.log10)(range.max);
+  var minLinearRange = (0, _$Math_53.log10)(range.min),
+      maxLinearRange = (0, _$Math_53.log10)(range.max);
 
   var absoluteLinearRange = Math.abs(minLinearRange) + Math.abs(maxLinearRange);
 
@@ -33290,19 +33086,19 @@ function cap(range, scale) {
   return Math.max(range.min, Math.min(range.max, scale));
 }
 
-var _$ZoomScroll_50 = {};
+var _$ZoomScroll_43 = {};
 'use strict';
 
-Object.defineProperty(_$ZoomScroll_50, "__esModule", {
+Object.defineProperty(_$ZoomScroll_43, "__esModule", {
   value: true
 });
-_$ZoomScroll_50.default = ZoomScroll;
+_$ZoomScroll_43.default = ZoomScroll;
 
 /* removed: var _$dist_73 = require('min-dom'); */;
 
-/* removed: var _$ZoomUtil_51 = require('./ZoomUtil'); */;
+/* removed: var _$ZoomUtil_44 = require('./ZoomUtil'); */;
 
-/* removed: var _$Math_60 = require('../../util/Math'); */;
+/* removed: var _$Math_53 = require('../../util/Math'); */;
 
 /* removed: var _$dist_72 = require('min-dash'); */;
 
@@ -33370,7 +33166,7 @@ ZoomScroll.prototype.reset = function reset() {
 ZoomScroll.prototype.zoom = function zoom(delta, position) {
 
   // zoom with half the step size of stepZoom
-  var stepSize = (0, _$ZoomUtil_51.getStepSize)(RANGE, NUM_STEPS * 2);
+  var stepSize = (0, _$ZoomUtil_44.getStepSize)(RANGE, NUM_STEPS * 2);
 
   // add until threshold reached
   this._totalDelta += delta;
@@ -33447,7 +33243,7 @@ ZoomScroll.prototype._handleWheel = function handleWheel(event) {
  */
 ZoomScroll.prototype.stepZoom = function stepZoom(delta, position) {
 
-  var stepSize = (0, _$ZoomUtil_51.getStepSize)(RANGE, NUM_STEPS);
+  var stepSize = (0, _$ZoomUtil_44.getStepSize)(RANGE, NUM_STEPS);
 
   this._zoom(delta, position, stepSize);
 };
@@ -33464,7 +33260,7 @@ ZoomScroll.prototype._zoom = function (delta, position, stepSize) {
 
   var direction = delta > 0 ? 1 : -1;
 
-  var currentLinearZoomLevel = (0, _$Math_60.log10)(canvas.zoom());
+  var currentLinearZoomLevel = (0, _$Math_53.log10)(canvas.zoom());
 
   // snap to a proximate zoom step
   var newLinearZoomLevel = Math.round(currentLinearZoomLevel / stepSize) * stepSize;
@@ -33476,7 +33272,7 @@ ZoomScroll.prototype._zoom = function (delta, position, stepSize) {
   // (e.g. 2 for an absolute x2 zoom)
   var newLogZoomLevel = Math.pow(10, newLinearZoomLevel);
 
-  canvas.zoom((0, _$ZoomUtil_51.cap)(RANGE, newLogZoomLevel), position);
+  canvas.zoom((0, _$ZoomUtil_44.cap)(RANGE, newLogZoomLevel), position);
 };
 
 /**
@@ -33512,20 +33308,20 @@ ZoomScroll.prototype._init = function (newEnabled) {
   this.toggle(newEnabled);
 };
 
-var _$zoomscroll_52 = {};
+var _$zoomscroll_45 = {};
 'use strict';
 
-Object.defineProperty(_$zoomscroll_52, "__esModule", {
+Object.defineProperty(_$zoomscroll_45, "__esModule", {
   value: true
 });
 
-/* removed: var _$ZoomScroll_50 = require('./ZoomScroll'); */;
+/* removed: var _$ZoomScroll_43 = require('./ZoomScroll'); */;
 
-var _ZoomScroll2 = ___interopRequireDefault_52(_$ZoomScroll_50);
+var _ZoomScroll2 = ___interopRequireDefault_45(_$ZoomScroll_43);
 
-function ___interopRequireDefault_52(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function ___interopRequireDefault_45(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_$zoomscroll_52.default = {
+_$zoomscroll_45.default = {
   __init__: ['zoomScroll'],
   zoomScroll: ['type', _ZoomScroll2.default]
 };
@@ -33549,7 +33345,7 @@ _$inherits_browser_71(NavigatedViewer, _$Viewer_2);
 
 var _$NavigatedViewer_1 = NavigatedViewer;
 
-NavigatedViewer.prototype._navigationModules = [_$zoomscroll_52.default, _$movecanvas_49.default];
+NavigatedViewer.prototype._navigationModules = [_$zoomscroll_45.default, _$movecanvas_42.default];
 
 NavigatedViewer.prototype._modules = [].concat(NavigatedViewer.prototype._modules, NavigatedViewer.prototype._navigationModules);
 
