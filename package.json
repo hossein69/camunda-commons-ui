@@ -45,12 +45,11 @@
     "angular-translate": "2.4.2",
     "bootstrap": "3.3.6",
     "bpmn-font": "0.2.0",
-    "camunda-bpm-sdk-js": "git://github.com/camunda/camunda-bpm-sdk-js#master",
+    "camunda-bpm-sdk-js": "git://github.com/arya1368/camunda-bpm-sdk-js#master",
     "clipboard": "1.5.10",
     "jquery": "2.1.1",
     "lodash": "2.4.1",
     "mkdirp": "0.5.1",
-    "moment-jalaali": "^0.8.3",
     "persistify": "1.0.0"
   },
   "devDependencies": {
